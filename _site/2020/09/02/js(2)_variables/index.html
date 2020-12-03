@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>Javascript Variables</title>
+  <meta name="description" content="Javascript Variables Variable, rw(read/write) variable declaration: let (added in ES6) let name = &#39;genie&#39;; console.log(name); name = &#39;hello&#39;; console.log(name); var : DO NOT EVER USE THIS! It causes ‘HOISTING’ which means ‘pulling the declaration to the top.’; it results in a situation where variables can be used before their declarations and hence a spaggetti code. ignores block scope age = 4; var age; Block scope let globalName = &quot;globalNm&quot;; { let name = &#39;localNm&#39;; console.log(name); name = &#39;hello&#39;; console.log(name); console.log(globalName); } console.log(name); // This prints nothing for its declaration is inside the scope. console.log(globalName); Constant, r(read only) use const whenever possible. only use let if the variable needs to change. const dayInWeek = 7; NOTE! Immutable data types: primitive types, frozen objects (i.e. object.freeze()) ; 통째로 메모리에 올림. 그 메모리 안의 값은 못바꿈 Mutable data types: all objects by default are mutable in JS ; 메모리안의 값을 바꿀 수 있음. favours immutable data types for the following reasons. eg. const security thread safety reducing human mistakes Variable types variable type 1: primitive, single item (메모리에 값이 저장되어 있음.) ex) number, string, boolean, null, undefined, symbol variable type 2: container composed of multiple items, function (메모리에 레퍼런스가 있고 실제 값은 레퍼런스가 가리키는 곳에 자식 노드 개념의 메모리에 저장되어 있음.) object, box container function, first-class function">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/2020/09/02/js(2)_variables/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="Young Jin&#39;s blog" href="http://localhost:4000/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="Javascript Variables">
+  <meta property="og:site_name" content="Young Jin&#39;s blog">
+  <meta property="og:url" content="http://localhost:4000/2020/09/02/js(2)_variables/">
+  <meta property="og:description" content="Javascript Variables Variable, rw(read/write) variable declaration: let (added in ES6) let name = &#39;genie&#39;; console.log(name); name = &#39;hello&#39;; console.log(name); var : DO NOT EVER USE THIS! It causes ‘HOISTING’ which means ‘pulling the declaration to the top.’; it results in a situation where variables can be used before their declarations and hence a spaggetti code. ignores block scope age = 4; var age; Block scope let globalName = &quot;globalNm&quot;; { let name = &#39;localNm&#39;; console.log(name); name = &#39;hello&#39;; console.log(name); console.log(globalName); } console.log(name); // This prints nothing for its declaration is inside the scope. console.log(globalName); Constant, r(read only) use const whenever possible. only use let if the variable needs to change. const dayInWeek = 7; NOTE! Immutable data types: primitive types, frozen objects (i.e. object.freeze()) ; 통째로 메모리에 올림. 그 메모리 안의 값은 못바꿈 Mutable data types: all objects by default are mutable in JS ; 메모리안의 값을 바꿀 수 있음. favours immutable data types for the following reasons. eg. const security thread safety reducing human mistakes Variable types variable type 1: primitive, single item (메모리에 값이 저장되어 있음.) ex) number, string, boolean, null, undefined, symbol variable type 2: container composed of multiple items, function (메모리에 레퍼런스가 있고 실제 값은 레퍼런스가 가리키는 곳에 자식 노드 개념의 메모리에 저장되어 있음.) object, box container function, first-class function">
+  
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:title" content="Javascript Variables">
+  <meta name="twitter:description" content="Javascript Variables Variable, rw(read/write) variable declaration: let (added in ES6) let name = &#39;genie&#39;; console.log(name); name = &#39;hello&#39;; console.log(name); var : DO NOT EVER US...">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700&amp;display=swap" rel="stylesheet">
+
+  
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-156930914-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Young Jin&#39;s blog</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://github.com/">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+      <h1 class="post-title" itemprop="name headline">Javascript Variables</h1>
+    
+    <p class="post-meta"><time datetime="2020-09-02T00:00:00+00:00" itemprop="datePublished">Sep 2, 2020</time> •
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+        <a href="/categories/javascript/">JavaScript</a> (10)
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  
+
+
+
+
+</p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h4><u><b> Javascript Variables </b></u></h4>
+
+<ol>
+  <li>Variable, rw(read/write)
+    <ul>
+      <li>variable declaration: let (added in ES6)</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    let name = 'genie';
+    console.log(name);
+    name = 'hello';
+    console.log(name);
+</pre>
+
+<ul>
+  <li>var : DO NOT EVER USE THIS!</li>
+  <li>
+    <ol>
+      <li>It causes ‘HOISTING’ which means ‘pulling the declaration to the top.’; it results in a situation where variables can be used before their declarations and hence a spaggetti code.</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>ignores block scope</li>
+    </ol>
+  </li>
+</ul>
+<pre>
+    age = 4;
+    var age;
+</pre>
+
+<ol>
+  <li>Block scope</li>
+</ol>
+<pre>
+    let globalName = "globalNm";
+    {
+        let name = 'localNm';
+        console.log(name);
+        name = 'hello';
+        console.log(name);
+        console.log(globalName);
+    }
+    console.log(name); // This prints nothing for its declaration is inside the scope.
+    console.log(globalName);
+</pre>
+
+<ol>
+  <li>Constant, r(read only)
+    <ul>
+      <li>use const whenever possible.</li>
+      <li>only use let if the variable needs to change.</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    const dayInWeek = 7;
+</pre>
+
+<ul>
+  <li>NOTE!</li>
+  <li>Immutable data types: primitive types, frozen objects (i.e. object.freeze()) ; 통째로 메모리에 올림. 그 메모리 안의 값은 못바꿈</li>
+  <li>Mutable data types: all objects by default are mutable in JS ; 메모리안의 값을 바꿀 수 있음.</li>
+  <li>favours immutable data types for the following reasons. eg. const</li>
+  <li>
+    <ol>
+      <li>security</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>thread safety</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>reducing human mistakes</li>
+    </ol>
+  </li>
+  <li>Variable types</li>
+  <li>variable type 1: primitive, single item (메모리에 값이 저장되어 있음.)</li>
+  <li>ex) number, string, boolean, null, undefined, symbol</li>
+  <li>variable type 2: container composed of multiple items, function (메모리에 레퍼런스가 있고 실제 값은 레퍼런스가 가리키는 곳에 자식 노드 개념의 메모리에 저장되어 있음.)</li>
+  <li>object, box container</li>
+  <li>function, first-class function</li>
+</ul>
+
+  </div>
+
+  
+
+</article>
+
+      </div>
+    </main>
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy; Young Jin Lee 
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

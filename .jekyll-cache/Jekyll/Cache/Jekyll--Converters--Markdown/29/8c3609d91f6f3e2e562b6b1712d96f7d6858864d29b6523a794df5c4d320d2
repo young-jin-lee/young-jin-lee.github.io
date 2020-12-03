@@ -1,0 +1,60 @@
+I"3<h1>clone 해서 원격저장소를 로컬저장소로 가져오기. gitsrc라는 디렉토리를 생성하면서 그곳을 로컬저장소로 사용한다. (현재디렉토리를 로컬저장소를 쓰는 경우에는 .)</h1>
+<h1>이렇게 클로닝을 하면 저절로 로컬저장소와 원격저장소(origin by default)가 연결된다. git remote -v를 해보면 알수있다.</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>youngjinlee@Youngs-MacBook-Air dev % git clone https://github.com/git/git.git gitsrc
+Cloning into 'gitsrc'...
+remote: Enumerating objects: 285097, done.
+remote: Total 285097 (delta 0), reused 0 (delta 0), pack-reused 285097
+Receiving objects: 100% (285097/285097), 134.50 MiB | 5.38 MiB/s, done.
+Resolving deltas: 100% (212091/212091), done.
+Updating files: 100% (3733/3733), done.
+</code></pre></div></div>
+
+<h1>현재 나의 로컬저장소에 원격저장소(remote)인 리파지토리를 연결시킨다. 그 주소는 ‘‘이다. 그 주소의 닉네임은 origin으로 한다.</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>youngjinlee@Youngs-MacBook-Air django-dashboard % git remote add origin https://github.com/young-jin-lee/django-dashboard.git
+</code></pre></div></div>
+
+<h1>현재 어떤 원격저장소에 연결되어있는지 확인</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>youngjinlee@Youngs-MacBook-Air django-dashboard % git remote
+origin
+youngjinlee@Youngs-MacBook-Air django-dashboard % 
+</code></pre></div></div>
+
+<h1>상세보기</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>youngjinlee@Youngs-MacBook-Air django-dashboard % git remote -v
+origin	https://github.com/young-jin-lee/django-dashboard.git (fetch)
+origin	https://github.com/young-jin-lee/django-dashboard.git (push)
+</code></pre></div></div>
+
+<h1>origin이라는 원격저장소의 master branch에 push한다. (따라서 처음에만 이렇게 쓰고 다음부터는 git push만 해도 된다.)</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>youngjinlee@Youngs-MacBook-Air django-dashboard % git push -u origin master
+</code></pre></div></div>
+
+<h1>동기화방법</h1>
+
+<h1>혼자서는 여러대의 컴퓨터/디렉토리를 통해 작업하는 경우 혹은 협업하는 경우</h1>
+<h1>집과 회사에서 일을 하는 경우 동일한 원격저장소를 각각 클로닝한다. git log를 통해 이 두 디렉토리가 같은 상태임을 확인한다.</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>youngjinlee@Youngs-MacBook-Air dev % git clone https://github.com/git/git.git home
+youngjinlee@Youngs-MacBook-Air dev % git clone https://github.com/git/git.git work
+
+youngjinlee@Youngs-MacBook-Air dev/home % git log
+youngjinlee@Youngs-MacBook-Air dev/work % git log
+</code></pre></div></div>
+
+<h2>home에서 파일 수정후 커밋한다. 이제 home work의 log가 달라졌다.</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>youngjinlee@Youngs-MacBook-Air dev/home % vim f1.txt
+youngjinlee@Youngs-MacBook-Air dev/home % git commit -am f1.txt "message from home"
+youngjinlee@Youngs-MacBook-Air dev/home % git log
+youngjinlee@Youngs-MacBook-Air dev/work % git log 
+</code></pre></div></div>
+<ul>
+  <li>git commit –amend 라고 하면 커밋 메세지 내용을 수정할 수 있다.</li>
+</ul>
+
+<h2>home에서 git push를 한다. work에서는 git pull한다. home work의 log가 같아진것을 확인할 수 있다. 강력한 백업이 되는 것이다.</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>youngjinlee@Youngs-MacBook-Air dev/home % git push
+youngjinlee@Youngs-MacBook-Air dev/work % git pull
+youngjinlee@Youngs-MacBook-Air dev/home % git log
+youngjinlee@Youngs-MacBook-Air dev/work % git log 
+</code></pre></div></div>
+
+:ET

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>Javascript Stuff</title>
+  <meta name="description" content="Javascript classes and objects Object-oriented programming object: instance of a class introduced in ES6 syntactical sugar over prototype-based inheritance. Class declaration class Person { constructor(name, age){ this.name = name; this.age = age; } speak(){ console.log(`${this.name}: hello!`); } } const a = new Person(&#39;a&#39;, 20); console.log(a.name); console.log(a.age); a.speak(); Getters and Setters 사용자의 입력 값은 의미론적으로 맞지 않을 수 있기 때문에 직접 값을 설정하게 해서는 안된다. getter setter를 활용해 클래스 변수를 방어적으로 사용할 수 있다. class User { constructor(firstName, lastName, age){ this.firstName = firstName; this.lastName = lastName; this.age = age; } // need to make the returned variable different from the parametre by adding &#39;_&#39; otherwise, It will fall into an endless loop and reach the maximum call stack. get age(){ // Once defined, &#39;this.age&#39; does not get the value from the memory but calls this function. return this._age; } set age(value){ // Once defined, &#39;= age;&#39; does not change the value in the memory but calls this function. this._age = value &amp;lt; 0 ? 0: value; } } const user1 = new User(&#39;Steve&#39;, &#39;Jobs&#39;, -1); console.log(user1.age); Fields (public private) added recently class Experiment{ publicField = 2; #privateField = 0; } const experiment = new Experiment(); console.log(experiment.publicField); console.log(experiment.privateField); Static added very recently. study later Inheritance a way for one class to extend another class class Shape { constructor(w,h,col){ this.width = w; this.height = h; this.color = col; } draw(){ console.log(`drawing ${this.color} color of`); } getArea(){ return width * this.height; } } class Rectangle extends Shape{} class Triangle extends Shape{ // OVERRIDING draw(){ super.draw(); // calls draw() of parent. console.log(&quot;^&quot;); } getArea(){ return (this.width * this.height) / 2; } toString(){ // overriding Object&#39;s method. return `Triangle: color: ${this.color}`; } } const rectangle = new Rectangle(20,20,&#39;blue&#39;); const triangle = new Triangle(20,20,&#39;red&#39;); rectangle.draw(); triangle.draw(); Class checking: instanceOf console.log(rectangle instanceof Rectangle); console.log(triangle instanceof Rectangle); console.log(triangle instanceof Shape); console.log(triangle instanceof Object);">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/2020/09/04/js(6)_classes/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="Young Jin&#39;s blog" href="http://localhost:4000/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="Javascript Stuff">
+  <meta property="og:site_name" content="Young Jin&#39;s blog">
+  <meta property="og:url" content="http://localhost:4000/2020/09/04/js(6)_classes/">
+  <meta property="og:description" content="Javascript classes and objects Object-oriented programming object: instance of a class introduced in ES6 syntactical sugar over prototype-based inheritance. Class declaration class Person { constructor(name, age){ this.name = name; this.age = age; } speak(){ console.log(`${this.name}: hello!`); } } const a = new Person(&#39;a&#39;, 20); console.log(a.name); console.log(a.age); a.speak(); Getters and Setters 사용자의 입력 값은 의미론적으로 맞지 않을 수 있기 때문에 직접 값을 설정하게 해서는 안된다. getter setter를 활용해 클래스 변수를 방어적으로 사용할 수 있다. class User { constructor(firstName, lastName, age){ this.firstName = firstName; this.lastName = lastName; this.age = age; } // need to make the returned variable different from the parametre by adding &#39;_&#39; otherwise, It will fall into an endless loop and reach the maximum call stack. get age(){ // Once defined, &#39;this.age&#39; does not get the value from the memory but calls this function. return this._age; } set age(value){ // Once defined, &#39;= age;&#39; does not change the value in the memory but calls this function. this._age = value &amp;lt; 0 ? 0: value; } } const user1 = new User(&#39;Steve&#39;, &#39;Jobs&#39;, -1); console.log(user1.age); Fields (public private) added recently class Experiment{ publicField = 2; #privateField = 0; } const experiment = new Experiment(); console.log(experiment.publicField); console.log(experiment.privateField); Static added very recently. study later Inheritance a way for one class to extend another class class Shape { constructor(w,h,col){ this.width = w; this.height = h; this.color = col; } draw(){ console.log(`drawing ${this.color} color of`); } getArea(){ return width * this.height; } } class Rectangle extends Shape{} class Triangle extends Shape{ // OVERRIDING draw(){ super.draw(); // calls draw() of parent. console.log(&quot;^&quot;); } getArea(){ return (this.width * this.height) / 2; } toString(){ // overriding Object&#39;s method. return `Triangle: color: ${this.color}`; } } const rectangle = new Rectangle(20,20,&#39;blue&#39;); const triangle = new Triangle(20,20,&#39;red&#39;); rectangle.draw(); triangle.draw(); Class checking: instanceOf console.log(rectangle instanceof Rectangle); console.log(triangle instanceof Rectangle); console.log(triangle instanceof Shape); console.log(triangle instanceof Object);">
+  
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:title" content="Javascript Stuff">
+  <meta name="twitter:description" content="Javascript classes and objects Object-oriented programming object: instance of a class introduced in ES6 syntactical sugar over prototype-based inheritance. Class declaration class Person { constru...">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700&amp;display=swap" rel="stylesheet">
+
+  
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-156930914-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Young Jin&#39;s blog</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://github.com/">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+      <h1 class="post-title" itemprop="name headline">Javascript Stuff</h1>
+    
+    <p class="post-meta"><time datetime="2020-09-04T00:00:00+00:00" itemprop="datePublished">Sep 4, 2020</time> •
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+        <a href="/categories/javascript/">JavaScript</a> (10)
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  
+
+
+
+
+</p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h4><u><b> Javascript classes and objects </b></u></h4>
+
+<ul>
+  <li>Object-oriented programming</li>
+  <li>object: instance of a class</li>
+  <li>introduced in ES6</li>
+  <li>syntactical sugar over prototype-based inheritance.</li>
+</ul>
+
+<ol>
+  <li>Class declaration</li>
+</ol>
+<pre>
+    class Person {
+        constructor(name, age){
+            this.name = name;
+            this.age = age;
+        }
+        speak(){
+            console.log(`${this.name}: hello!`);
+        }
+    }
+    const a = new Person('a', 20);
+    console.log(a.name);
+    console.log(a.age);
+    a.speak();
+</pre>
+
+<ol>
+  <li>Getters and Setters
+    <ul>
+      <li>사용자의 입력 값은 의미론적으로 맞지 않을 수 있기 때문에 직접 값을 설정하게 해서는 안된다.</li>
+      <li>getter setter를 활용해 클래스 변수를 방어적으로 사용할 수 있다.</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    class User {
+        constructor(firstName, lastName, age){
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+        }
+        // need to make the returned variable different from the parametre by adding '_' otherwise, It will fall into an endless loop and reach the maximum call stack.
+        get age(){ // Once defined, 'this.age' does not get the value from the memory but calls this function. 
+            return this._age;
+        }
+        set age(value){ // Once defined, '= age;' does not change the value in the memory but calls this function.
+            this._age = value &lt; 0 ? 0: value;
+        }
+    }
+    const user1 = new User('Steve', 'Jobs', -1);
+    console.log(user1.age);
+</pre>
+
+<ol>
+  <li>Fields (public private)
+    <ul>
+      <li>added recently</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    class Experiment{
+        publicField = 2;
+        #privateField = 0;
+    }
+    const experiment = new Experiment();
+    console.log(experiment.publicField);
+    console.log(experiment.privateField);
+</pre>
+
+<ol>
+  <li>Static
+    <ul>
+      <li>added very recently. study later</li>
+    </ul>
+  </li>
+  <li>Inheritance
+    <ul>
+      <li>a way for one class to extend another class</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    class Shape {
+        constructor(w,h,col){
+            this.width = w;
+            this.height = h;
+            this.color = col;
+        }
+        draw(){
+            console.log(`drawing ${this.color} color of`);
+        }
+        getArea(){
+            return width * this.height;
+        }
+    }
+
+    class Rectangle extends Shape{}
+    class Triangle extends Shape{
+        // OVERRIDING
+        draw(){
+            super.draw(); // calls draw() of parent.
+            console.log("^");
+        }
+        getArea(){
+            return (this.width * this.height) / 2;
+        }
+        toString(){ // overriding Object's method.
+            return `Triangle: color: ${this.color}`;
+        }
+    }
+    const rectangle = new Rectangle(20,20,'blue');
+    const triangle = new Triangle(20,20,'red');
+    rectangle.draw();
+    triangle.draw();
+</pre>
+
+<ol>
+  <li>Class checking: instanceOf</li>
+</ol>
+<pre>
+    console.log(rectangle instanceof Rectangle);
+    console.log(triangle instanceof Rectangle);
+    console.log(triangle instanceof Shape);
+    console.log(triangle instanceof Object);
+</pre>
+
+  </div>
+
+  
+
+</article>
+
+      </div>
+    </main>
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy; Young Jin Lee 
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

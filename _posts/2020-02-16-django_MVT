@@ -1,0 +1,23 @@
+---
+layout: post
+title: "django(장고) MVT 설명"
+comments: true
+categories: Django
+---
+
+django의 Model, View, Template에 대한 설명이다.
+
+각각에 대한 설명은 나중에 추가할 예정이고, 이 셋은 어떻게 연동되는 걸까?
+
+1. views.py에서 사용할 model(데이터 혹은 테이블)을 import한다.
+2. view를 사용해 model에게 필요한 데이터에 대한 query를 날린다.
+3. model로부터 template으로 query의 결과 값(데이터)을 보낸다.
+4. 데이터를 출력할 수 있도록 template을 수정한다.
+5. url을 해당 view에 매핑한다.
+* template tags는 templage variables와 같은 의미이며 이를 이용해 model의 데이터를 html 페이지에 출력한다.
+
+model.py, views.py(필요시), html만들고(필요시), urls.py(필요시), admin.py 순으로 수정하면 된다. 
+
+form 은 사용자 입력을 받기위해, 그에 따른 html에 로직을 넣기위해 사용된다. view와 model사이에 위치한다. model과 굉장히 유사하다.
+사용자로부터 데이터를 입력받아 모델에 쓰고(저장하고), 보안을 위해 폼을 사용한다.
+

@@ -1,0 +1,96 @@
+I"I<h4><u><b> DJANGO CBVs(Class Based Views): List Views and Detail Views </b></u></h4>
+
+<p>In models.py,</p>
+<pre>
+from django.shorcuts import render
+from django.views.generic import View, TemplateView
+
+class School(models.Model):
+    name = models.CharField(max_length = 256)
+    principal = models.CharField(max_length = 256)
+    location = models.CharField(max_length = 256)
+
+    def __str__(self):
+        return self.name
+
+class Student(models.Model):
+    name = models.CharField(max_length=256)
+    age = models.PositiveIntegerField()
+    school = models.ForeignKey(School, related_name = 'students')
+
+    def __str__(self):
+        return self.name
+</pre>
+
+<p>In admin.py,
+By doing so, you can manage your models(data) in the admin page.</p>
+<pre>
+from django.comtrib import admin
+from app_name.models import School, Student
+
+# Register your models here.
+admin.site.register(School)
+admin.site.register(Student)
+</pre>
+
+<p>In views.py</p>
+<pre>
+from django.shorcuts import render
+from django.views.generic import View, TemplateView, ListView, DetailView
+from . import models
+
+class SchoolListView(ListView):
+    context_object_name = 'schools'
+    model = models.School
+
+class SchoolDetailView(DetailView):
+    context_object_name = 'school_detail'
+    model = models.School
+    template_name = 'app_name/school_detail.html' # pointing to a template
+</pre>
+
+<p>In the project’s urls.py,</p>
+<pre>
+    ...
+    urlpatterns = [
+        path('', views.IndexView.as_view()),
+        path('app_name/', include('app_name.urls', namespace = 'app_name')),
+    ]
+</pre>
+
+<p>In the app’s urls.py,</p>
+<pre>
+...
+app_name = 'app_name' # This allows you to write href url tagging in html files(ex. href = "{% url 'app_name:list' %}")
+urlpatterns = [
+    path('',views.SchoolListView.as_view(), name = 'list'), # This name allows to do the href url tagging above.
+    path('(?P<pk>[-\w]+)/', views.SchoolDetailView.as_view(), name='detail'), The regular expression makes the href in the html file to return a single number(primary key) and links to that specific schools detail view.
+]
+&lt;/pre&gt;
+
+In the School_list.html file inside the template folder within the app folder,
+
+- When SchoolListView is called in views.py, dajngo lowercases the model name(= School -&gt; school) and concats '_list'. This is where 'school_list' comes from in the for loop below. You can also define the name by adding context_object_name = 'schools' in the SchoolListView class.
+- By default, DetailView just returns lowercase of the model name(=school)
+- Django automatically generates 'school.id' for the primary key that is referred from the ForeignKey of the Student model. Once the primary key is used, you need to take care of it in the urls.py with regular expressions.
+<pre>
+...
+    
+...
+</pre>
+
+In the School_detail.html file inside the template folder within the app folder,
+- '.students' comes from the defined related_name of Student model which is to match students to the School as a foreign key.
+<pre>
+...
+    <h2>School details:</h2>
+    <p>Name: </p>
+    <p>Principal: </p>
+    <p>location: </p>
+    <h3>Students: </h3>
+    
+...
+</pre>
+
+</pk></pre>
+:ET

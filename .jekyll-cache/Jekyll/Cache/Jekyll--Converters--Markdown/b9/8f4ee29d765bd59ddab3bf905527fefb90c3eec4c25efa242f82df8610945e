@@ -1,0 +1,10 @@
+I"8<p>우분투 16.04 기준 호스트명 변경 방법이다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@myname:~# hostname
+myname
+root@myname:~# hostnamectl set-hostname mynewname
+root@mynewname:~# hostname
+mynewname
+</code></pre></div></div>
+
+:ET

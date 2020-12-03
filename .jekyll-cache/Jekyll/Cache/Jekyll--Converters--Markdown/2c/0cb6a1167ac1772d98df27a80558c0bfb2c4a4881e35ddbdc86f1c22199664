@@ -1,0 +1,21 @@
+I"�<h3>Cascading</h3>
+<ul>
+  <li>Author Style</li>
+  <li>User Style</li>
+  <li>
+    <p>Browser</p>
+  </li>
+  <li>!important는 cascading 의 순서를 무시한다. 가능하면 안쓰는게 좋음. 쓴다는건 뭔가 체계가 잘못되었다는것…일수도</li>
+</ul>
+
+<h3>Selectors</h3>
+<ul>
+  <li>universal: *</li>
+  <li>type: Tag</li>
+  <li>ID: #id</li>
+  <li>Class : .class</li>
+  <li>State: tag옆에 state</li>
+  <li>Attribute: []</li>
+</ul>
+
+:ET

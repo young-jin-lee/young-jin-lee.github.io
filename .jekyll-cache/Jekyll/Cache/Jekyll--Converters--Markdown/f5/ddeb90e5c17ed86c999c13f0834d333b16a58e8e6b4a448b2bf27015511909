@@ -1,0 +1,115 @@
+I"ü<h4><u><b> DJANGO-CRUD(Create, Retrieve, Update, Delete) </b></u></h4>
+
+<p>In models.py</p>
+<pre>
+...
+from django.urls import reverse
+
+...
+
+class School(models.Model):
+    name = models.CharField(max_length = 256)
+    principal = models.CharField(max_length = 256)
+    location = models.CharField(max_length = 256)
+
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self): # This functions takes you to the detail page once you created a school and submitted the form.
+        return reverse('app_name:detail', kwargs = {'pk':self.pk}) # 'app_name:detail' comes from the urls.py file
+</pre>
+
+<p>In views.py</p>
+<pre>
+from django.shorcuts import render
+from django.views.generic import View, TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
+from . import models
+from django.urlimport reverse_lazy
+
+...
+class SchoolCreateView(CreateView):
+    fields = ('name', 'principal', 'location')
+    model = models.School # By default, Django suggests to create school_form.html.(lowercate the model name and concats '_form.html')
+
+class SchoolUpdateView(UpdateView):
+    fields = ('name', 'principal')
+    model = models.School
+
+class SchoolDeleteView(DeleteView):
+    model = models.School # By default, the context name is 'school' (use this in html files)
+    success_url = reverse_lazy('basic_app:list') # Once you successfully deleted, go to school list page
+</pre>
+
+<p>In the appâ€™s urls.py,</p>
+<pre>
+e
+...
+app_name = 'app_name' # This allows you to write href url tagging in html files(ex. href = "{% url 'app_name:list' %}")
+urlpatterns = [
+    path('',views.SchoolListView.as_view(), name = 'list'), # This name allows to do the href url tagging above.
+    path('(?P<pk>\d+)/', views.SchoolDetailView.as_view(), name='detail'), # The regular expression makes the href in the html file to return a single number(primary key) and links to that specific schools detail view.
+    path('create/', views.SchoolCreateView.as_view(), name = 'create'),
+    path('update/(?P<pk>\d+)/', views.SchoolUpdateView.as_view(), name='update'),
+    path('delete/(?P<pk>\d+)/', views.SchoolDeleteView.as_view(), name='delete'),
+]
+&lt;/pre&gt;
+
+- In school_form.html inside the app's template folder within the app folder,
+
+<pre><code>
+    ...
+
+    <h1>
+        {% if not form.instance.pk %}
+            Create School
+        {% else %}
+            Update School
+        {% endif %}
+    </h1>
+
+    <form method="post">
+        {% csrf_token %}
+        
+        <input type="submit" class="btn btn-primary" value="Submit" />
+    </form>
+</code></pre>
+
+In the School_detail.html file inside the template folder within the app folder,
+- '.students' comes from the defined related_name of Student model which is to match students to the School as a foreign key.
+<pre>
+
+...
+<div class="jumbotron">
+    <h2>School details:</h2>
+    <p>Name: </p>
+    <p>Principal: </p>
+    <p>location: </p>
+    <h3>Students: </h3>
+    
+</div>
+
+
+<div class="container">
+    <p>&lt;a class='btn btn-warning' href = "{% url 'app_name:update' pk = school_detail.pk %"}&gt;Update&lt;/a&gt;</p>
+</div>
+
+...
+</pre>
+
+
+In school_confirm_delete.html inside the app's template folder within the app folder,
+<pre>
+...
+
+<h1>Delete ?</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <input type="subnit" class="btn btn-danger" value="Delete" />
+    <a href="{% url 'basic_app:detail' pk=school.pk %}">Cancel</a>
+</form>
+</pre>
+
+##### You can also use 'slug' instead of 'pk'. Slugs are essentially the name of objects lowercase with dashes in between any spaces.
+</pk></pk></pk></pre>
+:ET

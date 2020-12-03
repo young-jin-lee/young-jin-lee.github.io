@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>Javascript Stuff</title>
+  <meta name="description" content="Javascript Objects one of the JS’s data types. a collection of related data and/or functionalities Nearly all objects in JS are instances of Objects. object = {key : value} Object declaration const obj1 = {}; // &#39;object literal&#39; syntax const obj2 = New Object(); // &#39;object constructor&#39; syntax functions print(person){ console.log(person.name); console.log(person.age); } const a = {name:&#39;a&#39;, age: 4}; print(a); Dynamically adding/deleting Object properties a.hasJob = true; delete a.hasJob; Computed properties(==key) keys should always be a string. console.log(a.name); // this is better, console.log(a[&#39;name&#39;]); // than this. a[&#39;hasJob&#39;] = true; // use when assign a value to a key. console.log(a.hasJob); Constructor Functions when a number of objects with the same properties are needed, we can use constructor functions. const person1 = {name: &#39;bob&#39;, age: 2}; const person2 = {name: &#39;steve&#39;, age: 3}; // repeating, bad const person3 = {name: &#39;jack&#39;, age: 3}; // repeating, bad const person4 = new Person(&#39;dave&#39;, 4); // created using a constructor function, good function Person(name, age){ this.name = name; this.age = age; } ‘in’ operator: checking property existence(key in obj) console.log(&#39;name&#39; in person4); console.log(&#39;kkk&#39; in person4); // returns undefined for..in vs for..of for (key in obj) console.clear(); for (key in person4){ console.log(key); } for (value of iterable) const array = [1,2,3,4]; for (value of array){ console.log(value); } Cloning Object.assign(dest, [obj1, obj2, …]) const user = {name: &#39;dave&#39;, age: 20}; // ref1 pointing memory address x const user2 = user; // ref2 which is identical to ref1 so that it points memory address x user2.name = &#39;coder&#39;; // IMPORTANT! ; this ALSO makes user.name &#39;coder&#39;. console.log(user); old way to copy and paste the value of a certain address. const user3 = {}; for (key in user){ user3[key] = user[key]; } console.clear(); console.log(user3); modern way const user4 = Object.assign({}, user); console.log(user4); Mixing objects const fruit1 = {color : &#39;red&#39;, calories: 20}; const fruit2 = {color : &#39;blue&#39;, size : &#39;big&#39;}; const mixed = Object.assign({}, fruit1, fruit2); console.log(mixed.color); // blue console.log(mixed.size); // big console.log(mixed.calories); // 20">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/2020/09/04/js(7)_objects/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="Young Jin&#39;s blog" href="http://localhost:4000/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="Javascript Stuff">
+  <meta property="og:site_name" content="Young Jin&#39;s blog">
+  <meta property="og:url" content="http://localhost:4000/2020/09/04/js(7)_objects/">
+  <meta property="og:description" content="Javascript Objects one of the JS’s data types. a collection of related data and/or functionalities Nearly all objects in JS are instances of Objects. object = {key : value} Object declaration const obj1 = {}; // &#39;object literal&#39; syntax const obj2 = New Object(); // &#39;object constructor&#39; syntax functions print(person){ console.log(person.name); console.log(person.age); } const a = {name:&#39;a&#39;, age: 4}; print(a); Dynamically adding/deleting Object properties a.hasJob = true; delete a.hasJob; Computed properties(==key) keys should always be a string. console.log(a.name); // this is better, console.log(a[&#39;name&#39;]); // than this. a[&#39;hasJob&#39;] = true; // use when assign a value to a key. console.log(a.hasJob); Constructor Functions when a number of objects with the same properties are needed, we can use constructor functions. const person1 = {name: &#39;bob&#39;, age: 2}; const person2 = {name: &#39;steve&#39;, age: 3}; // repeating, bad const person3 = {name: &#39;jack&#39;, age: 3}; // repeating, bad const person4 = new Person(&#39;dave&#39;, 4); // created using a constructor function, good function Person(name, age){ this.name = name; this.age = age; } ‘in’ operator: checking property existence(key in obj) console.log(&#39;name&#39; in person4); console.log(&#39;kkk&#39; in person4); // returns undefined for..in vs for..of for (key in obj) console.clear(); for (key in person4){ console.log(key); } for (value of iterable) const array = [1,2,3,4]; for (value of array){ console.log(value); } Cloning Object.assign(dest, [obj1, obj2, …]) const user = {name: &#39;dave&#39;, age: 20}; // ref1 pointing memory address x const user2 = user; // ref2 which is identical to ref1 so that it points memory address x user2.name = &#39;coder&#39;; // IMPORTANT! ; this ALSO makes user.name &#39;coder&#39;. console.log(user); old way to copy and paste the value of a certain address. const user3 = {}; for (key in user){ user3[key] = user[key]; } console.clear(); console.log(user3); modern way const user4 = Object.assign({}, user); console.log(user4); Mixing objects const fruit1 = {color : &#39;red&#39;, calories: 20}; const fruit2 = {color : &#39;blue&#39;, size : &#39;big&#39;}; const mixed = Object.assign({}, fruit1, fruit2); console.log(mixed.color); // blue console.log(mixed.size); // big console.log(mixed.calories); // 20">
+  
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:title" content="Javascript Stuff">
+  <meta name="twitter:description" content="Javascript Objects one of the JS’s data types. a collection of related data and/or functionalities Nearly all objects in JS are instances of Objects. object = {key : value} Object declaration const...">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700&amp;display=swap" rel="stylesheet">
+
+  
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-156930914-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Young Jin&#39;s blog</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://github.com/">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+      <h1 class="post-title" itemprop="name headline">Javascript Stuff</h1>
+    
+    <p class="post-meta"><time datetime="2020-09-04T00:00:00+00:00" itemprop="datePublished">Sep 4, 2020</time> •
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+        <a href="/categories/javascript/">JavaScript</a> (10)
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  
+
+
+
+
+</p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h4><u><b> Javascript Objects </b></u></h4>
+
+<ul>
+  <li>one of the JS’s data types.</li>
+  <li>a collection of related data and/or functionalities</li>
+  <li>Nearly all objects in JS are instances of Objects.</li>
+  <li>object = {key : value}</li>
+</ul>
+
+<ol>
+  <li>Object declaration</li>
+</ol>
+<pre>
+const obj1 = {}; // 'object literal' syntax
+const obj2 = New Object(); // 'object constructor' syntax
+
+functions print(person){
+    console.log(person.name);
+    console.log(person.age);
+}
+const a = {name:'a', age: 4};
+print(a);
+</pre>
+
+<ol>
+  <li>Dynamically adding/deleting Object properties</li>
+</ol>
+<pre>
+    a.hasJob = true;
+    delete a.hasJob;
+</pre>
+
+<ol>
+  <li>Computed properties(==key)
+    <ul>
+      <li>keys should always be a string.</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    console.log(a.name); // this is better,
+    console.log(a['name']); // than this.
+    a['hasJob'] = true; // use when assign a value to a key.
+    console.log(a.hasJob);
+</pre>
+
+<ol>
+  <li>Constructor Functions
+    <ul>
+      <li>when a number of objects with the same properties are needed, we can use constructor functions.</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    const person1 = {name: 'bob', age: 2};
+    const person2 = {name: 'steve', age: 3}; // repeating, bad
+    const person3 = {name: 'jack', age: 3}; // repeating, bad
+    const person4 = new Person('dave', 4); // created using a constructor function, good
+
+    function Person(name, age){
+        this.name = name;
+        this.age = age;
+    }
+</pre>
+
+<ol>
+  <li>‘in’ operator: checking property existence(key in obj)</li>
+</ol>
+<pre>
+    console.log('name' in person4);
+    console.log('kkk' in person4); // returns undefined
+</pre>
+
+<ol>
+  <li>for..in vs for..of
+    <ul>
+      <li>for (key in obj)</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    console.clear();
+    for (key in person4){
+        console.log(key);
+    }
+</pre>
+
+<ul>
+  <li>for (value of iterable)</li>
+</ul>
+<pre>
+const array = [1,2,3,4];
+for (value of array){
+    console.log(value);
+}
+</pre>
+
+<ol>
+  <li>Cloning
+    <ul>
+      <li>Object.assign(dest, [obj1, obj2, …])</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    const user = {name: 'dave', age: 20}; // ref1 pointing memory address x
+    const user2 = user; // ref2 which is identical to ref1 so that it points memory address x
+    user2.name = 'coder'; // IMPORTANT! ; this ALSO makes user.name 'coder'.
+    console.log(user); 
+</pre>
+
+<ul>
+  <li>old way to copy and paste the value of a certain address.</li>
+</ul>
+<pre>
+    const user3 = {};
+    for (key in user){
+        user3[key] = user[key];
+    }
+    console.clear();
+    console.log(user3);
+</pre>
+
+<ul>
+  <li>modern way</li>
+</ul>
+<pre>
+    const user4 = Object.assign({}, user);
+    console.log(user4);
+</pre>
+
+<ul>
+  <li>Mixing objects</li>
+</ul>
+<pre>
+    const fruit1 = {color : 'red', calories: 20};
+    const fruit2 = {color : 'blue', size : 'big'};
+    const mixed = Object.assign({}, fruit1, fruit2);
+    console.log(mixed.color); // blue
+    console.log(mixed.size); // big
+    console.log(mixed.calories); // 20
+</pre>
+
+  </div>
+
+  
+
+</article>
+
+      </div>
+    </main>
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy; Young Jin Lee 
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

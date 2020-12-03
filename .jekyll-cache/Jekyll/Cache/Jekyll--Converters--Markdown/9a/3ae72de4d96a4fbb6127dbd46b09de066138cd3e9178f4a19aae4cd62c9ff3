@@ -1,0 +1,82 @@
+I"E<h4><u><b> Python stuff </b></u></h4>
+
+<ol>
+  <li>map
+    <ul>
+      <li>syntax: map(function, iterable)</li>
+    </ul>
+  </li>
+</ol>
+
+<p>You can use a for loop to apply something to all elements in a list.</p>
+<pre>
+    a = [1.2, 2.5, 3.7, 4.6]
+    for i in range(len(a)):
+        a[i] = int(a[i])
+    print(a)
+    // output: [1,2,3,4]
+</pre>
+
+<p>You can do exactly the same by using map. This is shorter and faster.</p>
+<pre>
+    a = [1.2, 2.5, 3.7, 4.6]
+    a = list(map(int, a))
+    print(a)
+    # output: [1,2,3,4]
+</pre>
+
+<ol>
+  <li>*args
+    <ul>
+      <li>args stands for arguments</li>
+      <li>takes multiple arguments as elements of a tuple.</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    def myFunc(*args):
+        print(args)
+
+    myFunc(10, 20, 'a')
+    # output: (10, 20, 'a')
+</pre>
+
+<ul>
+  <li>If you want to pass a list and recieve it as a tuple, add an * in front of the list variable.</li>
+</ul>
+<pre>
+    def myFunc(*args):
+        print(args)
+
+    lst = [10, 20, 'a']
+    myFunc(*lst)
+</pre>
+
+<ol>
+  <li>**kwargs
+    <ul>
+      <li>kwargs stands for keyword arguments</li>
+      <li>takes ‘x=y’ form of arguments as a dictionary.</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    def myFunc(*args, **kwargs):
+        print(args)
+        print(kwargs)
+    myFunc(10, 20,'a', x=100, y=200, z='b')
+    # output: (10, 20, 'a')
+    #         {'x': 100, 'y': 200, 'z': 'b'}
+</pre>
+
+<pre>
+    def myFunc(*args, **kwargs):
+        print(args)
+        print(kwargs)
+    p1 = [10, 20, 'a']
+    myFunc(*p1,x=100, y=200, z='b')
+
+    # output: (10, 20, 'a')
+    #         {'x': 100, 'y': 200, 'z': 'b'}
+</pre>
+:ET

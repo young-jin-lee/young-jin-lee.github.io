@@ -1,0 +1,79 @@
+I"g<h4><u><b> Javascript Functions </b></u></h4>
+
+<ol>
+  <li>Function
+    <ul>
+      <li>one function === one thing</li>
+      <li>A function is an object in JS.</li>
+      <li>naming: should be a VERB.</li>
+      <li>functions always returns something. It returned undefined where return is not explicitly written in code.</li>
+    </ul>
+  </li>
+  <li>Parameters
+    <ul>
+      <li>primitive parameters: passed by value</li>
+      <li>object parameters: passed by reference</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    function changeName(obj){
+        obj.name = 'coder';
+    }
+    const a = {name:'a'};
+    changeName(a);
+    console.log(a);
+    // output: coder
+</pre>
+
+<ol>
+  <li>Default parameters (added in ES6)</li>
+</ol>
+<pre>
+    function showMessage(msg, frm = 'unknown'){
+        console.log(`${msg} by ${frm}`);
+    }
+    showMessage('Hi');
+    // output Hi by unknown
+</pre>
+
+<ol>
+  <li>Rest parameters (added in ES6)
+    <ul>
+      <li>… takes arguments as an array that contains passed parameters.</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    function printAll(...args){ 
+        for (let i = 0; i &lt; args.length; i++){
+            console.log(args[i]);
+        }
+        // or
+        for (const arg of args){
+            console.log(arg);
+        }
+    }
+    printAll('a', 'b', 'c');
+</pre>
+
+<ol>
+  <li>Early return, early exit</li>
+</ol>
+<pre>
+    // bad to read
+    function upgradeUser(user){
+        if (user.point &gt; 10){
+            // long long logic
+        }
+    }
+
+    // good to read
+    function upgradeUser(user){
+        if(user.point &lt;= 10){
+            return;
+        }
+        // long long logic
+    }
+</pre>
+:ET

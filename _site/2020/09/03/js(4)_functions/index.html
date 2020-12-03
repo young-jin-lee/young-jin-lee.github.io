@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>Javascript Functions</title>
+  <meta name="description" content="Javascript Functions Function one function === one thing A function is an object in JS. naming: should be a VERB. functions always returns something. It returned undefined where return is not explicitly written in code. Parameters primitive parameters: passed by value object parameters: passed by reference function changeName(obj){ obj.name = &#39;coder&#39;; } const a = {name:&#39;a&#39;}; changeName(a); console.log(a); // output: coder Default parameters (added in ES6) function showMessage(msg, frm = &#39;unknown&#39;){ console.log(`${msg} by ${frm}`); } showMessage(&#39;Hi&#39;); // output Hi by unknown Rest parameters (added in ES6) … takes arguments as an array that contains passed parameters. function printAll(...args){ for (let i = 0; i &amp;lt; args.length; i++){ console.log(args[i]); } // or for (const arg of args){ console.log(arg); } } printAll(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;); Early return, early exit // bad to read function upgradeUser(user){ if (user.point &amp;gt; 10){ // long long logic } } // good to read function upgradeUser(user){ if(user.point &amp;lt;= 10){ return; } // long long logic }">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/2020/09/03/js(4)_functions/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="Young Jin&#39;s blog" href="http://localhost:4000/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="Javascript Functions">
+  <meta property="og:site_name" content="Young Jin&#39;s blog">
+  <meta property="og:url" content="http://localhost:4000/2020/09/03/js(4)_functions/">
+  <meta property="og:description" content="Javascript Functions Function one function === one thing A function is an object in JS. naming: should be a VERB. functions always returns something. It returned undefined where return is not explicitly written in code. Parameters primitive parameters: passed by value object parameters: passed by reference function changeName(obj){ obj.name = &#39;coder&#39;; } const a = {name:&#39;a&#39;}; changeName(a); console.log(a); // output: coder Default parameters (added in ES6) function showMessage(msg, frm = &#39;unknown&#39;){ console.log(`${msg} by ${frm}`); } showMessage(&#39;Hi&#39;); // output Hi by unknown Rest parameters (added in ES6) … takes arguments as an array that contains passed parameters. function printAll(...args){ for (let i = 0; i &amp;lt; args.length; i++){ console.log(args[i]); } // or for (const arg of args){ console.log(arg); } } printAll(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;); Early return, early exit // bad to read function upgradeUser(user){ if (user.point &amp;gt; 10){ // long long logic } } // good to read function upgradeUser(user){ if(user.point &amp;lt;= 10){ return; } // long long logic }">
+  
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:title" content="Javascript Functions">
+  <meta name="twitter:description" content="Javascript Functions Function one function === one thing A function is an object in JS. naming: should be a VERB. functions always returns something. It returned undefined where return is not expli...">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700&amp;display=swap" rel="stylesheet">
+
+  
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-156930914-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Young Jin&#39;s blog</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://github.com/">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+      <h1 class="post-title" itemprop="name headline">Javascript Functions</h1>
+    
+    <p class="post-meta"><time datetime="2020-09-03T00:00:00+00:00" itemprop="datePublished">Sep 3, 2020</time> •
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+        <a href="/categories/javascript/">JavaScript</a> (10)
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  
+
+
+
+
+</p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h4><u><b> Javascript Functions </b></u></h4>
+
+<ol>
+  <li>Function
+    <ul>
+      <li>one function === one thing</li>
+      <li>A function is an object in JS.</li>
+      <li>naming: should be a VERB.</li>
+      <li>functions always returns something. It returned undefined where return is not explicitly written in code.</li>
+    </ul>
+  </li>
+  <li>Parameters
+    <ul>
+      <li>primitive parameters: passed by value</li>
+      <li>object parameters: passed by reference</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    function changeName(obj){
+        obj.name = 'coder';
+    }
+    const a = {name:'a'};
+    changeName(a);
+    console.log(a);
+    // output: coder
+</pre>
+
+<ol>
+  <li>Default parameters (added in ES6)</li>
+</ol>
+<pre>
+    function showMessage(msg, frm = 'unknown'){
+        console.log(`${msg} by ${frm}`);
+    }
+    showMessage('Hi');
+    // output Hi by unknown
+</pre>
+
+<ol>
+  <li>Rest parameters (added in ES6)
+    <ul>
+      <li>… takes arguments as an array that contains passed parameters.</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    function printAll(...args){ 
+        for (let i = 0; i &lt; args.length; i++){
+            console.log(args[i]);
+        }
+        // or
+        for (const arg of args){
+            console.log(arg);
+        }
+    }
+    printAll('a', 'b', 'c');
+</pre>
+
+<ol>
+  <li>Early return, early exit</li>
+</ol>
+<pre>
+    // bad to read
+    function upgradeUser(user){
+        if (user.point &gt; 10){
+            // long long logic
+        }
+    }
+
+    // good to read
+    function upgradeUser(user){
+        if(user.point &lt;= 10){
+            return;
+        }
+        // long long logic
+    }
+</pre>
+
+  </div>
+
+  
+
+</article>
+
+      </div>
+    </main>
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy; Young Jin Lee 
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

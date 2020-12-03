@@ -1,0 +1,62 @@
+---
+layout: post
+title: "맥에서 우분투로 파일전송(파일질라)"
+comments: true
+categories: Linux
+---
+
+맥에서 우분투 서버로 파일전송하는 방법이다. 
+
+1. 먼저 ftp(파일전송프로토콜)을 우분투에 설치한다.
+~~~
+youngenie@youngenie-desktop: sudo apt-get install vsftpd
+~~~
+
+2. ftp의 포트를 확인한다.
+~~~
+youngenie@youngenie-desktop: sudo netstat -antp
+~~~
+특별히 뭔가 작업해놓은게 없다면 ftp의 포트는 21로 확인할 수 있다.
+
+이제 우분투 서버에 파일을 전송할 수 있다. 이를 위해서는 ftp프로그램을 사용해야하는데, 여기서는 파일질라(filezilla)를 사용한다.
+
+3. 맥에 파일질라 프로그램을 다운로드 받는다.
+
+https://filezilla-project.org/download.php?type=client
+
+
+4. 맥에서 ftp, 파일질라를 통해 서버에 접속한다.
+
+호스트에는 서버의 ip주소, 사용자명에는 사용자명, 비밀번호에는 비밀번호를 입력하면 된다.
+
+맥북의 파일(좌측) 서버의 디렉토리(우측)으로 드래그&드랍을 시키면 좌측상단에 550:Permission denied라는 메세지가 뜬다. 파일을 서버에 올릴 권한이 없다는 뜻이다.
+
+5. 파일 권한 설정
+
+먼저 맥에서 입력한 서버의 사용자명이 루트가 아닌 경우(혹은 루트 권한이 없는 경우)일 수 있다. 서버에서 파일을 전송하고자 하는 폴더에 들어가서 ls -al 명령어를 통해 세번째 칼럼에 어떤 사용자명이 입력되어 있는지 확인해야한다. root라고 되어있다면, 변경을 해줘야한다.
+
+~~~
+# chown 사용자명 폴더경로
+root@youngenie-desktop: chown youngenie Desktop/
+~~~
+
+또, ftp를 통해 파일쓰기가 막혀있을 수 있다. 따라서 vsftpd 프로그램 설정을 변경해야한다. 
+
+6. vi 에디터를 통해 vsftpd의 설정파일인 vsftpd.conf의 설정을 변경하기(최상단인 etc폴더에 위치하고 있다.)
+
+~~~
+root@youngenie-desktop: vi /etc/vsftpd.conf
+~~~
+
+터미널에서 파일이 하나 열리는데, #write_enable=YES 를 찾아서 주석을 해제하면된다.
+슬래쉬(/)를 입력하면 원하는 문자열을 검색할 수 있다. 키보드 방향키를 움직여 해당 위치에 커서를 놓고 i를 누르면 수정모드가 된다.
+#을 지우고 ESC를 눌러 수정모드에서 벗어난다. :(콜론)을 누르고 wq!를 입력하면 수정사항을 저장하고 에디터에서 빠져나온다.
+
+7. vsftpd 재시작하기
+~~~
+root@youngenie-desktop: service vsftpd restart
+~~~
+
+이제 다시 맥북으로 돌아와 드래그&드랍을 하면 성공한다.
+
+

@@ -1,0 +1,92 @@
+I"<	<h4><u><b> Javascript Arrays </b></u></h4>
+
+<ol>
+  <li>Iterating over an array.</li>
+</ol>
+<pre>
+    const lst = ['a', 'b', 'c'];
+
+    // 1. for
+    for (let i = 0; i &lt; lst.length; i++) {
+        console.log(lst[i]);
+    }
+
+    // 2. for of
+    for (let item of lst) {
+        console.log(item);
+    }
+
+    // 3. forEach
+    lst.forEach(function (item, index, lst){
+        console.log(item, index);
+    });
+
+    // 3.1 forEach: 'lst' not needed.
+    lst.forEach(function (item, index){
+        console.log(item, index);
+    });
+
+    // 3.2 forEach: simpler
+    lst.forEach((item, index) =&gt; {
+        console.log(item, index);
+    });
+
+    // 3.3 forEach: simpler
+    lst.forEach((item, index) =&gt; console.log(item, index));
+
+    // 3.4 forEach: simpler
+    lst.forEach((item, index) =&gt; console.log(item));
+</pre>
+
+<ol>
+  <li>Removing an item from an array by index position</li>
+</ol>
+
+<ul>
+  <li>syntax: list.splice(index position, number of times to remove at the index(by default it removes til the end), new data to put in at that index)</li>
+</ul>
+<pre>
+    lst = [];
+    lst.push('a','b','c','d');
+    console.log(lst);
+    lst.splice(1,2,'B','C');
+    console.log(lst);
+
+    // output: ['a','B','C','d'];
+
+    // if you dont want to remove but insert at a certain index, put 0.
+    lst.splice(1, 0, 'A', 'AA');
+</pre>
+
+<ol>
+  <li>Other useful APIs: indexOf, includes, lastIndexOf</li>
+</ol>
+
+<pre>
+    lst = ['a', 'b', 'c', 'd', 'a'];
+
+    // indexOf
+    console.log(lst.indexOf('a'));
+    console.log(lst.indexOf('c'));
+
+    // includes
+    console.log(lst.includes('b'));
+    console.log(lst.includes('d'));
+
+    // lastIndexOf
+    console.log(lst.indexOf('a'));
+    console.log(lst.lastIndexOf('a'));
+</pre>
+
+<ul>
+  <li>Callback function: a function inside an api; it is applied to every single element of an array that is passed into the api.</li>
+</ul>
+
+<p>eg) forEach (callbackfn: (value: T, index: number, array: readonly T[]) =&gt; void, thisArg?: any): void</p>
+
+<ul>
+  <li>A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array.</li>
+  <li>Performs the specified action for each element in an array.</li>
+  <li>interpretation: accepts 2 parametres; a call back function and a thisArg, the question mark after ‘thisArg’ means that it is not necessary.</li>
+</ul>
+:ET

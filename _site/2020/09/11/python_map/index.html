@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>Javascript Stuff</title>
+  <meta name="description" content="Python stuff map syntax: map(function, iterable) You can use a for loop to apply something to all elements in a list. a = [1.2, 2.5, 3.7, 4.6] for i in range(len(a)): a[i] = int(a[i]) print(a) // output: [1,2,3,4] You can do exactly the same by using map. This is shorter and faster. a = [1.2, 2.5, 3.7, 4.6] a = list(map(int, a)) print(a) # output: [1,2,3,4] *args args stands for arguments takes multiple arguments as elements of a tuple. def myFunc(*args): print(args) myFunc(10, 20, &#39;a&#39;) # output: (10, 20, &#39;a&#39;) If you want to pass a list and recieve it as a tuple, add an * in front of the list variable. def myFunc(*args): print(args) lst = [10, 20, &#39;a&#39;] myFunc(*lst) **kwargs kwargs stands for keyword arguments takes ‘x=y’ form of arguments as a dictionary. def myFunc(*args, **kwargs): print(args) print(kwargs) myFunc(10, 20,&#39;a&#39;, x=100, y=200, z=&#39;b&#39;) # output: (10, 20, &#39;a&#39;) # {&#39;x&#39;: 100, &#39;y&#39;: 200, &#39;z&#39;: &#39;b&#39;} def myFunc(*args, **kwargs): print(args) print(kwargs) p1 = [10, 20, &#39;a&#39;] myFunc(*p1,x=100, y=200, z=&#39;b&#39;) # output: (10, 20, &#39;a&#39;) # {&#39;x&#39;: 100, &#39;y&#39;: 200, &#39;z&#39;: &#39;b&#39;}">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/2020/09/11/python_map/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="Young Jin&#39;s blog" href="http://localhost:4000/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="Javascript Stuff">
+  <meta property="og:site_name" content="Young Jin&#39;s blog">
+  <meta property="og:url" content="http://localhost:4000/2020/09/11/python_map/">
+  <meta property="og:description" content="Python stuff map syntax: map(function, iterable) You can use a for loop to apply something to all elements in a list. a = [1.2, 2.5, 3.7, 4.6] for i in range(len(a)): a[i] = int(a[i]) print(a) // output: [1,2,3,4] You can do exactly the same by using map. This is shorter and faster. a = [1.2, 2.5, 3.7, 4.6] a = list(map(int, a)) print(a) # output: [1,2,3,4] *args args stands for arguments takes multiple arguments as elements of a tuple. def myFunc(*args): print(args) myFunc(10, 20, &#39;a&#39;) # output: (10, 20, &#39;a&#39;) If you want to pass a list and recieve it as a tuple, add an * in front of the list variable. def myFunc(*args): print(args) lst = [10, 20, &#39;a&#39;] myFunc(*lst) **kwargs kwargs stands for keyword arguments takes ‘x=y’ form of arguments as a dictionary. def myFunc(*args, **kwargs): print(args) print(kwargs) myFunc(10, 20,&#39;a&#39;, x=100, y=200, z=&#39;b&#39;) # output: (10, 20, &#39;a&#39;) # {&#39;x&#39;: 100, &#39;y&#39;: 200, &#39;z&#39;: &#39;b&#39;} def myFunc(*args, **kwargs): print(args) print(kwargs) p1 = [10, 20, &#39;a&#39;] myFunc(*p1,x=100, y=200, z=&#39;b&#39;) # output: (10, 20, &#39;a&#39;) # {&#39;x&#39;: 100, &#39;y&#39;: 200, &#39;z&#39;: &#39;b&#39;}">
+  
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:title" content="Javascript Stuff">
+  <meta name="twitter:description" content="Python stuff map syntax: map(function, iterable) You can use a for loop to apply something to all elements in a list. a = [1.2, 2.5, 3.7, 4.6] for i in range(len(a)): a[i] = int(a[i]) print(a) // o...">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700&amp;display=swap" rel="stylesheet">
+
+  
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-156930914-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Young Jin&#39;s blog</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://github.com/">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+      <h1 class="post-title" itemprop="name headline">Javascript Stuff</h1>
+    
+    <p class="post-meta"><time datetime="2020-09-11T00:00:00+00:00" itemprop="datePublished">Sep 11, 2020</time> •
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+        <a href="/categories/python/">Python</a> (6)
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  
+
+
+
+
+</p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h4><u><b> Python stuff </b></u></h4>
+
+<ol>
+  <li>map
+    <ul>
+      <li>syntax: map(function, iterable)</li>
+    </ul>
+  </li>
+</ol>
+
+<p>You can use a for loop to apply something to all elements in a list.</p>
+<pre>
+    a = [1.2, 2.5, 3.7, 4.6]
+    for i in range(len(a)):
+        a[i] = int(a[i])
+    print(a)
+    // output: [1,2,3,4]
+</pre>
+
+<p>You can do exactly the same by using map. This is shorter and faster.</p>
+<pre>
+    a = [1.2, 2.5, 3.7, 4.6]
+    a = list(map(int, a))
+    print(a)
+    # output: [1,2,3,4]
+</pre>
+
+<ol>
+  <li>*args
+    <ul>
+      <li>args stands for arguments</li>
+      <li>takes multiple arguments as elements of a tuple.</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    def myFunc(*args):
+        print(args)
+
+    myFunc(10, 20, 'a')
+    # output: (10, 20, 'a')
+</pre>
+
+<ul>
+  <li>If you want to pass a list and recieve it as a tuple, add an * in front of the list variable.</li>
+</ul>
+<pre>
+    def myFunc(*args):
+        print(args)
+
+    lst = [10, 20, 'a']
+    myFunc(*lst)
+</pre>
+
+<ol>
+  <li>**kwargs
+    <ul>
+      <li>kwargs stands for keyword arguments</li>
+      <li>takes ‘x=y’ form of arguments as a dictionary.</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    def myFunc(*args, **kwargs):
+        print(args)
+        print(kwargs)
+    myFunc(10, 20,'a', x=100, y=200, z='b')
+    # output: (10, 20, 'a')
+    #         {'x': 100, 'y': 200, 'z': 'b'}
+</pre>
+
+<pre>
+    def myFunc(*args, **kwargs):
+        print(args)
+        print(kwargs)
+    p1 = [10, 20, 'a']
+    myFunc(*p1,x=100, y=200, z='b')
+
+    # output: (10, 20, 'a')
+    #         {'x': 100, 'y': 200, 'z': 'b'}
+</pre>
+
+  </div>
+
+  
+
+</article>
+
+      </div>
+    </main>
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy; Young Jin Lee 
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

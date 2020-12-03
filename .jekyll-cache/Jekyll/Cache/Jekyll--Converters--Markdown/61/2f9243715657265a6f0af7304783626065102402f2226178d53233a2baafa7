@@ -1,0 +1,129 @@
+I"�<h4><u><b> Javascript classes and objects </b></u></h4>
+
+<ul>
+  <li>Object-oriented programming</li>
+  <li>object: instance of a class</li>
+  <li>introduced in ES6</li>
+  <li>syntactical sugar over prototype-based inheritance.</li>
+</ul>
+
+<ol>
+  <li>Class declaration</li>
+</ol>
+<pre>
+    class Person {
+        constructor(name, age){
+            this.name = name;
+            this.age = age;
+        }
+        speak(){
+            console.log(`${this.name}: hello!`);
+        }
+    }
+    const a = new Person('a', 20);
+    console.log(a.name);
+    console.log(a.age);
+    a.speak();
+</pre>
+
+<ol>
+  <li>Getters and Setters
+    <ul>
+      <li>사용자의 입력 값은 의미론적으로 맞지 않을 수 있기 때문에 직접 값을 설정하게 해서는 안된다.</li>
+      <li>getter setter를 활용해 클래스 변수를 방어적으로 사용할 수 있다.</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    class User {
+        constructor(firstName, lastName, age){
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+        }
+        // need to make the returned variable different from the parametre by adding '_' otherwise, It will fall into an endless loop and reach the maximum call stack.
+        get age(){ // Once defined, 'this.age' does not get the value from the memory but calls this function. 
+            return this._age;
+        }
+        set age(value){ // Once defined, '= age;' does not change the value in the memory but calls this function.
+            this._age = value &lt; 0 ? 0: value;
+        }
+    }
+    const user1 = new User('Steve', 'Jobs', -1);
+    console.log(user1.age);
+</pre>
+
+<ol>
+  <li>Fields (public private)
+    <ul>
+      <li>added recently</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    class Experiment{
+        publicField = 2;
+        #privateField = 0;
+    }
+    const experiment = new Experiment();
+    console.log(experiment.publicField);
+    console.log(experiment.privateField);
+</pre>
+
+<ol>
+  <li>Static
+    <ul>
+      <li>added very recently. study later</li>
+    </ul>
+  </li>
+  <li>Inheritance
+    <ul>
+      <li>a way for one class to extend another class</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    class Shape {
+        constructor(w,h,col){
+            this.width = w;
+            this.height = h;
+            this.color = col;
+        }
+        draw(){
+            console.log(`drawing ${this.color} color of`);
+        }
+        getArea(){
+            return width * this.height;
+        }
+    }
+
+    class Rectangle extends Shape{}
+    class Triangle extends Shape{
+        // OVERRIDING
+        draw(){
+            super.draw(); // calls draw() of parent.
+            console.log("^");
+        }
+        getArea(){
+            return (this.width * this.height) / 2;
+        }
+        toString(){ // overriding Object's method.
+            return `Triangle: color: ${this.color}`;
+        }
+    }
+    const rectangle = new Rectangle(20,20,'blue');
+    const triangle = new Triangle(20,20,'red');
+    rectangle.draw();
+    triangle.draw();
+</pre>
+
+<ol>
+  <li>Class checking: instanceOf</li>
+</ol>
+<pre>
+    console.log(rectangle instanceof Rectangle);
+    console.log(triangle instanceof Rectangle);
+    console.log(triangle instanceof Shape);
+    console.log(triangle instanceof Object);
+</pre>
+:ET

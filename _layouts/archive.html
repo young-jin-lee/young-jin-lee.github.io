@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<div class="home">
+
+  <h1 class="page-heading">Blog Archive</h1>
+
+  {{ content }}
+
+  {% capture site_lang %}{{ site.lang | default: "en" }}{% endcapture %}
+
+  <ul class="post-archives">
+    {% for cat in site.categories %} 
+      <li>
+        <span class="post-meta">
+          <h1>HEADI</h1>
+          {% if cat.first != empty %}
+            
+            {% include category_links.html categories=cat.first %}
+
+            {% for post in cat[1] reversed %}
+              {% if post.external-url %}
+                </br><a class="post-link" href="{{ post.external-url }}">  - {{ post.title | escape }} &rarr;</a>
+              {% else %}
+                </br><a class="post-link" href="{{ post.url | relative_url }}"{% if lang != empty %} lang="{{ lang }}"{% endif %}>  - {{ post.title | escape }}</a>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        </span>
+      </li>
+    </br>
+    {% endfor %}
+  </ul>
+
+  
+</div>

@@ -1,0 +1,133 @@
+---
+layout: post
+title: "장고(django) 모델 생성 후 데이터베이스에 데이터 추가하기"
+comments: true
+categories: Django
+---
+
+### 모델 생성 후 shell을 통해 테스트로 데이터베이스에 데이터를 추가하기
+
+현재 models.py에는 다음과 같이 테이블 세 개로 이루어진 코드가 들어있다. 
+
+~~~
+from django.db import models
+
+# Create your models here.
+
+class Topic(models.Model):
+    top_name = models.CharField(max_length = 264, unique = True)
+
+    def __str__(self):
+        return self.top_name
+
+class Webpage(models.Model):
+    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
+    name = models.CharField(max_length=264, unique=True)
+    url = models.URLField(unique=True)
+
+    def __str__(self):
+        return self.name
+
+class AccessRecord(models.Model):
+    name = models.ForeignKey(Webpage,on_delete=models.CASCADE)
+    date = models.DateField()
+
+    def __str__(self):
+        return str(self.date)
+~~~
+
+먼저 모델을 데이터베이스에 연동한다.
+~~~
+python manage.py migrate
+python manage.py makemigrations <app_name>
+python manage.py migrate
+~~~
+
+이제 python shell에 들어가 데이터를 추가해본다.
+~~~
+python manage.py shell
+~~~
+
+shell이 잘 작동하는지 확인하고,
+~~~
+Python 3.7.6 (default, Dec 30 2019, 19:38:26) 
+[Clang 11.0.0 (clang-1100.0.33.16)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> print("hello")
+hello
+~~~
+
+Topic 모델(테이블)에 top_name = "Social Network" 라는 데이터를 추가하고 잘 들어갔는지 확인한다.
+~~~
+>>> from first_app.models import Topic
+>>> print(Topic.objects.all())
+<QuerySet []>
+>>> t = Topic(top_name = "Social Network")
+>>> t.save()
+>>> print(Topic.objects.all())
+<QuerySet [<Topic: Social Network>]>
+>>> quit()
+~~~
+
+데이터를 추가하고 조회할 때 shell을 사용하지는 않는다. admin interface를 사용하면 훨씬 더 쉽게 할 수 있다.
+
+admin interface를 사용하려면 
+1. 앱 폴더(first_app) 내에 위치한 admin.py에 모델을 추가해야하고,
+2. admin 계정을 생성해야한다.
+
+admin.py에 다음과 같이 모델을 추가한다.
+~~~
+from django.contrib import admin
+from first_app.models import AccessRecord, Topic, Webpage
+# Register your models here.
+
+admin.site.register(AccessRecord)
+admin.site.register(Topic)
+admin.site.register(Webpage)
+~~~
+
+superuser 계정을 만든다.
+~~~
+(django2) youngjinlee@Youngs-MacBook-Air src % python manage.py createsuperuser
+/Users/youngjinlee/Desktop/dev/django2/src/django2/settings.py
+/Users/youngjinlee/Desktop/dev/django2/src/django2/settings.py
+/Users/youngjinlee/Desktop/dev/django2/src/django2
+/Users/youngjinlee/Desktop/dev/django2/src
+/Users/youngjinlee/Desktop/dev/django2/src/templates
+/Users/youngjinlee/Desktop/dev/django2/src/templates
+Username (leave blank to use 'youngjinlee'): 
+Email address: 
+Password: 
+Password (again): 
+Superuser created successfully.
+~~~
+
+이제 localhost/admin 으로 접속해서 로그인한다.
+
+데이터를 추가하면 되는데, save 버튼을 누르는 순간 No such table: main.auth_user__old 라는 에러가 뜨는 경우가 있다.
+이것은 장고 버전의 오류로 알려져 있으며,
+
+현재는 다음과 같이 장고 버전을 변경하여 에러를 처리할 수 있다.
+
+1. django 재설치. 이렇게하면 자동으로 현재 django를 지우고 다시 설치한다.
+~~~
+pip install django == 2.1.5
+~~~
+
+2. SQLite db 삭제
+3. migrate
+~~~
+python manage.py makemigrations 
+python manage.py migrate
+~~~
+
+4. superuser 생성
+~~~
+python manage.py createsuperuser
+~~~
+
+5. 서버 실행. 이제 에러가 뜨지 않는다.
+~~~
+python manage.py runserver
+~~~

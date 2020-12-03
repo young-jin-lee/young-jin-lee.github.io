@@ -1,0 +1,19 @@
+I"4<h4>1. Useful extensions to install</h4>
+
+<ol>
+  <li>Material theme  : 작업 환경 테마</li>
+  <li>Material icon theme : 파일종류별 예쁜 아이콘으로 구분</li>
+  <li>Prettier : 코드 자동 정렬</li>
+  <li>bracket pair colorizer : 괄호별로 색상</li>
+  <li>indent-rainbow : 들여쓰기 색상 표시</li>
+  <li>Auto rename tag : 열린태그 닫힌태그 동시 수정</li>
+  <li>CSS PEEK : HTML에서 적용된 CSS 바로 찾아줌 (해당 태그 컨트롤키 누르고 클릭)</li>
+  <li>HTML CSS SUPPORT : 만들어놓은 CSS 자동 완성해서 적용가능</li>
+  <li>LIVE SERVER : 내가 만든 프로젝트 가상의 웹 공간(로컬)에서 확인 가능
+    <ul>
+      <li>ctrl / command + shift + p to launch live server
+※ 출처: 드림코딩 by 엘리</li>
+    </ul>
+  </li>
+</ol>
+:ET

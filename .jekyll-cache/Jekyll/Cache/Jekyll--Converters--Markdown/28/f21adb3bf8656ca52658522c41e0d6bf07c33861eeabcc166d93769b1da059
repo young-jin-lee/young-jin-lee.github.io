@@ -1,0 +1,84 @@
+I"<h4><u><b> Javascript First-class function </b></u></h4>
+
+<ul>
+  <li>NOTE</li>
+  <li>functions are treated like any other variable</li>
+  <li>can be assigned as a value to a variable</li>
+  <li>can be passed as an argument to other functions</li>
+  <li>can be returned by another function</li>
+</ul>
+
+<ol>
+  <li>Function expression
+    <ul>
+      <li>a function declaration can be called earlier than it is defined. (hoisted: very important!)</li>
+      <li>a function expression is created when the execution reaches it.</li>
+      <li>naming: should be a verb</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    const print = function(){ // anonymous function(function without a name)
+        console.log('print');
+    }
+    print();
+    const printAgain = print;
+    printAgain();
+</pre>
+
+<ol>
+  <li>Callback functions using function expressions</li>
+</ol>
+<pre>
+    function randomQuiz(answer, printYes, printNo){
+        if (answer === 'correct'){
+            printYes(); // callback function
+        }else{
+            printNo(); // callback function
+        }
+    }
+    // named function &lt;&gt; anonymous function
+    const printYes = function printY(){ // named function: used for debugging
+        console.log('yes');
+    }
+    const printNo = function printN(){ // named function
+        console.log('no');
+    }
+    randomQuiz('wrong', printYes, printNo);
+    randomQuiz('correct', printYes, printNo);
+</pre>
+
+<ol>
+  <li>Arrow functions
+    <ul>
+      <li>always anonymous</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    const simplePrint = function(){
+        console.log('simplePrint!');
+    }
+    const simplePrint = () =&gt; console.log('simplePrint!');
+    const add = function(a, b){
+        return a + b;
+    }
+    const add = (a,b) =&gt; {
+        return a + b;
+    }
+    const add = (a,b) =&gt; a + b;
+</pre>
+
+<ol>
+  <li>IIFE: Immediately Invoked Function Expression
+    <ul>
+      <li>실제 현업에서는 잘 쓰이지않는데, 바로 실행시키고 싶을때 써라.</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    (function hello(){
+        console.log('IIFE');
+    })();
+</pre>
+:ET

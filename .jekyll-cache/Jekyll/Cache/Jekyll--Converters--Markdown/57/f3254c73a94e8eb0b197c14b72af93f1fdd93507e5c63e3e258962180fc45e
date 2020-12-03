@@ -1,0 +1,41 @@
+I"–<h4><u><b> DJANGO CBVs(Class Based Views) </b></u></h4>
+
+<p><strong>1. Simple rendering of a template</strong></p>
+
+<p>In views.py inside the app folder,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from django.shorcuts import render
+from django.views.generic import View, TemplateView
+
+class IndexView(TemplateView):
+    template_name = 'app_name/index.html' 
+</code></pre></div></div>
+
+<p>In urls.py inside the project folder,</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+urlpatterns = [
+    path('', views.IndexView.as_view()),
+]
+</code></pre></div></div>
+
+<p><strong>2. How to use a context dictionary and inject data into a template</strong></p>
+
+<p>1) In views.py</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+class IndexView(TemplateView):
+    template_name = 'app_name/index.html' 
+
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+        context['injectme'] = 'BASIC INJECTION!'
+        return context
+
+</code></pre></div></div>
+
+<p>2) Make sure you have urls.py set like above</p>
+
+<p>3) In index.html,</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+    &lt;h2&gt;Injected content: &lt;/h2&gt;
+</code></pre></div></div>
+:ET

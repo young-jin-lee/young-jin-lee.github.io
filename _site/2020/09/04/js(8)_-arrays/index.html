@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>Javascript Stuff</title>
+  <meta name="description" content="Javascript Arrays Iterating over an array. const lst = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]; // 1. for for (let i = 0; i &amp;lt; lst.length; i++) { console.log(lst[i]); } // 2. for of for (let item of lst) { console.log(item); } // 3. forEach lst.forEach(function (item, index, lst){ console.log(item, index); }); // 3.1 forEach: &#39;lst&#39; not needed. lst.forEach(function (item, index){ console.log(item, index); }); // 3.2 forEach: simpler lst.forEach((item, index) =&amp;gt; { console.log(item, index); }); // 3.3 forEach: simpler lst.forEach((item, index) =&amp;gt; console.log(item, index)); // 3.4 forEach: simpler lst.forEach((item, index) =&amp;gt; console.log(item)); Removing an item from an array by index position syntax: list.splice(index position, number of times to remove at the index(by default it removes til the end), new data to put in at that index) lst = []; lst.push(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;); console.log(lst); lst.splice(1,2,&#39;B&#39;,&#39;C&#39;); console.log(lst); // output: [&#39;a&#39;,&#39;B&#39;,&#39;C&#39;,&#39;d&#39;]; // if you dont want to remove but insert at a certain index, put 0. lst.splice(1, 0, &#39;A&#39;, &#39;AA&#39;); Other useful APIs: indexOf, includes, lastIndexOf lst = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;a&#39;]; // indexOf console.log(lst.indexOf(&#39;a&#39;)); console.log(lst.indexOf(&#39;c&#39;)); // includes console.log(lst.includes(&#39;b&#39;)); console.log(lst.includes(&#39;d&#39;)); // lastIndexOf console.log(lst.indexOf(&#39;a&#39;)); console.log(lst.lastIndexOf(&#39;a&#39;)); Callback function: a function inside an api; it is applied to every single element of an array that is passed into the api. eg) forEach (callbackfn: (value: T, index: number, array: readonly T[]) =&amp;gt; void, thisArg?: any): void A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array. Performs the specified action for each element in an array. interpretation: accepts 2 parametres; a call back function and a thisArg, the question mark after ‘thisArg’ means that it is not necessary.">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/2020/09/04/js(8)_-arrays/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="Young Jin&#39;s blog" href="http://localhost:4000/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="Javascript Stuff">
+  <meta property="og:site_name" content="Young Jin&#39;s blog">
+  <meta property="og:url" content="http://localhost:4000/2020/09/04/js(8)_-arrays/">
+  <meta property="og:description" content="Javascript Arrays Iterating over an array. const lst = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]; // 1. for for (let i = 0; i &amp;lt; lst.length; i++) { console.log(lst[i]); } // 2. for of for (let item of lst) { console.log(item); } // 3. forEach lst.forEach(function (item, index, lst){ console.log(item, index); }); // 3.1 forEach: &#39;lst&#39; not needed. lst.forEach(function (item, index){ console.log(item, index); }); // 3.2 forEach: simpler lst.forEach((item, index) =&amp;gt; { console.log(item, index); }); // 3.3 forEach: simpler lst.forEach((item, index) =&amp;gt; console.log(item, index)); // 3.4 forEach: simpler lst.forEach((item, index) =&amp;gt; console.log(item)); Removing an item from an array by index position syntax: list.splice(index position, number of times to remove at the index(by default it removes til the end), new data to put in at that index) lst = []; lst.push(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;); console.log(lst); lst.splice(1,2,&#39;B&#39;,&#39;C&#39;); console.log(lst); // output: [&#39;a&#39;,&#39;B&#39;,&#39;C&#39;,&#39;d&#39;]; // if you dont want to remove but insert at a certain index, put 0. lst.splice(1, 0, &#39;A&#39;, &#39;AA&#39;); Other useful APIs: indexOf, includes, lastIndexOf lst = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;a&#39;]; // indexOf console.log(lst.indexOf(&#39;a&#39;)); console.log(lst.indexOf(&#39;c&#39;)); // includes console.log(lst.includes(&#39;b&#39;)); console.log(lst.includes(&#39;d&#39;)); // lastIndexOf console.log(lst.indexOf(&#39;a&#39;)); console.log(lst.lastIndexOf(&#39;a&#39;)); Callback function: a function inside an api; it is applied to every single element of an array that is passed into the api. eg) forEach (callbackfn: (value: T, index: number, array: readonly T[]) =&amp;gt; void, thisArg?: any): void A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array. Performs the specified action for each element in an array. interpretation: accepts 2 parametres; a call back function and a thisArg, the question mark after ‘thisArg’ means that it is not necessary.">
+  
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:title" content="Javascript Stuff">
+  <meta name="twitter:description" content="Javascript Arrays Iterating over an array. const lst = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]; // 1. for for (let i = 0; i &amp;lt; lst.length; i++) { console.log(lst[i]); } // 2. for of for (let ...">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700&amp;display=swap" rel="stylesheet">
+
+  
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-156930914-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Young Jin&#39;s blog</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://github.com/">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+      <h1 class="post-title" itemprop="name headline">Javascript Stuff</h1>
+    
+    <p class="post-meta"><time datetime="2020-09-04T00:00:00+00:00" itemprop="datePublished">Sep 4, 2020</time> •
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+        <a href="/categories/javascript/">JavaScript</a> (10)
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  
+
+
+
+
+</p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h4><u><b> Javascript Arrays </b></u></h4>
+
+<ol>
+  <li>Iterating over an array.</li>
+</ol>
+<pre>
+    const lst = ['a', 'b', 'c'];
+
+    // 1. for
+    for (let i = 0; i &lt; lst.length; i++) {
+        console.log(lst[i]);
+    }
+
+    // 2. for of
+    for (let item of lst) {
+        console.log(item);
+    }
+
+    // 3. forEach
+    lst.forEach(function (item, index, lst){
+        console.log(item, index);
+    });
+
+    // 3.1 forEach: 'lst' not needed.
+    lst.forEach(function (item, index){
+        console.log(item, index);
+    });
+
+    // 3.2 forEach: simpler
+    lst.forEach((item, index) =&gt; {
+        console.log(item, index);
+    });
+
+    // 3.3 forEach: simpler
+    lst.forEach((item, index) =&gt; console.log(item, index));
+
+    // 3.4 forEach: simpler
+    lst.forEach((item, index) =&gt; console.log(item));
+</pre>
+
+<ol>
+  <li>Removing an item from an array by index position</li>
+</ol>
+
+<ul>
+  <li>syntax: list.splice(index position, number of times to remove at the index(by default it removes til the end), new data to put in at that index)</li>
+</ul>
+<pre>
+    lst = [];
+    lst.push('a','b','c','d');
+    console.log(lst);
+    lst.splice(1,2,'B','C');
+    console.log(lst);
+
+    // output: ['a','B','C','d'];
+
+    // if you dont want to remove but insert at a certain index, put 0.
+    lst.splice(1, 0, 'A', 'AA');
+</pre>
+
+<ol>
+  <li>Other useful APIs: indexOf, includes, lastIndexOf</li>
+</ol>
+
+<pre>
+    lst = ['a', 'b', 'c', 'd', 'a'];
+
+    // indexOf
+    console.log(lst.indexOf('a'));
+    console.log(lst.indexOf('c'));
+
+    // includes
+    console.log(lst.includes('b'));
+    console.log(lst.includes('d'));
+
+    // lastIndexOf
+    console.log(lst.indexOf('a'));
+    console.log(lst.lastIndexOf('a'));
+</pre>
+
+<ul>
+  <li>Callback function: a function inside an api; it is applied to every single element of an array that is passed into the api.</li>
+</ul>
+
+<p>eg) forEach (callbackfn: (value: T, index: number, array: readonly T[]) =&gt; void, thisArg?: any): void</p>
+
+<ul>
+  <li>A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array.</li>
+  <li>Performs the specified action for each element in an array.</li>
+  <li>interpretation: accepts 2 parametres; a call back function and a thisArg, the question mark after ‘thisArg’ means that it is not necessary.</li>
+</ul>
+
+  </div>
+
+  
+
+</article>
+
+      </div>
+    </main>
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy; Young Jin Lee 
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,2450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <generator uri="http://jekyllrb.com" version="4.1.1">Jekyll</generator>
+  
+  
+  <link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" />
+  <updated>2020-12-03T09:52:33+00:00</updated>
+  <id>http://localhost:4000//</id>
+
+  
+    <title type="html">Young Jin’s blog</title>
+  
+
+  
+    <subtitle>Minimal, responsive Jekyll theme for hackers.</subtitle>
+  
+
+  
+    <author>
+        <name>Young Jin Lee</name>
+      
+      
+    </author>
+  
+
+  
+  
+    <entry>
+      
+      <title type="html">Keys</title>
+      
+      
+      <link href="http://localhost:4000/2020/10/20/database(1)_keys/" rel="alternate" type="text/html" title="Keys" />
+      
+      <published>2020-10-20T00:00:00+00:00</published>
+      <updated>2020-10-20T00:00:00+00:00</updated>
+      <id>http://localhost:4000/2020/10/20/database(1)_keys</id>
+      <content type="html" xml:base="http://localhost:4000/2020/10/20/database(1)_keys/">&lt;h4&gt;1. 데이터베이스 키란?&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;데이터베이스 테이블에서 레코드(튜플)를 구별할 수 있는 유니크한 기준이 되는 Attribute(속성)이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;2. 키 종류&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Primary Key(PK, 기본키)
+– 고유한 값
+– NULL 값을 가지면 안됨
+– 변경될 가능성이 낮은(없는) 속성
+– 작은 정수 값이나 짧은 문자열이 적합(검색 속도)
+– 테이블 당 기본키는 한 개만 존재
+– 테이블에 기본 키가 없을 수는 있으나, 반복적이고 일관성 없는 데이터들이 쌓여 뭔가 내가 원하는 데이터를 추출하기 위해 명령을 내리면 이를 수행하는 속도가 느릴 수 있고 다양한 문제를 일으킬 수 있다. 따라서 모든 테이블에 기본키를 둔다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Candidate Key, Alternate Key (후보 키, 대체 키)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;복합 키&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;슈퍼 키&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;나머지 키&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;외래 키&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;인조 키&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;대리 키&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Young Jin Lee</name>
+          
+          
+        </author>
+      
+
+      
+        <category term="database" />
+      
+
+      
+
+      
+        <summary type="html">1. 데이터베이스 키란? 데이터베이스 테이블에서 레코드(튜플)를 구별할 수 있는 유니크한 기준이 되는 Attribute(속성)이다. 2. 키 종류 Primary Key(PK, 기본키) – 고유한 값 – NULL 값을 가지면 안됨 – 변경될 가능성이 낮은(없는) 속성 – 작은 정수 값이나 짧은 문자열이 적합(검색 속도) – 테이블 당 기본키는 한 개만 존재 – 테이블에 기본 키가 없을 수는 있으나, 반복적이고 일관성 없는 데이터들이 쌓여 뭔가 내가 원하는 데이터를 추출하기 위해 명령을 내리면 이를 수행하는 속도가 느릴 수 있고 다양한 문제를 일으킬 수 있다. 따라서 모든 테이블에 기본키를 둔다. Candidate Key, Alternate Key (후보 키, 대체 키) 복합 키 슈퍼 키 나머지 키 외래 키 인조 키 대리 키</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">Visual Studio tips</title>
+      
+      
+      <link href="http://localhost:4000/2020/10/20/VisualStudio/" rel="alternate" type="text/html" title="Visual Studio tips" />
+      
+      <published>2020-10-20T00:00:00+00:00</published>
+      <updated>2020-10-20T00:00:00+00:00</updated>
+      <id>http://localhost:4000/2020/10/20/VisualStudio</id>
+      <content type="html" xml:base="http://localhost:4000/2020/10/20/VisualStudio/">&lt;h4&gt;1. Useful extensions to install&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Material theme  : 작업 환경 테마&lt;/li&gt;
+  &lt;li&gt;Material icon theme : 파일종류별 예쁜 아이콘으로 구분&lt;/li&gt;
+  &lt;li&gt;Prettier : 코드 자동 정렬&lt;/li&gt;
+  &lt;li&gt;bracket pair colorizer : 괄호별로 색상&lt;/li&gt;
+  &lt;li&gt;indent-rainbow : 들여쓰기 색상 표시&lt;/li&gt;
+  &lt;li&gt;Auto rename tag : 열린태그 닫힌태그 동시 수정&lt;/li&gt;
+  &lt;li&gt;CSS PEEK : HTML에서 적용된 CSS 바로 찾아줌 (해당 태그 컨트롤키 누르고 클릭)&lt;/li&gt;
+  &lt;li&gt;HTML CSS SUPPORT : 만들어놓은 CSS 자동 완성해서 적용가능&lt;/li&gt;
+  &lt;li&gt;LIVE SERVER : 내가 만든 프로젝트 가상의 웹 공간(로컬)에서 확인 가능
+    &lt;ul&gt;
+      &lt;li&gt;ctrl / command + shift + p to launch live server
+※ 출처: 드림코딩 by 엘리&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Young Jin Lee</name>
+          
+          
+        </author>
+      
+
+      
+        <category term="TextEditors" />
+      
+
+      
+
+      
+        <summary type="html">1. Useful extensions to install Material theme : 작업 환경 테마 Material icon theme : 파일종류별 예쁜 아이콘으로 구분 Prettier : 코드 자동 정렬 bracket pair colorizer : 괄호별로 색상 indent-rainbow : 들여쓰기 색상 표시 Auto rename tag : 열린태그 닫힌태그 동시 수정 CSS PEEK : HTML에서 적용된 CSS 바로 찾아줌 (해당 태그 컨트롤키 누르고 클릭) HTML CSS SUPPORT : 만들어놓은 CSS 자동 완성해서 적용가능 LIVE SERVER : 내가 만든 프로젝트 가상의 웹 공간(로컬)에서 확인 가능 ctrl / command + shift + p to launch live server ※ 출처: 드림코딩 by 엘리</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">AWS IAM</title>
+      
+      
+      <link href="http://localhost:4000/2020/10/01/html/" rel="alternate" type="text/html" title="AWS IAM" />
+      
+      <published>2020-10-01T00:00:00+00:00</published>
+      <updated>2020-10-01T00:00:00+00:00</updated>
+      <id>http://localhost:4000/2020/10/01/html</id>
+      <content type="html" xml:base="http://localhost:4000/2020/10/01/html/">&lt;h3&gt;Box, Item&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;BOX: header, footer, nav, aside, main, section, article: section 안에 들어가며, 재사용이 가능한, 혹은 반복되는 것을 묶어준 것, div: 다른 요소를 묶어서 스타일을 할때, span, form&lt;/li&gt;
+  &lt;li&gt;ITEM: a, button, input, label, img, video, audio, map, canvas, table&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Block, Inline&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;block level: 한줄에 하나(추가시 아래에 삽입)&lt;/li&gt;
+  &lt;li&gt;lnline: 공간이 허용하는 한 같은 행에 삽입(추가시 공간이 허용하면 옆에 삽입)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;&lt;span&gt;, &amp;lt;div&amp;gt;&lt;/span&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;div: block level&lt;/li&gt;
+  &lt;li&gt;span: inline level&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Grouping label and input&lt;/h3&gt;
+
+&lt;pre&gt;
+    &lt;label for=&quot;input_name&quot;&gt;Name: &lt;/label&gt;
+    &lt;input id=&quot;input_name&quot; type=&quot;text&quot; /&gt;
+&lt;/pre&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Young Jin Lee</name>
+          
+          
+        </author>
+      
+
+      
+        <category term="Aws" />
+      
+
+      
+
+      
+        <summary type="html">Box, Item BOX: header, footer, nav, aside, main, section, article: section 안에 들어가며, 재사용이 가능한, 혹은 반복되는 것을 묶어준 것, div: 다른 요소를 묶어서 스타일을 할때, span, form ITEM: a, button, input, label, img, video, audio, map, canvas, table Block, Inline block level: 한줄에 하나(추가시 아래에 삽입) lnline: 공간이 허용하는 한 같은 행에 삽입(추가시 공간이 허용하면 옆에 삽입) , &amp;lt;div&amp;gt; div: block level span: inline level Grouping label and input Name:</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">AWS IAM</title>
+      
+      
+      <link href="http://localhost:4000/2020/10/01/css/" rel="alternate" type="text/html" title="AWS IAM" />
+      
+      <published>2020-10-01T00:00:00+00:00</published>
+      <updated>2020-10-01T00:00:00+00:00</updated>
+      <id>http://localhost:4000/2020/10/01/css</id>
+      <content type="html" xml:base="http://localhost:4000/2020/10/01/css/">&lt;h3&gt;Cascading&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Author Style&lt;/li&gt;
+  &lt;li&gt;User Style&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Browser&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;!important는 cascading 의 순서를 무시한다. 가능하면 안쓰는게 좋음. 쓴다는건 뭔가 체계가 잘못되었다는것…일수도&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Selectors&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;universal: *&lt;/li&gt;
+  &lt;li&gt;type: Tag&lt;/li&gt;
+  &lt;li&gt;ID: #id&lt;/li&gt;
+  &lt;li&gt;Class : .class&lt;/li&gt;
+  &lt;li&gt;State: tag옆에 state&lt;/li&gt;
+  &lt;li&gt;Attribute: []&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Young Jin Lee</name>
+          
+          
+        </author>
+      
+
+      
+        <category term="Aws" />
+      
+
+      
+
+      
+        <summary type="html">Cascading Author Style User Style Browser !important는 cascading 의 순서를 무시한다. 가능하면 안쓰는게 좋음. 쓴다는건 뭔가 체계가 잘못되었다는것…일수도 Selectors universal: * type: Tag ID: #id Class : .class State: tag옆에 state Attribute: []</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">AWS IAM</title>
+      
+      
+      <link href="http://localhost:4000/2020/10/01/aws_iam/" rel="alternate" type="text/html" title="AWS IAM" />
+      
+      <published>2020-10-01T00:00:00+00:00</published>
+      <updated>2020-10-01T00:00:00+00:00</updated>
+      <id>http://localhost:4000/2020/10/01/aws_iam</id>
+      <content type="html" xml:base="http://localhost:4000/2020/10/01/aws_iam/">&lt;h3&gt;AWS IAM(Identity Access Management) OVERVIEW&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;What is IAM?
+    &lt;ul&gt;
+      &lt;li&gt;is a permission system that regulates access to AWS resources&lt;/li&gt;
+      &lt;li&gt;assigns permission to groups of users&lt;/li&gt;
+      &lt;li&gt;monitors or audits access to resources using AWS CloudTrail&lt;/li&gt;
+      &lt;li&gt;integrates with other Identity Tech (Microsoft ActiveDirectory)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;How IAM works&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;4 key concepts: Users Groups, Roles, and Policies/Permissions&lt;/li&gt;
+  &lt;li&gt;Users: Specific individuals, can receive personal logins&lt;/li&gt;
+  &lt;li&gt;Groups: Collection of users&lt;/li&gt;
+  &lt;li&gt;Roles: Collection of policies (DB Read, DB Write)&lt;/li&gt;
+  &lt;li&gt;Policies: Low level permission to resources (Allow or Deny)&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Young Jin Lee</name>
+          
+          
+        </author>
+      
+
+      
+        <category term="Aws" />
+      
+
+      
+
+      
+        <summary type="html">AWS IAM(Identity Access Management) OVERVIEW What is IAM? is a permission system that regulates access to AWS resources assigns permission to groups of users monitors or audits access to resources using AWS CloudTrail integrates with other Identity Tech (Microsoft ActiveDirectory) How IAM works 4 key concepts: Users Groups, Roles, and Policies/Permissions Users: Specific individuals, can receive personal logins Groups: Collection of users Roles: Collection of policies (DB Read, DB Write) Policies: Low level permission to resources (Allow or Deny)</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">Javascript Stuff</title>
+      
+      
+      <link href="http://localhost:4000/2020/09/11/python_multiprocessing/" rel="alternate" type="text/html" title="Javascript Stuff" />
+      
+      <published>2020-09-11T00:00:00+00:00</published>
+      <updated>2020-09-11T00:00:00+00:00</updated>
+      <id>http://localhost:4000/2020/09/11/python_multiprocessing</id>
+      <content type="html" xml:base="http://localhost:4000/2020/09/11/python_multiprocessing/">&lt;h4&gt;&lt;u&gt;&lt;b&gt; Python Multi-processing &lt;/b&gt;&lt;/u&gt;&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Pool
+    &lt;ul&gt;
+      &lt;li&gt;syntax: with Pool(number of processes) as p:&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;You can use a for loop to apply something to all elements in a list.&lt;/p&gt;
+&lt;pre&gt;
+    from multiprocessing import Pool
+
+    def f(x):
+        return x*x
+
+    if __name__ == '__main__':
+        with Pool(2) as p:
+            print(p.map(f, [1, 2, 3]))
+    # output: [1,4,9]
+&lt;/pre&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Young Jin Lee</name>
+          
+          
+        </author>
+      
+
+      
+        <category term="Python" />
+      
+
+      
+
+      
+        <summary type="html">Python Multi-processing Pool syntax: with Pool(number of processes) as p: You can use a for loop to apply something to all elements in a list. from multiprocessing import Pool def f(x): return x*x if __name__ == '__main__': with Pool(2) as p: print(p.map(f, [1, 2, 3])) # output: [1,4,9]</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">Javascript Stuff</title>
+      
+      
+      <link href="http://localhost:4000/2020/09/11/python_map/" rel="alternate" type="text/html" title="Javascript Stuff" />
+      
+      <published>2020-09-11T00:00:00+00:00</published>
+      <updated>2020-09-11T00:00:00+00:00</updated>
+      <id>http://localhost:4000/2020/09/11/python_map</id>
+      <content type="html" xml:base="http://localhost:4000/2020/09/11/python_map/">&lt;h4&gt;&lt;u&gt;&lt;b&gt; Python stuff &lt;/b&gt;&lt;/u&gt;&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;map
+    &lt;ul&gt;
+      &lt;li&gt;syntax: map(function, iterable)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;You can use a for loop to apply something to all elements in a list.&lt;/p&gt;
+&lt;pre&gt;
+    a = [1.2, 2.5, 3.7, 4.6]
+    for i in range(len(a)):
+        a[i] = int(a[i])
+    print(a)
+    // output: [1,2,3,4]
+&lt;/pre&gt;
+
+&lt;p&gt;You can do exactly the same by using map. This is shorter and faster.&lt;/p&gt;
+&lt;pre&gt;
+    a = [1.2, 2.5, 3.7, 4.6]
+    a = list(map(int, a))
+    print(a)
+    # output: [1,2,3,4]
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;*args
+    &lt;ul&gt;
+      &lt;li&gt;args stands for arguments&lt;/li&gt;
+      &lt;li&gt;takes multiple arguments as elements of a tuple.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    def myFunc(*args):
+        print(args)
+
+    myFunc(10, 20, 'a')
+    # output: (10, 20, 'a')
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If you want to pass a list and recieve it as a tuple, add an * in front of the list variable.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;
+    def myFunc(*args):
+        print(args)
+
+    lst = [10, 20, 'a']
+    myFunc(*lst)
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;**kwargs
+    &lt;ul&gt;
+      &lt;li&gt;kwargs stands for keyword arguments&lt;/li&gt;
+      &lt;li&gt;takes ‘x=y’ form of arguments as a dictionary.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    def myFunc(*args, **kwargs):
+        print(args)
+        print(kwargs)
+    myFunc(10, 20,'a', x=100, y=200, z='b')
+    # output: (10, 20, 'a')
+    #         {'x': 100, 'y': 200, 'z': 'b'}
+&lt;/pre&gt;
+
+&lt;pre&gt;
+    def myFunc(*args, **kwargs):
+        print(args)
+        print(kwargs)
+    p1 = [10, 20, 'a']
+    myFunc(*p1,x=100, y=200, z='b')
+
+    # output: (10, 20, 'a')
+    #         {'x': 100, 'y': 200, 'z': 'b'}
+&lt;/pre&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Young Jin Lee</name>
+          
+          
+        </author>
+      
+
+      
+        <category term="Python" />
+      
+
+      
+
+      
+        <summary type="html">Python stuff map syntax: map(function, iterable) You can use a for loop to apply something to all elements in a list. a = [1.2, 2.5, 3.7, 4.6] for i in range(len(a)): a[i] = int(a[i]) print(a) // output: [1,2,3,4] You can do exactly the same by using map. This is shorter and faster. a = [1.2, 2.5, 3.7, 4.6] a = list(map(int, a)) print(a) # output: [1,2,3,4] *args args stands for arguments takes multiple arguments as elements of a tuple. def myFunc(*args): print(args) myFunc(10, 20, 'a') # output: (10, 20, 'a') If you want to pass a list and recieve it as a tuple, add an * in front of the list variable. def myFunc(*args): print(args) lst = [10, 20, 'a'] myFunc(*lst) **kwargs kwargs stands for keyword arguments takes ‘x=y’ form of arguments as a dictionary. def myFunc(*args, **kwargs): print(args) print(kwargs) myFunc(10, 20,'a', x=100, y=200, z='b') # output: (10, 20, 'a') # {'x': 100, 'y': 200, 'z': 'b'} def myFunc(*args, **kwargs): print(args) print(kwargs) p1 = [10, 20, 'a'] myFunc(*p1,x=100, y=200, z='b') # output: (10, 20, 'a') # {'x': 100, 'y': 200, 'z': 'b'}</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">Javascript Stuff</title>
+      
+      
+      <link href="http://localhost:4000/2020/09/05/js(11)_-callback/" rel="alternate" type="text/html" title="Javascript Stuff" />
+      
+      <published>2020-09-05T00:00:00+00:00</published>
+      <updated>2020-09-05T00:00:00+00:00</updated>
+      <id>http://localhost:4000/2020/09/05/js(11)_%20callback</id>
+      <content type="html" xml:base="http://localhost:4000/2020/09/05/js(11)_-callback/">&lt;h4&gt;&lt;u&gt;&lt;b&gt; Javascript Callback &lt;/b&gt;&lt;/u&gt;&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Young Jin Lee</name>
+          
+          
+        </author>
+      
+
+      
+        <category term="JavaScript" />
+      
+
+      
+
+      
+        <summary type="html">Javascript Callback</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">Javascript Stuff</title>
+      
+      
+      <link href="http://localhost:4000/2020/09/04/js_stuff/" rel="alternate" type="text/html" title="Javascript Stuff" />
+      
+      <published>2020-09-04T00:00:00+00:00</published>
+      <updated>2020-09-04T00:00:00+00:00</updated>
+      <id>http://localhost:4000/2020/09/04/js_stuff</id>
+      <content type="html" xml:base="http://localhost:4000/2020/09/04/js_stuff/">&lt;h4&gt;&lt;u&gt;&lt;b&gt; Javascript Stuff &lt;/b&gt;&lt;/u&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;NOTE&lt;/li&gt;
+  &lt;li&gt;functions are treated like any other variable&lt;/li&gt;
+  &lt;li&gt;can be assigned as a value to variable&lt;/li&gt;
+  &lt;li&gt;can be passed as an argument to other functions&lt;/li&gt;
+  &lt;li&gt;can be returned by another function&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;How to deal with subset dropdown menus
+    &lt;ul&gt;
+      &lt;li&gt;HTML&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+     &lt;div style=&quot;float: left; margin-bottom: 10px;&quot;&gt;
+		&lt;form name=&quot;itFrm&quot;&gt;
+			&lt;select id=&quot;group1&quot; data-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot; onchange=&quot;getGroup2List(this.value,'')&quot;&gt;
+				&lt;option value=&quot;&quot;&gt;&lt;/option&gt;
+				&lt;c:forEach items=&quot;${group1List}&quot; var=&quot;group1Item&quot;&gt;
+					&lt;option data-grp1-id=&quot;${group1Item.grp1Id}&quot; value=&quot;${group1Item.grp1Nm}&quot;&gt;
+                        ${group1Item.grp1Nm}
+                    &lt;/option&gt;
+				&lt;/c:forEach&gt;
+			&lt;/select&gt;
+			&lt;select id=&quot;group2&quot; data-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;
+				&lt;option value=&quot;&quot;&gt;&lt;/option&gt;
+			&lt;/select&gt;
+		    &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot; onclick=&quot;frmSbmt(); return false;&quot; style=&quot;margin-top:-10px&quot;&gt;Search&lt;/button&gt;
+	    &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;JS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;
+    function getGroupList(parent){ 
+        $.ajax({
+            url      : &quot;group/getGroupList&quot;,
+            data : {
+                &quot;parent&quot; : parent
+            },
+            dataType : &quot;json&quot;,
+            cache    : false,
+            method     : &quot;GET&quot;,
+        }).done(function(data){
+            $(&quot;#group2 option&quot;).not(&quot;:first&quot;).remove(); // 초기화
+            if(data.groupList.length &amp;gt; 0){
+                var html ='';
+                $.each(data.groupList, function(index, val) {
+                    html +=	'&lt;option data-grp-cd=&quot;+ val.grp2Cd+&quot; value=&quot;+val.grp2Nm+&quot; selected=&quot;&quot;&gt;'
+                         +  val.grp2Nm+'&lt;/option&gt;';
+                });
+                $(&quot;#group2&quot;).append(html);
+            } else {							  // 존재하지 않음	
+            }
+        }); 
+    }
+&lt;/pre&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Young Jin Lee</name>
+          
+          
+        </author>
+      
+
+      
+        <category term="JavaScript" />
+      
+
+      
+
+      
+        <summary type="html">Javascript Stuff NOTE functions are treated like any other variable can be assigned as a value to variable can be passed as an argument to other functions can be returned by another function How to deal with subset dropdown menus HTML ${group1Item.grp1Nm} Search JS function getGroupList(parent){ $.ajax({ url : &quot;group/getGroupList&quot;, data : { &quot;parent&quot; : parent }, dataType : &quot;json&quot;, cache : false, method : &quot;GET&quot;, }).done(function(data){ $(&quot;#group2 option&quot;).not(&quot;:first&quot;).remove(); // 초기화 if(data.groupList.length &amp;gt; 0){ var html =''; $.each(data.groupList, function(index, val) { html += '' + val.grp2Nm+''; }); $(&quot;#group2&quot;).append(html); } else { // 존재하지 않음 } }); }</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">Javascript Stuff</title>
+      
+      
+      <link href="http://localhost:4000/2020/09/04/js(9)_-array-apis/" rel="alternate" type="text/html" title="Javascript Stuff" />
+      
+      <published>2020-09-04T00:00:00+00:00</published>
+      <updated>2020-09-04T00:00:00+00:00</updated>
+      <id>http://localhost:4000/2020/09/04/js(9)_%20array-apis</id>
+      <content type="html" xml:base="http://localhost:4000/2020/09/04/js(9)_-array-apis/">&lt;h4&gt;&lt;u&gt;&lt;b&gt; Javascript Array APIs Problems &lt;/b&gt;&lt;/u&gt;&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Make a string out of an array&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+        /**
+        * Adds all the elements of an array separated by the specified separator string.
+        * @param separator A string used to separate one element of an array from the next in the resulting String. If omitted, the array elements are separated with a comma.
+        */
+        join(separator?: string): string;
+        
+    {
+        const fruits = ['apple', 'banana', 'orange'];
+        const result = fruits.join(',');
+        console.log(typeof(result), result);
+        // output: string, apple,banana,orange
+    }
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Make an array out of a string&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    /**
+     * Split a string into substrings using the specified separator and return them as an array.
+     * @param separator A string that identifies character or characters to use in separating the string. If omitted, a single-element array containing the entire string is returned.
+     * @param limit A value used to limit the number of elements returned in the array.
+     */
+    // split(separator: string | RegExp, limit?: number): string[];
+
+  {
+    const fruits = '🍎, 🥝, 🍌, 🍒';
+    const result = fruits.split(',',3);
+    console.log(result);
+    //output: [&quot;🍎&quot;, &quot; 🥝&quot;, &quot; 🍌&quot;]
+  }
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Make [1, 2, 3, 4, 5] look like [5, 4, 3, 2, 1]&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    /**
+     * Reverses the elements in an Array.
+     */
+    //reverse(): T[];
+  {
+    const array = [1, 2, 3, 4, 5];
+    const result = array.reverse();
+    console.log(array);
+    // output: [5, 4, 3, 2, 1]
+  }
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Make a new array without the first two elements.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    /**
+     * Returns a section of an array.
+     * @param start The beginning of the specified portion of the array.
+     * @param end The end of the specified portion of the array. This is exclusive of the element at the index 'end'.
+     */
+    //slice(start?: number, end?: number): T[];
+  {
+    const array = [1, 2, 3, 4, 5];
+    const result = array.slice(2, 5);
+    console.log(result);
+    // output: [3, 4, 5]
+  }
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Below class ‘Student’ is for problem 5 ~ 10&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;
+  class Student {
+    constructor(name, age, enrolled, score) {
+      this.name = name;
+      this.age = age;
+      this.enrolled = enrolled;
+      this.score = score;
+    }
+  }
+  const students = [
+    new Student('A', 29, true, 45),
+    new Student('B', 28, false, 80),
+    new Student('C', 30, true, 90),
+    new Student('D', 40, false, 66),
+    new Student('E', 18, true, 88),
+  ];
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Find the student with the score 90&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+  /**
+     * Returns the value of the first element in the array where predicate is true, and undefined
+     * otherwise.
+     * @param predicate find calls predicate once for each element of the array, in ascending
+     * order, until it finds one where predicate returns true. If such an element is found, find
+     * immediately returns that element value. Otherwise, find returns undefined.
+     * @param thisArg If provided, it will be used as the this value for each invocation of
+     * predicate. If it is not provided, undefined is used instead.
+     */
+    //find&lt;S extends=&quot;&quot; T=&quot;&quot;&gt;(predicate: (this: void, value: T, index: number, obj: T[]) =&amp;gt; value is S, thisArg?: any): S | undefined;
+    //find(predicate: (value: T, index: number, obj: T[]) =&amp;gt; unknown, thisArg?: any): T | undefined;
+  {
+      const result = students.find(function(student, index){
+          //console.log(student, index);
+          return student.score === 90;
+      });
+      console.log(result);
+      // output: Student {name: &quot;C&quot;, age: 30, enrolled: true, score: 90}
+  }
+&amp;lt;/pre&amp;gt;
+
+* Simpler code
+- if statement in the callback function is one line, you can remove 'return', ';', '{}' and add =&amp;gt;.
+- if the fucntion is anomymous, you can remove 'function'.
+&lt;pre&gt;
+      const result = students.find((student)=&amp;gt;student.score === 90);
+      console.log(result);
+&lt;/pre&gt;
+
+6. Make an array of enrolled students
+&lt;pre&gt;
+    /**
+     * Returns the elements of an array that meet the condition specified in a callback function.
+     * @param callbackfn A function that accepts up to three arguments. The filter method calls the callbackfn function one time for each element in the array.
+     * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
+     */
+    //filter&lt;S extends=&quot;&quot; T=&quot;&quot;&gt;(callbackfn: (value: T, index: number, array: T[]) =&amp;gt; value is S, thisArg?: any): S[];
+  {
+      const result = students.filter((student) =&amp;gt; student.enrolled === true);
+      console.log(result);
+      // output: [Student, Student, Student] ... 
+  }
+&amp;lt;/pre&amp;gt;
+
+7. Make an array containing only the students' scores
+&lt;pre&gt;
+  // result should be: [45, 80, 90, 66, 88]
+  /**
+     * Calls a defined callback function on each element of an array, and returns an array that contains the results.
+     * @param callbackfn A function that accepts up to three arguments. The map method calls the callbackfn function one time for each element in the array.
+     * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
+     */
+    //map&lt;u&gt;(callbackfn: (value: T, index: number, array: T[]) =&amp;gt; U, thisArg?: any): U[];
+  {
+      const result = students.map((student)=&amp;gt;student.score);
+      console.log(result);
+      // output: [45, 80, 90, 66, 88]
+  }
+&amp;lt;/pre&amp;gt;
+
+8. check if there is a student with the score lower than 50
+&lt;pre&gt;
+    /**
+     * Determines whether the specified callback function returns true for any element of an array.
+     * @param callbackfn A function that accepts up to three arguments. The some method calls
+     * the callbackfn function for each element in the array until the callbackfn returns a value
+     * which is coercible to the Boolean value true, or until the end of the array.
+     * @param thisArg An object to which the this keyword can refer in the callbackfn function.
+     * If thisArg is omitted, undefined is used as the this value.
+     */
+    //some(callbackfn: (value: T, index: number, array: T[]) =&amp;gt; unknown, thisArg?: any): boolean;
+  {
+      const result = students.some((student) =&amp;gt; student.score&amp;lt;50);
+      console.log(result);
+      // output: true
+
+      const result2 = students.every((student) =&amp;gt; student.score&amp;lt;50);
+      console.log(result2);
+      // output:
+  }
+&lt;/pre&gt;
+  
+9. Compute students' average score
+&lt;pre&gt;
+    /**
+     * Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
+     * @param callbackfn A function that accepts up to four arguments. The reduce method calls the callbackfn function one time for each element in the array.
+     * @param initialValue If initialValue is specified, it is used as the initial value to start the accumulation. The first call to the callbackfn function provides this value as an argument instead of an array value.
+     */
+    //reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) =&amp;gt; T): T;
+    //reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) =&amp;gt; T, initialValue: T): T;
+  {
+      const result = students.reduce((prev, curr) =&amp;gt; {
+          //console.log(prev, curr.score); 
+          return prev+curr.score;
+      }, 0); // 0 for the inital value
+      console.log(result/students.length);
+      
+      const result2 = students.reduce((prev, curr) =&amp;gt; prev+curr.score, 0);
+      console.log(result2/students.length);
+
+      // output: 73.8
+  }
+&lt;/pre&gt;
+
+10. Make a string containing all the scores that are greater than 50
+&lt;pre&gt;
+  // result should be: '45, 80, 90, 66, 88'
+  {
+      const result = students
+        .map((student)=&amp;gt; student.score)
+        .filter(score =&amp;gt; score &amp;gt;= 50)
+        .join();
+      console.log(result);
+  }
+&lt;/pre&gt;
+
+- Bonus! do Q10 sorted in ascending order
+&lt;pre&gt;
+  // result should be: '45, 66, 80, 88, 90'
+  /**
+     * Sorts an array.
+     * @param compareFn Function used to determine the order of the elements. It is expected to return
+     * a negative value if first argument is less than second argument, zero if they're equal and a positive
+     * value otherwise. If omitted, the elements are sorted in ascending, ASCII character order.
+     * ```ts
+     * [11,2,22,1].sort((a, b) =&amp;gt; a - b)
+     * ```
+     */
+    //sort(compareFn?: (a: T, b: T) =&amp;gt; number): this;
+  {
+    const result = students
+        .map((student)=&amp;gt;student.score)
+        .sort((a,b)=&amp;gt;b-a)
+        .join();
+    console.log(result);
+    // output: 90,88,80,66,45
+  }
+&lt;/pre&gt;
+&lt;/u&gt;&lt;/pre&gt;&lt;/S&gt;&lt;/pre&gt;&lt;/S&gt;&lt;/pre&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Young Jin Lee</name>
+          
+          
+        </author>
+      
+
+      
+        <category term="JavaScript" />
+      
+
+      
+
+      
+        <summary type="html">Javascript Array APIs Problems Make a string out of an array /** * Adds all the elements of an array separated by the specified separator string. * @param separator A string used to separate one element of an array from the next in the resulting String. If omitted, the array elements are separated with a comma. */ join(separator?: string): string; { const fruits = ['apple', 'banana', 'orange']; const result = fruits.join(','); console.log(typeof(result), result); // output: string, apple,banana,orange } Make an array out of a string /** * Split a string into substrings using the specified separator and return them as an array. * @param separator A string that identifies character or characters to use in separating the string. If omitted, a single-element array containing the entire string is returned. * @param limit A value used to limit the number of elements returned in the array. */ // split(separator: string | RegExp, limit?: number): string[]; { const fruits = '🍎, 🥝, 🍌, 🍒'; const result = fruits.split(',',3); console.log(result); //output: [&quot;🍎&quot;, &quot; 🥝&quot;, &quot; 🍌&quot;] } Make [1, 2, 3, 4, 5] look like [5, 4, 3, 2, 1] /** * Reverses the elements in an Array. */ //reverse(): T[]; { const array = [1, 2, 3, 4, 5]; const result = array.reverse(); console.log(array); // output: [5, 4, 3, 2, 1] } Make a new array without the first two elements. /** * Returns a section of an array. * @param start The beginning of the specified portion of the array. * @param end The end of the specified portion of the array. This is exclusive of the element at the index 'end'. */ //slice(start?: number, end?: number): T[]; { const array = [1, 2, 3, 4, 5]; const result = array.slice(2, 5); console.log(result); // output: [3, 4, 5] } Below class ‘Student’ is for problem 5 ~ 10 class Student { constructor(name, age, enrolled, score) { this.name = name; this.age = age; this.enrolled = enrolled; this.score = score; } } const students = [ new Student('A', 29, true, 45), new Student('B', 28, false, 80), new Student('C', 30, true, 90), new Student('D', 40, false, 66), new Student('E', 18, true, 88), ]; Find the student with the score 90 /** * Returns the value of the first element in the array where predicate is true, and undefined * otherwise. * @param predicate find calls predicate once for each element of the array, in ascending * order, until it finds one where predicate returns true. If such an element is found, find * immediately returns that element value. Otherwise, find returns undefined. * @param thisArg If provided, it will be used as the this value for each invocation of * predicate. If it is not provided, undefined is used instead. */ //find(predicate: (this: void, value: T, index: number, obj: T[]) =&amp;gt; value is S, thisArg?: any): S | undefined; //find(predicate: (value: T, index: number, obj: T[]) =&amp;gt; unknown, thisArg?: any): T | undefined; { const result = students.find(function(student, index){ //console.log(student, index); return student.score === 90; }); console.log(result); // output: Student {name: &quot;C&quot;, age: 30, enrolled: true, score: 90} } &amp;lt;/pre&amp;gt; * Simpler code - if statement in the callback function is one line, you can remove 'return', ';', '{}' and add =&amp;gt;. - if the fucntion is anomymous, you can remove 'function'. const result = students.find((student)=&amp;gt;student.score === 90); console.log(result); 6. Make an array of enrolled students /** * Returns the elements of an array that meet the condition specified in a callback function. * @param callbackfn A function that accepts up to three arguments. The filter method calls the callbackfn function one time for each element in the array. * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value. */ //filter(callbackfn: (value: T, index: number, array: T[]) =&amp;gt; value is S, thisArg?: any): S[]; { const result = students.filter((student) =&amp;gt; student.enrolled === true); console.log(result); // output: [Student, Student, Student] ... } &amp;lt;/pre&amp;gt; 7. Make an array containing only the students' scores // result should be: [45, 80, 90, 66, 88] /** * Calls a defined callback function on each element of an array, and returns an array that contains the results. * @param callbackfn A function that accepts up to three arguments. The map method calls the callbackfn function one time for each element in the array. * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value. */ //map(callbackfn: (value: T, index: number, array: T[]) =&amp;gt; U, thisArg?: any): U[]; { const result = students.map((student)=&amp;gt;student.score); console.log(result); // output: [45, 80, 90, 66, 88] } &amp;lt;/pre&amp;gt; 8. check if there is a student with the score lower than 50 /** * Determines whether the specified callback function returns true for any element of an array. * @param callbackfn A function that accepts up to three arguments. The some method calls * the callbackfn function for each element in the array until the callbackfn returns a value * which is coercible to the Boolean value true, or until the end of the array. * @param thisArg An object to which the this keyword can refer in the callbackfn function. * If thisArg is omitted, undefined is used as the this value. */ //some(callbackfn: (value: T, index: number, array: T[]) =&amp;gt; unknown, thisArg?: any): boolean; { const result = students.some((student) =&amp;gt; student.score&amp;lt;50); console.log(result); // output: true const result2 = students.every((student) =&amp;gt; student.score&amp;lt;50); console.log(result2); // output: } 9. Compute students' average score /** * Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function. * @param callbackfn A function that accepts up to four arguments. The reduce method calls the callbackfn function one time for each element in the array. * @param initialValue If initialValue is specified, it is used as the initial value to start the accumulation. The first call to the callbackfn function provides this value as an argument instead of an array value. */ //reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) =&amp;gt; T): T; //reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) =&amp;gt; T, initialValue: T): T; { const result = students.reduce((prev, curr) =&amp;gt; { //console.log(prev, curr.score); return prev+curr.score; }, 0); // 0 for the inital value console.log(result/students.length); const result2 = students.reduce((prev, curr) =&amp;gt; prev+curr.score, 0); console.log(result2/students.length); // output: 73.8 } 10. Make a string containing all the scores that are greater than 50 // result should be: '45, 80, 90, 66, 88' { const result = students .map((student)=&amp;gt; student.score) .filter(score =&amp;gt; score &amp;gt;= 50) .join(); console.log(result); } - Bonus! do Q10 sorted in ascending order // result should be: '45, 66, 80, 88, 90' /** * Sorts an array. * @param compareFn Function used to determine the order of the elements. It is expected to return * a negative value if first argument is less than second argument, zero if they're equal and a positive * value otherwise. If omitted, the elements are sorted in ascending, ASCII character order. * ```ts * [11,2,22,1].sort((a, b) =&amp;gt; a - b) * ``` */ //sort(compareFn?: (a: T, b: T) =&amp;gt; number): this; { const result = students .map((student)=&amp;gt;student.score) .sort((a,b)=&amp;gt;b-a) .join(); console.log(result); // output: 90,88,80,66,45 }</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">Javascript Stuff</title>
+      
+      
+      <link href="http://localhost:4000/2020/09/04/js(8)_-arrays/" rel="alternate" type="text/html" title="Javascript Stuff" />
+      
+      <published>2020-09-04T00:00:00+00:00</published>
+      <updated>2020-09-04T00:00:00+00:00</updated>
+      <id>http://localhost:4000/2020/09/04/js(8)_%20arrays</id>
+      <content type="html" xml:base="http://localhost:4000/2020/09/04/js(8)_-arrays/">&lt;h4&gt;&lt;u&gt;&lt;b&gt; Javascript Arrays &lt;/b&gt;&lt;/u&gt;&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Iterating over an array.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    const lst = ['a', 'b', 'c'];
+
+    // 1. for
+    for (let i = 0; i &amp;lt; lst.length; i++) {
+        console.log(lst[i]);
+    }
+
+    // 2. for of
+    for (let item of lst) {
+        console.log(item);
+    }
+
+    // 3. forEach
+    lst.forEach(function (item, index, lst){
+        console.log(item, index);
+    });
+
+    // 3.1 forEach: 'lst' not needed.
+    lst.forEach(function (item, index){
+        console.log(item, index);
+    });
+
+    // 3.2 forEach: simpler
+    lst.forEach((item, index) =&amp;gt; {
+        console.log(item, index);
+    });
+
+    // 3.3 forEach: simpler
+    lst.forEach((item, index) =&amp;gt; console.log(item, index));
+
+    // 3.4 forEach: simpler
+    lst.forEach((item, index) =&amp;gt; console.log(item));
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Removing an item from an array by index position&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;syntax: list.splice(index position, number of times to remove at the index(by default it removes til the end), new data to put in at that index)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;
+    lst = [];
+    lst.push('a','b','c','d');
+    console.log(lst);
+    lst.splice(1,2,'B','C');
+    console.log(lst);
+
+    // output: ['a','B','C','d'];
+
+    // if you dont want to remove but insert at a certain index, put 0.
+    lst.splice(1, 0, 'A', 'AA');
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Other useful APIs: indexOf, includes, lastIndexOf&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;
+    lst = ['a', 'b', 'c', 'd', 'a'];
+
+    // indexOf
+    console.log(lst.indexOf('a'));
+    console.log(lst.indexOf('c'));
+
+    // includes
+    console.log(lst.includes('b'));
+    console.log(lst.includes('d'));
+
+    // lastIndexOf
+    console.log(lst.indexOf('a'));
+    console.log(lst.lastIndexOf('a'));
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Callback function: a function inside an api; it is applied to every single element of an array that is passed into the api.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;eg) forEach (callbackfn: (value: T, index: number, array: readonly T[]) =&amp;gt; void, thisArg?: any): void&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array.&lt;/li&gt;
+  &lt;li&gt;Performs the specified action for each element in an array.&lt;/li&gt;
+  &lt;li&gt;interpretation: accepts 2 parametres; a call back function and a thisArg, the question mark after ‘thisArg’ means that it is not necessary.&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Young Jin Lee</name>
+          
+          
+        </author>
+      
+
+      
+        <category term="JavaScript" />
+      
+
+      
+
+      
+        <summary type="html">Javascript Arrays Iterating over an array. const lst = ['a', 'b', 'c']; // 1. for for (let i = 0; i &amp;lt; lst.length; i++) { console.log(lst[i]); } // 2. for of for (let item of lst) { console.log(item); } // 3. forEach lst.forEach(function (item, index, lst){ console.log(item, index); }); // 3.1 forEach: 'lst' not needed. lst.forEach(function (item, index){ console.log(item, index); }); // 3.2 forEach: simpler lst.forEach((item, index) =&amp;gt; { console.log(item, index); }); // 3.3 forEach: simpler lst.forEach((item, index) =&amp;gt; console.log(item, index)); // 3.4 forEach: simpler lst.forEach((item, index) =&amp;gt; console.log(item)); Removing an item from an array by index position syntax: list.splice(index position, number of times to remove at the index(by default it removes til the end), new data to put in at that index) lst = []; lst.push('a','b','c','d'); console.log(lst); lst.splice(1,2,'B','C'); console.log(lst); // output: ['a','B','C','d']; // if you dont want to remove but insert at a certain index, put 0. lst.splice(1, 0, 'A', 'AA'); Other useful APIs: indexOf, includes, lastIndexOf lst = ['a', 'b', 'c', 'd', 'a']; // indexOf console.log(lst.indexOf('a')); console.log(lst.indexOf('c')); // includes console.log(lst.includes('b')); console.log(lst.includes('d')); // lastIndexOf console.log(lst.indexOf('a')); console.log(lst.lastIndexOf('a')); Callback function: a function inside an api; it is applied to every single element of an array that is passed into the api. eg) forEach (callbackfn: (value: T, index: number, array: readonly T[]) =&amp;gt; void, thisArg?: any): void A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array. Performs the specified action for each element in an array. interpretation: accepts 2 parametres; a call back function and a thisArg, the question mark after ‘thisArg’ means that it is not necessary.</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">Javascript Stuff</title>
+      
+      
+      <link href="http://localhost:4000/2020/09/04/js(7)_objects/" rel="alternate" type="text/html" title="Javascript Stuff" />
+      
+      <published>2020-09-04T00:00:00+00:00</published>
+      <updated>2020-09-04T00:00:00+00:00</updated>
+      <id>http://localhost:4000/2020/09/04/js(7)_objects</id>
+      <content type="html" xml:base="http://localhost:4000/2020/09/04/js(7)_objects/">&lt;h4&gt;&lt;u&gt;&lt;b&gt; Javascript Objects &lt;/b&gt;&lt;/u&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;one of the JS’s data types.&lt;/li&gt;
+  &lt;li&gt;a collection of related data and/or functionalities&lt;/li&gt;
+  &lt;li&gt;Nearly all objects in JS are instances of Objects.&lt;/li&gt;
+  &lt;li&gt;object = {key : value}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Object declaration&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+const obj1 = {}; // 'object literal' syntax
+const obj2 = New Object(); // 'object constructor' syntax
+
+functions print(person){
+    console.log(person.name);
+    console.log(person.age);
+}
+const a = {name:'a', age: 4};
+print(a);
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Dynamically adding/deleting Object properties&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    a.hasJob = true;
+    delete a.hasJob;
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Computed properties(==key)
+    &lt;ul&gt;
+      &lt;li&gt;keys should always be a string.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    console.log(a.name); // this is better,
+    console.log(a['name']); // than this.
+    a['hasJob'] = true; // use when assign a value to a key.
+    console.log(a.hasJob);
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Constructor Functions
+    &lt;ul&gt;
+      &lt;li&gt;when a number of objects with the same properties are needed, we can use constructor functions.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    const person1 = {name: 'bob', age: 2};
+    const person2 = {name: 'steve', age: 3}; // repeating, bad
+    const person3 = {name: 'jack', age: 3}; // repeating, bad
+    const person4 = new Person('dave', 4); // created using a constructor function, good
+
+    function Person(name, age){
+        this.name = name;
+        this.age = age;
+    }
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;‘in’ operator: checking property existence(key in obj)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    console.log('name' in person4);
+    console.log('kkk' in person4); // returns undefined
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;for..in vs for..of
+    &lt;ul&gt;
+      &lt;li&gt;for (key in obj)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    console.clear();
+    for (key in person4){
+        console.log(key);
+    }
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;for (value of iterable)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;
+const array = [1,2,3,4];
+for (value of array){
+    console.log(value);
+}
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Cloning
+    &lt;ul&gt;
+      &lt;li&gt;Object.assign(dest, [obj1, obj2, …])&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    const user = {name: 'dave', age: 20}; // ref1 pointing memory address x
+    const user2 = user; // ref2 which is identical to ref1 so that it points memory address x
+    user2.name = 'coder'; // IMPORTANT! ; this ALSO makes user.name 'coder'.
+    console.log(user); 
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;old way to copy and paste the value of a certain address.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;
+    const user3 = {};
+    for (key in user){
+        user3[key] = user[key];
+    }
+    console.clear();
+    console.log(user3);
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;modern way&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;
+    const user4 = Object.assign({}, user);
+    console.log(user4);
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Mixing objects&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;
+    const fruit1 = {color : 'red', calories: 20};
+    const fruit2 = {color : 'blue', size : 'big'};
+    const mixed = Object.assign({}, fruit1, fruit2);
+    console.log(mixed.color); // blue
+    console.log(mixed.size); // big
+    console.log(mixed.calories); // 20
+&lt;/pre&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Young Jin Lee</name>
+          
+          
+        </author>
+      
+
+      
+        <category term="JavaScript" />
+      
+
+      
+
+      
+        <summary type="html">Javascript Objects one of the JS’s data types. a collection of related data and/or functionalities Nearly all objects in JS are instances of Objects. object = {key : value} Object declaration const obj1 = {}; // 'object literal' syntax const obj2 = New Object(); // 'object constructor' syntax functions print(person){ console.log(person.name); console.log(person.age); } const a = {name:'a', age: 4}; print(a); Dynamically adding/deleting Object properties a.hasJob = true; delete a.hasJob; Computed properties(==key) keys should always be a string. console.log(a.name); // this is better, console.log(a['name']); // than this. a['hasJob'] = true; // use when assign a value to a key. console.log(a.hasJob); Constructor Functions when a number of objects with the same properties are needed, we can use constructor functions. const person1 = {name: 'bob', age: 2}; const person2 = {name: 'steve', age: 3}; // repeating, bad const person3 = {name: 'jack', age: 3}; // repeating, bad const person4 = new Person('dave', 4); // created using a constructor function, good function Person(name, age){ this.name = name; this.age = age; } ‘in’ operator: checking property existence(key in obj) console.log('name' in person4); console.log('kkk' in person4); // returns undefined for..in vs for..of for (key in obj) console.clear(); for (key in person4){ console.log(key); } for (value of iterable) const array = [1,2,3,4]; for (value of array){ console.log(value); } Cloning Object.assign(dest, [obj1, obj2, …]) const user = {name: 'dave', age: 20}; // ref1 pointing memory address x const user2 = user; // ref2 which is identical to ref1 so that it points memory address x user2.name = 'coder'; // IMPORTANT! ; this ALSO makes user.name 'coder'. console.log(user); old way to copy and paste the value of a certain address. const user3 = {}; for (key in user){ user3[key] = user[key]; } console.clear(); console.log(user3); modern way const user4 = Object.assign({}, user); console.log(user4); Mixing objects const fruit1 = {color : 'red', calories: 20}; const fruit2 = {color : 'blue', size : 'big'}; const mixed = Object.assign({}, fruit1, fruit2); console.log(mixed.color); // blue console.log(mixed.size); // big console.log(mixed.calories); // 20</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">Javascript Stuff</title>
+      
+      
+      <link href="http://localhost:4000/2020/09/04/js(6)_classes/" rel="alternate" type="text/html" title="Javascript Stuff" />
+      
+      <published>2020-09-04T00:00:00+00:00</published>
+      <updated>2020-09-04T00:00:00+00:00</updated>
+      <id>http://localhost:4000/2020/09/04/js(6)_classes</id>
+      <content type="html" xml:base="http://localhost:4000/2020/09/04/js(6)_classes/">&lt;h4&gt;&lt;u&gt;&lt;b&gt; Javascript classes and objects &lt;/b&gt;&lt;/u&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Object-oriented programming&lt;/li&gt;
+  &lt;li&gt;object: instance of a class&lt;/li&gt;
+  &lt;li&gt;introduced in ES6&lt;/li&gt;
+  &lt;li&gt;syntactical sugar over prototype-based inheritance.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Class declaration&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    class Person {
+        constructor(name, age){
+            this.name = name;
+            this.age = age;
+        }
+        speak(){
+            console.log(`${this.name}: hello!`);
+        }
+    }
+    const a = new Person('a', 20);
+    console.log(a.name);
+    console.log(a.age);
+    a.speak();
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Getters and Setters
+    &lt;ul&gt;
+      &lt;li&gt;사용자의 입력 값은 의미론적으로 맞지 않을 수 있기 때문에 직접 값을 설정하게 해서는 안된다.&lt;/li&gt;
+      &lt;li&gt;getter setter를 활용해 클래스 변수를 방어적으로 사용할 수 있다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    class User {
+        constructor(firstName, lastName, age){
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+        }
+        // need to make the returned variable different from the parametre by adding '_' otherwise, It will fall into an endless loop and reach the maximum call stack.
+        get age(){ // Once defined, 'this.age' does not get the value from the memory but calls this function. 
+            return this._age;
+        }
+        set age(value){ // Once defined, '= age;' does not change the value in the memory but calls this function.
+            this._age = value &amp;lt; 0 ? 0: value;
+        }
+    }
+    const user1 = new User('Steve', 'Jobs', -1);
+    console.log(user1.age);
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Fields (public private)
+    &lt;ul&gt;
+      &lt;li&gt;added recently&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    class Experiment{
+        publicField = 2;
+        #privateField = 0;
+    }
+    const experiment = new Experiment();
+    console.log(experiment.publicField);
+    console.log(experiment.privateField);
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Static
+    &lt;ul&gt;
+      &lt;li&gt;added very recently. study later&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Inheritance
+    &lt;ul&gt;
+      &lt;li&gt;a way for one class to extend another class&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    class Shape {
+        constructor(w,h,col){
+            this.width = w;
+            this.height = h;
+            this.color = col;
+        }
+        draw(){
+            console.log(`drawing ${this.color} color of`);
+        }
+        getArea(){
+            return width * this.height;
+        }
+    }
+
+    class Rectangle extends Shape{}
+    class Triangle extends Shape{
+        // OVERRIDING
+        draw(){
+            super.draw(); // calls draw() of parent.
+            console.log(&quot;^&quot;);
+        }
+        getArea(){
+            return (this.width * this.height) / 2;
+        }
+        toString(){ // overriding Object's method.
+            return `Triangle: color: ${this.color}`;
+        }
+    }
+    const rectangle = new Rectangle(20,20,'blue');
+    const triangle = new Triangle(20,20,'red');
+    rectangle.draw();
+    triangle.draw();
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Class checking: instanceOf&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    console.log(rectangle instanceof Rectangle);
+    console.log(triangle instanceof Rectangle);
+    console.log(triangle instanceof Shape);
+    console.log(triangle instanceof Object);
+&lt;/pre&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Young Jin Lee</name>
+          
+          
+        </author>
+      
+
+      
+        <category term="JavaScript" />
+      
+
+      
+
+      
+        <summary type="html">Javascript classes and objects Object-oriented programming object: instance of a class introduced in ES6 syntactical sugar over prototype-based inheritance. Class declaration class Person { constructor(name, age){ this.name = name; this.age = age; } speak(){ console.log(`${this.name}: hello!`); } } const a = new Person('a', 20); console.log(a.name); console.log(a.age); a.speak(); Getters and Setters 사용자의 입력 값은 의미론적으로 맞지 않을 수 있기 때문에 직접 값을 설정하게 해서는 안된다. getter setter를 활용해 클래스 변수를 방어적으로 사용할 수 있다. class User { constructor(firstName, lastName, age){ this.firstName = firstName; this.lastName = lastName; this.age = age; } // need to make the returned variable different from the parametre by adding '_' otherwise, It will fall into an endless loop and reach the maximum call stack. get age(){ // Once defined, 'this.age' does not get the value from the memory but calls this function. return this._age; } set age(value){ // Once defined, '= age;' does not change the value in the memory but calls this function. this._age = value &amp;lt; 0 ? 0: value; } } const user1 = new User('Steve', 'Jobs', -1); console.log(user1.age); Fields (public private) added recently class Experiment{ publicField = 2; #privateField = 0; } const experiment = new Experiment(); console.log(experiment.publicField); console.log(experiment.privateField); Static added very recently. study later Inheritance a way for one class to extend another class class Shape { constructor(w,h,col){ this.width = w; this.height = h; this.color = col; } draw(){ console.log(`drawing ${this.color} color of`); } getArea(){ return width * this.height; } } class Rectangle extends Shape{} class Triangle extends Shape{ // OVERRIDING draw(){ super.draw(); // calls draw() of parent. console.log(&quot;^&quot;); } getArea(){ return (this.width * this.height) / 2; } toString(){ // overriding Object's method. return `Triangle: color: ${this.color}`; } } const rectangle = new Rectangle(20,20,'blue'); const triangle = new Triangle(20,20,'red'); rectangle.draw(); triangle.draw(); Class checking: instanceOf console.log(rectangle instanceof Rectangle); console.log(triangle instanceof Rectangle); console.log(triangle instanceof Shape); console.log(triangle instanceof Object);</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">Javascript Stuff</title>
+      
+      
+      <link href="http://localhost:4000/2020/09/04/js(10)_-JSON/" rel="alternate" type="text/html" title="Javascript Stuff" />
+      
+      <published>2020-09-04T00:00:00+00:00</published>
+      <updated>2020-09-04T00:00:00+00:00</updated>
+      <id>http://localhost:4000/2020/09/04/js(10)_%20JSON</id>
+      <content type="html" xml:base="http://localhost:4000/2020/09/04/js(10)_-JSON/">&lt;h4&gt;&lt;u&gt;&lt;b&gt; Javascript JSON &lt;/b&gt;&lt;/u&gt;&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;HTTP
+    &lt;ul&gt;
+      &lt;li&gt;웹페이지/브라우저(클라이언트)가 어떻게 서버와 통신할 수 있는지 정의한 것&lt;/li&gt;
+      &lt;li&gt;클라이언트는 서버에게 요청(request)을 보내고, 서버는 클라이언트에게 응답(response)을 주는 방식으로 진행된다.&lt;/li&gt;
+      &lt;li&gt;HTTP에서 Hypertext는 hyperlink 뿐만아니라, 문서 이미지 등 다양한 파일을 의미한다.&lt;/li&gt;
+      &lt;li&gt;HTTP를 이용해서 서버에 데이터를 요청해서 받아올 수 있는 방법으로는 AJAX가 있다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;AJAX(Asynchoronous Javascript and XML)
+    &lt;ul&gt;
+      &lt;li&gt;웹페이지와 서버가 동적으로 데이터를 주고 받을 수 있게 하는 기술&lt;/li&gt;
+      &lt;li&gt;브라우저 api에서 제공하는 object 중 XHR(XMLHttpRequest) 혹은 fetch() API를 이용해 서버에게 데이터를 요청하고 받아올 수 있다.&lt;/li&gt;
+      &lt;li&gt;fetch() API는 최근에 나온 기술이며, IE에서 지원이 되지 않는다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;데이터를 주고 받을 때는 XML뿐 아니라 다양한 포맷을 사용할 수 있다. 대표로는 JSON&lt;/li&gt;
+  &lt;li&gt;AJAX, XHR에 ‘XML’이 들어간 이유:  MS OUTLOOK 개발 팀이 이를 개발할 당시 XML만을 써서 이름을 이렇게 지은 것 뿐이다.&lt;/li&gt;
+  &lt;li&gt;XML을 사용하면 불필요한 태그들이 포함되어 최근에는 데이터 통신 포맷으로 JSON이 보편화 되었다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;JSON(Javascript Object Notation)
+    &lt;ul&gt;
+      &lt;li&gt;simplest data interchange format&lt;/li&gt;
+      &lt;li&gt;lightweight text-based structure&lt;/li&gt;
+      &lt;li&gt;easy to read&lt;/li&gt;
+      &lt;li&gt;key-value pairs&lt;/li&gt;
+      &lt;li&gt;used for serialization and transmission of data between the network and the network connection&lt;/li&gt;
+      &lt;li&gt;independent from programming language and platform(C, C++, JAVA, Python, …)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;예시. 웹어플리케이션에 ‘사람’이라는 오브젝트가 있다면,&lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;이를 서버에 전송할때 이를 {key: value}의 string 타입으로 변환해서 서버에 전송하고,&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;서버에서 다시 ‘사람’을 받아올 때도 {key: value}의 string 타입으로 받아와서 object로 변환 후 브라우저에 출력한다.&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;JSON 핵심 2단계
+    &lt;ol&gt;
+      &lt;li&gt;serialize를 통해 object를 JSON string으로 변환하기&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;boolean, number, array 모두 string 으로 변환된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;
+    let json = JSON.stringify(true);
+    console.log(typeof(json), json);
+    // output: string, true
+
+    json = JSON.stringify(3);
+    console.log(typeof(json), json);
+    // output: string, 3
+
+    json = JSON.stringify(['apple', 'banana']);
+    console.log(typeof(json), json);
+    // output: string, [&quot;apple&quot;, &quot;banana&quot;]
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;object 내 JS에만 존재하는 타입(eg. Symbol)이나 메서드는 stringify 대상에서 제외된다.&lt;/li&gt;
+  &lt;li&gt;만약 선택적으로 값을 가지고 오고 싶다면 stringify 내 array 형태의 파라미터로 지정해서 넘겨준다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;
+    const person = {
+        name: 'Dave',
+        age : 10,
+        height: null,
+        birthDate: new Date(),
+        symbol: Symbol('id'),
+        walk: function() {
+            console.log(`${this.name} can walk!`);
+        },
+    };
+
+    json = JSON.stringify(person);
+    console.log(typeof(json), json);
+    // output: string {&quot;name&quot;:&quot;Dave&quot;,&quot;age&quot;:10,&quot;height&quot;:null,&quot;birthDate&quot;:&quot;2017-09-25T02:42:21.956Z&quot;}
+
+    json = JSON.stringify(person, ['name', 'birthDate']); // name과 birthdate만 선택적으로 적용하기
+    console.log(typeof(json), json);
+    // output: string {&quot;name&quot;:&quot;Dave&quot;,&quot;birthDate&quot;:&quot;2017-09-25T02:42:21.956Z&quot;}
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;stringify 할 때 데이터를 세밀하게 조정하고 싶다면, replacer를 콜백 함수로 사용하면 된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;
+    person = {
+        name: 'Dave',
+        age : 10,
+        height: null,
+        birthDate: new Date(),
+        walk: function() {
+            console.log(`${this.name} can walk!`);
+        },
+    };
+    json = JSON.stringify(person, (key, value) =&amp;gt; {
+        console.log(`key: ${key}, value: ${value}`);
+        return key === 'name' ? 'David': value; // key 값이 name이라면 값을 'David'으로 수정하기
+    });
+    console.log(typeof(json), json);
+    // output: string {&quot;name&quot;:&quot;David&quot;,&quot;age&quot;:10,&quot;height&quot;:null,&quot;birthDate&quot;:&quot;2020-09-25T02:42:21.956Z&quot;}
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;deserialize를 통해 JSON string를 object로 변환하기&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;서버에서 데이터를 받아서 object로 변환하는 과정을 시뮬레이션 하기 위해 stringify한 person에 parse를 적용한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;
+    json = JSON.stringify(person);
+    const obj = JSON.parse(json);
+    console.log(obj);
+    // output: {name: &quot;Dave&quot;, age: 10, height: null, birthDate: &quot;2020-09-25T02:42:21.956Z&quot;}
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;error1: person을 stringify 할 때, 메서드는 대상에서 제외되었으니 당연히 obj에는 walk가 없다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;
+    person.walk();
+    //obj.walk(); // causes an error for it does not have walk()
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;error2: 처음에 Date 타입으로 생성했던 birthDate에는 getDate 메서드가 있다. 하지만 obj는 stringify 된 텍스트 자체를 parse 한 것이기 때문에 Date 타입이 아니며, 당연히 getDate()가 없다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;
+    console.log(person.birthDate.getDate());
+    //console.log(obj.birthDate.getDate()); // causes an error for the value of birthDate has been converted from a string.
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;How to resolve error2: parse할 때, birthDate를 Date 타입으로 만들어 줄 수있다. 이때, parse()의 콜백함수인 revivor를 사용하면 된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;
+    const obj2 = JSON.parse(json, (key,value) =&amp;gt; {
+        console.log(`key: ${key}, value: ${value}`);
+        return key === 'birthDate' ? new Date(value) : value;
+    });
+    console.log(obj2.birthDate.getDate());
+&lt;/pre&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Young Jin Lee</name>
+          
+          
+        </author>
+      
+
+      
+        <category term="JavaScript" />
+      
+
+      
+
+      
+        <summary type="html">Javascript JSON HTTP 웹페이지/브라우저(클라이언트)가 어떻게 서버와 통신할 수 있는지 정의한 것 클라이언트는 서버에게 요청(request)을 보내고, 서버는 클라이언트에게 응답(response)을 주는 방식으로 진행된다. HTTP에서 Hypertext는 hyperlink 뿐만아니라, 문서 이미지 등 다양한 파일을 의미한다. HTTP를 이용해서 서버에 데이터를 요청해서 받아올 수 있는 방법으로는 AJAX가 있다. AJAX(Asynchoronous Javascript and XML) 웹페이지와 서버가 동적으로 데이터를 주고 받을 수 있게 하는 기술 브라우저 api에서 제공하는 object 중 XHR(XMLHttpRequest) 혹은 fetch() API를 이용해 서버에게 데이터를 요청하고 받아올 수 있다. fetch() API는 최근에 나온 기술이며, IE에서 지원이 되지 않는다. 데이터를 주고 받을 때는 XML뿐 아니라 다양한 포맷을 사용할 수 있다. 대표로는 JSON AJAX, XHR에 ‘XML’이 들어간 이유: MS OUTLOOK 개발 팀이 이를 개발할 당시 XML만을 써서 이름을 이렇게 지은 것 뿐이다. XML을 사용하면 불필요한 태그들이 포함되어 최근에는 데이터 통신 포맷으로 JSON이 보편화 되었다. JSON(Javascript Object Notation) simplest data interchange format lightweight text-based structure easy to read key-value pairs used for serialization and transmission of data between the network and the network connection independent from programming language and platform(C, C++, JAVA, Python, …) 예시. 웹어플리케이션에 ‘사람’이라는 오브젝트가 있다면, 이를 서버에 전송할때 이를 {key: value}의 string 타입으로 변환해서 서버에 전송하고, 서버에서 다시 ‘사람’을 받아올 때도 {key: value}의 string 타입으로 받아와서 object로 변환 후 브라우저에 출력한다. JSON 핵심 2단계 serialize를 통해 object를 JSON string으로 변환하기 boolean, number, array 모두 string 으로 변환된다. let json = JSON.stringify(true); console.log(typeof(json), json); // output: string, true json = JSON.stringify(3); console.log(typeof(json), json); // output: string, 3 json = JSON.stringify(['apple', 'banana']); console.log(typeof(json), json); // output: string, [&quot;apple&quot;, &quot;banana&quot;] object 내 JS에만 존재하는 타입(eg. Symbol)이나 메서드는 stringify 대상에서 제외된다. 만약 선택적으로 값을 가지고 오고 싶다면 stringify 내 array 형태의 파라미터로 지정해서 넘겨준다. const person = { name: 'Dave', age : 10, height: null, birthDate: new Date(), symbol: Symbol('id'), walk: function() { console.log(`${this.name} can walk!`); }, }; json = JSON.stringify(person); console.log(typeof(json), json); // output: string {&quot;name&quot;:&quot;Dave&quot;,&quot;age&quot;:10,&quot;height&quot;:null,&quot;birthDate&quot;:&quot;2017-09-25T02:42:21.956Z&quot;} json = JSON.stringify(person, ['name', 'birthDate']); // name과 birthdate만 선택적으로 적용하기 console.log(typeof(json), json); // output: string {&quot;name&quot;:&quot;Dave&quot;,&quot;birthDate&quot;:&quot;2017-09-25T02:42:21.956Z&quot;} stringify 할 때 데이터를 세밀하게 조정하고 싶다면, replacer를 콜백 함수로 사용하면 된다. person = { name: 'Dave', age : 10, height: null, birthDate: new Date(), walk: function() { console.log(`${this.name} can walk!`); }, }; json = JSON.stringify(person, (key, value) =&amp;gt; { console.log(`key: ${key}, value: ${value}`); return key === 'name' ? 'David': value; // key 값이 name이라면 값을 'David'으로 수정하기 }); console.log(typeof(json), json); // output: string {&quot;name&quot;:&quot;David&quot;,&quot;age&quot;:10,&quot;height&quot;:null,&quot;birthDate&quot;:&quot;2020-09-25T02:42:21.956Z&quot;} deserialize를 통해 JSON string를 object로 변환하기 서버에서 데이터를 받아서 object로 변환하는 과정을 시뮬레이션 하기 위해 stringify한 person에 parse를 적용한다. json = JSON.stringify(person); const obj = JSON.parse(json); console.log(obj); // output: {name: &quot;Dave&quot;, age: 10, height: null, birthDate: &quot;2020-09-25T02:42:21.956Z&quot;} error1: person을 stringify 할 때, 메서드는 대상에서 제외되었으니 당연히 obj에는 walk가 없다. person.walk(); //obj.walk(); // causes an error for it does not have walk() error2: 처음에 Date 타입으로 생성했던 birthDate에는 getDate 메서드가 있다. 하지만 obj는 stringify 된 텍스트 자체를 parse 한 것이기 때문에 Date 타입이 아니며, 당연히 getDate()가 없다. console.log(person.birthDate.getDate()); //console.log(obj.birthDate.getDate()); // causes an error for the value of birthDate has been converted from a string. How to resolve error2: parse할 때, birthDate를 Date 타입으로 만들어 줄 수있다. 이때, parse()의 콜백함수인 revivor를 사용하면 된다. const obj2 = JSON.parse(json, (key,value) =&amp;gt; { console.log(`key: ${key}, value: ${value}`); return key === 'birthDate' ? new Date(value) : value; }); console.log(obj2.birthDate.getDate());</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">Javascript First-class Functions</title>
+      
+      
+      <link href="http://localhost:4000/2020/09/03/js(5)_functions/" rel="alternate" type="text/html" title="Javascript First-class Functions" />
+      
+      <published>2020-09-03T00:00:00+00:00</published>
+      <updated>2020-09-03T00:00:00+00:00</updated>
+      <id>http://localhost:4000/2020/09/03/js(5)_functions</id>
+      <content type="html" xml:base="http://localhost:4000/2020/09/03/js(5)_functions/">&lt;h4&gt;&lt;u&gt;&lt;b&gt; Javascript First-class function &lt;/b&gt;&lt;/u&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;NOTE&lt;/li&gt;
+  &lt;li&gt;functions are treated like any other variable&lt;/li&gt;
+  &lt;li&gt;can be assigned as a value to a variable&lt;/li&gt;
+  &lt;li&gt;can be passed as an argument to other functions&lt;/li&gt;
+  &lt;li&gt;can be returned by another function&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Function expression
+    &lt;ul&gt;
+      &lt;li&gt;a function declaration can be called earlier than it is defined. (hoisted: very important!)&lt;/li&gt;
+      &lt;li&gt;a function expression is created when the execution reaches it.&lt;/li&gt;
+      &lt;li&gt;naming: should be a verb&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    const print = function(){ // anonymous function(function without a name)
+        console.log('print');
+    }
+    print();
+    const printAgain = print;
+    printAgain();
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Callback functions using function expressions&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    function randomQuiz(answer, printYes, printNo){
+        if (answer === 'correct'){
+            printYes(); // callback function
+        }else{
+            printNo(); // callback function
+        }
+    }
+    // named function &amp;lt;&amp;gt; anonymous function
+    const printYes = function printY(){ // named function: used for debugging
+        console.log('yes');
+    }
+    const printNo = function printN(){ // named function
+        console.log('no');
+    }
+    randomQuiz('wrong', printYes, printNo);
+    randomQuiz('correct', printYes, printNo);
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Arrow functions
+    &lt;ul&gt;
+      &lt;li&gt;always anonymous&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    const simplePrint = function(){
+        console.log('simplePrint!');
+    }
+    const simplePrint = () =&amp;gt; console.log('simplePrint!');
+    const add = function(a, b){
+        return a + b;
+    }
+    const add = (a,b) =&amp;gt; {
+        return a + b;
+    }
+    const add = (a,b) =&amp;gt; a + b;
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;IIFE: Immediately Invoked Function Expression
+    &lt;ul&gt;
+      &lt;li&gt;실제 현업에서는 잘 쓰이지않는데, 바로 실행시키고 싶을때 써라.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    (function hello(){
+        console.log('IIFE');
+    })();
+&lt;/pre&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Young Jin Lee</name>
+          
+          
+        </author>
+      
+
+      
+        <category term="JavaScript" />
+      
+
+      
+
+      
+        <summary type="html">Javascript First-class function NOTE functions are treated like any other variable can be assigned as a value to a variable can be passed as an argument to other functions can be returned by another function Function expression a function declaration can be called earlier than it is defined. (hoisted: very important!) a function expression is created when the execution reaches it. naming: should be a verb const print = function(){ // anonymous function(function without a name) console.log('print'); } print(); const printAgain = print; printAgain(); Callback functions using function expressions function randomQuiz(answer, printYes, printNo){ if (answer === 'correct'){ printYes(); // callback function }else{ printNo(); // callback function } } // named function &amp;lt;&amp;gt; anonymous function const printYes = function printY(){ // named function: used for debugging console.log('yes'); } const printNo = function printN(){ // named function console.log('no'); } randomQuiz('wrong', printYes, printNo); randomQuiz('correct', printYes, printNo); Arrow functions always anonymous const simplePrint = function(){ console.log('simplePrint!'); } const simplePrint = () =&amp;gt; console.log('simplePrint!'); const add = function(a, b){ return a + b; } const add = (a,b) =&amp;gt; { return a + b; } const add = (a,b) =&amp;gt; a + b; IIFE: Immediately Invoked Function Expression 실제 현업에서는 잘 쓰이지않는데, 바로 실행시키고 싶을때 써라. (function hello(){ console.log('IIFE'); })();</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">Javascript Functions</title>
+      
+      
+      <link href="http://localhost:4000/2020/09/03/js(4)_functions/" rel="alternate" type="text/html" title="Javascript Functions" />
+      
+      <published>2020-09-03T00:00:00+00:00</published>
+      <updated>2020-09-03T00:00:00+00:00</updated>
+      <id>http://localhost:4000/2020/09/03/js(4)_functions</id>
+      <content type="html" xml:base="http://localhost:4000/2020/09/03/js(4)_functions/">&lt;h4&gt;&lt;u&gt;&lt;b&gt; Javascript Functions &lt;/b&gt;&lt;/u&gt;&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Function
+    &lt;ul&gt;
+      &lt;li&gt;one function === one thing&lt;/li&gt;
+      &lt;li&gt;A function is an object in JS.&lt;/li&gt;
+      &lt;li&gt;naming: should be a VERB.&lt;/li&gt;
+      &lt;li&gt;functions always returns something. It returned undefined where return is not explicitly written in code.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Parameters
+    &lt;ul&gt;
+      &lt;li&gt;primitive parameters: passed by value&lt;/li&gt;
+      &lt;li&gt;object parameters: passed by reference&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    function changeName(obj){
+        obj.name = 'coder';
+    }
+    const a = {name:'a'};
+    changeName(a);
+    console.log(a);
+    // output: coder
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Default parameters (added in ES6)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    function showMessage(msg, frm = 'unknown'){
+        console.log(`${msg} by ${frm}`);
+    }
+    showMessage('Hi');
+    // output Hi by unknown
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Rest parameters (added in ES6)
+    &lt;ul&gt;
+      &lt;li&gt;… takes arguments as an array that contains passed parameters.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    function printAll(...args){ 
+        for (let i = 0; i &amp;lt; args.length; i++){
+            console.log(args[i]);
+        }
+        // or
+        for (const arg of args){
+            console.log(arg);
+        }
+    }
+    printAll('a', 'b', 'c');
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Early return, early exit&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    // bad to read
+    function upgradeUser(user){
+        if (user.point &amp;gt; 10){
+            // long long logic
+        }
+    }
+
+    // good to read
+    function upgradeUser(user){
+        if(user.point &amp;lt;= 10){
+            return;
+        }
+        // long long logic
+    }
+&lt;/pre&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Young Jin Lee</name>
+          
+          
+        </author>
+      
+
+      
+        <category term="JavaScript" />
+      
+
+      
+
+      
+        <summary type="html">Javascript Functions Function one function === one thing A function is an object in JS. naming: should be a VERB. functions always returns something. It returned undefined where return is not explicitly written in code. Parameters primitive parameters: passed by value object parameters: passed by reference function changeName(obj){ obj.name = 'coder'; } const a = {name:'a'}; changeName(a); console.log(a); // output: coder Default parameters (added in ES6) function showMessage(msg, frm = 'unknown'){ console.log(`${msg} by ${frm}`); } showMessage('Hi'); // output Hi by unknown Rest parameters (added in ES6) … takes arguments as an array that contains passed parameters. function printAll(...args){ for (let i = 0; i &amp;lt; args.length; i++){ console.log(args[i]); } // or for (const arg of args){ console.log(arg); } } printAll('a', 'b', 'c'); Early return, early exit // bad to read function upgradeUser(user){ if (user.point &amp;gt; 10){ // long long logic } } // good to read function upgradeUser(user){ if(user.point &amp;lt;= 10){ return; } // long long logic }</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">Javascript Operators</title>
+      
+      
+      <link href="http://localhost:4000/2020/09/03/js(3)_operators/" rel="alternate" type="text/html" title="Javascript Operators" />
+      
+      <published>2020-09-03T00:00:00+00:00</published>
+      <updated>2020-09-03T00:00:00+00:00</updated>
+      <id>http://localhost:4000/2020/09/03/js(3)_operators</id>
+      <content type="html" xml:base="http://localhost:4000/2020/09/03/js(3)_operators/">&lt;h4&gt;&lt;u&gt;&lt;b&gt; Javascript Operators &lt;/b&gt;&lt;/u&gt;&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;String concatnation&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    console.log('my' + ' cat');
+    console.log('1' + 2);
+    console.log(`string literals: 1+2 = ${1 + 2}`);
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Numeric operators&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    console.log(1 + 1 - 1 / 1 * 1 % 2 ** 2);
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Increment(decrement) operators&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    let counter = 1;
+    const preIncrement = ++counter;
+    console.log(`preIncrement: ${preIncrement}, counter: ${counter}`);
+    const postIncrement = counter ++;
+    console.log(`preIncrement: ${preIncrement}, counter: ${counter}`);
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Assignment operators&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    let x = 1;
+    let y = 2;
+    x += y;
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Comparison operators&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    console.log(1 &amp;lt; 3);
+    console.log(1 &amp;gt; 3);
+    console.log(1 &amp;lt;= 3);
+    console.log(1 &amp;gt;= 3);
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Logical operators :&lt;/td&gt;
+          &lt;td&gt; &lt;/td&gt;
+          &lt;td&gt;, &amp;amp;&amp;amp;, !&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;- expression 중 연산이 많은 것을 뒤에 배치한다!!&lt;/td&gt;
+          &lt;td&gt; &lt;/td&gt;
+          &lt;td&gt;와 &amp;amp;&amp;amp;이 혼합되어 있다면 &amp;amp;&amp;amp;을 가장 뒤에!&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    const value1 = false;
+    const value2 = 4 &amp;lt; 2;
+    console.log(`or: ${value1 || value2 || check()}`);
+
+    function check(){
+        for (let i = 0; i &amp;lt; 10; i++){
+            console.log('wasting time');
+        }
+        return true;
+    }
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Equality&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    const stringFive = '5';
+    const numberFive = 5;
+
+    console.log(stringFive == numberFive);
+    console.log(stringFive === numberFive);
+
+    // object equality by reference
+    const a = {name: &quot;a&quot;};
+    const b = {name: &quot;b&quot;};
+    const c = a;
+    console.log(a == b); // false
+    console.log(a === b); // false
+    console.log(a == c); // true 
+    console.log(a === c); // true
+
+    // equality - puzzler
+    console.log(0 == false); // t
+    console.log(0 === false); // f
+    console.log('' == false); // t
+    console.log('' === false); // f
+    console.log(null == undefined); // t
+    console.log(null === undefined); // f
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Conditional operators: if&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    const name = 'a';
+    if (name === 'a'){
+        console.log(&quot;Welcome a&quot;);
+    }else if(name === 'coder'){
+        console.log('Welcome b');
+    }else{
+        console.log('unknown');
+    }
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Tenary operator: ?
+    &lt;ul&gt;
+      &lt;li&gt;condition ? value1 : value2;&lt;/li&gt;
+      &lt;li&gt;간단할 때만 사용. 복잡할땐 if나 switch&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    console.log(name === 'a' ? 'yes' : 'no'); 
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Switch statement
+    &lt;ul&gt;
+      &lt;li&gt;use for multiple if checks(if 문에서 else if 가 많을 때 사용.)&lt;/li&gt;
+      &lt;li&gt;use for enum-like value check&lt;/li&gt;
+      &lt;li&gt;use for multiple type checks in TS&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    const browser = 'IE';
+    switch (browser){
+        case 'IE':
+            console.log('go away!');
+            break;
+        case 'Chrome':
+        case 'Firefox':
+            console.log('good');
+            break;
+        default:
+            console.log('same all!');
+            break;
+    }
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Loops&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;
+    // while loop, while the condition is truthy, body code is executed
+    let i = 3;
+    while (i &amp;gt; 0){
+        console.log(`while: ${i}`);
+        i--;
+    }
+
+    // do while loop, body code is executed first, then check the condition.
+    do {
+        console.log(`do while: ${i}`);
+        i--;
+    } while (i &amp;gt; 0);
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;For loops; consider the time complexity. Try to avoid nested loops which results in O(n^2)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    for(let i = 0; i &amp;lt; 10; i++){
+        for (let j = 0; j &amp;lt; 10; j++){
+            console.log(`i: ${i}, j:${j}`);
+        }
+    }
+&lt;/pre&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Young Jin Lee</name>
+          
+          
+        </author>
+      
+
+      
+        <category term="JavaScript" />
+      
+
+      
+
+      
+        <summary type="html">Javascript Operators String concatnation console.log('my' + ' cat'); console.log('1' + 2); console.log(`string literals: 1+2 = ${1 + 2}`); Numeric operators console.log(1 + 1 - 1 / 1 * 1 % 2 ** 2); Increment(decrement) operators let counter = 1; const preIncrement = ++counter; console.log(`preIncrement: ${preIncrement}, counter: ${counter}`); const postIncrement = counter ++; console.log(`preIncrement: ${preIncrement}, counter: ${counter}`); Assignment operators let x = 1; let y = 2; x += y; Comparison operators console.log(1 &amp;lt; 3); console.log(1 &amp;gt; 3); console.log(1 &amp;lt;= 3); console.log(1 &amp;gt;= 3); Logical operators :   , &amp;amp;&amp;amp;, ! - expression 중 연산이 많은 것을 뒤에 배치한다!!   와 &amp;amp;&amp;amp;이 혼합되어 있다면 &amp;amp;&amp;amp;을 가장 뒤에! const value1 = false; const value2 = 4 &amp;lt; 2; console.log(`or: ${value1 || value2 || check()}`); function check(){ for (let i = 0; i &amp;lt; 10; i++){ console.log('wasting time'); } return true; } Equality const stringFive = '5'; const numberFive = 5; console.log(stringFive == numberFive); console.log(stringFive === numberFive); // object equality by reference const a = {name: &quot;a&quot;}; const b = {name: &quot;b&quot;}; const c = a; console.log(a == b); // false console.log(a === b); // false console.log(a == c); // true console.log(a === c); // true // equality - puzzler console.log(0 == false); // t console.log(0 === false); // f console.log('' == false); // t console.log('' === false); // f console.log(null == undefined); // t console.log(null === undefined); // f Conditional operators: if const name = 'a'; if (name === 'a'){ console.log(&quot;Welcome a&quot;); }else if(name === 'coder'){ console.log('Welcome b'); }else{ console.log('unknown'); } Tenary operator: ? condition ? value1 : value2; 간단할 때만 사용. 복잡할땐 if나 switch console.log(name === 'a' ? 'yes' : 'no'); Switch statement use for multiple if checks(if 문에서 else if 가 많을 때 사용.) use for enum-like value check use for multiple type checks in TS const browser = 'IE'; switch (browser){ case 'IE': console.log('go away!'); break; case 'Chrome': case 'Firefox': console.log('good'); break; default: console.log('same all!'); break; } Loops // while loop, while the condition is truthy, body code is executed let i = 3; while (i &amp;gt; 0){ console.log(`while: ${i}`); i--; } // do while loop, body code is executed first, then check the condition. do { console.log(`do while: ${i}`); i--; } while (i &amp;gt; 0); For loops; consider the time complexity. Try to avoid nested loops which results in O(n^2) for(let i = 0; i &amp;lt; 10; i++){ for (let j = 0; j &amp;lt; 10; j++){ console.log(`i: ${i}, j:${j}`); } }</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">Javascript Variables</title>
+      
+      
+      <link href="http://localhost:4000/2020/09/02/js(2)_variables/" rel="alternate" type="text/html" title="Javascript Variables" />
+      
+      <published>2020-09-02T00:00:00+00:00</published>
+      <updated>2020-09-02T00:00:00+00:00</updated>
+      <id>http://localhost:4000/2020/09/02/js(2)_variables</id>
+      <content type="html" xml:base="http://localhost:4000/2020/09/02/js(2)_variables/">&lt;h4&gt;&lt;u&gt;&lt;b&gt; Javascript Variables &lt;/b&gt;&lt;/u&gt;&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Variable, rw(read/write)
+    &lt;ul&gt;
+      &lt;li&gt;variable declaration: let (added in ES6)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    let name = 'genie';
+    console.log(name);
+    name = 'hello';
+    console.log(name);
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;var : DO NOT EVER USE THIS!&lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;It causes ‘HOISTING’ which means ‘pulling the declaration to the top.’; it results in a situation where variables can be used before their declarations and hence a spaggetti code.&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;ignores block scope&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;
+    age = 4;
+    var age;
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Block scope&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    let globalName = &quot;globalNm&quot;;
+    {
+        let name = 'localNm';
+        console.log(name);
+        name = 'hello';
+        console.log(name);
+        console.log(globalName);
+    }
+    console.log(name); // This prints nothing for its declaration is inside the scope.
+    console.log(globalName);
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Constant, r(read only)
+    &lt;ul&gt;
+      &lt;li&gt;use const whenever possible.&lt;/li&gt;
+      &lt;li&gt;only use let if the variable needs to change.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    const dayInWeek = 7;
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;NOTE!&lt;/li&gt;
+  &lt;li&gt;Immutable data types: primitive types, frozen objects (i.e. object.freeze()) ; 통째로 메모리에 올림. 그 메모리 안의 값은 못바꿈&lt;/li&gt;
+  &lt;li&gt;Mutable data types: all objects by default are mutable in JS ; 메모리안의 값을 바꿀 수 있음.&lt;/li&gt;
+  &lt;li&gt;favours immutable data types for the following reasons. eg. const&lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;security&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;thread safety&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;reducing human mistakes&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Variable types&lt;/li&gt;
+  &lt;li&gt;variable type 1: primitive, single item (메모리에 값이 저장되어 있음.)&lt;/li&gt;
+  &lt;li&gt;ex) number, string, boolean, null, undefined, symbol&lt;/li&gt;
+  &lt;li&gt;variable type 2: container composed of multiple items, function (메모리에 레퍼런스가 있고 실제 값은 레퍼런스가 가리키는 곳에 자식 노드 개념의 메모리에 저장되어 있음.)&lt;/li&gt;
+  &lt;li&gt;object, box container&lt;/li&gt;
+  &lt;li&gt;function, first-class function&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Young Jin Lee</name>
+          
+          
+        </author>
+      
+
+      
+        <category term="JavaScript" />
+      
+
+      
+
+      
+        <summary type="html">Javascript Variables Variable, rw(read/write) variable declaration: let (added in ES6) let name = 'genie'; console.log(name); name = 'hello'; console.log(name); var : DO NOT EVER USE THIS! It causes ‘HOISTING’ which means ‘pulling the declaration to the top.’; it results in a situation where variables can be used before their declarations and hence a spaggetti code. ignores block scope age = 4; var age; Block scope let globalName = &quot;globalNm&quot;; { let name = 'localNm'; console.log(name); name = 'hello'; console.log(name); console.log(globalName); } console.log(name); // This prints nothing for its declaration is inside the scope. console.log(globalName); Constant, r(read only) use const whenever possible. only use let if the variable needs to change. const dayInWeek = 7; NOTE! Immutable data types: primitive types, frozen objects (i.e. object.freeze()) ; 통째로 메모리에 올림. 그 메모리 안의 값은 못바꿈 Mutable data types: all objects by default are mutable in JS ; 메모리안의 값을 바꿀 수 있음. favours immutable data types for the following reasons. eg. const security thread safety reducing human mistakes Variable types variable type 1: primitive, single item (메모리에 값이 저장되어 있음.) ex) number, string, boolean, null, undefined, symbol variable type 2: container composed of multiple items, function (메모리에 레퍼런스가 있고 실제 값은 레퍼런스가 가리키는 곳에 자식 노드 개념의 메모리에 저장되어 있음.) object, box container function, first-class function</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">Javascript Basics</title>
+      
+      
+      <link href="http://localhost:4000/2020/09/01/js(1)_basics/" rel="alternate" type="text/html" title="Javascript Basics" />
+      
+      <published>2020-09-01T00:00:00+00:00</published>
+      <updated>2020-09-01T00:00:00+00:00</updated>
+      <id>http://localhost:4000/2020/09/01/js(1)_basics</id>
+      <content type="html" xml:base="http://localhost:4000/2020/09/01/js(1)_basics/">&lt;h4&gt;&lt;u&gt;&lt;b&gt; Javascript Basics &lt;/b&gt;&lt;/u&gt;&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;head 안에서 호출하기
+    &lt;ul&gt;
+      &lt;li&gt;fetch가 완료되면 바로 실행되는데, HTML이 모두 parsing 되기 전에 실행되기 때문에 문제가 될 수 있다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    &amp;lt;!DOCTYPE html&amp;gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+        &lt;title&gt;Document&lt;/title&gt;
+        &lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;body 가장 아래에서 호출하기
+    &lt;ul&gt;
+      &lt;li&gt;HTML이 모두 parsing 된 후에 js를 fetch하고 실행하기 때문에 유저는 html 내용을 빠르게 확인할 수 있다. 하지만 유저가 컨텐츠를 사용하기 위해 js를 사용해야한다면, js가 실행될 때 까지 의문도 모른채 기다려야한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    &amp;lt;!DOCTYPE html&amp;gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+        &lt;title&gt;Document&lt;/title&gt;
+        
+    &lt;/head&gt;
+    &lt;body&gt;
+    ...
+    &lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;head 안에서 asyn 옵션 주기
+    &lt;ul&gt;
+      &lt;li&gt;HTML이 한줄씩 parsing 되다가 script를 만나면 js를 병렬로 fetch 한다. fetch가 끝난 직후 js가 실행된다. 여러 js파일이 순차적으로 실행되어야 하는 경우라면, js가 fetch되는 순서에 의존적이기에 수동으로 순서를 정하기 어렵다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    &amp;lt;!DOCTYPE html&amp;gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+        &lt;title&gt;Document&lt;/title&gt;
+        &lt;script asyn=&quot;&quot; src=&quot;main.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;head 안에서 defer 옵션 주기
+    &lt;ul&gt;
+      &lt;li&gt;HTML이 한줄씩 parsing 되다가 script를 만나면 js를 병렬로 fetch 한다. asyn과는 다르게 병렬로 모든 js를 fetch 한 후에 호출한 순서대로 실행시킨다. 이것이 가장 합리적인 방법이다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+    &amp;lt;!DOCTYPE html&amp;gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+        &lt;title&gt;Document&lt;/title&gt;
+        &lt;script defer=&quot;&quot; src=&quot;main.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;vanilla js 파일에는 상단에 ‘use strict’; 를 써주는 것이 기본이다. 여러 문제를 해결해주는데, 특히 변수 문제를 해결해준다. This makes your js code modern.&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Young Jin Lee</name>
+          
+          
+        </author>
+      
+
+      
+        <category term="JavaScript" />
+      
+
+      
+
+      
+        <summary type="html">Javascript Basics head 안에서 호출하기 fetch가 완료되면 바로 실행되는데, HTML이 모두 parsing 되기 전에 실행되기 때문에 문제가 될 수 있다. &amp;lt;!DOCTYPE html&amp;gt; Document body 가장 아래에서 호출하기 HTML이 모두 parsing 된 후에 js를 fetch하고 실행하기 때문에 유저는 html 내용을 빠르게 확인할 수 있다. 하지만 유저가 컨텐츠를 사용하기 위해 js를 사용해야한다면, js가 실행될 때 까지 의문도 모른채 기다려야한다. &amp;lt;!DOCTYPE html&amp;gt; Document ... head 안에서 asyn 옵션 주기 HTML이 한줄씩 parsing 되다가 script를 만나면 js를 병렬로 fetch 한다. fetch가 끝난 직후 js가 실행된다. 여러 js파일이 순차적으로 실행되어야 하는 경우라면, js가 fetch되는 순서에 의존적이기에 수동으로 순서를 정하기 어렵다. &amp;lt;!DOCTYPE html&amp;gt; Document head 안에서 defer 옵션 주기 HTML이 한줄씩 parsing 되다가 script를 만나면 js를 병렬로 fetch 한다. asyn과는 다르게 병렬로 모든 js를 fetch 한 후에 호출한 순서대로 실행시킨다. 이것이 가장 합리적인 방법이다. &amp;lt;!DOCTYPE html&amp;gt; Document vanilla js 파일에는 상단에 ‘use strict’; 를 써주는 것이 기본이다. 여러 문제를 해결해주는데, 특히 변수 문제를 해결해준다. This makes your js code modern.</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">Subprime Mortgage</title>
+      
+      
+      <link href="http://localhost:4000/2020/08/29/subPrime-mortgage/" rel="alternate" type="text/html" title="Subprime Mortgage" />
+      
+      <published>2020-08-29T00:00:00+00:00</published>
+      <updated>2020-08-29T00:00:00+00:00</updated>
+      <id>http://localhost:4000/2020/08/29/subPrime-mortgage</id>
+      <content type="html" xml:base="http://localhost:4000/2020/08/29/subPrime-mortgage/">&lt;hr /&gt;
+&lt;p&gt;layout: post
+title: “Sub-Prime Mortgage”
+comments: true
+categories: articles
+—&lt;/p&gt;
+
+&lt;h2&gt;양적완화&lt;/h2&gt;
+
+&lt;p&gt;정의: 중앙은행의 기준금리가 0%에 근접했는데 경기가 회복되지 않는다면 정부는 시장에 풀려있는 국가의 채권을 다시 사들여서 돈을 푸는 정책.&lt;/p&gt;
+
+&lt;h3&gt;2008&lt;/h3&gt;
+
+&lt;h3&gt;SUBPRIME MORTAGE&lt;/h3&gt;
+
+&lt;p&gt;$8.3t
+$2.8t&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;금리가 높았던 미국은행 예금만으로도 이득이었음.&lt;/li&gt;
+  &lt;li&gt;미국이 경제를 활성화 시킨다는 명목으로 기준금리를 낮춤.&lt;/li&gt;
+  &lt;li&gt;사람들이 MBS(MORTGAGE BACKED SECURITIES, 주택담보대출)로 눈을 돌림.&lt;/li&gt;
+  &lt;li&gt;은행은 집을 사려는 사람들에게 돈을 빌려줌.&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Young Jin Lee</name>
+          
+          
+        </author>
+      
+
+      
+
+      
+
+      
+        <summary type="html">layout: post title: “Sub-Prime Mortgage” comments: true categories: articles — 양적완화 정의: 중앙은행의 기준금리가 0%에 근접했는데 경기가 회복되지 않는다면 정부는 시장에 풀려있는 국가의 채권을 다시 사들여서 돈을 푸는 정책. 2008 SUBPRIME MORTAGE $8.3t $2.8t 금리가 높았던 미국은행 예금만으로도 이득이었음. 미국이 경제를 활성화 시킨다는 명목으로 기준금리를 낮춤. 사람들이 MBS(MORTGAGE BACKED SECURITIES, 주택담보대출)로 눈을 돌림. 은행은 집을 사려는 사람들에게 돈을 빌려줌.</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+</feed>

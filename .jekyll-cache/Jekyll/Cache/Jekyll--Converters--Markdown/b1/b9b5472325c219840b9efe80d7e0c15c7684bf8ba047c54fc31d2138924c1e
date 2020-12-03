@@ -1,0 +1,65 @@
+I"�	<h4><u><b> Version Control System - GIT (2) </b></u></h4>
+
+<h3>1. f1.txt에 one_one 내용 적고 logone_logone 메세지로 commit</h3>
+<h3>2. f1.txt에 one_two 내용 적고 logone_logtwo 메세지로 commit</h3>
+<h3>3. f1.txt에 one_three 내용 적고 logone_logthree 메세지로 commit</h3>
+<h3>4. f2.txt에 two_one 내용 적고 logtwo_logone 메세지로 commit</h3>
+<h3>5. f2.txt에 two_two 내용 적고 logtwo_logtwo 메세지로 commit</h3>
+<h3>6. f1.txt에 one_four 내용 적고 logone_logfour 메세지로 commit</h3>
+
+<h3>7. git log 확인</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[33mcommit 6c9e1880279b7c384195e0d09813ce8a4fb094a8[[m[[33m ([[m[[1;36mHEAD -&gt; [[m[[1;32mmaster[[m[[33m)[
+[m
+Author: david &lt;david@email.com&gt;
+Date:   Sat Apr 18 10:41:16 2020 +0000
+
+    logone_logfour
+
+[[33mcommit 4f09abcba7a6a21bc765e2cb45c7f41b98bb073b[[m
+Author: david &lt;david@email.com&gt;
+Date:   Sat Apr 18 10:30:46 2020 +0000
+
+    logtwo_logtwo
+
+[[33mcommit 67726882cdba97938d5749a33711a86e0f1c41a8[[m
+Author: david &lt;david@email.com&gt;
+Date:   Sat Apr 18 10:25:34 2020 +0000
+
+    logtwo_logone
+
+[[33mcommit ae57a761d9ac512c8f5dad16898bdd46239f5dc1[[m
+Author: david &lt;david@email.com&gt;
+Date:   Sat Apr 18 10:24:19 2020 +0000
+
+    logone_logthree
+
+[[33mcommit c841426606e31446e9edd19a3a811ad0fde716f2[[m
+Author: david &lt;david@email.com&gt;
+Date:   Sat Apr 18 10:22:05 2020 +0000
+
+    logone_logtwo
+
+[[33mcommit 74beadd1b6af61a4b6fcc0dff8fdc58ff22e5a3f[[m
+Author: david &lt;david@email.com&gt;
+Date:   Sat Apr 18 10:18:49 2020 +0000
+
+    logone_logone
+</code></pre></div></div>
+
+<h3>8. 커밋 사이 수정사항 확인하기</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash-4.4$ git diff 6c9e1880279b7c384195e0d09813ce8a4fb094a8..ae57a761d9ac512c8f5dad16898bdd46239f5dc1
+</code></pre></div></div>
+
+<h3>8. 최근 커밋 수정사항 확인하기</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash-4.4$ git diff
+</code></pre></div></div>
+
+<h3>9. 과거 commit으로 돌아가기</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash-4.4$ git reset c841426606e31446e9edd19a3a811ad0fde716f2 --hard
+HEAD is now at c841426 logone_logtwo
+</code></pre></div></div>
+:ET

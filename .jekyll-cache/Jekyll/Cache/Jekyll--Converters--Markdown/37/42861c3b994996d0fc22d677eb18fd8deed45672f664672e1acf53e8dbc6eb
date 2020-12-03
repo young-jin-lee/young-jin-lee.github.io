@@ -1,0 +1,171 @@
+I"�+<div style="text-align: right"> Young Jin Lee </div>
+
+<h4><u><b> Central Limit Theorem </b></u></h4>
+
+<p><strong>Sampling distribution</strong></p>
+
+<center><img src="/img/CLTandCI1.png" width="500" height="300" /></center>
+
+<p>Sampling distribution is the distribution of the means of sample statistics where the samples are taken from a particular population with the same sample size, n.</p>
+
+<p><strong>Standard Error</strong></p>
+
+<ul>
+  <li>Standard error refers to the population standard deviation (or the sample standard deviation) divided by square root of the sample size.</li>
+  <li>The standard deviation of the sampling distribution of a statistic (the standard deviation of the sample means).</li>
+  <li>Typically, smaller than the population standard deviation</li>
+  <li>The spread of the sampling distribution, which we measure using the standard error.</li>
+  <li>If sigma is unknown which is often the case, remember sigma is the population standard deviation. Oftentimes, we don’t have access to the entire population to calculate this number, we use S, the standard sample deviation to estimate the standard error. So that would be the standard deviation of one sample that we happen to have at hand.</li>
+  <li>if you’re running a study as you can imagine, you would only take one sample. So that’s the standard deviation of that sample that we would use as our best guess for the population standard deviation</li>
+</ul>
+
+<p><strong>Central Limit Theorem</strong></p>
+
+<center><img src="/img/CLTandCI2.png" width="400" height="300" /></center>
+
+<p>The distribution of sample statistics is nearly normal, centered at the population mean, and with the standard error.</p>
+
+<p><strong>Conditions for CLT</strong></p>
+
+<ol>
+  <li>Independence: Sampled observations must be independent
+    <ul>
+      <li>Random sample (for observational studies) / random assignment (for experimental studies)</li>
+      <li>If sampling without replacement, n &lt; 10% of population</li>
+    </ul>
+  </li>
+  <li>Sample size/skew: Either the population distribution is normal, or if the population distribution is skewed, the sample size is large (rule of thumb: n &gt; 30)
+    <ul>
+      <li>Larger sample size yields a sampling distribution closer to normal regardless of the population distribution.</li>
+      <li>If the population distribution is nearly normal, then the sampling distribution will follow nearly normal for any sample size n.</li>
+      <li>‘If sampling without replacement, n &lt; 10% of the population’: Suppose you are trying to sample 10 out of 1000 people in a town. If you sample 10 people without replacement, the probability of getting people from the same household is lower than with sample size 100.</li>
+      <li>A higher sample size would yield a lower standard error.</li>
+    </ul>
+  </li>
+</ol>
+
+<h4><u><b> Confidence Interval </b></u></h4>
+
+<p><strong>Margin of error</strong></p>
+
+<center><img src="/img/CLTandCI3.png" width="400" height="300" /></center>
+
+<p>Margin of error is calculated by a z score times standard error. It expresses the maximum expected difference between the true population parameter and a sample estimate of that parameter</p>
+
+<p><strong>Why Confidence Interval</strong></p>
+
+<p>If we report a point estimate, we probably won’t hit the exact population parameter. But if we report a range of plausible values we have a good shot at capturing the parameter.</p>
+
+<p><strong>Confidence Interval (for a population mean)</strong></p>
+
+<center><img src="/img/CLTandCI4.png" width="160" height="80" /></center>
+
+<p>A plausible range of values for the population parameter. Computed as the sample mean +- a margin of error (critical value corresponding to the middle XX% of the normal distribution times the standard error of the sampling distribution.)</p>
+
+<p><strong>Conditions for CL</strong></p>
+
+<ol>
+  <li>Independence: Sampled observations must be independent
+    <ul>
+      <li>Random sample (for observational studies) / random assignment (for experimental studies)</li>
+      <li>If sampling without replacement, n &lt; 10% of population</li>
+    </ul>
+  </li>
+  <li>Sample size/skew: n&gt;= 30, larger if the population distribution is very skewed.</li>
+</ol>
+
+<p><strong>Confidence Level</strong></p>
+
+<p>You can build a confidence interval from a sample using the equation above. For 95%, the rule of thumb tells the corresponding z score is 2, but this is just an approximation. The real z score for 95% is 1.96. So the formula would be</p>
+
+<div style="text-align: center"> Point estimate (the mean of the sample) +- 1.96 x SE </div>
+
+<p>Suppose you took many samples and built a confidence interval from each sample using this equation. Then about 95% of those intervals would contain the true population mean(mu)</p>
+
+<center><img src="/img/CLTandCI5.png" width="400" height="300" /></center>
+
+<p>In this case, the proportion turns out to be 96% but it will approach to 95% as with more samples taken.</p>
+
+<p><strong>Confidence level, interval width, Accuracy, Precision and Sample size</strong></p>
+
+<center><img src="/img/CLTandCI6.png" width="400" height="200" /></center>
+
+<p>By increasing the confidence level from 95% to 99%, you can have wider intervals from each sample and it would be more likely for each interval to contain the population parameter. Then the accuracy would go up as the result. However, the precision would fall. What is meant by precision is that, for instance, say you are trying to predict tomorrow’s temperature and you come up with an interval between -20C and 50C. It is highly likely that the actual temperature would fall in between, but this information is useless since you cannot even decide upon what to wear tomorrow. In this case, accuracy is high and precision is low. You can reduce the width of the interval but that will cause the accuracy to be lower (there is trade-off between these two.) In order to get the best of both; higher precision and higher accuracy, the only way is to increase the sample size.</p>
+
+<ul>
+  <li>What you can say about the result of constructing a confidence interval is for example,</li>
+  <li>1) We are 95% confident that the true population parameter is in this interval, where 95% is the desired confidence level.</li>
+  <li>2) We are 95% confident that all the Americans spend on average 4.53 to 3.83 hours relaxing after a work day.</li>
+  <li>3) 95% of random samples of 1154 Americans will yield confidence intervals that contain the true average number of hours Americans spend relaxing after a work day.</li>
+  <li>The confidence level is not about the probability of the population parameter being in one single confidence interval, instead it’s about the percentage of confidence intervals at that confidence level that are expected to capture the true parameter.</li>
+</ul>
+
+<p><strong>Required sample size for Margin of Error</strong></p>
+
+<center><img src="/img/CLTandCI7.png" width="150" height="80" /></center>
+
+<p>You can determine the required sample size to achieve the desired margin of error with the formula by simply making n the subject.</p>
+
+<h4><u><b> Problems </b></u></h4>
+
+<p>1) For each of the following situations, state whether the variable is categorical or numerical, and whether the parameter of interest is a mean or a proportion.</p>
+<ul>
+  <li>In a survey, college students are asked whether they agree with their parents’ political ideology.</li>
+</ul>
+
+<p>ans: Categorical (agree / disagree), the parameter of interest is a proportion</p>
+
+<ul>
+  <li>In a survey, college students are asked what percentage of their non-class time they spend studying.</li>
+</ul>
+
+<p>ans: Numerical(percentage), the parameter of interest is a mean</p>
+
+<p>2) Suppose heights of all women in the US have a mean of 63.7 inches, and a random sample of 100 women’s heights yield a sample mean of 65.2 inches. Which one is the population parameter and which one is the point estimate? Which one is μ and which one is x¯?</p>
+
+<p>ans: population parameter(μ) = 63.7, point estimate(x¯) = 65.2</p>
+
+<p>3) Suppose heights of all women in the US have a standard deviation of 2.7 inches, and a random sample of 100 women’s heights yields a standard deviation of 4 inches. Which one is the population parameter and which one is the point estimate? Which one is σ and which one is s?</p>
+
+<p>ans: population parameter(σ) = 2.7, point estimate(s) = 4</p>
+
+<p>4) Explain, in plain English, what is going on in Figure 4.8 of the book (page 175).</p>
+
+<center><img src="/img/CLTandCI8.png" width="400" height="400" /></center>
+
+<p>5) List the conditions necessary for the CLT to hold. Make sure to list alternative conditions for when we know the population distribution is normal vs. when we don’t know what the population distribution is, and the when the sample size is barely over 30 vs. when it’s very large.</p>
+
+<p>When the population distribution is normal, independence.<br />
+When the population distribution is unknown, sample size even larger than 30, independence.<br />
+When the sample size is barely over 30, independence<br />
+When the sample size is very large, independence</p>
+
+<p>6) Confirm that z⋆ for a 98% confidence level is 2.33. (Include a sketch of the normal curve in your response.)</p>
+
+<center><img src="/img/CLTandCI9.png" width="400" height="200" /></center>
+
+<p>7) Calculate a 95% confidence interval for the average height of US women using a random sample of 100 women where the sample mean is 63 inches and the sample standard deviation is 3 inches, and interpret this interval in context of the data.</p>
+
+<p>ans:</p>
+
+<p>Margin of Error = 0.588</p>
+
+<p>The 95% confidence interval contains the values between 62.412 and 63.588. <br />
+1) We are 95% confident that the heights of all US women is on average 62.412 to 63.588. <br />
+2) 95% of random samples of 100 US women will yield confidence intervals that contain the true average height of US women.</p>
+
+<p>8) Explain, in plain English, the difference between standard error and margin of error.</p>
+
+<p>Standard error refers to the population standard deviation (or the sample standard deviation) divided by square root of the sample size. It is the standard deviation of the sampling distribution of a statistic.</p>
+
+<p>Margin of error is calculated by a z score times standard error. It expresses the maximum expected difference between the true population parameter and a sample estimate of that parameter</p>
+
+<p>9) A little more challenging: Suppose heights of all men in the US have a mean of 69.1 inches and a standard deviation of 2.9 inches. What is the probability that a random sample of 100 men will yield a sample average less than 70 inches? (Hint: First check if we should expect the sample mean to be distributed nearly normally, i.e. if the CLT holds. If so, sketch a normal curve with mean μ and the appropriate standard error. Shade the area you’re interested in, and calculate it using methods we learned in the previous unit.)</p>
+
+<p>100 men selected randomly -&gt; independence check
+sample size &gt; 30 -&gt; normality check</p>
+
+<p>The rest are all yours :)</p>
+
+\[\sqrt{3x-1}+(1+x)^2\]
+:ET

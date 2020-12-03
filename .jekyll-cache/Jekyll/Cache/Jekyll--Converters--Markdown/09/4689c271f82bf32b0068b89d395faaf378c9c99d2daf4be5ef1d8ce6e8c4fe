@@ -1,0 +1,90 @@
+I"�<h4><u><b> Javascript Variables </b></u></h4>
+
+<ol>
+  <li>Variable, rw(read/write)
+    <ul>
+      <li>variable declaration: let (added in ES6)</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    let name = 'genie';
+    console.log(name);
+    name = 'hello';
+    console.log(name);
+</pre>
+
+<ul>
+  <li>var : DO NOT EVER USE THIS!</li>
+  <li>
+    <ol>
+      <li>It causes ‘HOISTING’ which means ‘pulling the declaration to the top.’; it results in a situation where variables can be used before their declarations and hence a spaggetti code.</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>ignores block scope</li>
+    </ol>
+  </li>
+</ul>
+<pre>
+    age = 4;
+    var age;
+</pre>
+
+<ol>
+  <li>Block scope</li>
+</ol>
+<pre>
+    let globalName = "globalNm";
+    {
+        let name = 'localNm';
+        console.log(name);
+        name = 'hello';
+        console.log(name);
+        console.log(globalName);
+    }
+    console.log(name); // This prints nothing for its declaration is inside the scope.
+    console.log(globalName);
+</pre>
+
+<ol>
+  <li>Constant, r(read only)
+    <ul>
+      <li>use const whenever possible.</li>
+      <li>only use let if the variable needs to change.</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    const dayInWeek = 7;
+</pre>
+
+<ul>
+  <li>NOTE!</li>
+  <li>Immutable data types: primitive types, frozen objects (i.e. object.freeze()) ; 통째로 메모리에 올림. 그 메모리 안의 값은 못바꿈</li>
+  <li>Mutable data types: all objects by default are mutable in JS ; 메모리안의 값을 바꿀 수 있음.</li>
+  <li>favours immutable data types for the following reasons. eg. const</li>
+  <li>
+    <ol>
+      <li>security</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>thread safety</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>reducing human mistakes</li>
+    </ol>
+  </li>
+  <li>Variable types</li>
+  <li>variable type 1: primitive, single item (메모리에 값이 저장되어 있음.)</li>
+  <li>ex) number, string, boolean, null, undefined, symbol</li>
+  <li>variable type 2: container composed of multiple items, function (메모리에 레퍼런스가 있고 실제 값은 레퍼런스가 가리키는 곳에 자식 노드 개념의 메모리에 저장되어 있음.)</li>
+  <li>object, box container</li>
+  <li>function, first-class function</li>
+</ul>
+:ET

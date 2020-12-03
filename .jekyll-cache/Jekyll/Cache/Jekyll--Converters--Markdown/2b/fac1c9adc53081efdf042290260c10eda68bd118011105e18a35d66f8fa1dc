@@ -1,0 +1,143 @@
+I"�<h4><u><b> Javascript Objects </b></u></h4>
+
+<ul>
+  <li>one of the JS’s data types.</li>
+  <li>a collection of related data and/or functionalities</li>
+  <li>Nearly all objects in JS are instances of Objects.</li>
+  <li>object = {key : value}</li>
+</ul>
+
+<ol>
+  <li>Object declaration</li>
+</ol>
+<pre>
+const obj1 = {}; // 'object literal' syntax
+const obj2 = New Object(); // 'object constructor' syntax
+
+functions print(person){
+    console.log(person.name);
+    console.log(person.age);
+}
+const a = {name:'a', age: 4};
+print(a);
+</pre>
+
+<ol>
+  <li>Dynamically adding/deleting Object properties</li>
+</ol>
+<pre>
+    a.hasJob = true;
+    delete a.hasJob;
+</pre>
+
+<ol>
+  <li>Computed properties(==key)
+    <ul>
+      <li>keys should always be a string.</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    console.log(a.name); // this is better,
+    console.log(a['name']); // than this.
+    a['hasJob'] = true; // use when assign a value to a key.
+    console.log(a.hasJob);
+</pre>
+
+<ol>
+  <li>Constructor Functions
+    <ul>
+      <li>when a number of objects with the same properties are needed, we can use constructor functions.</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    const person1 = {name: 'bob', age: 2};
+    const person2 = {name: 'steve', age: 3}; // repeating, bad
+    const person3 = {name: 'jack', age: 3}; // repeating, bad
+    const person4 = new Person('dave', 4); // created using a constructor function, good
+
+    function Person(name, age){
+        this.name = name;
+        this.age = age;
+    }
+</pre>
+
+<ol>
+  <li>‘in’ operator: checking property existence(key in obj)</li>
+</ol>
+<pre>
+    console.log('name' in person4);
+    console.log('kkk' in person4); // returns undefined
+</pre>
+
+<ol>
+  <li>for..in vs for..of
+    <ul>
+      <li>for (key in obj)</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    console.clear();
+    for (key in person4){
+        console.log(key);
+    }
+</pre>
+
+<ul>
+  <li>for (value of iterable)</li>
+</ul>
+<pre>
+const array = [1,2,3,4];
+for (value of array){
+    console.log(value);
+}
+</pre>
+
+<ol>
+  <li>Cloning
+    <ul>
+      <li>Object.assign(dest, [obj1, obj2, …])</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    const user = {name: 'dave', age: 20}; // ref1 pointing memory address x
+    const user2 = user; // ref2 which is identical to ref1 so that it points memory address x
+    user2.name = 'coder'; // IMPORTANT! ; this ALSO makes user.name 'coder'.
+    console.log(user); 
+</pre>
+
+<ul>
+  <li>old way to copy and paste the value of a certain address.</li>
+</ul>
+<pre>
+    const user3 = {};
+    for (key in user){
+        user3[key] = user[key];
+    }
+    console.clear();
+    console.log(user3);
+</pre>
+
+<ul>
+  <li>modern way</li>
+</ul>
+<pre>
+    const user4 = Object.assign({}, user);
+    console.log(user4);
+</pre>
+
+<ul>
+  <li>Mixing objects</li>
+</ul>
+<pre>
+    const fruit1 = {color : 'red', calories: 20};
+    const fruit2 = {color : 'blue', size : 'big'};
+    const mixed = Object.assign({}, fruit1, fruit2);
+    console.log(mixed.color); // blue
+    console.log(mixed.size); // big
+    console.log(mixed.calories); // 20
+</pre>
+:ET

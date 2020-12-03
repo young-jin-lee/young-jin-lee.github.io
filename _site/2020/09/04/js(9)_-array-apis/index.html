@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>Javascript Stuff</title>
+  <meta name="description" content="Javascript Array APIs Problems Make a string out of an array /** * Adds all the elements of an array separated by the specified separator string. * @param separator A string used to separate one element of an array from the next in the resulting String. If omitted, the array elements are separated with a comma. */ join(separator?: string): string; { const fruits = [&#39;apple&#39;, &#39;banana&#39;, &#39;orange&#39;]; const result = fruits.join(&#39;,&#39;); console.log(typeof(result), result); // output: string, apple,banana,orange } Make an array out of a string /** * Split a string into substrings using the specified separator and return them as an array. * @param separator A string that identifies character or characters to use in separating the string. If omitted, a single-element array containing the entire string is returned. * @param limit A value used to limit the number of elements returned in the array. */ // split(separator: string | RegExp, limit?: number): string[]; { const fruits = &#39;🍎, 🥝, 🍌, 🍒&#39;; const result = fruits.split(&#39;,&#39;,3); console.log(result); //output: [&quot;🍎&quot;, &quot; 🥝&quot;, &quot; 🍌&quot;] } Make [1, 2, 3, 4, 5] look like [5, 4, 3, 2, 1] /** * Reverses the elements in an Array. */ //reverse(): T[]; { const array = [1, 2, 3, 4, 5]; const result = array.reverse(); console.log(array); // output: [5, 4, 3, 2, 1] } Make a new array without the first two elements. /** * Returns a section of an array. * @param start The beginning of the specified portion of the array. * @param end The end of the specified portion of the array. This is exclusive of the element at the index &#39;end&#39;. */ //slice(start?: number, end?: number): T[]; { const array = [1, 2, 3, 4, 5]; const result = array.slice(2, 5); console.log(result); // output: [3, 4, 5] } Below class ‘Student’ is for problem 5 ~ 10 class Student { constructor(name, age, enrolled, score) { this.name = name; this.age = age; this.enrolled = enrolled; this.score = score; } } const students = [ new Student(&#39;A&#39;, 29, true, 45), new Student(&#39;B&#39;, 28, false, 80), new Student(&#39;C&#39;, 30, true, 90), new Student(&#39;D&#39;, 40, false, 66), new Student(&#39;E&#39;, 18, true, 88), ]; Find the student with the score 90 /** * Returns the value of the first element in the array where predicate is true, and undefined * otherwise. * @param predicate find calls predicate once for each element of the array, in ascending * order, until it finds one where predicate returns true. If such an element is found, find * immediately returns that element value. Otherwise, find returns undefined. * @param thisArg If provided, it will be used as the this value for each invocation of * predicate. If it is not provided, undefined is used instead. */ //find(predicate: (this: void, value: T, index: number, obj: T[]) =&amp;gt; value is S, thisArg?: any): S | undefined; //find(predicate: (value: T, index: number, obj: T[]) =&amp;gt; unknown, thisArg?: any): T | undefined; { const result = students.find(function(student, index){ //console.log(student, index); return student.score === 90; }); console.log(result); // output: Student {name: &quot;C&quot;, age: 30, enrolled: true, score: 90} } &amp;lt;/pre&amp;gt; * Simpler code - if statement in the callback function is one line, you can remove &#39;return&#39;, &#39;;&#39;, &#39;{}&#39; and add =&amp;gt;. - if the fucntion is anomymous, you can remove &#39;function&#39;. const result = students.find((student)=&amp;gt;student.score === 90); console.log(result); 6. Make an array of enrolled students /** * Returns the elements of an array that meet the condition specified in a callback function. * @param callbackfn A function that accepts up to three arguments. The filter method calls the callbackfn function one time for each element in the array. * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value. */ //filter(callbackfn: (value: T, index: number, array: T[]) =&amp;gt; value is S, thisArg?: any): S[]; { const result = students.filter((student) =&amp;gt; student.enrolled === true); console.log(result); // output: [Student, Student, Student] ... } &amp;lt;/pre&amp;gt; 7. Make an array containing only the students&#39; scores // result should be: [45, 80, 90, 66, 88] /** * Calls a defined callback function on each element of an array, and returns an array that contains the results. * @param callbackfn A function that accepts up to three arguments. The map method calls the callbackfn function one time for each element in the array. * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value. */ //map(callbackfn: (value: T, index: number, array: T[]) =&amp;gt; U, thisArg?: any): U[]; { const result = students.map((student)=&amp;gt;student.score); console.log(result); // output: [45, 80, 90, 66, 88] } &amp;lt;/pre&amp;gt; 8. check if there is a student with the score lower than 50 /** * Determines whether the specified callback function returns true for any element of an array. * @param callbackfn A function that accepts up to three arguments. The some method calls * the callbackfn function for each element in the array until the callbackfn returns a value * which is coercible to the Boolean value true, or until the end of the array. * @param thisArg An object to which the this keyword can refer in the callbackfn function. * If thisArg is omitted, undefined is used as the this value. */ //some(callbackfn: (value: T, index: number, array: T[]) =&amp;gt; unknown, thisArg?: any): boolean; { const result = students.some((student) =&amp;gt; student.score&amp;lt;50); console.log(result); // output: true const result2 = students.every((student) =&amp;gt; student.score&amp;lt;50); console.log(result2); // output: } 9. Compute students&#39; average score /** * Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function. * @param callbackfn A function that accepts up to four arguments. The reduce method calls the callbackfn function one time for each element in the array. * @param initialValue If initialValue is specified, it is used as the initial value to start the accumulation. The first call to the callbackfn function provides this value as an argument instead of an array value. */ //reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) =&amp;gt; T): T; //reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) =&amp;gt; T, initialValue: T): T; { const result = students.reduce((prev, curr) =&amp;gt; { //console.log(prev, curr.score); return prev+curr.score; }, 0); // 0 for the inital value console.log(result/students.length); const result2 = students.reduce((prev, curr) =&amp;gt; prev+curr.score, 0); console.log(result2/students.length); // output: 73.8 } 10. Make a string containing all the scores that are greater than 50 // result should be: &#39;45, 80, 90, 66, 88&#39; { const result = students .map((student)=&amp;gt; student.score) .filter(score =&amp;gt; score &amp;gt;= 50) .join(); console.log(result); } - Bonus! do Q10 sorted in ascending order // result should be: &#39;45, 66, 80, 88, 90&#39; /** * Sorts an array. * @param compareFn Function used to determine the order of the elements. It is expected to return * a negative value if first argument is less than second argument, zero if they&#39;re equal and a positive * value otherwise. If omitted, the elements are sorted in ascending, ASCII character order. * ```ts * [11,2,22,1].sort((a, b) =&amp;gt; a - b) * ``` */ //sort(compareFn?: (a: T, b: T) =&amp;gt; number): this; { const result = students .map((student)=&amp;gt;student.score) .sort((a,b)=&amp;gt;b-a) .join(); console.log(result); // output: 90,88,80,66,45 }">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/2020/09/04/js(9)_-array-apis/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="Young Jin&#39;s blog" href="http://localhost:4000/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="Javascript Stuff">
+  <meta property="og:site_name" content="Young Jin&#39;s blog">
+  <meta property="og:url" content="http://localhost:4000/2020/09/04/js(9)_-array-apis/">
+  <meta property="og:description" content="Javascript Array APIs Problems Make a string out of an array /** * Adds all the elements of an array separated by the specified separator string. * @param separator A string used to separate one element of an array from the next in the resulting String. If omitted, the array elements are separated with a comma. */ join(separator?: string): string; { const fruits = [&#39;apple&#39;, &#39;banana&#39;, &#39;orange&#39;]; const result = fruits.join(&#39;,&#39;); console.log(typeof(result), result); // output: string, apple,banana,orange } Make an array out of a string /** * Split a string into substrings using the specified separator and return them as an array. * @param separator A string that identifies character or characters to use in separating the string. If omitted, a single-element array containing the entire string is returned. * @param limit A value used to limit the number of elements returned in the array. */ // split(separator: string | RegExp, limit?: number): string[]; { const fruits = &#39;🍎, 🥝, 🍌, 🍒&#39;; const result = fruits.split(&#39;,&#39;,3); console.log(result); //output: [&quot;🍎&quot;, &quot; 🥝&quot;, &quot; 🍌&quot;] } Make [1, 2, 3, 4, 5] look like [5, 4, 3, 2, 1] /** * Reverses the elements in an Array. */ //reverse(): T[]; { const array = [1, 2, 3, 4, 5]; const result = array.reverse(); console.log(array); // output: [5, 4, 3, 2, 1] } Make a new array without the first two elements. /** * Returns a section of an array. * @param start The beginning of the specified portion of the array. * @param end The end of the specified portion of the array. This is exclusive of the element at the index &#39;end&#39;. */ //slice(start?: number, end?: number): T[]; { const array = [1, 2, 3, 4, 5]; const result = array.slice(2, 5); console.log(result); // output: [3, 4, 5] } Below class ‘Student’ is for problem 5 ~ 10 class Student { constructor(name, age, enrolled, score) { this.name = name; this.age = age; this.enrolled = enrolled; this.score = score; } } const students = [ new Student(&#39;A&#39;, 29, true, 45), new Student(&#39;B&#39;, 28, false, 80), new Student(&#39;C&#39;, 30, true, 90), new Student(&#39;D&#39;, 40, false, 66), new Student(&#39;E&#39;, 18, true, 88), ]; Find the student with the score 90 /** * Returns the value of the first element in the array where predicate is true, and undefined * otherwise. * @param predicate find calls predicate once for each element of the array, in ascending * order, until it finds one where predicate returns true. If such an element is found, find * immediately returns that element value. Otherwise, find returns undefined. * @param thisArg If provided, it will be used as the this value for each invocation of * predicate. If it is not provided, undefined is used instead. */ //find(predicate: (this: void, value: T, index: number, obj: T[]) =&amp;gt; value is S, thisArg?: any): S | undefined; //find(predicate: (value: T, index: number, obj: T[]) =&amp;gt; unknown, thisArg?: any): T | undefined; { const result = students.find(function(student, index){ //console.log(student, index); return student.score === 90; }); console.log(result); // output: Student {name: &quot;C&quot;, age: 30, enrolled: true, score: 90} } &amp;lt;/pre&amp;gt; * Simpler code - if statement in the callback function is one line, you can remove &#39;return&#39;, &#39;;&#39;, &#39;{}&#39; and add =&amp;gt;. - if the fucntion is anomymous, you can remove &#39;function&#39;. const result = students.find((student)=&amp;gt;student.score === 90); console.log(result); 6. Make an array of enrolled students /** * Returns the elements of an array that meet the condition specified in a callback function. * @param callbackfn A function that accepts up to three arguments. The filter method calls the callbackfn function one time for each element in the array. * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value. */ //filter(callbackfn: (value: T, index: number, array: T[]) =&amp;gt; value is S, thisArg?: any): S[]; { const result = students.filter((student) =&amp;gt; student.enrolled === true); console.log(result); // output: [Student, Student, Student] ... } &amp;lt;/pre&amp;gt; 7. Make an array containing only the students&#39; scores // result should be: [45, 80, 90, 66, 88] /** * Calls a defined callback function on each element of an array, and returns an array that contains the results. * @param callbackfn A function that accepts up to three arguments. The map method calls the callbackfn function one time for each element in the array. * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value. */ //map(callbackfn: (value: T, index: number, array: T[]) =&amp;gt; U, thisArg?: any): U[]; { const result = students.map((student)=&amp;gt;student.score); console.log(result); // output: [45, 80, 90, 66, 88] } &amp;lt;/pre&amp;gt; 8. check if there is a student with the score lower than 50 /** * Determines whether the specified callback function returns true for any element of an array. * @param callbackfn A function that accepts up to three arguments. The some method calls * the callbackfn function for each element in the array until the callbackfn returns a value * which is coercible to the Boolean value true, or until the end of the array. * @param thisArg An object to which the this keyword can refer in the callbackfn function. * If thisArg is omitted, undefined is used as the this value. */ //some(callbackfn: (value: T, index: number, array: T[]) =&amp;gt; unknown, thisArg?: any): boolean; { const result = students.some((student) =&amp;gt; student.score&amp;lt;50); console.log(result); // output: true const result2 = students.every((student) =&amp;gt; student.score&amp;lt;50); console.log(result2); // output: } 9. Compute students&#39; average score /** * Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function. * @param callbackfn A function that accepts up to four arguments. The reduce method calls the callbackfn function one time for each element in the array. * @param initialValue If initialValue is specified, it is used as the initial value to start the accumulation. The first call to the callbackfn function provides this value as an argument instead of an array value. */ //reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) =&amp;gt; T): T; //reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) =&amp;gt; T, initialValue: T): T; { const result = students.reduce((prev, curr) =&amp;gt; { //console.log(prev, curr.score); return prev+curr.score; }, 0); // 0 for the inital value console.log(result/students.length); const result2 = students.reduce((prev, curr) =&amp;gt; prev+curr.score, 0); console.log(result2/students.length); // output: 73.8 } 10. Make a string containing all the scores that are greater than 50 // result should be: &#39;45, 80, 90, 66, 88&#39; { const result = students .map((student)=&amp;gt; student.score) .filter(score =&amp;gt; score &amp;gt;= 50) .join(); console.log(result); } - Bonus! do Q10 sorted in ascending order // result should be: &#39;45, 66, 80, 88, 90&#39; /** * Sorts an array. * @param compareFn Function used to determine the order of the elements. It is expected to return * a negative value if first argument is less than second argument, zero if they&#39;re equal and a positive * value otherwise. If omitted, the elements are sorted in ascending, ASCII character order. * ```ts * [11,2,22,1].sort((a, b) =&amp;gt; a - b) * ``` */ //sort(compareFn?: (a: T, b: T) =&amp;gt; number): this; { const result = students .map((student)=&amp;gt;student.score) .sort((a,b)=&amp;gt;b-a) .join(); console.log(result); // output: 90,88,80,66,45 }">
+  
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:title" content="Javascript Stuff">
+  <meta name="twitter:description" content="Javascript Array APIs Problems Make a string out of an array /** * Adds all the elements of an array separated by the specified separator string. * @param separator A string used to separate one el...">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700&amp;display=swap" rel="stylesheet">
+
+  
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-156930914-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Young Jin&#39;s blog</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://github.com/">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+      <h1 class="post-title" itemprop="name headline">Javascript Stuff</h1>
+    
+    <p class="post-meta"><time datetime="2020-09-04T00:00:00+00:00" itemprop="datePublished">Sep 4, 2020</time> •
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+        <a href="/categories/javascript/">JavaScript</a> (10)
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  
+
+
+
+
+</p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h4><u><b> Javascript Array APIs Problems </b></u></h4>
+
+<ol>
+  <li>Make a string out of an array</li>
+</ol>
+<pre>
+        /**
+        * Adds all the elements of an array separated by the specified separator string.
+        * @param separator A string used to separate one element of an array from the next in the resulting String. If omitted, the array elements are separated with a comma.
+        */
+        join(separator?: string): string;
+        
+    {
+        const fruits = ['apple', 'banana', 'orange'];
+        const result = fruits.join(',');
+        console.log(typeof(result), result);
+        // output: string, apple,banana,orange
+    }
+</pre>
+
+<ol>
+  <li>Make an array out of a string</li>
+</ol>
+<pre>
+    /**
+     * Split a string into substrings using the specified separator and return them as an array.
+     * @param separator A string that identifies character or characters to use in separating the string. If omitted, a single-element array containing the entire string is returned.
+     * @param limit A value used to limit the number of elements returned in the array.
+     */
+    // split(separator: string | RegExp, limit?: number): string[];
+
+  {
+    const fruits = '🍎, 🥝, 🍌, 🍒';
+    const result = fruits.split(',',3);
+    console.log(result);
+    //output: ["🍎", " 🥝", " 🍌"]
+  }
+</pre>
+
+<ol>
+  <li>Make [1, 2, 3, 4, 5] look like [5, 4, 3, 2, 1]</li>
+</ol>
+<pre>
+    /**
+     * Reverses the elements in an Array.
+     */
+    //reverse(): T[];
+  {
+    const array = [1, 2, 3, 4, 5];
+    const result = array.reverse();
+    console.log(array);
+    // output: [5, 4, 3, 2, 1]
+  }
+</pre>
+
+<ol>
+  <li>Make a new array without the first two elements.</li>
+</ol>
+<pre>
+    /**
+     * Returns a section of an array.
+     * @param start The beginning of the specified portion of the array.
+     * @param end The end of the specified portion of the array. This is exclusive of the element at the index 'end'.
+     */
+    //slice(start?: number, end?: number): T[];
+  {
+    const array = [1, 2, 3, 4, 5];
+    const result = array.slice(2, 5);
+    console.log(result);
+    // output: [3, 4, 5]
+  }
+</pre>
+
+<ul>
+  <li>Below class ‘Student’ is for problem 5 ~ 10</li>
+</ul>
+<pre>
+  class Student {
+    constructor(name, age, enrolled, score) {
+      this.name = name;
+      this.age = age;
+      this.enrolled = enrolled;
+      this.score = score;
+    }
+  }
+  const students = [
+    new Student('A', 29, true, 45),
+    new Student('B', 28, false, 80),
+    new Student('C', 30, true, 90),
+    new Student('D', 40, false, 66),
+    new Student('E', 18, true, 88),
+  ];
+</pre>
+
+<ol>
+  <li>Find the student with the score 90</li>
+</ol>
+<pre>
+  /**
+     * Returns the value of the first element in the array where predicate is true, and undefined
+     * otherwise.
+     * @param predicate find calls predicate once for each element of the array, in ascending
+     * order, until it finds one where predicate returns true. If such an element is found, find
+     * immediately returns that element value. Otherwise, find returns undefined.
+     * @param thisArg If provided, it will be used as the this value for each invocation of
+     * predicate. If it is not provided, undefined is used instead.
+     */
+    //find<S extends="" T="">(predicate: (this: void, value: T, index: number, obj: T[]) =&gt; value is S, thisArg?: any): S | undefined;
+    //find(predicate: (value: T, index: number, obj: T[]) =&gt; unknown, thisArg?: any): T | undefined;
+  {
+      const result = students.find(function(student, index){
+          //console.log(student, index);
+          return student.score === 90;
+      });
+      console.log(result);
+      // output: Student {name: "C", age: 30, enrolled: true, score: 90}
+  }
+&lt;/pre&gt;
+
+* Simpler code
+- if statement in the callback function is one line, you can remove 'return', ';', '{}' and add =&gt;.
+- if the fucntion is anomymous, you can remove 'function'.
+<pre>
+      const result = students.find((student)=&gt;student.score === 90);
+      console.log(result);
+</pre>
+
+6. Make an array of enrolled students
+<pre>
+    /**
+     * Returns the elements of an array that meet the condition specified in a callback function.
+     * @param callbackfn A function that accepts up to three arguments. The filter method calls the callbackfn function one time for each element in the array.
+     * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
+     */
+    //filter<S extends="" T="">(callbackfn: (value: T, index: number, array: T[]) =&gt; value is S, thisArg?: any): S[];
+  {
+      const result = students.filter((student) =&gt; student.enrolled === true);
+      console.log(result);
+      // output: [Student, Student, Student] ... 
+  }
+&lt;/pre&gt;
+
+7. Make an array containing only the students' scores
+<pre>
+  // result should be: [45, 80, 90, 66, 88]
+  /**
+     * Calls a defined callback function on each element of an array, and returns an array that contains the results.
+     * @param callbackfn A function that accepts up to three arguments. The map method calls the callbackfn function one time for each element in the array.
+     * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
+     */
+    //map<u>(callbackfn: (value: T, index: number, array: T[]) =&gt; U, thisArg?: any): U[];
+  {
+      const result = students.map((student)=&gt;student.score);
+      console.log(result);
+      // output: [45, 80, 90, 66, 88]
+  }
+&lt;/pre&gt;
+
+8. check if there is a student with the score lower than 50
+<pre>
+    /**
+     * Determines whether the specified callback function returns true for any element of an array.
+     * @param callbackfn A function that accepts up to three arguments. The some method calls
+     * the callbackfn function for each element in the array until the callbackfn returns a value
+     * which is coercible to the Boolean value true, or until the end of the array.
+     * @param thisArg An object to which the this keyword can refer in the callbackfn function.
+     * If thisArg is omitted, undefined is used as the this value.
+     */
+    //some(callbackfn: (value: T, index: number, array: T[]) =&gt; unknown, thisArg?: any): boolean;
+  {
+      const result = students.some((student) =&gt; student.score&lt;50);
+      console.log(result);
+      // output: true
+
+      const result2 = students.every((student) =&gt; student.score&lt;50);
+      console.log(result2);
+      // output:
+  }
+</pre>
+  
+9. Compute students' average score
+<pre>
+    /**
+     * Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
+     * @param callbackfn A function that accepts up to four arguments. The reduce method calls the callbackfn function one time for each element in the array.
+     * @param initialValue If initialValue is specified, it is used as the initial value to start the accumulation. The first call to the callbackfn function provides this value as an argument instead of an array value.
+     */
+    //reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) =&gt; T): T;
+    //reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) =&gt; T, initialValue: T): T;
+  {
+      const result = students.reduce((prev, curr) =&gt; {
+          //console.log(prev, curr.score); 
+          return prev+curr.score;
+      }, 0); // 0 for the inital value
+      console.log(result/students.length);
+      
+      const result2 = students.reduce((prev, curr) =&gt; prev+curr.score, 0);
+      console.log(result2/students.length);
+
+      // output: 73.8
+  }
+</pre>
+
+10. Make a string containing all the scores that are greater than 50
+<pre>
+  // result should be: '45, 80, 90, 66, 88'
+  {
+      const result = students
+        .map((student)=&gt; student.score)
+        .filter(score =&gt; score &gt;= 50)
+        .join();
+      console.log(result);
+  }
+</pre>
+
+- Bonus! do Q10 sorted in ascending order
+<pre>
+  // result should be: '45, 66, 80, 88, 90'
+  /**
+     * Sorts an array.
+     * @param compareFn Function used to determine the order of the elements. It is expected to return
+     * a negative value if first argument is less than second argument, zero if they're equal and a positive
+     * value otherwise. If omitted, the elements are sorted in ascending, ASCII character order.
+     * ```ts
+     * [11,2,22,1].sort((a, b) =&gt; a - b)
+     * ```
+     */
+    //sort(compareFn?: (a: T, b: T) =&gt; number): this;
+  {
+    const result = students
+        .map((student)=&gt;student.score)
+        .sort((a,b)=&gt;b-a)
+        .join();
+    console.log(result);
+    // output: 90,88,80,66,45
+  }
+</pre>
+</u></pre></S></pre></S></pre>
+
+  </div>
+
+  
+
+</article>
+
+      </div>
+    </main>
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy; Young Jin Lee 
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
