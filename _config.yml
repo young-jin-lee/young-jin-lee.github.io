@@ -70,7 +70,7 @@ jekyll-archives:
     - archives
     - categories
     - tags
-  layout: category_archives
+  layout: category
   permalinks:
     category: /categories/:name/
     tag: /tags/:name/
