@@ -45,7 +45,6 @@ plugins:
   - jekyll-archives
   - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-regex-replace
 
 # Build settings
 markdown: kramdown
