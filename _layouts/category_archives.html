@@ -3,8 +3,10 @@ layout: default
 ---
 <div class="home">
 
+  <h1 class="page-heading">Archive of {{ page.type }} '{{ page.title | escape }}'</h1>
+
   {% capture site_lang %}{{ site.lang | default: "en" }}{% endcapture %}
-  <h1>dsfdsfdsfd</h1>
+
   <ul class="post-archives">
     {% for post in page.posts %}
       {% capture post_lang %}{{ post.lang | default: site_lang }}{% endcapture %}
@@ -14,7 +16,7 @@ layout: default
         <span class="post-meta">
           {{ post.date | date: "%b %-d, %Y" }}
           {% if post.categories != empty or post.tags != empty %}
-            <h1>dsfds</h1>
+            {% include category_links.html categories=post.categories tags=post.tags %}
           {% endif %}
           {% if post.external-url %}
             • <a href="{{ post.url | relative_url }}">Permalink</a>
@@ -23,9 +25,9 @@ layout: default
 
         <h2>
           {% if post.external-url %}
-            <a class="post-link" href="{{ post.external-url }}"> &rarr;</a>
+            <a class="post-link" href="{{ post.external-url }}">{{ post.title | escape }} &rarr;</a>
           {% else %}
-            <a class="post-link" href="{{ post.url | relative_url }}"{% if lang != empty %} lang="{{ lang }}"{% endif %}>fgdf</a>
+            <a class="post-link" href="{{ post.url | relative_url }}"{% if lang != empty %} lang="{{ lang }}"{% endif %}>{{ post.title | escape }}</a>
           {% endif %}
         </h2>
       </li>
