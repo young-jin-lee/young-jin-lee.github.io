@@ -23,7 +23,7 @@ layout: default
 
         <h2>
           {% if post.external-url %}
-            <a class="post-link" href="{{ post.external-url }}">{{ post.title | escape }} &rarr;</a>
+            <a class="post-link" href="{{ post.external-url }}"> &rarr;</a>
           {% else %}
             <a class="post-link" href="{{ post.url | relative_url }}"{% if lang != empty %} lang="{{ lang }}"{% endif %}>fgdf</a>
           {% endif %}
