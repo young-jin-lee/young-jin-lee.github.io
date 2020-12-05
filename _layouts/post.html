@@ -22,8 +22,9 @@ layout: default
       <li>
         <span class="post-meta">
           {% if cat.first != empty %}
-                  <a href="/categories/{{ page.categories }}">
-                    {{ page.categories }} ({{ (page.categories).size }})
+                  {% capture my_variable %}{{ page.categories }}{% endcapture %}
+                  <a href="/categories/{{ my_variable | downcase }}">
+                    {{ my_variable | downcase }} ({{ (page.categories).size }})
                   </a>
           {% endif %}
         </span>
