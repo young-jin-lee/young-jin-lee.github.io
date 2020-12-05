@@ -13,16 +13,14 @@ layout: default
     {% for cat in site.categories %} 
       <li>
         <span class="post-meta">
-          <h1>HEADI</h1>
+          
           {% if cat.first != empty %}
-            
-            {% include category_links.html categories=cat.first %}
-
+                <a href="/categories/{{ cat.first | escape | downcase }}">{{ cat.first | escape }} ({{ (cat.first).size }})</a>
             {% for post in cat[1] reversed %}
               {% if post.external-url %}
-                </br><a class="post-link" href="{{ post.external-url }}">  - {{ post.title | escape }} &rarr;</a>
+                </br><a class="post-link" href="{{ post.external-url }}">- {{ post.title | escape }} &rarr;</a>
               {% else %}
-                </br><a class="post-link" href="{{ post.url | relative_url }}"{% if lang != empty %} lang="{{ lang }}"{% endif %}>  - {{ post.title | escape }}</a>
+                </br><a class="post-link" href="{{ post.url | relative_url }}"{% if lang != empty %} lang="{{ lang }}"{% endif %}>- {{ post.title | escape }}</a>
               {% endif %}
             {% endfor %}
           {% endif %}
