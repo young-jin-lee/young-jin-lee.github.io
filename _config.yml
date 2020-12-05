@@ -45,6 +45,7 @@ plugins:
   - jekyll-archives
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-regex-replace
 
 # Build settings
 markdown: kramdown
@@ -70,6 +71,7 @@ jekyll-archives:
     - archives
     - categories
     - tags
+    
   layout: category_archives
   permalinks:
     category: /categories/:name/
