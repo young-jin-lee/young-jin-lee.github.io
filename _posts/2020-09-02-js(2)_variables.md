@@ -17,7 +17,7 @@ categories: JavaScript
 </pre>
 
 * var : DO NOT EVER USE THIS!
-- 1. It causes 'HOISTING' which means 'pulling the declaration to the top.'; it results in a situation where variables can be used before their declarations and hence a spaggetti code.
+- 1. It causes 'HOISTING' which means 'pulling the declaration to the top.'; It results in a situation where variables can be used before their declarations and hence a spaggetti code.
 - 2. ignores block scope
 <pre>
     age = 4;
