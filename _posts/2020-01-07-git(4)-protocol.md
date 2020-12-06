@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "protocol"
+title: "Protocol"
 comments: true
-categories: git
+categories: GIT
 ---
 
 ## <u><b> Version Control System - git(4) </b></u>

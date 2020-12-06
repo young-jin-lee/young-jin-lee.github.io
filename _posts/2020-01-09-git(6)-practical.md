@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "practical"
+title: "Practical"
 comments: true
-categories: git
+categories: GIT
 ---
 
 ## <u><b> Version Control System - git(6) </b></u>

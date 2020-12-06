@@ -1,9 +1,9 @@
 
 ---
 layout: post
-title: "branches"
+title: "Branches"
 comments: true
-categories: git
+categories: GIT
 ---
 
 ## <u><b> Version Control System - git(2) </b></u>
