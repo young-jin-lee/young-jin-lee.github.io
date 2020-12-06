@@ -15,7 +15,7 @@ layout: default
         <span class="post-meta">
           
           {% if cat.first != empty %}
-                <a href="/categories/{{ cat.first | escape | downcase }}">{{ cat.first | escape }} ({{ (cat.first).size }})</a>
+                <a href="/categories/{{ cat.first | escape | downcase }}">{{ cat.first | escape }}  ({{ cat.last.size }})</a>
             {% for post in cat[1] reversed %}
               {% if post.external-url %}
                 </br><a class="post-link" href="{{ post.external-url }}">- {{ post.title | escape }} &rarr;</a>

@@ -3,8 +3,7 @@ layout: default
 ---
 <div class="home">
 
-  <h1 class="page-heading">Archive of {{ page.type }} '{{ page.title | escape }}'</h1>
-
+  <h1 class="page-heading">Archive of {{ page.type }} '{% include category_links.html categories=page.title %}'</h1>
   {% capture site_lang %}{{ site.lang | default: "en" }}{% endcapture %}
 
   <ul class="post-archives">
@@ -13,15 +12,7 @@ layout: default
       {% capture lang %}{% if post_lang != site_lang %}{{ post_lang }}{% endif %}{% endcapture %}
 
       <li>
-        <span class="post-meta">
-          {{ post.date | date: "%b %-d, %Y" }}
-          {% if post.categories != empty or post.tags != empty %}
-            {% include category_links.html categories=post.categories tags=post.tags %}
-          {% endif %}
-          {% if post.external-url %}
-            • <a href="{{ post.url | relative_url }}">Permalink</a>
-          {% endif %}
-        </span>
+        
 
         <h2>
           {% if post.external-url %}
@@ -29,6 +20,9 @@ layout: default
           {% else %}
             <a class="post-link" href="{{ post.url | relative_url }}"{% if lang != empty %} lang="{{ lang }}"{% endif %}>{{ post.title | escape }}</a>
           {% endif %}
+          <span class="post-meta" style= "font-size:12px;">
+            ~ {{ post.date | date: "%b %-d, %Y" }}
+          </span>
         </h2>
       </li>
     {% endfor %}

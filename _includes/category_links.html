@@ -1,10 +1,10 @@
-{% if include.categories != empty %} •
+{% if include.categories != empty %}
   {% for cat in include.categories %}
     {% assign no_comma = forloop.last %}
     {% for archive in site.archives %}
       
       {% if archive.type == 'category' and archive.title == cat %}
-        <a href="{{ archive.url | relative_url }}">{{ cat | escape }}</a>{% unless no_comma %},{% endunless %} ({{ cat.size }})
+        <a href="{{ archive.url | relative_url }}">{{ cat | escape }}</a>{% unless no_comma %},{% endunless %}
       {% endif %}
     {% endfor %}
   {% endfor %}
