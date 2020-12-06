@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Javascript Operators"
+title: "Operators"
 comments: true
 categories: JavaScript
 ---
@@ -41,7 +41,7 @@ categories: JavaScript
     console.log(1 > 3);
     console.log(1 <= 3);
     console.log(1 >= 3);
-</pre>
+</pre>å
 
 6. Logical operators : ||, &&, !
 - expression 중 연산이 많은 것을 뒤에 배치한다!! ||와 &&이 혼합되어 있다면 &&을 가장 뒤에!

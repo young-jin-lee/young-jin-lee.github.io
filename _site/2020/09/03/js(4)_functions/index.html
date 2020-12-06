@@ -9,7 +9,7 @@
   
   
   
-  <title>Javascript Functions</title>
+  <title>Functions</title>
   <meta name="description" content="Javascript Functions Function one function === one thing A function is an object in JS. naming: should be a VERB. functions always returns something. It returned undefined where return is not explicitly written in code. Parameters primitive parameters: passed by value object parameters: passed by reference function changeName(obj){ obj.name = &#39;coder&#39;; } const a = {name:&#39;a&#39;}; changeName(a); console.log(a); // output: coder Default parameters (added in ES6) function showMessage(msg, frm = &#39;unknown&#39;){ console.log(`${msg} by ${frm}`); } showMessage(&#39;Hi&#39;); // output Hi by unknown Rest parameters (added in ES6) … takes arguments as an array that contains passed parameters. function printAll(...args){ for (let i = 0; i &amp;lt; args.length; i++){ console.log(args[i]); } // or for (const arg of args){ console.log(arg); } } printAll(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;); Early return, early exit // bad to read function upgradeUser(user){ if (user.point &amp;gt; 10){ // long long logic } } // good to read function upgradeUser(user){ if(user.point &amp;lt;= 10){ return; } // long long logic }">
   
 
@@ -22,7 +22,7 @@
   
 
   
-  <meta property="og:title" content="Javascript Functions">
+  <meta property="og:title" content="Functions">
   <meta property="og:site_name" content="Young Jin&#39;s blog">
   <meta property="og:url" content="http://localhost:4000/2020/09/03/js(4)_functions/">
   <meta property="og:description" content="Javascript Functions Function one function === one thing A function is an object in JS. naming: should be a VERB. functions always returns something. It returned undefined where return is not explicitly written in code. Parameters primitive parameters: passed by value object parameters: passed by reference function changeName(obj){ obj.name = &#39;coder&#39;; } const a = {name:&#39;a&#39;}; changeName(a); console.log(a); // output: coder Default parameters (added in ES6) function showMessage(msg, frm = &#39;unknown&#39;){ console.log(`${msg} by ${frm}`); } showMessage(&#39;Hi&#39;); // output Hi by unknown Rest parameters (added in ES6) … takes arguments as an array that contains passed parameters. function printAll(...args){ for (let i = 0; i &amp;lt; args.length; i++){ console.log(args[i]); } // or for (const arg of args){ console.log(arg); } } printAll(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;); Early return, early exit // bad to read function upgradeUser(user){ if (user.point &amp;gt; 10){ // long long logic } } // good to read function upgradeUser(user){ if(user.point &amp;lt;= 10){ return; } // long long logic }">
@@ -30,7 +30,7 @@
   
   <meta name="twitter:card" content="summary">
   
-  <meta name="twitter:title" content="Javascript Functions">
+  <meta name="twitter:title" content="Functions">
   <meta name="twitter:description" content="Javascript Functions Function one function === one thing A function is an object in JS. naming: should be a VERB. functions always returns something. It returned undefined where return is not expli...">
   
   
@@ -88,7 +88,7 @@
 
   <header class="post-header">
     
-      <h1 class="post-title" itemprop="name headline">Javascript Functions</h1>
+      <h1 class="post-title" itemprop="name headline">Functions</h1>
     
     <p class="post-meta">
       <time datetime="2020-09-03T00:00:00+00:00" itemprop="datePublished">

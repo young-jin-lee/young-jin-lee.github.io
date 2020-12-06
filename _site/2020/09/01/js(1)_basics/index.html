@@ -9,7 +9,7 @@
   
   
   
-  <title>Javascript Basics</title>
+  <title>Basics</title>
   <meta name="description" content="Javascript Basics head 안에서 호출하기 fetch가 완료되면 바로 실행되는데, HTML이 모두 parsing 되기 전에 실행되기 때문에 문제가 될 수 있다. &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;!html lang=&quot;en&quot;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt; &amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;script src=&quot;main.js&quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/!html&amp;gt; body 가장 아래에서 호출하기 HTML이 모두 parsing 된 후에 js를 fetch하고 실행하기 때문에 유저는 html 내용을 빠르게 확인할 수 있다. 하지만 유저가 컨텐츠를 사용하기 위해 js를 사용해야한다면, js가 실행될 때 까지 의문도 모른채 기다려야한다. &amp;lt;!DOCTYPE html&amp;gt; Document ... head 안에서 asyn 옵션 주기 HTML이 한줄씩 parsing 되다가 script를 만나면 js를 병렬로 fetch 한다. fetch가 끝난 직후 js가 실행된다. 여러 js파일이 순차적으로 실행되어야 하는 경우라면, js가 fetch되는 순서에 의존적이기에 수동으로 순서를 정하기 어렵다. &amp;lt;!DOCTYPE html&amp;gt; Document head 안에서 defer 옵션 주기 HTML이 한줄씩 parsing 되다가 script를 만나면 js를 병렬로 fetch 한다. asyn과는 다르게 병렬로 모든 js를 fetch 한 후에 호출한 순서대로 실행시킨다. 이것이 가장 합리적인 방법이다. &amp;lt;!DOCTYPE html&amp;gt; Document vanilla js 파일에는 상단에 ‘use strict’; 를 써주는 것이 기본이다. 여러 문제를 해결해주는데, 특히 변수 문제를 해결해준다. Also, This makes your js code modern.">
   
 
@@ -22,7 +22,7 @@
   
 
   
-  <meta property="og:title" content="Javascript Basics">
+  <meta property="og:title" content="Basics">
   <meta property="og:site_name" content="Young Jin&#39;s blog">
   <meta property="og:url" content="http://localhost:4000/2020/09/01/js(1)_basics/">
   <meta property="og:description" content="Javascript Basics head 안에서 호출하기 fetch가 완료되면 바로 실행되는데, HTML이 모두 parsing 되기 전에 실행되기 때문에 문제가 될 수 있다. &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;!html lang=&quot;en&quot;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt; &amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;script src=&quot;main.js&quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/!html&amp;gt; body 가장 아래에서 호출하기 HTML이 모두 parsing 된 후에 js를 fetch하고 실행하기 때문에 유저는 html 내용을 빠르게 확인할 수 있다. 하지만 유저가 컨텐츠를 사용하기 위해 js를 사용해야한다면, js가 실행될 때 까지 의문도 모른채 기다려야한다. &amp;lt;!DOCTYPE html&amp;gt; Document ... head 안에서 asyn 옵션 주기 HTML이 한줄씩 parsing 되다가 script를 만나면 js를 병렬로 fetch 한다. fetch가 끝난 직후 js가 실행된다. 여러 js파일이 순차적으로 실행되어야 하는 경우라면, js가 fetch되는 순서에 의존적이기에 수동으로 순서를 정하기 어렵다. &amp;lt;!DOCTYPE html&amp;gt; Document head 안에서 defer 옵션 주기 HTML이 한줄씩 parsing 되다가 script를 만나면 js를 병렬로 fetch 한다. asyn과는 다르게 병렬로 모든 js를 fetch 한 후에 호출한 순서대로 실행시킨다. 이것이 가장 합리적인 방법이다. &amp;lt;!DOCTYPE html&amp;gt; Document vanilla js 파일에는 상단에 ‘use strict’; 를 써주는 것이 기본이다. 여러 문제를 해결해주는데, 특히 변수 문제를 해결해준다. Also, This makes your js code modern.">
@@ -30,7 +30,7 @@
   
   <meta name="twitter:card" content="summary">
   
-  <meta name="twitter:title" content="Javascript Basics">
+  <meta name="twitter:title" content="Basics">
   <meta name="twitter:description" content="Javascript Basics head 안에서 호출하기 fetch가 완료되면 바로 실행되는데, HTML이 모두 parsing 되기 전에 실행되기 때문에 문제가 될 수 있다. &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;!html lang=&quot;en&quot;&amp;gt; &amp;lt;head&amp;gt; &amp;l...">
   
   
@@ -88,7 +88,7 @@
 
   <header class="post-header">
     
-      <h1 class="post-title" itemprop="name headline">Javascript Basics</h1>
+      <h1 class="post-title" itemprop="name headline">Basics</h1>
     
     <p class="post-meta">
       <time datetime="2020-09-01T00:00:00+00:00" itemprop="datePublished">

@@ -9,7 +9,7 @@
   
   
   
-  <title>Javascript Stuff</title>
+  <title>Arrays</title>
   <meta name="description" content="Javascript Arrays Iterating over an array. const lst = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]; // 1. for for (let i = 0; i &amp;lt; lst.length; i++) { console.log(lst[i]); } // 2. for of for (let item of lst) { console.log(item); } // 3. forEach lst.forEach(function (item, index, lst){ console.log(item, index); }); // 3.1 forEach: &#39;lst&#39; not needed. lst.forEach(function (item, index){ console.log(item, index); }); // 3.2 forEach: simpler lst.forEach((item, index) =&amp;gt; { console.log(item, index); }); // 3.3 forEach: simpler lst.forEach((item, index) =&amp;gt; console.log(item, index)); // 3.4 forEach: simpler lst.forEach((item, index) =&amp;gt; console.log(item)); Removing an item from an array by index position syntax: list.splice(index position, number of times to remove at the index(by default it removes til the end), new data to put in at that index) lst = []; lst.push(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;); console.log(lst); lst.splice(1,2,&#39;B&#39;,&#39;C&#39;); console.log(lst); // output: [&#39;a&#39;,&#39;B&#39;,&#39;C&#39;,&#39;d&#39;]; // if you dont want to remove but insert at a certain index, put 0. lst.splice(1, 0, &#39;A&#39;, &#39;AA&#39;); Other useful APIs: indexOf, includes, lastIndexOf lst = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;a&#39;]; // indexOf console.log(lst.indexOf(&#39;a&#39;)); console.log(lst.indexOf(&#39;c&#39;)); // includes console.log(lst.includes(&#39;b&#39;)); console.log(lst.includes(&#39;d&#39;)); // lastIndexOf console.log(lst.indexOf(&#39;a&#39;)); console.log(lst.lastIndexOf(&#39;a&#39;)); Callback function: a function inside an api; it is applied to every single element of an array that is passed into the api. eg) forEach (callbackfn: (value: T, index: number, array: readonly T[]) =&amp;gt; void, thisArg?: any): void A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array. Performs the specified action for each element in an array. interpretation: accepts 2 parametres; a call back function and a thisArg, the question mark after ‘thisArg’ means that it is not necessary.">
   
 
@@ -22,7 +22,7 @@
   
 
   
-  <meta property="og:title" content="Javascript Stuff">
+  <meta property="og:title" content="Arrays">
   <meta property="og:site_name" content="Young Jin&#39;s blog">
   <meta property="og:url" content="http://localhost:4000/2020/09/04/js(8)_-arrays/">
   <meta property="og:description" content="Javascript Arrays Iterating over an array. const lst = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]; // 1. for for (let i = 0; i &amp;lt; lst.length; i++) { console.log(lst[i]); } // 2. for of for (let item of lst) { console.log(item); } // 3. forEach lst.forEach(function (item, index, lst){ console.log(item, index); }); // 3.1 forEach: &#39;lst&#39; not needed. lst.forEach(function (item, index){ console.log(item, index); }); // 3.2 forEach: simpler lst.forEach((item, index) =&amp;gt; { console.log(item, index); }); // 3.3 forEach: simpler lst.forEach((item, index) =&amp;gt; console.log(item, index)); // 3.4 forEach: simpler lst.forEach((item, index) =&amp;gt; console.log(item)); Removing an item from an array by index position syntax: list.splice(index position, number of times to remove at the index(by default it removes til the end), new data to put in at that index) lst = []; lst.push(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;); console.log(lst); lst.splice(1,2,&#39;B&#39;,&#39;C&#39;); console.log(lst); // output: [&#39;a&#39;,&#39;B&#39;,&#39;C&#39;,&#39;d&#39;]; // if you dont want to remove but insert at a certain index, put 0. lst.splice(1, 0, &#39;A&#39;, &#39;AA&#39;); Other useful APIs: indexOf, includes, lastIndexOf lst = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;a&#39;]; // indexOf console.log(lst.indexOf(&#39;a&#39;)); console.log(lst.indexOf(&#39;c&#39;)); // includes console.log(lst.includes(&#39;b&#39;)); console.log(lst.includes(&#39;d&#39;)); // lastIndexOf console.log(lst.indexOf(&#39;a&#39;)); console.log(lst.lastIndexOf(&#39;a&#39;)); Callback function: a function inside an api; it is applied to every single element of an array that is passed into the api. eg) forEach (callbackfn: (value: T, index: number, array: readonly T[]) =&amp;gt; void, thisArg?: any): void A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array. Performs the specified action for each element in an array. interpretation: accepts 2 parametres; a call back function and a thisArg, the question mark after ‘thisArg’ means that it is not necessary.">
@@ -30,7 +30,7 @@
   
   <meta name="twitter:card" content="summary">
   
-  <meta name="twitter:title" content="Javascript Stuff">
+  <meta name="twitter:title" content="Arrays">
   <meta name="twitter:description" content="Javascript Arrays Iterating over an array. const lst = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]; // 1. for for (let i = 0; i &amp;lt; lst.length; i++) { console.log(lst[i]); } // 2. for of for (let ...">
   
   
@@ -88,7 +88,7 @@
 
   <header class="post-header">
     
-      <h1 class="post-title" itemprop="name headline">Javascript Stuff</h1>
+      <h1 class="post-title" itemprop="name headline">Arrays</h1>
     
     <p class="post-meta">
       <time datetime="2020-09-04T00:00:00+00:00" itemprop="datePublished">

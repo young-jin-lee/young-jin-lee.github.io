@@ -5,7 +5,7 @@
   
   <link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" />
   <link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" />
-  <updated>2020-12-06T09:00:25+00:00</updated>
+  <updated>2020-12-06T09:18:22+00:00</updated>
   <id>http://localhost:4000//</id>
 
   
@@ -208,10 +208,10 @@
   
     <entry>
       
-      <title type="html">AWS IAM</title>
+      <title type="html">HTML</title>
       
       
-      <link href="http://localhost:4000/2020/10/01/html/" rel="alternate" type="text/html" title="AWS IAM" />
+      <link href="http://localhost:4000/2020/10/01/html/" rel="alternate" type="text/html" title="HTML" />
       
       <published>2020-10-01T00:00:00+00:00</published>
       <updated>2020-10-01T00:00:00+00:00</updated>
@@ -258,7 +258,7 @@
       
 
       
-        <category term="Aws" />
+        <category term="HTML" />
       
 
       
@@ -275,10 +275,10 @@
   
     <entry>
       
-      <title type="html">AWS IAM</title>
+      <title type="html">CSS</title>
       
       
-      <link href="http://localhost:4000/2020/10/01/css/" rel="alternate" type="text/html" title="AWS IAM" />
+      <link href="http://localhost:4000/2020/10/01/css/" rel="alternate" type="text/html" title="CSS" />
       
       <published>2020-10-01T00:00:00+00:00</published>
       <updated>2020-10-01T00:00:00+00:00</updated>
@@ -318,7 +318,7 @@
       
 
       
-        <category term="Aws" />
+        <category term="CSS" />
       
 
       
@@ -582,10 +582,10 @@
   
     <entry>
       
-      <title type="html">Javascript Stuff</title>
+      <title type="html">Callback</title>
       
       
-      <link href="http://localhost:4000/2020/09/05/js(11)_-callback/" rel="alternate" type="text/html" title="Javascript Stuff" />
+      <link href="http://localhost:4000/2020/09/05/js(11)_-callback/" rel="alternate" type="text/html" title="Callback" />
       
       <published>2020-09-05T00:00:00+00:00</published>
       <updated>2020-09-05T00:00:00+00:00</updated>
@@ -628,114 +628,10 @@
   
     <entry>
       
-      <title type="html">Javascript Stuff</title>
+      <title type="html">Problems(practice)</title>
       
       
-      <link href="http://localhost:4000/2020/09/04/js_stuff/" rel="alternate" type="text/html" title="Javascript Stuff" />
-      
-      <published>2020-09-04T00:00:00+00:00</published>
-      <updated>2020-09-04T00:00:00+00:00</updated>
-      <id>http://localhost:4000/2020/09/04/js_stuff</id>
-      <content type="html" xml:base="http://localhost:4000/2020/09/04/js_stuff/">&lt;h4&gt;&lt;u&gt;&lt;b&gt; Javascript Stuff &lt;/b&gt;&lt;/u&gt;&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;NOTE&lt;/li&gt;
-  &lt;li&gt;functions are treated like any other variable&lt;/li&gt;
-  &lt;li&gt;can be assigned as a value to variable&lt;/li&gt;
-  &lt;li&gt;can be passed as an argument to other functions&lt;/li&gt;
-  &lt;li&gt;can be returned by another function&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;How to deal with subset dropdown menus
-    &lt;ul&gt;
-      &lt;li&gt;HTML&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;
-     &lt;div style=&quot;float: left; margin-bottom: 10px;&quot;&gt;
-		&lt;form name=&quot;itFrm&quot;&gt;
-			&lt;select id=&quot;group1&quot; data-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot; onchange=&quot;getGroup2List(this.value,'')&quot;&gt;
-				&lt;option value=&quot;&quot;&gt;&lt;/option&gt;
-				&lt;c:forEach items=&quot;${group1List}&quot; var=&quot;group1Item&quot;&gt;
-					&lt;option data-grp1-id=&quot;${group1Item.grp1Id}&quot; value=&quot;${group1Item.grp1Nm}&quot;&gt;
-                        ${group1Item.grp1Nm}
-                    &lt;/option&gt;
-				&lt;/c:forEach&gt;
-			&lt;/select&gt;
-			&lt;select id=&quot;group2&quot; data-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;
-				&lt;option value=&quot;&quot;&gt;&lt;/option&gt;
-			&lt;/select&gt;
-		    &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot; onclick=&quot;frmSbmt(); return false;&quot; style=&quot;margin-top:-10px&quot;&gt;Search&lt;/button&gt;
-	    &lt;/form&gt;
-    &lt;/div&gt;
-&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;JS&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;
-    function getGroupList(parent){ 
-        $.ajax({
-            url      : &quot;group/getGroupList&quot;,
-            data : {
-                &quot;parent&quot; : parent
-            },
-            dataType : &quot;json&quot;,
-            cache    : false,
-            method     : &quot;GET&quot;,
-        }).done(function(data){
-            $(&quot;#group2 option&quot;).not(&quot;:first&quot;).remove(); // 초기화
-            if(data.groupList.length &amp;gt; 0){
-                var html ='';
-                $.each(data.groupList, function(index, val) {
-                    html +=	'&lt;option data-grp-cd=&quot;+ val.grp2Cd+&quot; value=&quot;+val.grp2Nm+&quot; selected=&quot;&quot;&gt;'
-                         +  val.grp2Nm+'&lt;/option&gt;';
-                });
-                $(&quot;#group2&quot;).append(html);
-            } else {							  // 존재하지 않음	
-            }
-        }); 
-    }
-&lt;/pre&gt;</content>
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-            <name>Young Jin Lee</name>
-          
-          
-        </author>
-      
-
-      
-        <category term="JavaScript" />
-      
-
-      
-
-      
-        <summary type="html">Javascript Stuff NOTE functions are treated like any other variable can be assigned as a value to variable can be passed as an argument to other functions can be returned by another function How to deal with subset dropdown menus HTML ${group1Item.grp1Nm} Search JS function getGroupList(parent){ $.ajax({ url : &quot;group/getGroupList&quot;, data : { &quot;parent&quot; : parent }, dataType : &quot;json&quot;, cache : false, method : &quot;GET&quot;, }).done(function(data){ $(&quot;#group2 option&quot;).not(&quot;:first&quot;).remove(); // 초기화 if(data.groupList.length &amp;gt; 0){ var html =''; $.each(data.groupList, function(index, val) { html += '' + val.grp2Nm+''; }); $(&quot;#group2&quot;).append(html); } else { // 존재하지 않음 } }); }</summary>
-      
-
-      
-      
-    </entry>
-  
-  
-  
-    <entry>
-      
-      <title type="html">Javascript Stuff</title>
-      
-      
-      <link href="http://localhost:4000/2020/09/04/js(9)_-array-apis/" rel="alternate" type="text/html" title="Javascript Stuff" />
+      <link href="http://localhost:4000/2020/09/04/js(9)_-array-apis/" rel="alternate" type="text/html" title="Problems(practice)" />
       
       <published>2020-09-04T00:00:00+00:00</published>
       <updated>2020-09-04T00:00:00+00:00</updated>
@@ -1011,10 +907,10 @@
   
     <entry>
       
-      <title type="html">Javascript Stuff</title>
+      <title type="html">Arrays</title>
       
       
-      <link href="http://localhost:4000/2020/09/04/js(8)_-arrays/" rel="alternate" type="text/html" title="Javascript Stuff" />
+      <link href="http://localhost:4000/2020/09/04/js(8)_-arrays/" rel="alternate" type="text/html" title="Arrays" />
       
       <published>2020-09-04T00:00:00+00:00</published>
       <updated>2020-09-04T00:00:00+00:00</updated>
@@ -1143,10 +1039,10 @@
   
     <entry>
       
-      <title type="html">Javascript Stuff</title>
+      <title type="html">Objects</title>
       
       
-      <link href="http://localhost:4000/2020/09/04/js(7)_objects/" rel="alternate" type="text/html" title="Javascript Stuff" />
+      <link href="http://localhost:4000/2020/09/04/js(7)_objects/" rel="alternate" type="text/html" title="Objects" />
       
       <published>2020-09-04T00:00:00+00:00</published>
       <updated>2020-09-04T00:00:00+00:00</updated>
@@ -1326,10 +1222,10 @@ for (value of array){
   
     <entry>
       
-      <title type="html">Javascript Stuff</title>
+      <title type="html">Classes</title>
       
       
-      <link href="http://localhost:4000/2020/09/04/js(6)_classes/" rel="alternate" type="text/html" title="Javascript Stuff" />
+      <link href="http://localhost:4000/2020/09/04/js(6)_classes/" rel="alternate" type="text/html" title="Classes" />
       
       <published>2020-09-04T00:00:00+00:00</published>
       <updated>2020-09-04T00:00:00+00:00</updated>
@@ -1495,10 +1391,10 @@ for (value of array){
   
     <entry>
       
-      <title type="html">Javascript Stuff</title>
+      <title type="html">JSON</title>
       
       
-      <link href="http://localhost:4000/2020/09/04/js(10)_-JSON/" rel="alternate" type="text/html" title="Javascript Stuff" />
+      <link href="http://localhost:4000/2020/09/04/js(10)_-JSON/" rel="alternate" type="text/html" title="JSON" />
       
       <published>2020-09-04T00:00:00+00:00</published>
       <updated>2020-09-04T00:00:00+00:00</updated>
@@ -1694,10 +1590,10 @@ for (value of array){
   
     <entry>
       
-      <title type="html">Javascript First-class Functions</title>
+      <title type="html">First-class Functions</title>
       
       
-      <link href="http://localhost:4000/2020/09/03/js(5)_functions/" rel="alternate" type="text/html" title="Javascript First-class Functions" />
+      <link href="http://localhost:4000/2020/09/03/js(5)_functions/" rel="alternate" type="text/html" title="First-class Functions" />
       
       <published>2020-09-03T00:00:00+00:00</published>
       <updated>2020-09-03T00:00:00+00:00</updated>
@@ -1818,10 +1714,10 @@ for (value of array){
   
     <entry>
       
-      <title type="html">Javascript Functions</title>
+      <title type="html">Functions</title>
       
       
-      <link href="http://localhost:4000/2020/09/03/js(4)_functions/" rel="alternate" type="text/html" title="Javascript Functions" />
+      <link href="http://localhost:4000/2020/09/03/js(4)_functions/" rel="alternate" type="text/html" title="Functions" />
       
       <published>2020-09-03T00:00:00+00:00</published>
       <updated>2020-09-03T00:00:00+00:00</updated>
@@ -1937,10 +1833,10 @@ for (value of array){
   
     <entry>
       
-      <title type="html">Javascript Operators</title>
+      <title type="html">Operators</title>
       
       
-      <link href="http://localhost:4000/2020/09/03/js(3)_operators/" rel="alternate" type="text/html" title="Javascript Operators" />
+      <link href="http://localhost:4000/2020/09/03/js(3)_operators/" rel="alternate" type="text/html" title="Operators" />
       
       <published>2020-09-03T00:00:00+00:00</published>
       <updated>2020-09-03T00:00:00+00:00</updated>
@@ -1992,6 +1888,7 @@ for (value of array){
     console.log(1 &amp;lt;= 3);
     console.log(1 &amp;gt;= 3);
 &lt;/pre&gt;
+&lt;p&gt;å&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -2154,7 +2051,7 @@ for (value of array){
       
 
       
-        <summary type="html">Javascript Operators String concatnation console.log('my' + ' cat'); console.log('1' + 2); console.log(`string literals: 1+2 = ${1 + 2}`); Numeric operators console.log(1 + 1 - 1 / 1 * 1 % 2 ** 2); Increment(decrement) operators let counter = 1; const preIncrement = ++counter; console.log(`preIncrement: ${preIncrement}, counter: ${counter}`); const postIncrement = counter ++; console.log(`preIncrement: ${preIncrement}, counter: ${counter}`); Assignment operators let x = 1; let y = 2; x += y; Comparison operators console.log(1 &amp;lt; 3); console.log(1 &amp;gt; 3); console.log(1 &amp;lt;= 3); console.log(1 &amp;gt;= 3); Logical operators :   , &amp;amp;&amp;amp;, ! - expression 중 연산이 많은 것을 뒤에 배치한다!!   와 &amp;amp;&amp;amp;이 혼합되어 있다면 &amp;amp;&amp;amp;을 가장 뒤에! const value1 = false; const value2 = 4 &amp;lt; 2; console.log(`or: ${value1 || value2 || check()}`); function check(){ for (let i = 0; i &amp;lt; 10; i++){ console.log('wasting time'); } return true; } Equality const stringFive = '5'; const numberFive = 5; console.log(stringFive == numberFive); console.log(stringFive === numberFive); // object equality by reference const a = {name: &quot;a&quot;}; const b = {name: &quot;b&quot;}; const c = a; console.log(a == b); // false console.log(a === b); // false console.log(a == c); // true console.log(a === c); // true // equality - puzzler console.log(0 == false); // t console.log(0 === false); // f console.log('' == false); // t console.log('' === false); // f console.log(null == undefined); // t console.log(null === undefined); // f Conditional operators: if const name = 'a'; if (name === 'a'){ console.log(&quot;Welcome a&quot;); }else if(name === 'coder'){ console.log('Welcome b'); }else{ console.log('unknown'); } Tenary operator: ? condition ? value1 : value2; 간단할 때만 사용. 복잡할땐 if나 switch console.log(name === 'a' ? 'yes' : 'no'); Switch statement use for multiple if checks(if 문에서 else if 가 많을 때 사용.) use for enum-like value check use for multiple type checks in TS const browser = 'IE'; switch (browser){ case 'IE': console.log('go away!'); break; case 'Chrome': case 'Firefox': console.log('good'); break; default: console.log('same all!'); break; } Loops // while loop, while the condition is truthy, body code is executed let i = 3; while (i &amp;gt; 0){ console.log(`while: ${i}`); i--; } // do while loop, body code is executed first, then check the condition. do { console.log(`do while: ${i}`); i--; } while (i &amp;gt; 0); For loops; consider the time complexity. Try to avoid nested loops which results in O(n^2) for(let i = 0; i &amp;lt; 10; i++){ for (let j = 0; j &amp;lt; 10; j++){ console.log(`i: ${i}, j:${j}`); } }</summary>
+        <summary type="html">Javascript Operators String concatnation console.log('my' + ' cat'); console.log('1' + 2); console.log(`string literals: 1+2 = ${1 + 2}`); Numeric operators console.log(1 + 1 - 1 / 1 * 1 % 2 ** 2); Increment(decrement) operators let counter = 1; const preIncrement = ++counter; console.log(`preIncrement: ${preIncrement}, counter: ${counter}`); const postIncrement = counter ++; console.log(`preIncrement: ${preIncrement}, counter: ${counter}`); Assignment operators let x = 1; let y = 2; x += y; Comparison operators console.log(1 &amp;lt; 3); console.log(1 &amp;gt; 3); console.log(1 &amp;lt;= 3); console.log(1 &amp;gt;= 3); å Logical operators :   , &amp;amp;&amp;amp;, ! - expression 중 연산이 많은 것을 뒤에 배치한다!!   와 &amp;amp;&amp;amp;이 혼합되어 있다면 &amp;amp;&amp;amp;을 가장 뒤에! const value1 = false; const value2 = 4 &amp;lt; 2; console.log(`or: ${value1 || value2 || check()}`); function check(){ for (let i = 0; i &amp;lt; 10; i++){ console.log('wasting time'); } return true; } Equality const stringFive = '5'; const numberFive = 5; console.log(stringFive == numberFive); console.log(stringFive === numberFive); // object equality by reference const a = {name: &quot;a&quot;}; const b = {name: &quot;b&quot;}; const c = a; console.log(a == b); // false console.log(a === b); // false console.log(a == c); // true console.log(a === c); // true // equality - puzzler console.log(0 == false); // t console.log(0 === false); // f console.log('' == false); // t console.log('' === false); // f console.log(null == undefined); // t console.log(null === undefined); // f Conditional operators: if const name = 'a'; if (name === 'a'){ console.log(&quot;Welcome a&quot;); }else if(name === 'coder'){ console.log('Welcome b'); }else{ console.log('unknown'); } Tenary operator: ? condition ? value1 : value2; 간단할 때만 사용. 복잡할땐 if나 switch console.log(name === 'a' ? 'yes' : 'no'); Switch statement use for multiple if checks(if 문에서 else if 가 많을 때 사용.) use for enum-like value check use for multiple type checks in TS const browser = 'IE'; switch (browser){ case 'IE': console.log('go away!'); break; case 'Chrome': case 'Firefox': console.log('good'); break; default: console.log('same all!'); break; } Loops // while loop, while the condition is truthy, body code is executed let i = 3; while (i &amp;gt; 0){ console.log(`while: ${i}`); i--; } // do while loop, body code is executed first, then check the condition. do { console.log(`do while: ${i}`); i--; } while (i &amp;gt; 0); For loops; consider the time complexity. Try to avoid nested loops which results in O(n^2) for(let i = 0; i &amp;lt; 10; i++){ for (let j = 0; j &amp;lt; 10; j++){ console.log(`i: ${i}, j:${j}`); } }</summary>
       
 
       
@@ -2165,10 +2062,10 @@ for (value of array){
   
     <entry>
       
-      <title type="html">Javascript Variables</title>
+      <title type="html">Variables</title>
       
       
-      <link href="http://localhost:4000/2020/09/02/js(2)_variables/" rel="alternate" type="text/html" title="Javascript Variables" />
+      <link href="http://localhost:4000/2020/09/02/js(2)_variables/" rel="alternate" type="text/html" title="Variables" />
       
       <published>2020-09-02T00:00:00+00:00</published>
       <updated>2020-09-02T00:00:00+00:00</updated>
@@ -2295,10 +2192,10 @@ for (value of array){
   
     <entry>
       
-      <title type="html">Javascript Basics</title>
+      <title type="html">Basics</title>
       
       
-      <link href="http://localhost:4000/2020/09/01/js(1)_basics/" rel="alternate" type="text/html" title="Javascript Basics" />
+      <link href="http://localhost:4000/2020/09/01/js(1)_basics/" rel="alternate" type="text/html" title="Basics" />
       
       <published>2020-09-01T00:00:00+00:00</published>
       <updated>2020-09-01T00:00:00+00:00</updated>
@@ -2417,6 +2314,69 @@ for (value of array){
 
       
         <summary type="html">Javascript Basics head 안에서 호출하기 fetch가 완료되면 바로 실행되는데, HTML이 모두 parsing 되기 전에 실행되기 때문에 문제가 될 수 있다. &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;!html lang=&quot;en&quot;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt; &amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;script src=&quot;main.js&quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/!html&amp;gt; body 가장 아래에서 호출하기 HTML이 모두 parsing 된 후에 js를 fetch하고 실행하기 때문에 유저는 html 내용을 빠르게 확인할 수 있다. 하지만 유저가 컨텐츠를 사용하기 위해 js를 사용해야한다면, js가 실행될 때 까지 의문도 모른채 기다려야한다. &amp;lt;!DOCTYPE html&amp;gt; Document ... head 안에서 asyn 옵션 주기 HTML이 한줄씩 parsing 되다가 script를 만나면 js를 병렬로 fetch 한다. fetch가 끝난 직후 js가 실행된다. 여러 js파일이 순차적으로 실행되어야 하는 경우라면, js가 fetch되는 순서에 의존적이기에 수동으로 순서를 정하기 어렵다. &amp;lt;!DOCTYPE html&amp;gt; Document head 안에서 defer 옵션 주기 HTML이 한줄씩 parsing 되다가 script를 만나면 js를 병렬로 fetch 한다. asyn과는 다르게 병렬로 모든 js를 fetch 한 후에 호출한 순서대로 실행시킨다. 이것이 가장 합리적인 방법이다. &amp;lt;!DOCTYPE html&amp;gt; Document vanilla js 파일에는 상단에 ‘use strict’; 를 써주는 것이 기본이다. 여러 문제를 해결해주는데, 특히 변수 문제를 해결해준다. Also, This makes your js code modern.</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">Subprime Mortgage</title>
+      
+      
+      <link href="http://localhost:4000/2020/08/29/subPrime-mortgage/" rel="alternate" type="text/html" title="Subprime Mortgage" />
+      
+      <published>2020-08-29T00:00:00+00:00</published>
+      <updated>2020-08-29T00:00:00+00:00</updated>
+      <id>http://localhost:4000/2020/08/29/subPrime-mortgage</id>
+      <content type="html" xml:base="http://localhost:4000/2020/08/29/subPrime-mortgage/">&lt;hr /&gt;
+&lt;p&gt;layout: post
+title: “Sub-Prime Mortgage”
+comments: true
+categories: articles
+—&lt;/p&gt;
+
+&lt;h2&gt;양적완화&lt;/h2&gt;
+
+&lt;p&gt;정의: 중앙은행의 기준금리가 0%에 근접했는데 경기가 회복되지 않는다면 정부는 시장에 풀려있는 국가의 채권을 다시 사들여서 돈을 푸는 정책.&lt;/p&gt;
+
+&lt;h3&gt;2008&lt;/h3&gt;
+
+&lt;h3&gt;SUBPRIME MORTAGE&lt;/h3&gt;
+
+&lt;p&gt;$8.3t
+$2.8t&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;금리가 높았던 미국은행 예금만으로도 이득이었음.&lt;/li&gt;
+  &lt;li&gt;미국이 경제를 활성화 시킨다는 명목으로 기준금리를 낮춤.&lt;/li&gt;
+  &lt;li&gt;사람들이 MBS(MORTGAGE BACKED SECURITIES, 주택담보대출)로 눈을 돌림.&lt;/li&gt;
+  &lt;li&gt;은행은 집을 사려는 사람들에게 돈을 빌려줌.&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Young Jin Lee</name>
+          
+          
+        </author>
+      
+
+      
+
+      
+
+      
+        <summary type="html">layout: post title: “Sub-Prime Mortgage” comments: true categories: articles — 양적완화 정의: 중앙은행의 기준금리가 0%에 근접했는데 경기가 회복되지 않는다면 정부는 시장에 풀려있는 국가의 채권을 다시 사들여서 돈을 푸는 정책. 2008 SUBPRIME MORTAGE $8.3t $2.8t 금리가 높았던 미국은행 예금만으로도 이득이었음. 미국이 경제를 활성화 시킨다는 명목으로 기준금리를 낮춤. 사람들이 MBS(MORTGAGE BACKED SECURITIES, 주택담보대출)로 눈을 돌림. 은행은 집을 사려는 사람들에게 돈을 빌려줌.</summary>
       
 
       

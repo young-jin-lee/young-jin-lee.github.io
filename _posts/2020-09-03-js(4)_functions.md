@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Javascript Functions"
+title: "Functions"
 comments: true
 categories: JavaScript
 ---

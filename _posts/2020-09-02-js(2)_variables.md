@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Javascript Variables"
+title: "Variables"
 comments: true
 categories: JavaScript
 ---

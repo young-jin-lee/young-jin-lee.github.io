@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Javascript Stuff"
+title: "Problems(practice)"
 comments: true
 categories: JavaScript
 ---

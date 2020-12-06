@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Javascript First-class Functions"
+title: "First-class Functions"
 comments: true
 categories: JavaScript
 ---

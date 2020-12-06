@@ -9,7 +9,7 @@
   
   
   
-  <title>Javascript First-class Functions</title>
+  <title>First-class Functions</title>
   <meta name="description" content="Javascript First-class function NOTE functions are treated like any other variable can be assigned as a value to a variable can be passed as an argument to other functions can be returned by another function Function expression a function declaration can be called earlier than it is defined. (hoisted: very important!) a function expression is created when the execution reaches it. naming: should be a verb const print = function(){ // anonymous function(function without a name) console.log(&#39;print&#39;); } print(); const printAgain = print; printAgain(); Callback functions using function expressions function randomQuiz(answer, printYes, printNo){ if (answer === &#39;correct&#39;){ printYes(); // callback function }else{ printNo(); // callback function } } // named function &amp;lt;&amp;gt; anonymous function const printYes = function printY(){ // named function: used for debugging console.log(&#39;yes&#39;); } const printNo = function printN(){ // named function console.log(&#39;no&#39;); } randomQuiz(&#39;wrong&#39;, printYes, printNo); randomQuiz(&#39;correct&#39;, printYes, printNo); Arrow functions always anonymous const simplePrint = function(){ console.log(&#39;simplePrint!&#39;); } const simplePrint = () =&amp;gt; console.log(&#39;simplePrint!&#39;); const add = function(a, b){ return a + b; } const add = (a,b) =&amp;gt; { return a + b; } const add = (a,b) =&amp;gt; a + b; IIFE: Immediately Invoked Function Expression 실제 현업에서는 잘 쓰이지않는데, 바로 실행시키고 싶을때 써라. (function hello(){ console.log(&#39;IIFE&#39;); })();">
   
 
@@ -22,7 +22,7 @@
   
 
   
-  <meta property="og:title" content="Javascript First-class Functions">
+  <meta property="og:title" content="First-class Functions">
   <meta property="og:site_name" content="Young Jin&#39;s blog">
   <meta property="og:url" content="http://localhost:4000/2020/09/03/js(5)_functions/">
   <meta property="og:description" content="Javascript First-class function NOTE functions are treated like any other variable can be assigned as a value to a variable can be passed as an argument to other functions can be returned by another function Function expression a function declaration can be called earlier than it is defined. (hoisted: very important!) a function expression is created when the execution reaches it. naming: should be a verb const print = function(){ // anonymous function(function without a name) console.log(&#39;print&#39;); } print(); const printAgain = print; printAgain(); Callback functions using function expressions function randomQuiz(answer, printYes, printNo){ if (answer === &#39;correct&#39;){ printYes(); // callback function }else{ printNo(); // callback function } } // named function &amp;lt;&amp;gt; anonymous function const printYes = function printY(){ // named function: used for debugging console.log(&#39;yes&#39;); } const printNo = function printN(){ // named function console.log(&#39;no&#39;); } randomQuiz(&#39;wrong&#39;, printYes, printNo); randomQuiz(&#39;correct&#39;, printYes, printNo); Arrow functions always anonymous const simplePrint = function(){ console.log(&#39;simplePrint!&#39;); } const simplePrint = () =&amp;gt; console.log(&#39;simplePrint!&#39;); const add = function(a, b){ return a + b; } const add = (a,b) =&amp;gt; { return a + b; } const add = (a,b) =&amp;gt; a + b; IIFE: Immediately Invoked Function Expression 실제 현업에서는 잘 쓰이지않는데, 바로 실행시키고 싶을때 써라. (function hello(){ console.log(&#39;IIFE&#39;); })();">
@@ -30,7 +30,7 @@
   
   <meta name="twitter:card" content="summary">
   
-  <meta name="twitter:title" content="Javascript First-class Functions">
+  <meta name="twitter:title" content="First-class Functions">
   <meta name="twitter:description" content="Javascript First-class function NOTE functions are treated like any other variable can be assigned as a value to a variable can be passed as an argument to other functions can be returned by anothe...">
   
   
@@ -88,7 +88,7 @@
 
   <header class="post-header">
     
-      <h1 class="post-title" itemprop="name headline">Javascript First-class Functions</h1>
+      <h1 class="post-title" itemprop="name headline">First-class Functions</h1>
     
     <p class="post-meta">
       <time datetime="2020-09-03T00:00:00+00:00" itemprop="datePublished">
