@@ -24,7 +24,7 @@ layout: default
           {% if cat.first != empty %}
                   {% capture my_variable %}{{ page.categories }}{% endcapture %}
                   <a href="/categories/{{ my_variable | downcase }}">
-                    {{ my_variable }} ({{ page.categories.size }})
+                    {{ my_variable }}
                   </a>
           {% endif %}
         </span>
