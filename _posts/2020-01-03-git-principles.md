@@ -1,3 +1,11 @@
+
+---
+layout: post
+title: "principles"
+comments: true
+categories: git
+---
+
 ## <u><b> Version Control System - git(principles) </b></u>
 
 <br>

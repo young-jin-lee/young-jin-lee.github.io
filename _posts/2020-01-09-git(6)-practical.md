@@ -1,3 +1,9 @@
+---
+layout: post
+title: "practical"
+comments: true
+categories: git
+---
 
 ## <u><b> Version Control System - git(6) </b></u>
 
