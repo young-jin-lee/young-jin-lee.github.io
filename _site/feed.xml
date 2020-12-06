@@ -5,7 +5,7 @@
   
   <link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" />
   <link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" />
-  <updated>2020-12-06T03:28:00+00:00</updated>
+  <updated>2020-12-06T09:00:25+00:00</updated>
   <id>http://localhost:4000//</id>
 
   
@@ -2193,7 +2193,7 @@ for (value of array){
   &lt;li&gt;var : DO NOT EVER USE THIS!&lt;/li&gt;
   &lt;li&gt;
     &lt;ol&gt;
-      &lt;li&gt;It causes ‘HOISTING’ which means ‘pulling the declaration to the top.’; it results in a situation where variables can be used before their declarations and hence a spaggetti code.&lt;/li&gt;
+      &lt;li&gt;It causes ‘HOISTING’ which means ‘pulling the declaration to the top.’; It results in a situation where variables can be used before their declarations and hence a spaggetti code.&lt;/li&gt;
     &lt;/ol&gt;
   &lt;/li&gt;
   &lt;li&gt;
@@ -2284,7 +2284,7 @@ for (value of array){
       
 
       
-        <summary type="html">Javascript Variables Variable, rw(read/write) variable declaration: let (added in ES6) let name = 'genie'; console.log(name); name = 'hello'; console.log(name); var : DO NOT EVER USE THIS! It causes ‘HOISTING’ which means ‘pulling the declaration to the top.’; it results in a situation where variables can be used before their declarations and hence a spaggetti code. ignores block scope age = 4; var age; Block scope let globalName = &quot;globalNm&quot;; { let name = 'localNm'; console.log(name); name = 'hello'; console.log(name); console.log(globalName); } console.log(name); // This prints nothing for its declaration is inside the scope. console.log(globalName); Constant, r(read only) use const whenever possible. only use let if the variable needs to change. const dayInWeek = 7; NOTE! Immutable data types: primitive types, frozen objects (i.e. object.freeze()) ; 통째로 메모리에 올림. 그 메모리 안의 값은 못바꿈 Mutable data types: all objects by default are mutable in JS ; 메모리안의 값을 바꿀 수 있음. favours immutable data types for the following reasons. eg. const security thread safety reducing human mistakes Variable types variable type 1: primitive, single item (메모리에 값이 저장되어 있음.) ex) number, string, boolean, null, undefined, symbol variable type 2: container composed of multiple items, function (메모리에 레퍼런스가 있고 실제 값은 레퍼런스가 가리키는 곳에 자식 노드 개념의 메모리에 저장되어 있음.) object, box container function, first-class function</summary>
+        <summary type="html">Javascript Variables Variable, rw(read/write) variable declaration: let (added in ES6) let name = 'genie'; console.log(name); name = 'hello'; console.log(name); var : DO NOT EVER USE THIS! It causes ‘HOISTING’ which means ‘pulling the declaration to the top.’; It results in a situation where variables can be used before their declarations and hence a spaggetti code. ignores block scope age = 4; var age; Block scope let globalName = &quot;globalNm&quot;; { let name = 'localNm'; console.log(name); name = 'hello'; console.log(name); console.log(globalName); } console.log(name); // This prints nothing for its declaration is inside the scope. console.log(globalName); Constant, r(read only) use const whenever possible. only use let if the variable needs to change. const dayInWeek = 7; NOTE! Immutable data types: primitive types, frozen objects (i.e. object.freeze()) ; 통째로 메모리에 올림. 그 메모리 안의 값은 못바꿈 Mutable data types: all objects by default are mutable in JS ; 메모리안의 값을 바꿀 수 있음. favours immutable data types for the following reasons. eg. const security thread safety reducing human mistakes Variable types variable type 1: primitive, single item (메모리에 값이 저장되어 있음.) ex) number, string, boolean, null, undefined, symbol variable type 2: container composed of multiple items, function (메모리에 레퍼런스가 있고 실제 값은 레퍼런스가 가리키는 곳에 자식 노드 개념의 메모리에 저장되어 있음.) object, box container function, first-class function</summary>
       
 
       
@@ -2312,19 +2312,19 @@ for (value of array){
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre&gt;
-    &amp;lt;!DOCTYPE html&amp;gt;
-    &lt;html lang=&quot;en&quot;&gt;
-    &lt;head&gt;
-        &lt;meta charset=&quot;UTF-8&quot; /&gt;
-        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
-        &lt;title&gt;Document&lt;/title&gt;
-        &lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-    &lt;/body&gt;
-    &lt;/html&gt;
-&lt;/pre&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &amp;lt;!DOCTYPE html&amp;gt;
+    &amp;lt;!html lang=&quot;en&quot;&amp;gt;
+    &amp;lt;head&amp;gt;
+        &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;
+        &amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&amp;gt;
+        &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt;
+        &amp;lt;script src=&quot;main.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;/head&amp;gt;
+    &amp;lt;body&amp;gt;
+    &amp;lt;/body&amp;gt;
+    &amp;lt;/!html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ol&gt;
   &lt;li&gt;body 가장 아래에서 호출하기
@@ -2392,7 +2392,7 @@ for (value of array){
 &lt;/pre&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;vanilla js 파일에는 상단에 ‘use strict’; 를 써주는 것이 기본이다. 여러 문제를 해결해주는데, 특히 변수 문제를 해결해준다. This makes your js code modern.&lt;/li&gt;
+  &lt;li&gt;vanilla js 파일에는 상단에 ‘use strict’; 를 써주는 것이 기본이다. 여러 문제를 해결해주는데, 특히 변수 문제를 해결해준다. Also, This makes your js code modern.&lt;/li&gt;
 &lt;/ul&gt;</content>
 
       
@@ -2416,7 +2416,7 @@ for (value of array){
       
 
       
-        <summary type="html">Javascript Basics head 안에서 호출하기 fetch가 완료되면 바로 실행되는데, HTML이 모두 parsing 되기 전에 실행되기 때문에 문제가 될 수 있다. &amp;lt;!DOCTYPE html&amp;gt; Document body 가장 아래에서 호출하기 HTML이 모두 parsing 된 후에 js를 fetch하고 실행하기 때문에 유저는 html 내용을 빠르게 확인할 수 있다. 하지만 유저가 컨텐츠를 사용하기 위해 js를 사용해야한다면, js가 실행될 때 까지 의문도 모른채 기다려야한다. &amp;lt;!DOCTYPE html&amp;gt; Document ... head 안에서 asyn 옵션 주기 HTML이 한줄씩 parsing 되다가 script를 만나면 js를 병렬로 fetch 한다. fetch가 끝난 직후 js가 실행된다. 여러 js파일이 순차적으로 실행되어야 하는 경우라면, js가 fetch되는 순서에 의존적이기에 수동으로 순서를 정하기 어렵다. &amp;lt;!DOCTYPE html&amp;gt; Document head 안에서 defer 옵션 주기 HTML이 한줄씩 parsing 되다가 script를 만나면 js를 병렬로 fetch 한다. asyn과는 다르게 병렬로 모든 js를 fetch 한 후에 호출한 순서대로 실행시킨다. 이것이 가장 합리적인 방법이다. &amp;lt;!DOCTYPE html&amp;gt; Document vanilla js 파일에는 상단에 ‘use strict’; 를 써주는 것이 기본이다. 여러 문제를 해결해주는데, 특히 변수 문제를 해결해준다. This makes your js code modern.</summary>
+        <summary type="html">Javascript Basics head 안에서 호출하기 fetch가 완료되면 바로 실행되는데, HTML이 모두 parsing 되기 전에 실행되기 때문에 문제가 될 수 있다. &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;!html lang=&quot;en&quot;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt; &amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;script src=&quot;main.js&quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/!html&amp;gt; body 가장 아래에서 호출하기 HTML이 모두 parsing 된 후에 js를 fetch하고 실행하기 때문에 유저는 html 내용을 빠르게 확인할 수 있다. 하지만 유저가 컨텐츠를 사용하기 위해 js를 사용해야한다면, js가 실행될 때 까지 의문도 모른채 기다려야한다. &amp;lt;!DOCTYPE html&amp;gt; Document ... head 안에서 asyn 옵션 주기 HTML이 한줄씩 parsing 되다가 script를 만나면 js를 병렬로 fetch 한다. fetch가 끝난 직후 js가 실행된다. 여러 js파일이 순차적으로 실행되어야 하는 경우라면, js가 fetch되는 순서에 의존적이기에 수동으로 순서를 정하기 어렵다. &amp;lt;!DOCTYPE html&amp;gt; Document head 안에서 defer 옵션 주기 HTML이 한줄씩 parsing 되다가 script를 만나면 js를 병렬로 fetch 한다. asyn과는 다르게 병렬로 모든 js를 fetch 한 후에 호출한 순서대로 실행시킨다. 이것이 가장 합리적인 방법이다. &amp;lt;!DOCTYPE html&amp;gt; Document vanilla js 파일에는 상단에 ‘use strict’; 를 써주는 것이 기본이다. 여러 문제를 해결해주는데, 특히 변수 문제를 해결해준다. Also, This makes your js code modern.</summary>
       
 
       
