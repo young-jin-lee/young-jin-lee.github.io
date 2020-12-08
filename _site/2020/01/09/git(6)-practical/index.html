@@ -1,0 +1,60 @@
+
+<h2><u><b> Version Control System - git(6) </b></u></h2>
+
+<h3>◆ Git 실습 매뉴얼 목차</h3>
+
+<h4>1. <a href="./git(1)-basics.md">기초</a></h4>
+<h4>2. <a href="./git(2)-branches.md">branch 활용법</a></h4>
+<h4>3. <a href="./git(3)-remote.md">원격저장소(Remote Repository) 활용법</a></h4>
+<h4>4. <a href="./git(4)-protocol.md">원격저장소와 통신 방식</a></h4>
+<h4>5. <a href="./git(5)-merge.md">병합 충돌 및 해결</a></h4>
+<h4>6. <a href="./git(6)-practical.md">중요 기능</a></h4>
+<h4>7. <a href="./img/git_sts.pdf" download="">Spring Tool Suite(IDE)에서 git 사용법</a></h4>
+
+<p><br /></p>
+
+<h4>형상 관리를 효과적으로 하기 위한 추가적인 기능이다. 개념적인 내용만 숙지하고 활용법은 구글을 참고한다.</h4>
+
+<h3>tag</h3>
+
+<ul>
+  <li>commit을 참조하려면 commit id를 활용해야했다. commit을 참조하기 쉽도록 이름을 붙이는 것이 태그이다.</li>
+  <li>tag 이름을 활용하여 checkout 하거나 reset하여 특정 commit으로 돌아갈 수도 있다.</li>
+</ul>
+
+<p>1) 일반태그(Lightweight tag): 이름
+2) 주석태그(Annotated tag): 이름, 설명, 서명, 만든이 정보 등</p>
+
+<h3>pull vs fetch</h3>
+
+<ul>
+  <li>pull은 fetch + merge 이다.</li>
+  <li>fetch를 실행하면 원격저장소의 내용을 로컬로 가져오지만, merge는 하지 않는다.</li>
+  <li>원격 저장소의 내용은 FETCH_HEAD라는 임시 브랜치에 들어가 있으며, merge를 하고 싶으면 따로 merge 하거나, 원격저장소의 내용을 pull 한다.</li>
+</ul>
+
+<h3>commit 수정하기</h3>
+
+<ol>
+  <li>특정 commit의 파일/내용 업데이트, commit 메세지 수정하고 싶을 때: commit –amend</li>
+  <li>과거 특정 commit 삭제하고 싶을 때: revert
+※ rebase -i 나 reset을 사용은 위험하다. revert를 통해 특정 commit을 삭제하는 새로운 commmit을 만들어 안전하게 처리할 수 있다.</li>
+  <li>특정 commit을 삭제하고 과거 commit으로 돌아가고 싶을 때: reset
+※ 명령어 옵션을 통해 HEAD위치, 인덱스, 작업트리 내용을 선택적으로 되돌릴 수 있음.
+    <ul>
+      <li><b>commit</b>만 되돌리고 싶을 때: soft</li>
+      <li>변경한 <b>인덱스의 상태</b>까지 되돌리고 싶을 때: mixed</li>
+      <li><b>최신 커밋을 버리고</b> 이전의 상태로 돌리고 싶을 때: hard</li>
+    </ul>
+  </li>
+  <li>다른 branch의 특정 commit을 현재 branch로 가져오고 싶을 때: cherry-pick</li>
+  <li>특정 브랜치의 모든 commit을 병합하고 싶을 때: merge –squash</li>
+</ol>
+
+<h3>merge vs rebase</h3>
+
+<ul>
+  <li>두 개(이상)의 branch를 merge하고 log를 확인해보면 두 개의 갈래(branch)로 나누어 졌다가 합쳐지는 것을 확인할 수 있다.</li>
+  <li>병합할 때 하나의 줄기로 만들고 싶을 때 rebase를 활용하여 merge하면 된다.</li>
+</ul>
+

@@ -1,0 +1,411 @@
+
+<h2><u><b> Version Control System - git(1) </b></u></h2>
+
+<p><br /></p>
+
+<h3>◆ Git 실습 매뉴얼 목차</h3>
+
+<h4>1. <a href="./git(1)-basics.md">기초</a></h4>
+<h4>2. <a href="./git(2)-branches.md">branch 활용법</a></h4>
+<h4>3. <a href="./git(3)-remote.md">원격저장소(Remote Repository) 활용법</a></h4>
+<h4>4. <a href="./git(4)-protocol.md">원격저장소와 통신 방식</a></h4>
+<h4>5. <a href="./git(5)-merge.md">병합 충돌 및 해결</a></h4>
+<h4>6. <a href="./git(6)-practical.md">중요 기능</a></h4>
+<h4>7. <a href="./img/git_sts.pdf" download="">Spring Tool Suite(IDE)에서 git 사용법</a></h4>
+
+<p><br /></p>
+
+<h3>◆ git 주요 흐름</h3>
+
+<div align="center">
+    <img src="/img/git/git(1)-entire.PNG" width="70%" height="70%" />
+</div>
+<p><br />
+컴퓨터에 폴더(Project Directory)를 하나 생성한다. 그 폴더에서 init 명령어를 입력하면 같은 경로에 .git 폴더가 생기며 로컬저장소(Repository)가 만들어진다. 해당 폴더에서 git을 사용하겠다고 선언하는 것이다. 소스코드 파일을 생성/수정하여 add 하면 파일이 staging area에 등록된다. 이는 저장소에 저장할 파일을 두는 곳이다. staging area에 등록된 파일들에 대해 commit을 하면 로컬저장소에 파일이 저장된다. 순서대로 명령어를 요약하자면 다음과 같다.
+<br /></p>
+
+<h3>1. 프로젝트 폴더 생성/접근</h3>
+<pre>
+$ cd projectdir
+</pre>
+
+<h3>2. git Repository 생성</h3>
+<pre>
+$ git init
+</pre>
+
+<h3>3. git Staging area에 파일 등록(해당 파일 트래킹 시작)</h3>
+<pre>
+$ git add .
+</pre>
+
+<h3>4. git 특정 branch에 파일 등록(기본 값으로는 master branch에 등록)</h3>
+<pre>
+$ git commit -m "first commit message"
+</pre>
+
+<h3>5. 코드 수정 시 3, 4번 반복</h3>
+
+<div align="center">
+    <img src="/img/git/git(2)-master.PNG" width="70%" height="70%" />
+</div>
+<p><br />
+※ 파일 생성이 아닌 기존 파일이 수정된 경우 commit 명령어의 -a 옵션으로 add 와 commit을 한꺼번에 할 수 있다.</p>
+<pre>
+$ git commit -am "updated" 
+</pre>
+
+<p><br /></p>
+
+<h3>◆ git 기초 실습 1</h3>
+
+<h3>0. git 설치하기</h3>
+
+<p>운영체제에 따라 설치하면 된다. 윈도우의 경우 git bash 쉘도 함께 설치해주는 것이 좋다. git 설치할 때 옵션으로 있다.</p>
+
+<h3>1. git 설치 확인하기</h3>
+
+<p>git bash를 열고 아래 명령어를 통해 git이 정상적으로 설치되어 있는지 확인한다.</p>
+<pre>
+$ git --version
+
+git version 2.26.2.windows.1
+</pre>
+
+<h3>2. 버전 컨트롤을 위한 디렉토리(폴더) 생성하기</h3>
+
+<p>버전 컨트롤은 디렉토리(폴더) 기준으로 수행된다. 일단 ‘prjdir’ 폴더를 하나 생성한다.</p>
+<pre>
+$ mkdir prjdir 
+</pre>
+
+<p>현재 위치에 있는 파일, 폴더 리스트 출력한다.</p>
+<pre>
+$ ls 
+prjdir
+</pre>
+
+<p>prjdir 폴더에 접근한다.</p>
+<pre>
+$ cd prjdir/ 
+</pre>
+
+<p>git 저장소를 초기화한다.(현재 디렉토리에서 git 저장소를 생성하겠다고 선언)</p>
+<pre>
+$ git init 
+Initialized empty git repository in /home/work/prjdir/.git/
+</pre>
+
+<p>.git 폴더가 생성되었는지 확인한다. 해당 폴더는 버전 컨트롤을 하며 생성되는 여러 임시 파일들이 저장되는 폴더이다. 이 폴더가 있다는 것은 그의 형제 디렉토리/파일들이 하나의 저장소 안에서 버전 컨트롤 대상임을 의미한다.</p>
+
+<p>※ 버전 관리에 필요한 모든 데이터는 .git 폴더 안에 들어있다. 오브젝트 안에 파일 내용, 파일명, commit 아이디, tree 등이 생성된다. 이와 관련한 git의 동작 원리는 <a href="git-principles.md">git-principles.md</a> 에서 설명한다.</p>
+<pre>
+$ ls -al
+
+total 12
+drwxr-xr-x    3 work     work          4096 Apr 18 06:10 .
+drwxr-xr-x    3 work     work          4096 Apr 18 06:08 ..
+<b>drwxr-xr-x    7 work     work          4096 Apr 18 06:10 .git</b>
+</pre>
+
+<h3>3. f1.txt 파일 만들기</h3>
+
+<p>vim 에디터를 통해 f1.txt 라는 파일 생성한다.
+입력할 내용: ‘one_one’</p>
+<pre>
+$ vim f1.txt 
+</pre>
+
+<pre>
+$ ls -al
+total 16
+drwxr-xr-x    3 work     work          4096 Apr 18 06:13 .
+drwxr-xr-x    3 work     work          4096 Apr 18 06:08 ..
+drwxr-xr-x    7 work     work          4096 Apr 18 06:10 .git
+<b>-rw-r--r--    1 work     work            33 Apr 18 06:13 f1.txt</b>
+</pre>
+
+<p>‘one_one’이 입력된 것을 확인 할 수 있다.</p>
+<pre>
+bash-4.4$ cat f1.txt
+one_one
+</pre>
+
+<h3>4. git stage area에 파일 등록하기</h3>
+
+<p>git에 파일이 저장되는 순서는 add → commit 이다. <br />
+add는 내가 가지고 있는 파일 혹은 수정사항을 git의 staging area에 등록하여 트래킹하는 것이며, commit은 tracking 중인 파일을 새로운 버전으로 저장소에 등록하는 것이다. <br />
+아직 아무것도 하지 않았기 때문에 현재 git 상태를 보면 f1.txt파일이 untracked 되고 있음을 확인할 수 있다.
+실수를 방지하기 위해 git status를 수시로 확인하는 습관을 들여야한다.</p>
+
+<p>※ 가장 윗줄에 출력되는 ‘On branch master’는 현재 master라는 이름의 branch에서 작업하고 있음을 의미한다. 현재 작업중인 정확한 주소는 HEAD라는 이름의 pointer로 가리킨다. 지금은 이해하지 않고 지나가도 된다. 자세한 설명은 <a href="git(2)-branches.md">git(2)-branches.md</a>와 <a href="git-principles.md">git-principles.md</a>를 참고한다.</p>
+
+<pre>
+$ git status
+On branch master
+
+No commits yet
+
+<b>Untracked files:</b>
+  (use "git add <file>..." to include in what will be committed)
+
+        f1.txt
+
+<b>nothing added to commit but untracked files present (use "git add" to track)</b>
+&lt;/pre&gt;
+
+
+명시적으로는 add 뒤에 파일 명을 적는다. $ git add . 는 모든 파일을 등록하는 것이다.
+<pre>
+$ git add f1.txt
+</pre>
+
+이제 f1.txt가 staging area에 새로 등록되었으며 commit 할 준비가 되었음을 확인할 수 있다.
+<pre>
+$ git status
+On branch master
+
+No commits yet
+
+<b>Changes to be committed:</b>
+  (use "git rm --cached 'file'..." to unstage)
+
+        new file:   f1.txt
+</pre>
+
+### 5. git 사용자 설정하기
+
+git 사용자를 설정해 주어야한다. 한번만 하면 된다.
+<pre>
+$ git config --global user.name youngjin
+$ git config --global user.email youngjin@gmail.com
+</pre>
+
+### 6. git log 확인하기
+
+git 로그를 확인해본다. 아직 commit 된 파일이 없음을 확인할 수 있다.
+<pre>
+$ git log
+fatal: your current branch 'master' does not have any commits yet
+</pre>
+
+### 7. commit 하기
+
+입력할 내용: 'm_one_one'   
+commit 명령어를 치면 자동으로 메모장이 열린다. 이 메모장에는 commit message를 적는다.   
+예를 들면, '로그인 기능 추가 _ 완성'과 같이 마지막 commit에서 추가로 변경된 사항을 적어주면 된다. 
+<pre>
+$ git commit f1.txt
+[master (root-commit) f56faa5] <b>m_one_one</b>
+ 1 file changed, 1 insertion(+)
+ create mode 100644 f1.txt
+</pre>
+
+### 8. git 상태 확인하기
+
+git 상태를 확인해보면 commit할 파일이 없다고 나온다.
+<pre>
+$ git status
+On branch master
+nothing to commit, working tree clean
+</pre>
+
+이제 commit 작성자와 그 내용을 확인할 수 있다.   
+commit 옆에 길이 40의 문자열은 commit id를 의미한다. 마치 피피티 이름 뒤에 _v1, _v2 ... 라고 적어서 버전관리를 위한 유니크한 식별자라고 이해하면 된다.
+<pre>
+$ git log
+commit f56faa5d9ffe6c68fe2fc66b4240002730a2122b (HEAD -&gt; master)
+Author: young-jin-lee &lt;dof0717@gmail.com&gt;
+Date:   Thu Jul 9 11:42:01 2020 +0900
+
+    m_one_one
+</pre>
+
+### 9. f1.txt 파일 수정하기
+
+수정할 내용: 'one_one' → 'one_two'   
+vim 에디터를 열어서 'one_one'이라고 적었던 내용을 'one_two'로 수정하고 확인한다.
+<pre>
+$ vim f1.txt
+$ cat f1.txt
+one_two
+</pre>
+
+### 13. git 상태 확인하기
+
+git상태를 보면 수정된 파일이 출력된다.
+<pre>
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        <b>modified:   f1.txt</b>
+
+no changes added to commit (use "git add" and/or "git commit -a")
+&lt;/pre&gt;
+
+### 11. 수정된 파일을 git staging area에 파일 등록하기
+
+수정된 파일을 staging area에 등록하고 다시 상태를 확인해보면, f1.txt가 수정되었음을 확인할 수 있다.
+<pre>
+$ git add f1.txt
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        <b>modified:   f1.txt</b>
+&lt;/pre&gt;
+
+### 12. 수정된 f1.txt파일을 commit 하기
+
+입력할 내용: 'm_one_two'
+<pre>
+$ git commit f1.txt
+[master 3bca303] m_one_two
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+</pre>
+
+### 13. git 상태 확인하기
+
+commit 할 파일이 없음을 확인할 수 있다.
+<pre>
+$ git status
+On branch master
+nothing to commit, working tree clean
+</pre>
+
+### 14. git log 확인하기
+
+commit message, commit id, 시간, 작성자 등 commit 정보를 확인할 수 있다.
+<pre>
+$ git log
+commit 3bca3035e84e1f3a88349655285305064cd17adf (HEAD -&gt; master)
+Author: young-jin-lee &lt;dof0717@gmail.com&gt;
+Date:   Thu Jul 9 11:43:39 2020 +0900
+
+    m_one_two
+
+commit f56faa5d9ffe6c68fe2fc66b4240002730a2122b
+Author: young-jin-lee &lt;dof0717@gmail.com&gt;
+Date:   Thu Jul 9 11:42:01 2020 +0900
+
+    m_one_one
+</pre>
+
+
+### 15. 각 commit 사이 소스 차이를 확인하기
+
+-p 옵션으로 각 commit 사이 소스 차이를 확인할 수 있다. one_one이 없어지고 one_two가 추가된 것을 확인할 수 있다.
+<pre>
+$ git log -p
+commit 3bca3035e84e1f3a88349655285305064cd17adf (HEAD -&gt; master)
+Author: young-jin-lee &lt;dof0717@gmail.com&gt;
+Date:   Thu Jul 9 11:43:39 2020 +0900
+
+    m_one_two
+
+diff --git a/f1.txt b/f1.txt
+index 4a19a47..415c7e9 100644
+--- a/f1.txt
++++ b/f1.txt
+@@ -1 +1 @@
+<span style="color:red;">-one_one</span>
++one_two
+
+commit f56faa5d9ffe6c68fe2fc66b4240002730a2122b
+Author: young-jin-lee &lt;dof0717@gmail.com&gt;
+Date:   Thu Jul 9 11:42:01 2020 +0900
+
+    m_one_one
+
+diff --git a/f1.txt b/f1.txt
+new file mode 100644
+index 0000000..4a19a47
+--- /dev/null
++++ b/f1.txt
+@@ -0,0 +1 @@
++one_one
+</pre>
+
+***
+
+<br />
+
+### ◆ git 기초 실습 2
+
+### 1. f1.txt에 one_one 내용 적고 m_one_one 메세지로 commit
+### 2. f1.txt에 one_two 내용 적고 m_one_two 메세지로 commit
+### 3. f1.txt에 one_three 내용 적고 m_one_three 메세지로 commit
+### 4. f2.txt에 two_one 내용 적고 m_two_one 메세지로 commit
+### 5. f2.txt에 two_two 내용 적고 m_two_two 메세지로 commit
+### 6. f1.txt에 one_four 내용 적고 m_one_four 메세지로 commit
+
+### 7. git log 확인
+
+6번까지 수행했다면 아래와 같은 로그가 나와야한다.
+<pre>
+$ git log
+commit a5ef9c7919496c23965b6ace72d819bd9bb59ed3 (HEAD -&gt; master)
+Author: young-jin-lee &lt;youngjin@gmail.com&gt;
+Date:   Mon Jul 6 16:08:11 2020 +0900
+
+    m_one_four
+
+commit 86fae52d99ee9e2f872cee3d83508b8e126f3493
+Author: young-jin-lee &lt;youngjin@gmail.com&gt;
+Date:   Mon Jul 6 15:56:39 2020 +0900
+
+    m_two_two
+
+commit a975e4ed2586220d37e338c44b2c39015a0ae387
+Author: young-jin-lee &lt;youngjin@gmail.com&gt;
+Date:   Mon Jul 6 15:56:08 2020 +0900
+
+    m_two_one
+
+commit 09e0eeb930602bebfb3208401bca29f5baa52c32
+Author: young-jin-lee &lt;youngjin@gmail.com&gt;
+Date:   Mon Jul 6 15:55:40 2020 +0900
+
+    m_one_three
+
+commit 98c931311f4f9e072c2c7f33966211829eb53c55
+Author: young-jin-lee &lt;youngjin@gmail.com&gt;
+Date:   Mon Jul 6 15:54:30 2020 +0900
+
+    m_one_two
+
+commit d4504dc1d02c00e7ba0ccc13a92e90103501a907
+Author: young-jin-lee &lt;youngjin@gmail.com&gt;
+Date:   Mon Jul 6 15:53:59 2020 +0900
+
+    m_one_one
+
+</pre>
+
+### 8. 커밋 사이 수정사항 확인하기
+
+commit id를 가지고 두 버전의 차이를 확인할 수 있다. 결과로 뒤의 commit에는 존재하는데, 앞의 commit에는 없는 내용이 출력된다.
+<pre>
+$ git diff 09e0eeb930602bebfb3208401bca29f5baa52c32..98c931311f4f9e072c2c7f33966211829eb53c55
+diff --git a/f1.txt b/f1.txt
+index 9d05a68..415c7e9 100644
+--- a/f1.txt
++++ b/f1.txt
+@@ -1 +1 @@
+-one_three
++one_two
+</pre>
+
+### 9. 과거 commit으로 돌아가기
+
+reset을 통해 과거 버전으로 돌아갈 수 있다. git에서는 웬만하면 데이터 복구가 불가한 경우는 없지만, 이 명령어를 쓰는 일이 없도록 조심하는게 우선이다. 
+
+<pre>
+$ git reset c841426606e31446e9edd19a3a811ad0fde716f2 --hard
+HEAD is now at c841426 m_one_two
+</pre>
+</file></pre></file></file></pre></file></pre>

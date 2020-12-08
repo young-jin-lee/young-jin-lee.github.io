@@ -32,5 +32,3 @@ categories: database
 7. 인조 키
 
 8. 대리 키
-
-
