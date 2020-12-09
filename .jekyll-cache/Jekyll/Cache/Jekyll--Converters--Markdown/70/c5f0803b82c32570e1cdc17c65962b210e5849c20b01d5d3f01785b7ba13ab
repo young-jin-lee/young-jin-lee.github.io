@@ -1,0 +1,51 @@
+I"$<p>아래는 데이터 구조 별로 View에서 EL 이용해서 값 뽑는 방법이다.</p>
+
+<p><strong>Number</strong></p>
+
+<p>Controller</p>
+<pre>
+request.setAttribute("cnt", 30)
+</pre>
+<p>View</p>
+<pre>
+request.getAttribute("cnt")
+</pre>
+<p>View - EL</p>
+<pre>
+${cnt}
+</pre>
+
+<h4>2. List</h4>
+<p>Controller</p>
+<pre>
+List list = new ArrayList(){"1", "test", ...};
+request.setAttribute("list", list);
+</pre>
+<p>View</p>
+<pre>
+((List)request.getAttribute("list").get(0))
+</pre>
+<p>View - EL</p>
+<pre>
+${list[0]}
+</pre>
+
+<h4>3. Map</h4>
+<p>Controller</p>
+<pre>
+Map n = new HashMap("title", "제목");
+request.setAttribute("n", n);
+</pre>
+<p>View</p>
+<pre>
+((Map)request.getAttribute("n")).get("title")
+</pre>
+<p>View - EL</p>
+<pre>
+${n.title}
+</pre>
+
+<p>EL 저장소</p>
+
+<p>see spag.jsp, spag.java</p>
+:ET

@@ -9,8 +9,8 @@
   
   
   
-  <title>JSP(5) - Expression Language(EL)</title>
-  <meta name="description" content="아래는 데이터 구조 별로 View에서 EL 이용해서 값 뽑는 방법이다. 1. Number Controller request.setAttribute(&quot;cnt&quot;, 30) View request.getAttribute(&quot;cnt&quot;) View - EL ${cnt} 2. List Controller List list = new ArrayList(){&quot;1&quot;, &quot;test&quot;, ...}; request.setAttribute(&quot;list&quot;, list); View ((List)request.getAttribute(&quot;list&quot;).get(0)) View - EL ${list[0]} 3. Map Controller Map n = new HashMap(&quot;title&quot;, &quot;제목&quot;); request.setAttribute(&quot;n&quot;, n); View ((Map)request.getAttribute(&quot;n&quot;)).get(&quot;title&quot;) View - EL ${n.title} EL 저장소 see spag.jsp, spag.java">
+  <title>Expression Language(EL)</title>
+  <meta name="description" content="데이터 구조 별로 View에서 EL 이용해서 값 뽑는 방법 1) Number Controller request.setAttribute(&quot;cnt&quot;, 30) View request.getAttribute(&quot;cnt&quot;) View - EL ${cnt} 2) List Controller List list = new ArrayList(){&quot;1&quot;, &quot;test&quot;, ...}; request.setAttribute(&quot;list&quot;, list); View ((List)request.getAttribute(&quot;list&quot;).get(0)) View - EL ${list[0]} 3) Map Controller Map n = new HashMap(&quot;title&quot;, &quot;제목&quot;); request.setAttribute(&quot;n&quot;, n); View ((Map)request.getAttribute(&quot;n&quot;)).get(&quot;title&quot;) View - EL ${n.title} EL 저장소 spag.java package com.youngenie.web; import ... @WebServlet(&quot;/spag&quot;) public class Spag extends HttpServlet{ @Override protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { int num = 0; String num_ = request.getParameter(&quot;n&quot;); if(num_ != null &amp;amp;&amp;amp; !num_.equals(&quot;&quot;)) num = Integer.parseInt(num_); String result; if(num%2 != 0) result = &quot;홀수&quot;; else result = &quot;짝수&quot;; request.setAttribute(&quot;result&quot;, result); String[] names = {&quot;david&quot;, &quot;dragon&quot;}; request.setAttribute(&quot;names&quot;, names); Map&amp;lt;String, Object&amp;gt; notice = new HashMap&amp;lt;String, Object&amp;gt;(); notice.put(&quot;id&quot;, 1); notice.put(&quot;title&quot;, &quot;EL is good&quot;); request.setAttribute(&quot;notice&quot;, notice); //forward RequestDispatcher dispatcher = request.getRequestDispatcher(&quot;spag.jsp&quot;); dispatcher.forward(request, response); } } spag.jsp &amp;lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot;%&amp;gt; &amp;lt;!-- -------------------------------------------------- --&amp;gt; &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt; &amp;lt;title&amp;gt;Insert title here&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;% pageContext.setAttribute(&quot;result&quot;, &quot;hello&quot;); %&amp;gt; &amp;lt;body&amp;gt; &amp;lt;%=request.getAttribute(&quot;result&quot;) %&amp;gt;입니다. ${requestScope.result}&amp;lt;br &amp;gt; &amp;lt;br &amp;gt; ${names[0]} &amp;lt;br &amp;gt; ${notice.id} ${notice.title} ${result} ${param.n} ${header.accept} &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;">
   
 
   <link rel="stylesheet" href="/assets/main.css">
@@ -22,16 +22,16 @@
   
 
   
-  <meta property="og:title" content="JSP(5) - Expression Language(EL)">
+  <meta property="og:title" content="Expression Language(EL)">
   <meta property="og:site_name" content="Young Jin&#39;s blog">
   <meta property="og:url" content="http://localhost:4000/2020/05/30/jsp(5)-ExpressionLanguage/">
-  <meta property="og:description" content="아래는 데이터 구조 별로 View에서 EL 이용해서 값 뽑는 방법이다. 1. Number Controller request.setAttribute(&quot;cnt&quot;, 30) View request.getAttribute(&quot;cnt&quot;) View - EL ${cnt} 2. List Controller List list = new ArrayList(){&quot;1&quot;, &quot;test&quot;, ...}; request.setAttribute(&quot;list&quot;, list); View ((List)request.getAttribute(&quot;list&quot;).get(0)) View - EL ${list[0]} 3. Map Controller Map n = new HashMap(&quot;title&quot;, &quot;제목&quot;); request.setAttribute(&quot;n&quot;, n); View ((Map)request.getAttribute(&quot;n&quot;)).get(&quot;title&quot;) View - EL ${n.title} EL 저장소 see spag.jsp, spag.java">
+  <meta property="og:description" content="데이터 구조 별로 View에서 EL 이용해서 값 뽑는 방법 1) Number Controller request.setAttribute(&quot;cnt&quot;, 30) View request.getAttribute(&quot;cnt&quot;) View - EL ${cnt} 2) List Controller List list = new ArrayList(){&quot;1&quot;, &quot;test&quot;, ...}; request.setAttribute(&quot;list&quot;, list); View ((List)request.getAttribute(&quot;list&quot;).get(0)) View - EL ${list[0]} 3) Map Controller Map n = new HashMap(&quot;title&quot;, &quot;제목&quot;); request.setAttribute(&quot;n&quot;, n); View ((Map)request.getAttribute(&quot;n&quot;)).get(&quot;title&quot;) View - EL ${n.title} EL 저장소 spag.java package com.youngenie.web; import ... @WebServlet(&quot;/spag&quot;) public class Spag extends HttpServlet{ @Override protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { int num = 0; String num_ = request.getParameter(&quot;n&quot;); if(num_ != null &amp;amp;&amp;amp; !num_.equals(&quot;&quot;)) num = Integer.parseInt(num_); String result; if(num%2 != 0) result = &quot;홀수&quot;; else result = &quot;짝수&quot;; request.setAttribute(&quot;result&quot;, result); String[] names = {&quot;david&quot;, &quot;dragon&quot;}; request.setAttribute(&quot;names&quot;, names); Map&amp;lt;String, Object&amp;gt; notice = new HashMap&amp;lt;String, Object&amp;gt;(); notice.put(&quot;id&quot;, 1); notice.put(&quot;title&quot;, &quot;EL is good&quot;); request.setAttribute(&quot;notice&quot;, notice); //forward RequestDispatcher dispatcher = request.getRequestDispatcher(&quot;spag.jsp&quot;); dispatcher.forward(request, response); } } spag.jsp &amp;lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot;%&amp;gt; &amp;lt;!-- -------------------------------------------------- --&amp;gt; &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt; &amp;lt;title&amp;gt;Insert title here&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;% pageContext.setAttribute(&quot;result&quot;, &quot;hello&quot;); %&amp;gt; &amp;lt;body&amp;gt; &amp;lt;%=request.getAttribute(&quot;result&quot;) %&amp;gt;입니다. ${requestScope.result}&amp;lt;br &amp;gt; &amp;lt;br &amp;gt; ${names[0]} &amp;lt;br &amp;gt; ${notice.id} ${notice.title} ${result} ${param.n} ${header.accept} &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;">
   
   
   <meta name="twitter:card" content="summary">
   
-  <meta name="twitter:title" content="JSP(5) - Expression Language(EL)">
-  <meta name="twitter:description" content="아래는 데이터 구조 별로 View에서 EL 이용해서 값 뽑는 방법이다. 1. Number Controller request.setAttribute(&quot;cnt&quot;, 30) View request.getAttribute(&quot;cnt&quot;) View - EL ${cnt} 2. List Controller List list = new...">
+  <meta name="twitter:title" content="Expression Language(EL)">
+  <meta name="twitter:description" content="데이터 구조 별로 View에서 EL 이용해서 값 뽑는 방법 1) Number Controller request.setAttribute(&quot;cnt&quot;, 30) View request.getAttribute(&quot;cnt&quot;) View - EL ${cnt} 2) List Controller List list = new ArrayL...">
   
   
 
@@ -88,7 +88,7 @@
 
   <header class="post-header">
     
-      <h1 class="post-title" itemprop="name headline">JSP(5) - Expression Language(EL)</h1>
+      <h1 class="post-title" itemprop="name headline">Expression Language(EL)</h1>
     
     <p class="post-meta">
       <time datetime="2020-05-30T00:00:00+00:00" itemprop="datePublished">
@@ -111,9 +111,9 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>아래는 데이터 구조 별로 View에서 EL 이용해서 값 뽑는 방법이다.</p>
+    <p><strong>데이터 구조 별로 View에서 EL 이용해서 값 뽑는 방법</strong></p>
 
-<h4>1. Number</h4>
+<p>1) Number</p>
 
 <p>Controller</p>
 <pre>
@@ -128,7 +128,8 @@ request.getAttribute("cnt")
 ${cnt}
 </pre>
 
-<h4>2. List</h4>
+<p>2) List</p>
+
 <p>Controller</p>
 <pre>
 List list = new ArrayList(){"1", "test", ...};
@@ -143,7 +144,8 @@ request.setAttribute("list", list);
 ${list[0]}
 </pre>
 
-<h4>3. Map</h4>
+<p>3) Map</p>
+
 <p>Controller</p>
 <pre>
 Map n = new HashMap("title", "제목");
@@ -158,9 +160,79 @@ request.setAttribute("n", n);
 ${n.title}
 </pre>
 
-<p>EL 저장소</p>
+<hr />
 
-<p>see spag.jsp, spag.java</p>
+<p><strong>EL 저장소</strong></p>
+
+<p>spag.java</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>package com.youngenie.web;
+
+import ...
+@WebServlet("/spag")
+public class Spag extends HttpServlet{
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int num = 0;
+		String num_ = request.getParameter("n");
+		if(num_ != null &amp;&amp; !num_.equals(""))
+			num = Integer.parseInt(num_);
+
+		String result;
+		
+		if(num%2 != 0)
+		    result = "홀수";
+		else
+		    result = "짝수";
+		
+		request.setAttribute("result", result);
+		
+		String[] names = {"david", "dragon"};
+		request.setAttribute("names", names);
+		
+		Map&lt;String, Object&gt; notice = new HashMap&lt;String, Object&gt;();
+		notice.put("id", 1);
+		notice.put("title", "EL is good");
+		request.setAttribute("notice", notice);
+		
+		//forward
+		RequestDispatcher dispatcher = request.getRequestDispatcher("spag.jsp");
+		dispatcher.forward(request, response);
+	}
+}
+</code></pre></div></div>
+
+<p>spag.jsp</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%&gt;
+
+&lt;!-- -------------------------------------------------- --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;%
+	pageContext.setAttribute("result", "hello");
+%&gt;
+
+
+&lt;body&gt;
+	&lt;%=request.getAttribute("result") %&gt;입니다.
+	${requestScope.result}&lt;br &gt;
+	&lt;br &gt;
+	${names[0]}
+	&lt;br &gt;
+	${notice.id}
+	${notice.title}
+	${result}
+	${param.n}
+	${header.accept}
+	
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
 
   </div>
 

@@ -1,0 +1,196 @@
+I" <p><strong>SPRING 소개</strong></p>
+
+<ul>
+  <li>
+    <p>SRPING FRAMEWORK: provides core supoort for dependency injection, transaction management, web apps, data access, messaging and more.</p>
+  </li>
+  <li>
+    <p>Dependency Injection(DI): 모듈 결합을 쉽게 해줌.</p>
+  </li>
+  <li>
+    <p>Transaction Management: 나누어 놓은 서비스 계층의 함수들 간에 JDBC의 커넥션을 공유하기가 어려워서 JDBC만을 가지고 했던 트랜잭션의 어려움을 해결.</p>
+  </li>
+  <li>
+    <p>Java SE 위에 유료인 Java EE를 얹을 수 있지만, Java EE를 spring으로 바꾸어 기업형 어플리케이션을 만들 수 있다.</p>
+  </li>
+</ul>
+
+<hr />
+
+<p><strong>SPRING 범주</strong></p>
+
+<ul>
+  <li>
+    <p>MVC</p>
+  </li>
+  <li>Transaction
+    <ul>
+      <li>DAO/서비스 계층을 나누어 프로그램을 만들 때 그들간의 함수 호출에 단일 트랜잭션을 만드는 것이 어려웠는데, 스프링이 제공하는 방법임.</li>
+    </ul>
+  </li>
+  <li>사용자 인증과 권한</li>
+</ul>
+
+<p><strong>사전 지식</strong></p>
+<ul>
+  <li>DI: MVC나 Transaction을 처리할 때 사용하는 기능</li>
+  <li>AOP: Transaction 처리할 때 사용하는 기능</li>
+  <li>Servlet Filter: 인증과 권한</li>
+  <li>느슨한 결합력과 인터페이스: DI와 AOP를 이해하기 위해 필요한 지식. 결합력을 위해 설정파일을 사용하는데, 이를 왜 사용하는지 알아야 함.</li>
+</ul>
+
+<h4>5.인터페이스</h4>
+<pre>
+package part3.ex6.인터페이스;
+
+public class Program {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		A a = new A();
+		a.print();
+	}
+
+}
+
+package part3.ex6.인터페이스;
+
+public class A {
+	private B b;
+	
+	public A() {
+		b = new B();
+	}
+	
+	public void print() {
+		// TODO Auto-generated method stub
+		int total = b.total();
+		
+		System.out.printf("total is %d\n",total);
+	}
+	
+}
+
+package part3.ex6.인터페이스;
+
+public class B {
+
+	public int total() {
+		// TODO Auto-generated method stub
+		
+		return 30;
+	}
+	
+}
+</pre>
+
+<p>메인클래스인 program이 있고, A와 B는 일체형으로 결합되어있다. 
+만약 B의 내용이 바뀌어야한다면 A를 통째로 수정해야한다. 결합력이 강한 상황이다.
+A를 스마트폰, B를 배터리라고 하자. 일체형이기 때문에 B가 없는 상태에서 A에서는 에러가 발생한다.</p>
+
+<p>도킹할 수 있는 장치를 만들어 분리형으로 만들 때 사용되는 것이 인터페이스이다.
+A에 B를 장착할 수 있는 것을 만들고 B에는 A를 장착 할 수 있는 것을 만드는 것이다.</p>
+
+<pre>
+package part3.ex6.인터페이스;
+
+public class Program {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		A a = new A();
+		
+		B b = new B();
+		a.setX(b);
+		
+		a.print();
+	}
+
+}
+
+package part3.ex6.인터페이스;
+
+public class A {
+//	private B b;
+	private X x;
+	
+	public void setX(X x) {
+		this.x = x;
+	}
+
+	public A() {
+//		b = new B();
+	}
+	
+	public void print() {
+		// TODO Auto-generated method stub
+//		int total = b.total();
+		int total = x.total();
+		System.out.printf("total is %d\n",total);
+	}
+	
+}
+
+package part3.ex6.인터페이스;
+
+public class B implements X{
+
+	public int total() {
+		// TODO Auto-generated method stub
+		
+		return 30;
+	}
+	
+}
+
+package part3.ex6.인터페이스;
+
+public interface X {
+	int total();
+}
+</pre>
+<p>※ 인터페이스는 total()을 참조하는 약속만 정의한다. 인터페이스는 구현을 하는 것이 아니라, 기능에 대한 약속만 정의하는 것이다. 따라서 public, priate 등 캡슐화 선언도 필요없으며, 메소드를 코딩하는 것 자체가 말이 안된다.</p>
+
+<p>X라는 인터페이스는 A에서 일반적인 클래스를 사용하듯 변수 선언 할 수 있다. 다만 인터페이스는 사용할 수 있는 구현된 무언가가 아니기 때문에 생성하는 것도 말이 안된다. (ex. x = new X()) 생성이라는 것은 보통 해당 객체 안에 데이터객체를 생성하는 것인데, 인터페이스는 데이터를 정의하고 있지 않다. 약속만을 정의할 뿐이다.</p>
+
+<p>※ 인터페이스를 통해 결합력을 낮추는 과정</p>
+<ol>
+  <li>인터페이스 X 만들기</li>
+  <li>A에 X를 활용한 서비스 로직 구현하기</li>
+  <li>B 생성 후 X에 연결하기 (ex. implements X)</li>
+  <li>메인에 B 생성 후 X를 통해 setter에 생성자 값 b 넘기기</li>
+</ol>
+
+<p>이제 A는 B와 결합력이 없다. total을 구하는 서비스의 존재 유무와는 상관없이 X만을 바라보고 있을 뿐이다.</p>
+
+<h4>6. 새로운 total 서비스 C가 만들어졌을때</h4>
+
+<p>만약 새로운 total 서비스 C가 만들어졌다면, Program.java에서 B를 C로 대체하는 수정 작업을 해야한다.
+B, C를 바꾸어 끼우는 작업을 소스코드의 수정 없이 쉽게 할 수 있는 방법은 없을까.</p>
+
+<h4>1) xml/json 형태의 외부 설정 파일 활용하기</h4>
+<h4>2) 내부에 있는 클래스에 어노테이션 활용하기</h4>
+
+<p>간단하게 1번으로 실습을 해보자.</p>
+
+<h4>1) 일단 Program.java 파일에서 자료형은 인터페이스인 X로 바꾼다.</h4>
+
+<p>package part3.ex6.인터페이스;</p>
+
+<p>public class Program {</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public static void main(String[] args) {
+	// TODO Auto-generated method stub
+	A a = new A();
+	
+	X x = ?;
+	a.setX(x);
+	
+	a.print();
+}
+</code></pre></div></div>
+
+<p>}</p>
+
+<h4>2) 외부 파일에서 ? 인 부분을 읽어와 채워 넣는다.</h4>
+:ET

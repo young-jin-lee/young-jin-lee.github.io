@@ -1,9 +1,11 @@
 ---
 layout: post
-title: "JSP(3) - Why Model 1"
+title: "Spaghetti"
 comments: true
 categories: Java
 ---
+
+__Jasper의 단점과 MODEL 1의 등장 배경__
 
 Jasper가 미리 생성해주는 내장 객체의 사용과 지시 블럭을 통해 많은 부분이 편해졌다.
 

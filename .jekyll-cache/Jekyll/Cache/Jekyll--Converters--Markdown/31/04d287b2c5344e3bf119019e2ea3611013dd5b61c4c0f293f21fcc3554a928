@@ -1,0 +1,154 @@
+I"�<h4><u><b> Javascript JSON </b></u></h4>
+
+<ol>
+  <li>HTTP
+    <ul>
+      <li>웹페이지/브라우저(클라이언트)가 어떻게 서버와 통신할 수 있는지 정의한 것</li>
+      <li>클라이언트는 서버에게 요청(request)을 보내고, 서버는 클라이언트에게 응답(response)을 주는 방식으로 진행된다.</li>
+      <li>HTTP에서 Hypertext는 hyperlink 뿐만아니라, 문서 이미지 등 다양한 파일을 의미한다.</li>
+      <li>HTTP를 이용해서 서버에 데이터를 요청해서 받아올 수 있는 방법으로는 AJAX가 있다.</li>
+    </ul>
+  </li>
+  <li>AJAX(Asynchoronous Javascript and XML)
+    <ul>
+      <li>웹페이지와 서버가 동적으로 데이터를 주고 받을 수 있게 하는 기술</li>
+      <li>브라우저 api에서 제공하는 object 중 XHR(XMLHttpRequest) 혹은 fetch() API를 이용해 서버에게 데이터를 요청하고 받아올 수 있다.</li>
+      <li>fetch() API는 최근에 나온 기술이며, IE에서 지원이 되지 않는다.</li>
+    </ul>
+  </li>
+</ol>
+
+<ul>
+  <li>데이터를 주고 받을 때는 XML뿐 아니라 다양한 포맷을 사용할 수 있다. 대표로는 JSON</li>
+  <li>AJAX, XHR에 ‘XML’이 들어간 이유:  MS OUTLOOK 개발 팀이 이를 개발할 당시 XML만을 써서 이름을 이렇게 지은 것 뿐이다.</li>
+  <li>XML을 사용하면 불필요한 태그들이 포함되어 최근에는 데이터 통신 포맷으로 JSON이 보편화 되었다.</li>
+</ul>
+
+<ol>
+  <li>JSON(Javascript Object Notation)
+    <ul>
+      <li>simplest data interchange format</li>
+      <li>lightweight text-based structure</li>
+      <li>easy to read</li>
+      <li>key-value pairs</li>
+      <li>used for serialization and transmission of data between the network and the network connection</li>
+      <li>independent from programming language and platform(C, C++, JAVA, Python, …)</li>
+    </ul>
+  </li>
+</ol>
+
+<p>예시) 웹어플리케이션에 ‘사람’이라는 오브젝트가 있다면,</p>
+<ol>
+  <li>이를 서버에 전송할때 이를 {key: value}의 string 타입으로 변환해서 서버에 전송하고,</li>
+  <li>서버에서 다시 ‘사람’을 받아올 때도 {key: value}의 string 타입으로 받아와서 object로 변환 후 브라우저에 출력한다.</li>
+</ol>
+
+<ul>
+  <li>JSON 핵심 2단계
+    <ol>
+      <li>serialize를 통해 object를 JSON string으로 변환하기</li>
+    </ol>
+  </li>
+  <li>boolean, number, array 모두 string 으로 변환된다.</li>
+</ul>
+<pre>
+    let json = JSON.stringify(true);
+    console.log(typeof(json), json);
+    // output: string, true
+
+    json = JSON.stringify(3);
+    console.log(typeof(json), json);
+    // output: string, 3
+
+    json = JSON.stringify(['apple', 'banana']);
+    console.log(typeof(json), json);
+    // output: string, ["apple", "banana"]
+</pre>
+
+<ul>
+  <li>object 내 JS에만 존재하는 타입(eg. Symbol)이나 메서드는 stringify 대상에서 제외된다.</li>
+  <li>만약 선택적으로 값을 가지고 오고 싶다면 stringify 내 array 형태의 파라미터로 지정해서 넘겨준다.</li>
+</ul>
+<pre>
+    const person = {
+        name: 'Dave',
+        age : 10,
+        height: null,
+        birthDate: new Date(),
+        symbol: Symbol('id'),
+        walk: function() {
+            console.log(`${this.name} can walk!`);
+        },
+    };
+
+    json = JSON.stringify(person);
+    console.log(typeof(json), json);
+    // output: string {"name":"Dave","age":10,"height":null,"birthDate":"2017-09-25T02:42:21.956Z"}
+
+    json = JSON.stringify(person, ['name', 'birthDate']); // name과 birthdate만 선택적으로 적용하기
+    console.log(typeof(json), json);
+    // output: string {"name":"Dave","birthDate":"2017-09-25T02:42:21.956Z"}
+</pre>
+
+<ul>
+  <li>stringify 할 때 데이터를 세밀하게 조정하고 싶다면, replacer를 콜백 함수로 사용하면 된다.</li>
+</ul>
+<pre>
+    person = {
+        name: 'Dave',
+        age : 10,
+        height: null,
+        birthDate: new Date(),
+        walk: function() {
+            console.log(`${this.name} can walk!`);
+        },
+    };
+    json = JSON.stringify(person, (key, value) =&gt; {
+        console.log(`key: ${key}, value: ${value}`);
+        return key === 'name' ? 'David': value; // key 값이 name이라면 값을 'David'으로 수정하기
+    });
+    console.log(typeof(json), json);
+    // output: string {"name":"David","age":10,"height":null,"birthDate":"2020-09-25T02:42:21.956Z"}
+</pre>
+
+<ol>
+  <li>deserialize를 통해 JSON string를 object로 변환하기</li>
+</ol>
+
+<ul>
+  <li>서버에서 데이터를 받아서 object로 변환하는 과정을 시뮬레이션 하기 위해 stringify한 person에 parse를 적용한다.</li>
+</ul>
+<pre>
+    json = JSON.stringify(person);
+    const obj = JSON.parse(json);
+    console.log(obj);
+    // output: {name: "Dave", age: 10, height: null, birthDate: "2020-09-25T02:42:21.956Z"}
+</pre>
+
+<ul>
+  <li>error1: person을 stringify 할 때, 메서드는 대상에서 제외되었으니 당연히 obj에는 walk가 없다.</li>
+</ul>
+<pre>
+    person.walk();
+    //obj.walk(); // causes an error for it does not have walk()
+</pre>
+
+<ul>
+  <li>error2: 처음에 Date 타입으로 생성했던 birthDate에는 getDate 메서드가 있다. 하지만 obj는 stringify 된 텍스트 자체를 parse 한 것이기 때문에 Date 타입이 아니며, 당연히 getDate()가 없다.</li>
+</ul>
+<pre>
+    console.log(person.birthDate.getDate());
+    //console.log(obj.birthDate.getDate()); // causes an error for the value of birthDate has been converted from a string.
+</pre>
+
+<ul>
+  <li>How to resolve error2: parse할 때, birthDate를 Date 타입으로 만들어 줄 수있다. 이때, parse()의 콜백함수인 revivor를 사용하면 된다.</li>
+</ul>
+<pre>
+    const obj2 = JSON.parse(json, (key,value) =&gt; {
+        console.log(`key: ${key}, value: ${value}`);
+        return key === 'birthDate' ? new Date(value) : value;
+    });
+    console.log(obj2.birthDate.getDate());
+</pre>
+:ET

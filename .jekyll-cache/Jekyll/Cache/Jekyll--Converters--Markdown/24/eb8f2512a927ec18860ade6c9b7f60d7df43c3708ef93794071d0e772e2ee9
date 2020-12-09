@@ -1,0 +1,332 @@
+I"�/<h2><u><b> Version Control System - git(3) </b></u></h2>
+
+<h3>◆ Git 실습 매뉴얼 목차</h3>
+
+<h4>1. <a href="./git(1)-basics.md">기초</a></h4>
+<h4>2. <a href="./git(2)-branches.md">branch 활용법</a></h4>
+<h4>3. <a href="./git(3)-remote.md">원격저장소(Remote Repository) 활용법</a></h4>
+<h4>4. <a href="./git(4)-protocol.md">원격저장소와 통신 방식</a></h4>
+<h4>5. <a href="./git(5)-merge.md">병합 충돌 및 해결</a></h4>
+<h4>6. <a href="./git(6)-practical.md">중요 기능</a></h4>
+<h4>7. <a href="./img/git_sts.pdf" download="">Spring Tool Suite(IDE)에서 git 사용법</a></h4>
+
+<h2>Remote Repository(원격 저장소) 개요</h2>
+
+<div align="center">
+    <img src="/img/git/git(4)-remote.PNG" width="70%" height="70%" />
+</div>
+
+<p>저장소라는 표현은 git repository를 뜻한다. 즉, 로컬저장소가 있다는 것은 로컬 컴퓨터에 git을 설치한 상태이며, 원격저장소가 있다는 것은 원격컴퓨터에 git을 설치한 것이다.</p>
+
+<p>지금까지의 실습은 <b>Local Reppository(로컬저장소)</b>에서만 형상관리를 한 것이다. 다른 사람과 코드를 공유/협업할 때는 개발자끼리 직접 주고 받는 것이 아니라, Remote Repository(원격저장소)를 활용한다. 제 3의 컴퓨터를 두고 각자 그곳에 코드를 업로드/다운로드 하는 것이다.</p>
+
+<div align="center">
+    <img src="/img/git/git(5)-remote2.PNG" width="70%" height="70%" />
+</div>
+
+<p>원격 저장소가 있으려면 일단 원격컴퓨터가 있어야한다. 보안 이슈가 있다면 물리 서버를 활용할 수도 있지만, 많은 개발자들이 GitHub, GitLab 등의 웹서비스를 이용한다. 이들은 특정 용량의 git이 설치되어있는 원격 컴퓨터 리소스를 편리하게 관리할 수 있도록 웹UI와 함께 서비스를 제공한다. 특히, GitHub는 대부분의 오픈소스 유통 채널이다. 덕분에 수 많은 오픈소스 프로젝트들이 진행되고 있다.</p>
+
+<h2>실습 1: 로컬에서 작업한 내용을 원격저장소에 업로드하기</h2>
+
+<h3>GitLab에 원격저장소를 만들기.</h3>
+
+<p>https://gitlab.com/ 에 로그인하고 아래 순서대로 저장소를 생성한다.</p>
+
+<ol>
+  <li>우측 상단에 ‘New project’ 클릭</li>
+</ol>
+<div align="center">
+    <img src="/img/git/git(6)-remoteRepo.PNG" width="70%" height="70%" />
+</div>
+
+<ol>
+  <li>‘Create blank project’ 클릭</li>
+</ol>
+<div align="center">
+    <img src="/img/git/git(7)-remoteRepo.PNG" width="70%" height="70%" />
+</div>
+
+<ol>
+  <li>Project name을 입력하고, Visibility Level을 설정한다. 오픈소스로 모두에게 공유하고 싶다면 public으로 설정한다.</li>
+</ol>
+<div align="center">
+    <img src="/img/git/git(8)-remoteRepo.PNG" width="70%" height="70%" />
+</div>
+
+<ol>
+  <li>통신방식에 따른 원격저장소의 주소를 복사한다.</li>
+</ol>
+<div align="center">
+    <img src="/img/git/git(9)-remoteRepo.PNG" width="70%" height="70%" />
+</div>
+
+<h3>원격저장소 연동을 위한 로컬저장소 준비</h3>
+
+<p>로컬 저장소에 f1.txt를 만들고 커밋한다.</p>
+<pre>
+Desktop/git_test$ git init
+Initialized empty Git repository in C:/Users/youngjinlee/Desktop/git_test/.git/
+</pre>
+
+<p>작성할 내용: “깃 랩이 제공하는 원격저장소에 이 파일을 push 한다.”</p>
+<pre>
+Desktop/git_test(master)$ vim f1.txt
+</pre>
+
+<pre>
+Desktop/git_test(master)$ git add f1.txt
+Desktop/git_test(master)$ git commit f1.txt -m "first commit"
+[master (root-commit) 2b1adb2] first commit
+ 1 file changed, 1 insertion(+)
+</pre>
+
+<p>현재 연결되어있는 원격저장소를 확인한다. 없는 경우 아무것도 출력되지 않는다.</p>
+<pre>
+Desktop/git_test$ git remote -v
+</pre>
+
+<p>위에서 복사해둔 원격저장소 주소를 활용해 연동한다. 
+git remote add (원격저장소의 별명) (원격저장소의 주소)를 입력한다. 
+별명은 기본값으로 origin을 사용하는데, 원하는대로 다른 별명을 사용할 수 있다.</p>
+<pre>
+Desktop/git_test(master)$ git remote add origin https://gitlab.com/young-jin-lee/git-test.git
+</pre>
+<p>연동이 되었는지 확인한다.</p>
+<pre>
+Desktop/git_test(master)$ git remote -v
+origin  https://gitlab.com/young-jin-lee/git-test.git (fetch)
+origin  https://gitlab.com/young-jin-lee/git-test.git (push)
+</pre>
+
+<h3>로컬저장소에서 작업한 내용을 원격저장소로 보내기</h3>
+
+<p>push를 하면 원격저장소(GitLab)의 사용자 이름과 암호를 입력하는 창이 뜬다. 입력해야 push가 된다.</p>
+<pre>
+Desktop/git_test(master)$ git push origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 278 bytes | 139.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://gitlab.com/young-jin-lee/git-test.git
+ * [new branch]      master -&gt; master
+</pre>
+
+<p>원격저장소에 업로드 된 것을 볼 수 있다.</p>
+<div align="center">
+    <img src="/img/git/git(10)-remoteRepo.PNG" width="70%" height="70%" />
+</div>
+
+<h3>로컬저장소에서 수정한 내용을 원격저장소로 보내기</h3>
+
+<pre>
+Desktop/git_test(master)$ vim f1.txt
+</pre>
+
+<pre>
+Desktop/git_test(master)$ git commit -am "updated f1.txt"
+[master f98e2a7] updated f1.txt
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+</pre>
+<pre>
+Desktop/git_test(master)$ git push origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 327 bytes | 163.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://gitlab.com/young-jin-lee/git-test.git
+   2b1adb2..f98e2a7  master -&gt; master
+</pre>
+
+<h2>실습 2: 만들어져있는 원격저장소의 내용을 로컬저장소로 가져오기</h2>
+
+<h3>원격저장소의 소스를 로컬저장소로 가져오기</h3>
+
+<p>Linux와 Git을 만든 Linus Torvalds의 GitHub(깃헙) 원격저장소를 로컬저장소로 가지고 온다.</p>
+
+<p>현재 경로에서 git_test2라는 디렉토리를 생성하면서 그곳을 로컬저장소로 설정하는 동시에 원격저장소를 가지고 온다. 
+이렇게 클로닝을 하면 저절로 로컬저장소와 원격저장소가 연결된다. 원격저장소의 별명은 기본값으로 ‘origin’으로 설정된다.</p>
+<pre>
+Desktop$ git clone https://github.com/git/git.git git_test2
+Cloning into 'git_test2'...
+remote: Enumerating objects: 135, done.
+remote: Counting objects: 100% (135/135), done.
+remote: Compressing objects: 100% (53/53), done.
+remote: Total 289571 (delta 94), reused 114 (delta 82), pack-reused 289436
+Receiving objects: 100% (289571/289571), 139.14 MiB | 12.02 MiB/s, done.
+Resolving deltas: 100% (215600/215600), done.
+Updating files: 100% (3779/3779), done.
+</pre>
+
+<p>git remote -v를 통해 연결된 원격저장소의 주소를 확인할 수 있다.</p>
+<pre>
+Desktop/git_test2(master)$ git remote -v
+origin  https://github.com/git/git.git (fetch)
+origin  https://github.com/git/git.git (push)
+</pre>
+
+<p>Linus가 Git을 만들고 처음으로 커밋한 로그를 확인해본다. 가장 아래 2005/4/7 첫 커밋을 확인할 수 있다.</p>
+<pre>
+ (master)
+Desktop/git_test2$ git log --reverse
+
+commit e497ea2a9b6c378f01d092c210af20cbee762475
+Author: Linus Torvalds &lt;torvalds@linux-foundation.org&gt;
+Date:   Thu Apr 7 21:03:28 2005 -0700
+
+    Make read-tree actually unpack the whole tree.
+
+    I needed this to make a "sparse" archive conversion from my old
+:
+</pre>
+
+<h2>협업시뮬레이션</h2>
+
+<ul>
+  <li>
+    <p>물리적으로 떨어진 컴퓨터 두 대로 2명(이상) 협업하는 경우</p>
+  </li>
+  <li>
+    <p>물리적으로 떨어진 컴퓨터 두 대로 혼자 작업하는 경우(집, 회사)</p>
+  </li>
+</ul>
+
+<p>위 두 상황은 형상관리 관점에서 동일하며, 한 대의 컴퓨터에서도 두 개(이상)의 디렉토리(로컬저장소)로 작업하는 것과 같음을 이해해야한다.</p>
+
+<div align="center">
+    <img src="/img/git/git(11)-remoteRepo.PNG" width="70%" height="70%" />
+</div>
+
+<div align="center">
+    <img src="/img/git/git(12)-remoteRepo.PNG" width="70%" height="70%" />
+</div>
+
+<h2>협업 시뮬레이션 실습</h2>
+
+<h3>※ 위에서 생성한 git-test 저장소를 활용한다. 저장소에는 f1.txt 파일이 있다.</h3>
+
+<h3>1. 두 개의 Git bash 창을 열고, 각 창에서 home, work 디렉토리를 만들며 원격저장소를 clone한다.</h3>
+
+<pre>
+Desktop$ git clone https://gitlab.com/young-jin-lee/git-test.git home
+Cloning into 'home'...
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (6/6), done.
+</pre>
+
+<pre>
+Desktop$ git clone https://gitlab.com/young-jin-lee/git-test.git work
+Cloning into 'home'...
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (6/6), done.
+</pre>
+
+<h3>2. 각 창에서 home, work 디렉토리로 이동 후 로그가 같음을 확인한다.</h3>
+
+<pre>
+Desktop/home$ git log
+commit f98e2a77fb4ec1bb223f3badd4214ab958269b83 (HEAD -&gt; master, origin/master, origin/HEAD)
+Author: young-jin-lee &lt;dof0717@gmail.com&gt;
+Date:   Wed Jul 15 16:11:56 2020 +0900
+
+    f1.txt updated
+
+commit 2b1adb247ffc5fc3014686bb31c0c928f0a85220
+Author: young-jin-lee &lt;dof0717@gmail.com&gt;
+Date:   Wed Jul 15 14:08:42 2020 +0900
+
+    first commit
+</pre>
+
+<pre>
+Desktop/work$ git log
+commit f98e2a77fb4ec1bb223f3badd4214ab958269b83 (HEAD -&gt; master, origin/master, origin/HEAD)
+Author: young-jin-lee &lt;dof0717@gmail.com&gt;
+Date:   Wed Jul 15 16:11:56 2020 +0900
+
+    updated f1.txt
+
+commit 2b1adb247ffc5fc3014686bb31c0c928f0a85220
+Author: young-jin-lee &lt;dof0717@gmail.com&gt;
+Date:   Wed Jul 15 14:08:42 2020 +0900
+
+    first commit
+</pre>
+
+<h3>3. home에서 f1.txt 파일을 수정하고 commit한다.</h3>
+
+<pre>
+Desktop/home$ vim f1.txt
+Desktop/home$ git add f1.txt
+Desktop/home$ git commit -m "message from home"
+[master 549c2be] message from home
+ 1 file changed, 2 insertions(+)
+</pre>
+
+<h3>현재 저장소 상태 (git log를 통해 차이 확인 가능)</h3>
+
+<ul>
+  <li>home(로컬): 수정된 f1.txt</li>
+  <li>work(로컬): 기존 f1.txt</li>
+  <li>git-test(원격): 기존 f1.txt</li>
+</ul>
+
+<h3>4. 원격저장소에 수정된 작업을 반영하기</h3>
+
+<pre>
+Desktop/home$ git push origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 288 bytes | 144.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+To https://gitlab.com/young-jin-lee/git-test.git
+   f98e2a7..549c2be  master -&gt; master
+</pre>
+
+<h3>현재 저장소 상태 (git log를 통해 차이 확인 가능)</h3>
+
+<ul>
+  <li>home(로컬): 수정된 f1.txt</li>
+  <li>work(로컬): 수정된 f1.txt</li>
+  <li>git-test(원격): 기존 f1.txt</li>
+</ul>
+
+<h3>5. work에서 수정된 f1.txt를 받아오기</h3>
+
+<pre>
+Desktop/work$ git pull origin master
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 268 bytes | 17.00 KiB/s, done.
+From https://gitlab.com/young-jin-lee/git-test
+ * branch            master     -&gt; FETCH_HEAD
+   f98e2a7..549c2be  master     -&gt; origin/master
+Updating f98e2a7..549c2be
+Fast-forward
+ f1.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+</pre>
+
+<h3>현재 저장소 상태 (git log를 통해 확인 가능)</h3>
+
+<ul>
+  <li>home(로컬): 수정된 f1.txt</li>
+  <li>work(로컬): 수정된 f1.txt</li>
+  <li>git-test(원격): 수정된 f1.txt</li>
+</ul>
+
+<p>강력한 백업이 되는 것이다.</p>
+:ET

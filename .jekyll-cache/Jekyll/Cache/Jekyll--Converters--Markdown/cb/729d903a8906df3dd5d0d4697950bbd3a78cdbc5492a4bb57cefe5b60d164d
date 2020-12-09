@@ -1,0 +1,254 @@
+I"�,<p><strong>Web Server(웹서버)란?</strong>
+<br /></p>
+<center><img src="/img/java/webServer.png" width="500" height="300" /></center>
+<p><br />
+웹 사이트는 기본적으로 ‘client application, java server application’으로 나누어져 있다.</p>
+
+<p>client application에서 java server application에 요청을 보내면, Web server는 요청에 맞는 데이터를 데이터베이스에서 찾고, 정적 페이지를 찾아서 리턴한다.</p>
+
+<hr />
+
+<p><strong>WAS(Web Application Server)란?</strong>
+<br /></p>
+<center><img src="/img/java/webApplicationServer.png" width="500" height="300" /></center>
+<p><br />
+client application에서 회원 리스트를 요청했다는 가정을 한다. 회원리스트는 정적인 페이지가 아니다. 실시간으로 업데이트 될 수 있기 때문에, 동적으로 처리해야한다.</p>
+
+<p>client application에서 java server application에 요청을 보내면, 웹서버는 서블릿(조각나 있는 서버 어플리케이션) 중에 요청에 맞는 파일을 찾는다. 여기에는 동적인 요청에 부합하는 코드가 포함되어 있는데, 이 코드를 실행시키는 것이 WAS의 역할이다.</p>
+
+<p>보통 자바는 main 함수를 시작으로 프로그램이 동작하지만, servlet 프로그램에서는 service 함수를 시작으로 프로그램을 만든다.</p>
+
+<hr />
+
+<p><strong>Servlet code writing and compile</strong></p>
+
+<p>WAS는 HttpServlet이라는 클래스를 바라보고 있다.
+HttpServelet을 통해 service함수를 호출함으로써 WAS에서 servlet 클래스를 로드한다.</p>
+<pre>
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.*;
+
+public class servletPractice extends <b>HttpServlet</b>
+{
+    public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
+    {
+        System.out.println("Hello Servlet");
+    }
+}
+</pre>
+
+<hr />
+
+<p><strong>톰캣, jdk, 메모장 활용해서 서블릿 프로그램 작성하기</strong></p>
+
+<p>1) 메모장을 열어 아래 내용을 붙여넣고 servletPractice.java로 저장한다. (필수: class 이름은 자바 파일명과 동일)</p>
+
+<pre>
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.*;
+
+public class servletPractice extends HttpServlet
+{
+	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
+	{	
+		PrintWriter out = response.getWriter();
+		out.println("0. url-servlet mapping at tomcat web app webapps/ROOT/WEB-INF, 1. dev/jsppractice edit servletPractice.java, 2. compile, 3. copy to tomcat webapp WEB-INF classes, 4. startup or shutdown server at tomcat/bin with sudo ./startup or shutdown");
+	}
+}
+</pre>
+
+<p>2) 컴파일한다.</p>
+
+<pre>
+$ javac servletPractice.java // 에러발생
+</pre>
+
+<p>servlet library는 jdk에 포함되지 않는 library이다. 따라서 라이브러리 경로를 지정하는 class path 옵션을 추가해서 컴파일 해야한다.</p>
+<pre>
+$ javac -cp /Users/youngjinlee/Desktop/Dev/STS-workspace/apache-tomcat-9.0.36/lib/servlet-api.jar servletPractice.java
+$ ls
+servletPractice.class servletPractice.java
+</pre>
+
+<p>3) 환경 설정하기</p>
+
+<p>클라이언트가 톰캣(WAS)에 정보를 요청하면 톰캣은 서블릿 프로그램을 통해 요청에 맞는 정보를 찾아서 응답한다.
+톰캣은 정보를 찾기 위해 컴파일된 class파일을 찾는데, 사용자가 이 클래스 파일을 직접 요청하는 것이 아니다.
+따라서 사용자가 요청할때 넘긴 정보와 class의 정보를 매핑해야한다.
+예를 들어, 클라이언트가 http://abc.com/pageName 을 요청했다면, web.xml 파일에 아래와 같이 설정해주어야한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;servlet&gt;
+    &lt;servlet-name&gt;mappingName&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;servletPractice&lt;/servlet-class&gt;
+&lt;/servlet&gt;
+
+&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;mappingName&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/pageName&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+</code></pre></div></div>
+
+<p>WEB-INF아래 classes 폴더를 만들고 servletPractice.class를 복사해 넣는다. WEB-INF는 아래 경로에 있으며, 폴더명은 정확히 classes여야한다.</p>
+
+<p>※ 외부에서는 WEB-INF 안에 있는 파일에 대해 절대로 직접 요청할 수 없다.</p>
+<pre>
+/Users/youngjinlee/Desktop/Dev/STS-workspace/apache-tomcat-9.0.36/webapps/ROOT/WEB-INF/classes
+</pre>
+<pre>
+$ ls
+servletPractice.class
+</pre>
+
+<p>4) 매핑정보 추가하기</p>
+
+<p>아래 경로에 가면 web.xml 파일이 있다. 파일 안에 위에서 언급했던 것처럼 매핑 정보를 추가한다.</p>
+<pre>
+/Users/youngjinlee/Desktop/Dev/STS-workspace/apache-tomcat-9.0.36/webapps/ROOT/WEB-INF
+</pre>
+<pre>
+$ cat web.xml   
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0" metadata-complete="true">
+  <servlet>
+    <servlet-name>servletPractice_mapping_name</servlet-name>
+    <servlet-class>servletPractice</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>servletPractice_mapping_name</servlet-name>
+    <url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+
+
+  <display-name>Welcome to Tomcat</display-name>
+  <description>
+     Welcome to Tomcat
+  </description>
+
+</web-app>
+
+</pre>
+
+<p>5) 톰캣 실행하기</p>
+
+<p>아래 폴더에 가면 startup.sh 파일이 있다.</p>
+<pre>
+$ pwd 
+/Users/youngjinlee/Desktop/Dev/STS-workspace/apache-tomcat-9.0.36/bin
+$ ls
+bootstrap.jar                makebase.sh
+catalina-tasks.xml           setclasspath.bat
+catalina.bat                 setclasspath.sh
+catalina.sh                  shutdown.bat
+ciphers.bat                  shutdown.sh
+ciphers.sh                   startup.bat
+commons-daemon-native.tar.gz startup.sh
+commons-daemon.jar           tomcat-juli.jar
+configtest.bat               tomcat-native.tar.gz
+configtest.sh                tool-wrapper.bat
+daemon.sh                    tool-wrapper.sh
+digest.bat                   version.bat
+digest.sh                    version.sh
+makebase.bat
+</pre>
+
+<p>실행한다. (서버 종료는 shutdown.sh를 활용한다.)</p>
+<pre>
+$ sudo ./startup.sh
+Password:
+Using CATALINA_BASE:   /Users/youngjinlee/Desktop/dev/STS-workspace/apache-tomcat-9.0.36
+Using CATALINA_HOME:   /Users/youngjinlee/Desktop/dev/STS-workspace/apache-tomcat-9.0.36
+Using CATALINA_TMPDIR: /Users/youngjinlee/Desktop/dev/STS-workspace/apache-tomcat-9.0.36/temp
+Using JRE_HOME:        /Library/Java/JavaVirtualMachines/jdk-14.0.1.jdk/Contents/Home
+Using CLASSPATH:       /Users/youngjinlee/Desktop/dev/STS-workspace/apache-tomcat-9.0.36/bin/bootstrap.jar:/Users/youngjinlee/Desktop/dev/STS-workspace/apache-tomcat-9.0.36/bin/tomcat-juli.jar
+Tomcat started.
+</pre>
+
+<p>6) 브라우저에서 확인한다.</p>
+<pre>
+http://localhost:8080/hello
+</pre>
+
+<p>6) 매핑정보는 어노테이션을 통해 더 간편히 할 수 있다. 이것은 servlet 3.0 부터 가능하다.</p>
+
+<pre>
+@WebServlet("/hello")
+public class servletPractice extends HttpServlet
+{
+	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
+	{	
+		PrintWriter out = response.getWriter();
+		out.println("0. url-servlet mapping at tomcat web app webapps/ROOT/WEB-INF, 1. dev/jsppractice edit servletPractice.java, 2. compile, 3. copy to tomcat webapp WEB-INF classes, 4. startup or shutdown server at tomcat/bin with sudo ./startup or shutdown");
+	}
+}
+</pre>
+
+<p>어노테이션을 사용하기 위해서는 web.xml의 설정을 바꾸어야한다. 매핑정보를 web.xml에서 뿐만 아니라 다른 방법(어노테이션)으로도 가능하게 하는 것이다. 기본값으로 true인 것을 false로 바꾼다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+  version="4.0"
+  metadata-complete="false"&gt;
+</code></pre></div></div>
+
+<hr />
+
+<p><strong>TIPS</strong></p>
+
+<p><strong>You can create any files(eg. txt) and see them with the server</strong> <br />
+/Users/youngjinlee/Desktop/dev/STS-workspace-practice/apache-tomcat-9.0.36/webapps/ROOT/sample.txt
+http:localhost:8080.sample.txt</p>
+
+<p><strong>tomcat startup.sh, shutdown.sh location</strong>
+/Users/youngjinlee/Desktop/dev/STS-workspace-practice/apache-tomcat-9.0.36/bin</p>
+
+<p><strong>java files can be located anywhere. should be compiled with ‘javac’</strong></p>
+
+<p><strong>compile with servlet-api.jar to load the libraries to be imported.</strong>
+javac -cp /Users/youngjinlee/Desktop/dev/STS-workspace-practice/apache-tomcat-9.0.36/lib/servlet-api.jar servletPractice.java</p>
+
+<p><strong>Where web.xml is located(HOME DIRECTORY OF TOMCAT). You need to do servlet mapping in this file.</strong>
+/Users/youngjinlee/Desktop/dev/STS-workspace-practice/apache-tomcat-9.0.36/webapps/ROOT/WEB-INF</p>
+
+<p><strong>The class file needs to be copied in the HOME DIRECTORY</strong>
+/Users/youngjinlee/Desktop/dev/STS-workspace-practice/apache-tomcat-9.0.36/webapps/ROOT/WEB-INF/classes</p>
+
+<p><strong>상태 값 유지하기</strong></p>
+<ol>
+  <li>application (with servlet context( = application 저장소)) : 서버쪽에 저장</li>
+  <li>session (= application 저장소 + session id, 헬스장에 사물함 번호를 부여받고 샴푸를 꺼내 쓰는 것)</li>
+  <li>
+    <p>cookie (헬스장에 샴푸를 들고다니는것 ): 클라이언트에서 저장하고 있음. 서버쪽에서는 어플리케이션이나 세션에 저장하지 않음.</p>
+
+    <ul>
+      <li>클라이언트가 서버에 요청을 보냈을때 서버에서 그 데이터를 꺼내는 방법</li>
+      <li>브라우저가 알아서 담아주는 헤더 정보: getHeader(“remote-host”)</li>
+      <li>쿠키: getCookies()</li>
+      <li>사용자가 보내는 데이터 (데이터 설정): getParameter(“x”)</li>
+      <li>서버가 클라이언트에게 응답할때 쿠키를 보내는방법</li>
+      <li>쿠키: addCookie()</li>
+    </ul>
+  </li>
+</ol>
+
+<p>※ 소스 위치: 아래 파일 저장소 의 /xxxx 폴더</p>
+:ET
