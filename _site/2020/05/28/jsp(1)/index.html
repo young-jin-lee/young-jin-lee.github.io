@@ -9,8 +9,8 @@
   
   
   
-  <title>JSP(1) - Why Jasper?</title>
-  <meta name="description" content="servlet 프로그램을 만들기 위해서는 아래와 같이 GET 요청에 대한 코드를 작성해야 했다. 실제로 과거에는 out.write 메소드안에 html 태그를 일일히 입력해서 출력을 했다. 이를 간편하게 만들어주는 것이 JASPER이다. 우리는 일반적인 html을 작성하고, JASPER에게 이 코드에 out.write 메소드를 붙여서 서블릿 코드로 만들어달라고 하는 것이다. @WebServlet(&quot;/calcpage&quot;) public class CalcPage extends HttpServlet{ @Override protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { // TODO Auto-generated method stub Cookie[] cookies = request.getCookies(); String exp = &quot;0&quot;; if (cookies != null) for(Cookie c : cookies) if(c.getName().equals(&quot;exp&quot;)) { exp = c.getValue(); break; } response.setCharacterEncoding(&quot;UTF-8&quot;); response.setContentType(&quot;text/html; charset=UTF-8&quot;); PrintWriter out = response.getWriter(); out.write(&quot;&amp;lt;!DOCTYPE html&amp;gt;&quot;); out.write(&quot;&amp;lt;html&amp;gt;&quot;); out.write(&quot;&amp;lt;head&amp;gt;&quot;); out.write(&quot;&amp;lt;meta charset=\&quot;UTF-8\&quot;&amp;gt;&quot;); out.write(&quot;&amp;lt;title&amp;gt;Insert title here&amp;lt;/title&amp;gt;&quot;); out.write(&quot;&amp;lt;style&amp;gt;&quot;); out.write(&quot;input {&quot;); out.write(&quot; width: 50px;&quot;); html을 jsp로 만드는 것은 간단하다. 확장자를 jsp로 바꾸면 된다. Jasper는 html을 서블릿 코드로 변환시키는데, 사용자가 해당 jsp 파일을 요청할 때 변환하고, url 매핑은 파일명 그대로 된다. 만약 add.jsp라는 파일이 있으면, Jasper는 톰캣 설치 디렉토리에 해당 파일에 대한 서블릿 코드를 java파일안에 생성한다. org/apache/add_jsp.java 개발디렉토리에서 작성한 코드를 배포하면 톰캣의 홈디렉토리로 옮겨지게된다. 톰캣은 여러 서비스를 운영하고 있을 수 있기 때문에 실제 톰캣의 디렉토리에 두지는 않고, 서비스 운영을 위해 이클립스가 관리하는 별도의 사본 디렉토리에 저장된다. 이클립스에서 servers를 열고 현재 등록된 톰캣서버를 더블 클릭해서 설정화면을 보면 ‘Server path’에 해당 디렉토리 경로를 확인할 수 있다. tmp0,1,2,…,n 으로 임시 개발 서버 디렉토리가 생성된다. 가장 높은 숫자가 가장 최근에 실행한 서버 정보를 가지고 있는 것이다. tmp 디렉토리 안에 들어가보면 실제 톰캣서버와 비슷한 폴더들로 구성되어 있음을 확인할 수 있다. work가 Jasper의 작업실이다. $ pwd /Users/youngjinlee/Desktop/Dev/STS-workspace/.metadata/.plugins/org.eclipse.wst.server.core $ ls monitors.xml publish publish.xml servers.xml tmp-data.xml tmp0 $ cd tmp0 $ ls conf logs temp webapps work wtpwebapps work folder 안에 들어가보면, 이클립스에서 실행했던 jsp에 대한 java 파일과 class 를 확인할 수 있다. 직접 calculator_jsp.java 파일안을 보면, 기대했던대로 html 코드의 줄마다 write.out()이 씌여있음을 확인할 수 있다. ※ Catalina는 (예전) 톰캣의 프로젝트 명이다. $ pwd /Users/youngjinlee/Desktop/Dev/STS-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/work/Catalina/localhost/WebCalculator/org/apache/jsp $ ls calculator_jsp.class calculator_jsp.java">
+  <title>Why Jasper?</title>
+  <meta name="description" content="JASPER의 등장 배경 과거에 servlet 프로그램을 만들기 위해서는 아래와 같이 GET 요청에 대한 코드를 작성해야 했다. 실제로 out.write() 메소드안에 html 태그를 일일히 입력해서 출력을 했다. 이를 간편하게 만들어주는 것이 JASPER이다. 우리는 일반적인 html을 작성하고, JASPER에게 이 코드에 out.write 메소드를 붙여서 서블릿 코드로 만들어달라고 하는 것이다. @WebServlet(&quot;/calcpage&quot;) public class CalcPage extends HttpServlet{ @Override protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { // TODO Auto-generated method stub Cookie[] cookies = request.getCookies(); String exp = &quot;0&quot;; if (cookies != null) for(Cookie c : cookies) if(c.getName().equals(&quot;exp&quot;)) { exp = c.getValue(); break; } response.setCharacterEncoding(&quot;UTF-8&quot;); response.setContentType(&quot;text/html; charset=UTF-8&quot;); PrintWriter out = response.getWriter(); out.write(&quot;&amp;lt;!DOCTYPE html&amp;gt;&quot;); out.write(&quot;&amp;lt;html&amp;gt;&quot;); out.write(&quot;&amp;lt;head&amp;gt;&quot;); out.write(&quot;&amp;lt;meta charset=\&quot;UTF-8\&quot;&amp;gt;&quot;); out.write(&quot;&amp;lt;title&amp;gt;Insert title here&amp;lt;/title&amp;gt;&quot;); out.write(&quot;&amp;lt;style&amp;gt;&quot;); out.write(&quot;input {&quot;); out.write(&quot; width: 50px;&quot;); How it works 개발자에게 html을 jsp로 만드는 것은 간단하다. 확장자를 jsp로 바꾸면 된다. Jasper는 html을 서블릿 코드로 변환시키는데, 사용자가 해당 jsp 파일을 요청할 때 변환하고, url 매핑은 파일명 그대로 된다. 만약 add.jsp라는 파일이 있으면, Jasper는 톰캣 설치 디렉토리에 해당 파일에 대한 서블릿 코드를 java파일안에 생성한다. org/apache/add_jsp.java 개발디렉토리에서 작성한 코드를 배포하면 톰캣의 홈디렉토리로 옮겨지게된다. 톰캣은 여러 서비스를 운영하고 있을 수 있기 때문에 실제 톰캣의 디렉토리에 두지는 않고, 서비스 운영을 위해 이클립스가 관리하는 별도의 사본 디렉토리에 저장된다. 이클립스에서 servers 탭을 열고 현재 등록된 톰캣서버를 더블 클릭해서 설정화면을 보면 ‘Server path’에 해당 디렉토리 경로를 확인할 수 있다. tmp 0,1,2,…,n 으로 임시 개발 서버 디렉토리가 생성된다. 가장 높은 숫자가 가장 최근에 실행한 서버 정보를 가지고 있는 것이다. tmp 디렉토리 안에 들어가보면 실제 톰캣서버와 비슷한 폴더들로 구성되어 있음을 확인할 수 있다. work 폴더가 Jasper의 작업실이다. $ pwd /Users/youngjinlee/Desktop/Dev/STS-workspace/.metadata/.plugins/org.eclipse.wst.server.core $ ls monitors.xml publish publish.xml servers.xml tmp-data.xml tmp0 $ cd tmp0 $ ls conf logs temp webapps work wtpwebapps work 폴더 안에 들어가보면, 이클립스에서 실행했던 jsp에 대한 java 파일과 class 를 확인할 수 있다. 직접 calculator_jsp.java 파일안을 보면, 기대했던대로 html 코드의 줄마다 write.out()이 씌여있음을 확인할 수 있다. ※ Catalina는 (예전) 톰캣의 프로젝트 명이다. $ pwd /Users/youngjinlee/Desktop/Dev/STS-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/work/Catalina/localhost/WebCalculator/org/apache/jsp $ ls calculator_jsp.class calculator_jsp.java">
   
 
   <link rel="stylesheet" href="/assets/main.css">
@@ -22,16 +22,16 @@
   
 
   
-  <meta property="og:title" content="JSP(1) - Why Jasper?">
+  <meta property="og:title" content="Why Jasper?">
   <meta property="og:site_name" content="Young Jin&#39;s blog">
   <meta property="og:url" content="http://localhost:4000/2020/05/28/jsp(1)/">
-  <meta property="og:description" content="servlet 프로그램을 만들기 위해서는 아래와 같이 GET 요청에 대한 코드를 작성해야 했다. 실제로 과거에는 out.write 메소드안에 html 태그를 일일히 입력해서 출력을 했다. 이를 간편하게 만들어주는 것이 JASPER이다. 우리는 일반적인 html을 작성하고, JASPER에게 이 코드에 out.write 메소드를 붙여서 서블릿 코드로 만들어달라고 하는 것이다. @WebServlet(&quot;/calcpage&quot;) public class CalcPage extends HttpServlet{ @Override protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { // TODO Auto-generated method stub Cookie[] cookies = request.getCookies(); String exp = &quot;0&quot;; if (cookies != null) for(Cookie c : cookies) if(c.getName().equals(&quot;exp&quot;)) { exp = c.getValue(); break; } response.setCharacterEncoding(&quot;UTF-8&quot;); response.setContentType(&quot;text/html; charset=UTF-8&quot;); PrintWriter out = response.getWriter(); out.write(&quot;&amp;lt;!DOCTYPE html&amp;gt;&quot;); out.write(&quot;&amp;lt;html&amp;gt;&quot;); out.write(&quot;&amp;lt;head&amp;gt;&quot;); out.write(&quot;&amp;lt;meta charset=\&quot;UTF-8\&quot;&amp;gt;&quot;); out.write(&quot;&amp;lt;title&amp;gt;Insert title here&amp;lt;/title&amp;gt;&quot;); out.write(&quot;&amp;lt;style&amp;gt;&quot;); out.write(&quot;input {&quot;); out.write(&quot; width: 50px;&quot;); html을 jsp로 만드는 것은 간단하다. 확장자를 jsp로 바꾸면 된다. Jasper는 html을 서블릿 코드로 변환시키는데, 사용자가 해당 jsp 파일을 요청할 때 변환하고, url 매핑은 파일명 그대로 된다. 만약 add.jsp라는 파일이 있으면, Jasper는 톰캣 설치 디렉토리에 해당 파일에 대한 서블릿 코드를 java파일안에 생성한다. org/apache/add_jsp.java 개발디렉토리에서 작성한 코드를 배포하면 톰캣의 홈디렉토리로 옮겨지게된다. 톰캣은 여러 서비스를 운영하고 있을 수 있기 때문에 실제 톰캣의 디렉토리에 두지는 않고, 서비스 운영을 위해 이클립스가 관리하는 별도의 사본 디렉토리에 저장된다. 이클립스에서 servers를 열고 현재 등록된 톰캣서버를 더블 클릭해서 설정화면을 보면 ‘Server path’에 해당 디렉토리 경로를 확인할 수 있다. tmp0,1,2,…,n 으로 임시 개발 서버 디렉토리가 생성된다. 가장 높은 숫자가 가장 최근에 실행한 서버 정보를 가지고 있는 것이다. tmp 디렉토리 안에 들어가보면 실제 톰캣서버와 비슷한 폴더들로 구성되어 있음을 확인할 수 있다. work가 Jasper의 작업실이다. $ pwd /Users/youngjinlee/Desktop/Dev/STS-workspace/.metadata/.plugins/org.eclipse.wst.server.core $ ls monitors.xml publish publish.xml servers.xml tmp-data.xml tmp0 $ cd tmp0 $ ls conf logs temp webapps work wtpwebapps work folder 안에 들어가보면, 이클립스에서 실행했던 jsp에 대한 java 파일과 class 를 확인할 수 있다. 직접 calculator_jsp.java 파일안을 보면, 기대했던대로 html 코드의 줄마다 write.out()이 씌여있음을 확인할 수 있다. ※ Catalina는 (예전) 톰캣의 프로젝트 명이다. $ pwd /Users/youngjinlee/Desktop/Dev/STS-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/work/Catalina/localhost/WebCalculator/org/apache/jsp $ ls calculator_jsp.class calculator_jsp.java">
+  <meta property="og:description" content="JASPER의 등장 배경 과거에 servlet 프로그램을 만들기 위해서는 아래와 같이 GET 요청에 대한 코드를 작성해야 했다. 실제로 out.write() 메소드안에 html 태그를 일일히 입력해서 출력을 했다. 이를 간편하게 만들어주는 것이 JASPER이다. 우리는 일반적인 html을 작성하고, JASPER에게 이 코드에 out.write 메소드를 붙여서 서블릿 코드로 만들어달라고 하는 것이다. @WebServlet(&quot;/calcpage&quot;) public class CalcPage extends HttpServlet{ @Override protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { // TODO Auto-generated method stub Cookie[] cookies = request.getCookies(); String exp = &quot;0&quot;; if (cookies != null) for(Cookie c : cookies) if(c.getName().equals(&quot;exp&quot;)) { exp = c.getValue(); break; } response.setCharacterEncoding(&quot;UTF-8&quot;); response.setContentType(&quot;text/html; charset=UTF-8&quot;); PrintWriter out = response.getWriter(); out.write(&quot;&amp;lt;!DOCTYPE html&amp;gt;&quot;); out.write(&quot;&amp;lt;html&amp;gt;&quot;); out.write(&quot;&amp;lt;head&amp;gt;&quot;); out.write(&quot;&amp;lt;meta charset=\&quot;UTF-8\&quot;&amp;gt;&quot;); out.write(&quot;&amp;lt;title&amp;gt;Insert title here&amp;lt;/title&amp;gt;&quot;); out.write(&quot;&amp;lt;style&amp;gt;&quot;); out.write(&quot;input {&quot;); out.write(&quot; width: 50px;&quot;); How it works 개발자에게 html을 jsp로 만드는 것은 간단하다. 확장자를 jsp로 바꾸면 된다. Jasper는 html을 서블릿 코드로 변환시키는데, 사용자가 해당 jsp 파일을 요청할 때 변환하고, url 매핑은 파일명 그대로 된다. 만약 add.jsp라는 파일이 있으면, Jasper는 톰캣 설치 디렉토리에 해당 파일에 대한 서블릿 코드를 java파일안에 생성한다. org/apache/add_jsp.java 개발디렉토리에서 작성한 코드를 배포하면 톰캣의 홈디렉토리로 옮겨지게된다. 톰캣은 여러 서비스를 운영하고 있을 수 있기 때문에 실제 톰캣의 디렉토리에 두지는 않고, 서비스 운영을 위해 이클립스가 관리하는 별도의 사본 디렉토리에 저장된다. 이클립스에서 servers 탭을 열고 현재 등록된 톰캣서버를 더블 클릭해서 설정화면을 보면 ‘Server path’에 해당 디렉토리 경로를 확인할 수 있다. tmp 0,1,2,…,n 으로 임시 개발 서버 디렉토리가 생성된다. 가장 높은 숫자가 가장 최근에 실행한 서버 정보를 가지고 있는 것이다. tmp 디렉토리 안에 들어가보면 실제 톰캣서버와 비슷한 폴더들로 구성되어 있음을 확인할 수 있다. work 폴더가 Jasper의 작업실이다. $ pwd /Users/youngjinlee/Desktop/Dev/STS-workspace/.metadata/.plugins/org.eclipse.wst.server.core $ ls monitors.xml publish publish.xml servers.xml tmp-data.xml tmp0 $ cd tmp0 $ ls conf logs temp webapps work wtpwebapps work 폴더 안에 들어가보면, 이클립스에서 실행했던 jsp에 대한 java 파일과 class 를 확인할 수 있다. 직접 calculator_jsp.java 파일안을 보면, 기대했던대로 html 코드의 줄마다 write.out()이 씌여있음을 확인할 수 있다. ※ Catalina는 (예전) 톰캣의 프로젝트 명이다. $ pwd /Users/youngjinlee/Desktop/Dev/STS-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/work/Catalina/localhost/WebCalculator/org/apache/jsp $ ls calculator_jsp.class calculator_jsp.java">
   
   
   <meta name="twitter:card" content="summary">
   
-  <meta name="twitter:title" content="JSP(1) - Why Jasper?">
-  <meta name="twitter:description" content="servlet 프로그램을 만들기 위해서는 아래와 같이 GET 요청에 대한 코드를 작성해야 했다. 실제로 과거에는 out.write 메소드안에 html 태그를 일일히 입력해서 출력을 했다. 이를 간편하게 만들어주는 것이 JASPER이다. 우리는 일반적인 html을 작성하고, JASPER에게 이 코드에 out.write 메소드를 붙여서 서블릿 코드로 만들...">
+  <meta name="twitter:title" content="Why Jasper?">
+  <meta name="twitter:description" content="JASPER의 등장 배경 과거에 servlet 프로그램을 만들기 위해서는 아래와 같이 GET 요청에 대한 코드를 작성해야 했다. 실제로 out.write() 메소드안에 html 태그를 일일히 입력해서 출력을 했다. 이를 간편하게 만들어주는 것이 JASPER이다. 우리는 일반적인 html을 작성하고, JASPER에게 이 코드에 out.write 메소드를...">
   
   
 
@@ -88,7 +88,7 @@
 
   <header class="post-header">
     
-      <h1 class="post-title" itemprop="name headline">JSP(1) - Why Jasper?</h1>
+      <h1 class="post-title" itemprop="name headline">Why Jasper?</h1>
     
     <p class="post-meta">
       <time datetime="2020-05-28T00:00:00+00:00" itemprop="datePublished">
@@ -111,7 +111,9 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>servlet 프로그램을 만들기 위해서는 아래와 같이 GET 요청에 대한 코드를 작성해야 했다. 실제로 과거에는 out.write 메소드안에 html 태그를 일일히 입력해서 출력을 했다. 이를 간편하게 만들어주는 것이 JASPER이다. 우리는 일반적인 html을 작성하고, JASPER에게 이 코드에 out.write 메소드를 붙여서 서블릿 코드로 만들어달라고 하는 것이다.</p>
+    <p><strong>JASPER의 등장 배경</strong></p>
+
+<p>과거에 servlet 프로그램을 만들기 위해서는 아래와 같이 GET 요청에 대한 코드를 작성해야 했다. 실제로 out.write() 메소드안에 html 태그를 일일히 입력해서 출력을 했다. 이를 간편하게 만들어주는 것이 JASPER이다. 우리는 일반적인 html을 작성하고, JASPER에게 이 코드에 out.write 메소드를 붙여서 서블릿 코드로 만들어달라고 하는 것이다.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@WebServlet("/calcpage")
 public class CalcPage extends HttpServlet{	
@@ -126,13 +128,12 @@ public class CalcPage extends HttpServlet{
 					exp  = c.getValue();
 					break;
 				}
-		
+
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
 		out.write("&lt;!DOCTYPE html&gt;");
-		
 		out.write("&lt;html&gt;");
 		out.write("&lt;head&gt;");
 		out.write("&lt;meta charset=\"UTF-8\"&gt;");
@@ -142,7 +143,11 @@ public class CalcPage extends HttpServlet{
 		out.write("	width: 50px;");
 </code></pre></div></div>
 
-<p>html을 jsp로 만드는 것은 간단하다. 확장자를 jsp로 바꾸면 된다.
+<hr />
+
+<p><strong>How it works</strong></p>
+
+<p>개발자에게 html을 jsp로 만드는 것은 간단하다. 확장자를 jsp로 바꾸면 된다.
 Jasper는 html을 서블릿 코드로 변환시키는데, 
 사용자가 해당 jsp 파일을 요청할 때 변환하고, url 매핑은 파일명 그대로 된다.</p>
 
@@ -151,10 +156,10 @@ Jasper는 톰캣 설치 디렉토리에 해당 파일에 대한 서블릿 코드
 org/apache/add_jsp.java</p>
 
 <ul>
-  <li>개발디렉토리에서 작성한 코드를 배포하면 톰캣의 홈디렉토리로 옮겨지게된다. 톰캣은 여러 서비스를 운영하고 있을 수 있기 때문에 실제 톰캣의 디렉토리에 두지는 않고, 서비스 운영을 위해 이클립스가 관리하는 별도의 사본 디렉토리에 저장된다. 이클립스에서 servers를 열고 현재 등록된 톰캣서버를 더블 클릭해서 설정화면을 보면 ‘Server path’에 해당 디렉토리 경로를 확인할 수 있다.</li>
+  <li>개발디렉토리에서 작성한 코드를 배포하면 톰캣의 홈디렉토리로 옮겨지게된다. 톰캣은 여러 서비스를 운영하고 있을 수 있기 때문에 실제 톰캣의 디렉토리에 두지는 않고, 서비스 운영을 위해 이클립스가 관리하는 별도의 사본 디렉토리에 저장된다. 이클립스에서 servers 탭을 열고 현재 등록된 톰캣서버를 더블 클릭해서 설정화면을 보면 ‘Server path’에 해당 디렉토리 경로를 확인할 수 있다.</li>
 </ul>
 
-<p>tmp0,1,2,…,n 으로 임시 개발 서버 디렉토리가 생성된다. 가장 높은 숫자가 가장 최근에 실행한 서버 정보를 가지고 있는 것이다. tmp 디렉토리 안에 들어가보면 실제 톰캣서버와 비슷한 폴더들로 구성되어 있음을 확인할 수 있다. work가 Jasper의 작업실이다.</p>
+<p>tmp 0,1,2,…,n 으로 임시 개발 서버 디렉토리가 생성된다. 가장 높은 숫자가 가장 최근에 실행한 서버 정보를 가지고 있는 것이다. tmp 디렉토리 안에 들어가보면 실제 톰캣서버와 비슷한 폴더들로 구성되어 있음을 확인할 수 있다. work 폴더가 Jasper의 작업실이다.</p>
 <pre>
 $ pwd
 /Users/youngjinlee/Desktop/Dev/STS-workspace/.metadata/.plugins/org.eclipse.wst.server.core
@@ -165,7 +170,7 @@ $ ls
 conf       logs       temp       webapps    work       wtpwebapps
 </pre>
 
-<p>work folder 안에 들어가보면, 이클립스에서 실행했던 jsp에 대한 java 파일과 class 를 확인할 수 있다. 직접 calculator_jsp.java 파일안을 보면, 기대했던대로 html 코드의 줄마다 write.out()이 씌여있음을 확인할 수 있다.</p>
+<p>work 폴더 안에 들어가보면, 이클립스에서 실행했던 jsp에 대한 java 파일과 class 를 확인할 수 있다. 직접 calculator_jsp.java 파일안을 보면, 기대했던대로 html 코드의 줄마다 write.out()이 씌여있음을 확인할 수 있다.</p>
 
 <p>※ Catalina는 (예전) 톰캣의 프로젝트 명이다.</p>
 <pre>

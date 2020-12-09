@@ -1,21 +1,26 @@
 ---
 layout: post
-title: "Spring(2) - DI and IOC"
+title: "DI and IOC"
 comments: true
 categories: Java
 ---
 
-Dependency Injection의 방법에는 크게 두가지가 있다. 
+__DI 방법__
 
-#### 1. 일체형
+Dependency Injection의 방법에는 일체형과 분리형으로 크게 두가지가 있다. 
+
+<hr/>
+
+__일체형__
 
 일체형으로 A 객체를 만들면, 그 안에 부품이 무엇인지도 모르고, 바꾸어 낄 수도 없다.
 <pre>
 A a = new A();
 </pre>
 
+<hr/>
 
-#### 2. 분리형 
+__분리형__ 
 
 분리형으로 만들면 부품이 무엇인지 알 수 있고, 바꾸어 낄 수 있다.
 분리형으로 객체를 생성하는 두 가지 방법이 있다. 
@@ -31,14 +36,16 @@ class A
     }
 </pre>
 
-#### 2.1. Construction Injection
+- Construction Injection
+
 <pre>
 B b = new B(); // dependency
 A a = new A(b); // injection
 
 </pre>
 
-#### 2.2. Setter Injection
+- Setter Injection
+
 <pre>
 B b = new B(); // dependency
 A a = new A();
@@ -55,9 +62,7 @@ Spring은 부품을 조립해주는 기능, 즉 dependency를 injection 해주�
 2. 전문가가 제품들을 구입하고 적절한 곳에 조립을 해준다.
 3. 어떤 박스에 담는다.
 
-Spring은 주문서에 입력된 대로 객체들을 생성해서 이들을 담을 수 있는 박스가 필요한데, 이것이 IOC컨테이너이다.
+Spring은 주문서에 입력된 대로 객체들을 생성해서 이들을 담을 수 있는 박스가 필요한데, 이것이 __IOC__ 컨테이너이다.
 
 일체형인 경우, 가장 큰 객체가 먼저 생성되고 그 다음에 작은 객체들이 생성된다.
-하지만 여기에서는 작은 객체들이 먼저 생성되고 이들이 주입될 큰 객체가 나중에 생성된다. 이것이 Inversion Of Control이다.
-
- 
+하지만 여기에서는 작은 객체들이 먼저 생성되고 이들이 주입될 큰 객체가 나중에 생성된다. 이것이 __Inversion Of Control__ 이다.

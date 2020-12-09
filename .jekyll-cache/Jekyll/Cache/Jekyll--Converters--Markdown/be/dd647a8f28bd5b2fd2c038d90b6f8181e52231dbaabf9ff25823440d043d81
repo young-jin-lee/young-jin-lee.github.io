@@ -1,0 +1,40 @@
+I"m<p><strong>Spring Tool Suite에서 Spring MVC 메이븐 프로젝트 세팅하기</strong></p>
+
+<p>1) Perspective 를 Java에서 Java EE로 변경</p>
+
+<p>2) 메뉴 바에서 Maven Project 선택</p>
+
+<p>3) New Maven Project Popup</p>
+<ul>
+  <li>새로 세팅한다면 Create a simple project(skip archetype selection), Use default Workspace location 선택</li>
+</ul>
+
+<p>4) New Maven Project Popup</p>
+<ul>
+  <li>Artifact 세팅에서 Group Id 는 com.yourOrganizationName</li>
+  <li>Artifact Id는 프로젝트명</li>
+  <li>Packaging은 war 선택</li>
+</ul>
+
+<p>5) src ➔ main ➔ webapp 안에 WEB-INF ➔ web.xml 생성</p>
+<ul>
+  <li>web.xml이 없으면, pom.xml에 에러메세지가 뜬다.</li>
+  <li>별도로 설치되어있는 톰캣에 들어가서 복사해온다.</li>
+</ul>
+
+<p>6) Java Resources ➔ Libraries 에서 JRE System Library 버전을 확인한다.</p>
+<ul>
+  <li>만약 변경이 필요하다면, pom.xml에서 <properties> 태그 안에 아래 내용을 입력한다.
+~~~</properties></li>
+</ul>
+<properties>
+    <maven.compiler.source> 1.8 </maven.compiler.source>
+    <maven.compiler.target> 1.8 </maven.compiler.target>
+</properties>
+<p>~~~</p>
+<ul>
+  <li>프로젝트 폴더 오른쪽 클릭 후 Maven ➔ Update Project를 클릭하여 변경사항을 업데이트한다.</li>
+</ul>
+
+<p>7) src ➔ main ➔ webapp에 index.jsp 파일 추가하기</p>
+:ET

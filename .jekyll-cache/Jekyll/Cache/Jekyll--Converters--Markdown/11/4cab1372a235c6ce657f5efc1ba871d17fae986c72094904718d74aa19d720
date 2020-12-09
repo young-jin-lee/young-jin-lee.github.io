@@ -1,0 +1,26 @@
+I"�<p><strong>Spring Tool Suite에서 Spring MVC 메이븐 프로젝트 세팅하기</strong></p>
+
+<p>1) Perspective 를 Java에서 Java EE로 변경</p>
+
+<p>2) 메뉴 바에서 Maven Project 선택</p>
+
+<p>3) New Maven Project Popup</p>
+<ul>
+  <li>새로 세팅한다면 Create a simple project(skip archetype selection), Use default Workspace location 선택</li>
+</ul>
+
+<p>4) New Maven Project Popup</p>
+<ul>
+  <li>Artifact 세팅에서 Group Id 는 com.yourOrganizationName</li>
+  <li>Artifact Id는 프로젝트명</li>
+  <li>Packaging은 war 선택</li>
+</ul>
+
+<p>5)</p>
+<ul>
+  <li>web.xml이 없으며, pom.xml에 에러메세지가 뜬다.</li>
+</ul>
+
+<p>6)</p>
+
+:ET

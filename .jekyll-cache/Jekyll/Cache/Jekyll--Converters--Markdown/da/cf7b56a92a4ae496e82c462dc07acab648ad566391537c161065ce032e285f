@@ -1,0 +1,74 @@
+I"�
+<p><strong>Spring Tool Suite에서 Spring MVC 메이븐 프로젝트 세팅하기 1/3</strong></p>
+
+<p>1) Perspective 를 Java에서 Java EE로 변경</p>
+
+<p>2) 메뉴 바에서 Maven Project 선택</p>
+
+<p>3) New Maven Project Popup</p>
+<ul>
+  <li>새로 세팅한다면 Create a simple project(skip archetype selection), Use default Workspace location 선택</li>
+</ul>
+
+<p>4) New Maven Project Popup</p>
+<ul>
+  <li>Artifact 세팅에서 Group Id 는 com.yourOrganizationName</li>
+  <li>Artifact Id는 프로젝트명</li>
+  <li>Packaging은 war 선택</li>
+</ul>
+
+<p>5) src ➔ main ➔ webapp 안에 WEB-INF ➔ web.xml 생성</p>
+<ul>
+  <li>web.xml이 없으면, pom.xml에 에러메세지가 뜬다.</li>
+  <li>별도로 설치되어있는 톰캣에 들어가서 복사해온다.</li>
+</ul>
+
+<p>6) Java Resources ➔ Libraries 에서 JRE System Library 버전을 확인한다.</p>
+<ul>
+  <li>만약 변경이 필요하다면, pom.xml에서 <properties> 태그 안에 아래 내용을 입력한다.
+~~~</properties></li>
+</ul>
+<properties>
+    <maven.compiler.source> 1.8 </maven.compiler.source>
+    <maven.compiler.target> 1.8 </maven.compiler.target>
+</properties>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- 프로젝트 폴더 오른쪽 클릭 후 Maven ➔ Update Project를 클릭하여 변경사항을 업데이트한다.
+
+7) 상단 메뉴 바에 Window ➔ Preferences ➔ Web ➔ JSP Files 에서 Encoding을 UTF-8로 변경한다.
+- HTML, CSS, JS Files 등에 대해서도 동일한 작업을 한다.
+
+8) 프로젝트 오른쪽 클릭 ➔ Properties ➔ Resource에서 Text file encoding란에서 Other 선택 후 UTF-8로 바꾼다.
+
+9) src ➔ main ➔ webapp에 index.jsp 파일 추가하기
+- meat charset이 UTF-8이어야 정상이다.
+
+10) 톰캣 X JSP 라이브러리 추가하기
+- 구글에 maven tomcat api 검색
+- maven repository에서 현재 적용된 톰캣 버전을 찾아 디펜던시 코드를 복사하여 pom.xml 에 붙여넣는다.
+</code></pre></div></div>
+<dependencies>
+    <dependency>
+        <groupId>org.apache.tomcat</groupId>
+        <artifactId>tomcat-api</artifactId>
+        <version>9.0.38</version>
+    </dependency>
+</dependencies>
+<p>~~~</p>
+
+<p>11) Servers 에서 버전이 맞는 apache 톰캣 서버 클릭 후 RUN하면 index.jsp를 확인해볼 수 있다.</p>
+
+<hr />
+
+<p><strong>Spring Tool Suite에서 Spring MVC 메이븐 프로젝트 세팅하기 2/3</strong></p>
+
+<ul>
+  <li>이제 생성한 Maven 프로젝트에 Spring MVC를 추가한다.</li>
+</ul>
+
+<p>12) Window ➔ show view ➔ other ➔ Maven ➔ Maven Repository 클릭</p>
+
+<ul>
+  <li>Maven Repository 안에 보면 Global Repository, Local Repository가 있다.</li>
+</ul>
+
+:ET

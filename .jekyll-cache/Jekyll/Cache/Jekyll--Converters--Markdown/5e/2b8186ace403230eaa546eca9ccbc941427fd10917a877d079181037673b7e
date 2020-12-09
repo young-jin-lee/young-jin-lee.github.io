@@ -1,0 +1,17 @@
+I"�<p><strong>Tag Libraries</strong></p>
+
+<ul>
+  <li>
+    <p>core: 가장 기본적인 제어의 행위</p>
+  </li>
+  <li>
+    <p>formatting: 숫자, 날짜 포맷팅</p>
+  </li>
+  <li>
+    <p>functions: el을 이용해 저장소에있는 데이터를 뽑아 조작할때(소문자 대문자 등)</p>
+  </li>
+  <li>
+    <p>sql, xml 이 둘은 MVC에서 쓰지 않는 것이 바람직</p>
+  </li>
+</ul>
+:ET

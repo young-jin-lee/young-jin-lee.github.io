@@ -9,8 +9,8 @@
   
   
   
-  <title>JSP(2) - How to write java in .jsp</title>
-  <meta name="description" content="1. jsp에서 자바 코드 작성하기 일반적인 html 형태의 jsp 파일 안에서 변수를 선언하고 자바 코딩를 넣고 싶다면 코드 블럭을 사용하면 된다. 만약 코드 블럭을 사용하지 않으면 Jasper는 해당 내용을 화면에 그대로 출력해버린다. 코드 블럭은 &amp;lt;% %&amp;gt; 이다. 넣고 싶은 자바 코드를 블럭안에 넣으면 된다. &amp;lt;% int x = 1; int y = 2; %&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt; &amp;lt;title&amp;gt;Insert title here&amp;lt;/title&amp;gt; ... 2. 예시) 수식 삽입 서블릿 코드에 y = x + 3을 자바코드로 넣고 싶다면 아래와 같이 jsp 파일에 코드블럭을 넣어주면 된다. &amp;lt;% y = x + 3 %&amp;gt; Jasper가 아래와 같이 서블릿 코드로 변환해준다. public final class calculator_jsp extends org.apache.jasper.runtime.HttpJspBase implements org.apache.jasper.runtime.JspSourceDependent, org.apache.jasper.runtime.JspSourceImports { // 멤버함수, 멤버변수 public void _jspService(final javax.servlet.http.HttpServletRequest request, final javax.servlet.http.HttpServletResponse response) throws java.io.IOException, javax.servlet.ServletException { // 지역변수 알고리즘 y = x + 3; 3. 예시) y의 값은 y 서블릿 코드에 문자열 그대로와 변수 값을 함께 넣고 싶다면 다음과 같이 작성할 수 있을 것이다. y의 값은 &amp;lt;% out.print(y) %&amp;gt; 더 간편한 방법으로는 아래와 같이 작성할 수 잇다. y의 값은 &amp;lt;%= y %&amp;gt; Jasper가 아래와 같이 서블릿 코드로 변환해준다. public final class calculator_jsp extends org.apache.jasper.runtime.HttpJspBase implements org.apache.jasper.runtime.JspSourceDependent, org.apache.jasper.runtime.JspSourceImports { // 멤버함수, 멤버변수 public void _jspService(final javax.servlet.http.HttpServletRequest request, final javax.servlet.http.HttpServletResponse response) throws java.io.IOException, javax.servlet.ServletException { // 지역변수 알고리즘 out.write(&quot;y의 값은 &quot;); out.print(y); 4. jsp에 자바 메소드 작성하기 jsp에서 위와 같이 코드블럭 안에 자바코드를 작성하면 서블릿 코드 파일에서는 ‘지역변수 알고리즘’ 영역에 코드가 들어간다. 아래와 같이 메소드를 작성하면 service 메소드 안에 내가 작성한 메소드가 들어가는 것이므로 에러가 발생한다. 자바에서는 메소드안에 메소드를 넣을 수 없다. &amp;lt;% public int sum(int a, int b) { return a + b; } %&amp;gt; 코드블럭에 느낌표를 붙이면 ‘지역변수 알고리즘’ 영역이 아닌 ‘멤버함수, 멤버변수’ 영역에 코드가 삽입된다. &amp;lt;%! public int sum(int a, int b) { return a + b; } %&amp;gt; 5. 지시블럭 초기 설정을 위한 page 지시자는 코드블럭이라고 하지 않고, 지시블럭이라고 하기도 한다. &amp;lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8 pageEncoding=&quot;UTF-8&quot; %&amp;gt; 6. 코드블록 4종류 요약 &amp;lt;% %&amp;gt;: 일반 로직 코드 블럭 &amp;lt;%= %&amp;gt;: 출력 코드 블럭 &amp;lt;%! %&amp;gt;: 멤버변수, 멤버함수 정의 코드 블럭 &amp;lt;%@ %&amp;gt;: 지시 코드 블럭 ※ 내장객체: Jasper가 jsp파일을 서블릿 코드로 변환하면서 필요한 변수나 메소드를 스스로 만들어낸다. 어떤 메소드들이 있는지 알아 놓을 필요가 있다.">
+  <title>How to write java in .jsp</title>
+  <meta name="description" content=".jsp에서 자바 코드 작성하기 일반적인 html 형태의 jsp 파일 안에서 변수를 선언하고 자바 코딩를 넣고 싶다면 코드 블럭을 사용하면 된다. 만약 코드 블럭을 사용하지 않으면 Jasper는 해당 내용을 화면에 그대로 출력해버린다. 코드 블럭은 &amp;lt;% %&amp;gt; 이다. 넣고 싶은 자바 코드를 블럭안에 넣으면 된다. &amp;lt;% int x = 1; int y = 2; %&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt; &amp;lt;title&amp;gt;Insert title here&amp;lt;/title&amp;gt; ... (예시) 수식 삽입 서블릿 코드에 y = x + 3을 자바코드로 넣고 싶다면 아래와 같이 jsp 파일에 코드블럭을 넣어주면 된다. &amp;lt;% y = x + 3 %&amp;gt; Jasper가 아래와 같이 서블릿 코드로 변환해준다. public final class calculator_jsp extends org.apache.jasper.runtime.HttpJspBase implements org.apache.jasper.runtime.JspSourceDependent, org.apache.jasper.runtime.JspSourceImports { // 멤버함수, 멤버변수 public void _jspService(final javax.servlet.http.HttpServletRequest request, final javax.servlet.http.HttpServletResponse response) throws java.io.IOException, javax.servlet.ServletException { // 지역변수 알고리즘 y = x + 3; (예시) y의 값은 y 서블릿 코드에 문자열 그대로와 변수 값을 함께 넣고 싶다면 다음과 같이 작성할 수 있을 것이다. y의 값은 &amp;lt;% out.print(y) %&amp;gt; 더 간편한 방법으로는 아래와 같이 작성할 수 잇다. y의 값은 &amp;lt;%= y %&amp;gt; Jasper가 아래와 같이 서블릿 코드로 변환해준다. public final class calculator_jsp extends org.apache.jasper.runtime.HttpJspBase implements org.apache.jasper.runtime.JspSourceDependent, org.apache.jasper.runtime.JspSourceImports { // 멤버함수, 멤버변수 public void _jspService(final javax.servlet.http.HttpServletRequest request, final javax.servlet.http.HttpServletResponse response) throws java.io.IOException, javax.servlet.ServletException { // 지역변수 알고리즘 out.write(&quot;y의 값은 &quot;); out.print(y); .jsp에 자바 메소드 작성하기 jsp에서 위와 같이 코드블럭 안에 자바코드를 작성하면 서블릿 코드 파일에서는 ‘지역변수 알고리즘’ 영역에 코드가 들어간다. 아래와 같이 메소드를 작성하면 service 메소드 안에 내가 작성한 메소드가 들어가는 것이므로 에러가 발생한다. 자바에서는 메소드안에 메소드를 넣을 수 없다. &amp;lt;% public int sum(int a, int b) { return a + b; } %&amp;gt; 코드블럭에 느낌표를 붙이면 ‘지역변수 알고리즘’ 영역이 아닌 ‘멤버함수, 멤버변수’ 영역에 코드가 삽입된다. &amp;lt;%! public int sum(int a, int b) { return a + b; } %&amp;gt; 지시 코드 블럭 초기 설정을 위한 page 지시자는 코드 블럭이라고 하지 않고, 지시 코드 블럭이라고 하기도 한다. &amp;lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8 pageEncoding=&quot;UTF-8&quot; %&amp;gt; å 코드블록 4종류 요약 &amp;lt;% %&amp;gt;: 일반 로직 코드 블럭 &amp;lt;%= %&amp;gt;: 출력 코드 블럭 &amp;lt;%! %&amp;gt;: 멤버변수, 멤버함수 정의 코드 블럭 &amp;lt;%@ %&amp;gt;: 지시 코드 블럭 ※ 내장객체: Jasper가 jsp파일을 서블릿 코드로 변환하면서 필요한 변수나 메소드를 스스로 만들어낸다. 어떤 메소드들이 있는지 알아 놓을 필요가 있다.">
   
 
   <link rel="stylesheet" href="/assets/main.css">
@@ -22,16 +22,16 @@
   
 
   
-  <meta property="og:title" content="JSP(2) - How to write java in .jsp">
+  <meta property="og:title" content="How to write java in .jsp">
   <meta property="og:site_name" content="Young Jin&#39;s blog">
   <meta property="og:url" content="http://localhost:4000/2020/05/28/jsp(2)-codeblock/">
-  <meta property="og:description" content="1. jsp에서 자바 코드 작성하기 일반적인 html 형태의 jsp 파일 안에서 변수를 선언하고 자바 코딩를 넣고 싶다면 코드 블럭을 사용하면 된다. 만약 코드 블럭을 사용하지 않으면 Jasper는 해당 내용을 화면에 그대로 출력해버린다. 코드 블럭은 &amp;lt;% %&amp;gt; 이다. 넣고 싶은 자바 코드를 블럭안에 넣으면 된다. &amp;lt;% int x = 1; int y = 2; %&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt; &amp;lt;title&amp;gt;Insert title here&amp;lt;/title&amp;gt; ... 2. 예시) 수식 삽입 서블릿 코드에 y = x + 3을 자바코드로 넣고 싶다면 아래와 같이 jsp 파일에 코드블럭을 넣어주면 된다. &amp;lt;% y = x + 3 %&amp;gt; Jasper가 아래와 같이 서블릿 코드로 변환해준다. public final class calculator_jsp extends org.apache.jasper.runtime.HttpJspBase implements org.apache.jasper.runtime.JspSourceDependent, org.apache.jasper.runtime.JspSourceImports { // 멤버함수, 멤버변수 public void _jspService(final javax.servlet.http.HttpServletRequest request, final javax.servlet.http.HttpServletResponse response) throws java.io.IOException, javax.servlet.ServletException { // 지역변수 알고리즘 y = x + 3; 3. 예시) y의 값은 y 서블릿 코드에 문자열 그대로와 변수 값을 함께 넣고 싶다면 다음과 같이 작성할 수 있을 것이다. y의 값은 &amp;lt;% out.print(y) %&amp;gt; 더 간편한 방법으로는 아래와 같이 작성할 수 잇다. y의 값은 &amp;lt;%= y %&amp;gt; Jasper가 아래와 같이 서블릿 코드로 변환해준다. public final class calculator_jsp extends org.apache.jasper.runtime.HttpJspBase implements org.apache.jasper.runtime.JspSourceDependent, org.apache.jasper.runtime.JspSourceImports { // 멤버함수, 멤버변수 public void _jspService(final javax.servlet.http.HttpServletRequest request, final javax.servlet.http.HttpServletResponse response) throws java.io.IOException, javax.servlet.ServletException { // 지역변수 알고리즘 out.write(&quot;y의 값은 &quot;); out.print(y); 4. jsp에 자바 메소드 작성하기 jsp에서 위와 같이 코드블럭 안에 자바코드를 작성하면 서블릿 코드 파일에서는 ‘지역변수 알고리즘’ 영역에 코드가 들어간다. 아래와 같이 메소드를 작성하면 service 메소드 안에 내가 작성한 메소드가 들어가는 것이므로 에러가 발생한다. 자바에서는 메소드안에 메소드를 넣을 수 없다. &amp;lt;% public int sum(int a, int b) { return a + b; } %&amp;gt; 코드블럭에 느낌표를 붙이면 ‘지역변수 알고리즘’ 영역이 아닌 ‘멤버함수, 멤버변수’ 영역에 코드가 삽입된다. &amp;lt;%! public int sum(int a, int b) { return a + b; } %&amp;gt; 5. 지시블럭 초기 설정을 위한 page 지시자는 코드블럭이라고 하지 않고, 지시블럭이라고 하기도 한다. &amp;lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8 pageEncoding=&quot;UTF-8&quot; %&amp;gt; 6. 코드블록 4종류 요약 &amp;lt;% %&amp;gt;: 일반 로직 코드 블럭 &amp;lt;%= %&amp;gt;: 출력 코드 블럭 &amp;lt;%! %&amp;gt;: 멤버변수, 멤버함수 정의 코드 블럭 &amp;lt;%@ %&amp;gt;: 지시 코드 블럭 ※ 내장객체: Jasper가 jsp파일을 서블릿 코드로 변환하면서 필요한 변수나 메소드를 스스로 만들어낸다. 어떤 메소드들이 있는지 알아 놓을 필요가 있다.">
+  <meta property="og:description" content=".jsp에서 자바 코드 작성하기 일반적인 html 형태의 jsp 파일 안에서 변수를 선언하고 자바 코딩를 넣고 싶다면 코드 블럭을 사용하면 된다. 만약 코드 블럭을 사용하지 않으면 Jasper는 해당 내용을 화면에 그대로 출력해버린다. 코드 블럭은 &amp;lt;% %&amp;gt; 이다. 넣고 싶은 자바 코드를 블럭안에 넣으면 된다. &amp;lt;% int x = 1; int y = 2; %&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt; &amp;lt;title&amp;gt;Insert title here&amp;lt;/title&amp;gt; ... (예시) 수식 삽입 서블릿 코드에 y = x + 3을 자바코드로 넣고 싶다면 아래와 같이 jsp 파일에 코드블럭을 넣어주면 된다. &amp;lt;% y = x + 3 %&amp;gt; Jasper가 아래와 같이 서블릿 코드로 변환해준다. public final class calculator_jsp extends org.apache.jasper.runtime.HttpJspBase implements org.apache.jasper.runtime.JspSourceDependent, org.apache.jasper.runtime.JspSourceImports { // 멤버함수, 멤버변수 public void _jspService(final javax.servlet.http.HttpServletRequest request, final javax.servlet.http.HttpServletResponse response) throws java.io.IOException, javax.servlet.ServletException { // 지역변수 알고리즘 y = x + 3; (예시) y의 값은 y 서블릿 코드에 문자열 그대로와 변수 값을 함께 넣고 싶다면 다음과 같이 작성할 수 있을 것이다. y의 값은 &amp;lt;% out.print(y) %&amp;gt; 더 간편한 방법으로는 아래와 같이 작성할 수 잇다. y의 값은 &amp;lt;%= y %&amp;gt; Jasper가 아래와 같이 서블릿 코드로 변환해준다. public final class calculator_jsp extends org.apache.jasper.runtime.HttpJspBase implements org.apache.jasper.runtime.JspSourceDependent, org.apache.jasper.runtime.JspSourceImports { // 멤버함수, 멤버변수 public void _jspService(final javax.servlet.http.HttpServletRequest request, final javax.servlet.http.HttpServletResponse response) throws java.io.IOException, javax.servlet.ServletException { // 지역변수 알고리즘 out.write(&quot;y의 값은 &quot;); out.print(y); .jsp에 자바 메소드 작성하기 jsp에서 위와 같이 코드블럭 안에 자바코드를 작성하면 서블릿 코드 파일에서는 ‘지역변수 알고리즘’ 영역에 코드가 들어간다. 아래와 같이 메소드를 작성하면 service 메소드 안에 내가 작성한 메소드가 들어가는 것이므로 에러가 발생한다. 자바에서는 메소드안에 메소드를 넣을 수 없다. &amp;lt;% public int sum(int a, int b) { return a + b; } %&amp;gt; 코드블럭에 느낌표를 붙이면 ‘지역변수 알고리즘’ 영역이 아닌 ‘멤버함수, 멤버변수’ 영역에 코드가 삽입된다. &amp;lt;%! public int sum(int a, int b) { return a + b; } %&amp;gt; 지시 코드 블럭 초기 설정을 위한 page 지시자는 코드 블럭이라고 하지 않고, 지시 코드 블럭이라고 하기도 한다. &amp;lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8 pageEncoding=&quot;UTF-8&quot; %&amp;gt; å 코드블록 4종류 요약 &amp;lt;% %&amp;gt;: 일반 로직 코드 블럭 &amp;lt;%= %&amp;gt;: 출력 코드 블럭 &amp;lt;%! %&amp;gt;: 멤버변수, 멤버함수 정의 코드 블럭 &amp;lt;%@ %&amp;gt;: 지시 코드 블럭 ※ 내장객체: Jasper가 jsp파일을 서블릿 코드로 변환하면서 필요한 변수나 메소드를 스스로 만들어낸다. 어떤 메소드들이 있는지 알아 놓을 필요가 있다.">
   
   
   <meta name="twitter:card" content="summary">
   
-  <meta name="twitter:title" content="JSP(2) - How to write java in .jsp">
-  <meta name="twitter:description" content="1. jsp에서 자바 코드 작성하기 일반적인 html 형태의 jsp 파일 안에서 변수를 선언하고 자바 코딩를 넣고 싶다면 코드 블럭을 사용하면 된다. 만약 코드 블럭을 사용하지 않으면 Jasper는 해당 내용을 화면에 그대로 출력해버린다. 코드 블럭은 &amp;lt;% %&amp;gt; 이다. 넣고 싶은 자바 코드를 블럭안에 넣으면 된다. &amp;l...">
+  <meta name="twitter:title" content="How to write java in .jsp">
+  <meta name="twitter:description" content=".jsp에서 자바 코드 작성하기 일반적인 html 형태의 jsp 파일 안에서 변수를 선언하고 자바 코딩를 넣고 싶다면 코드 블럭을 사용하면 된다. 만약 코드 블럭을 사용하지 않으면 Jasper는 해당 내용을 화면에 그대로 출력해버린다. 코드 블럭은 &amp;lt;% %&amp;gt; 이다. 넣고 싶은 자바 코드를 블럭안에 넣으면 된다. &amp;lt;...">
   
   
 
@@ -88,7 +88,7 @@
 
   <header class="post-header">
     
-      <h1 class="post-title" itemprop="name headline">JSP(2) - How to write java in .jsp</h1>
+      <h1 class="post-title" itemprop="name headline">How to write java in .jsp</h1>
     
     <p class="post-meta">
       <time datetime="2020-05-28T00:00:00+00:00" itemprop="datePublished">
@@ -111,7 +111,7 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <h4>1. jsp에서 자바 코드 작성하기</h4>
+    <p><strong>.jsp에서 자바 코드 작성하기</strong></p>
 
 <p>일반적인 html 형태의 jsp 파일 안에서 변수를 선언하고 자바 코딩를 넣고 싶다면 코드 블럭을 사용하면 된다. 만약 코드 블럭을 사용하지 않으면 Jasper는 해당 내용을 화면에 그대로 출력해버린다.</p>
 
@@ -127,7 +127,10 @@ int y = 2;
 ...
 </code></pre></div></div>
 
-<h4>2. 예시) 수식 삽입</h4>
+<hr />
+
+<p><strong>(예시) 수식 삽입</strong></p>
+
 <p>서블릿 코드에 y = x + 3을 자바코드로 넣고 싶다면 아래와 같이 jsp 파일에 코드블럭을 넣어주면 된다.</p>
 <pre>
 &lt;%
@@ -146,7 +149,10 @@ public final class calculator_jsp extends org.apache.jasper.runtime.HttpJspBase
                     y = x + 3;
 </pre>
 
-<h4>3. 예시) y의 값은 y</h4>
+<hr />
+
+<p><strong>(예시) y의 값은 y</strong></p>
+
 <p>서블릿 코드에 문자열 그대로와 변수 값을 함께 넣고 싶다면 다음과 같이 작성할 수 있을 것이다.</p>
 <pre>
 y의 값은 &lt;% out.print(y) %&gt;
@@ -169,7 +175,9 @@ public final class calculator_jsp extends org.apache.jasper.runtime.HttpJspBase
                     out.print(y);
 </pre>
 
-<h4>4. jsp에 자바 메소드 작성하기</h4>
+<hr />
+
+<p><strong>.jsp에 자바 메소드 작성하기</strong></p>
 
 <p>jsp에서 위와 같이 코드블럭 안에 자바코드를 작성하면 서블릿 코드 파일에서는 ‘지역변수 알고리즘’ 영역에 코드가 들어간다.
 아래와 같이 메소드를 작성하면 service 메소드 안에 내가 작성한 메소드가 들어가는 것이므로 에러가 발생한다. 자바에서는 메소드안에 메소드를 넣을 수 없다.</p>
@@ -191,20 +199,26 @@ public final class calculator_jsp extends org.apache.jasper.runtime.HttpJspBase
 %&gt;
 </pre>
 
-<h4>5. 지시블럭</h4>
+<hr />
 
-<p>초기 설정을 위한 page 지시자는 코드블럭이라고 하지 않고, 지시블럭이라고 하기도 한다.</p>
+<p><strong>지시 코드 블럭</strong></p>
+
+<p>초기 설정을 위한 page 지시자는 코드 블럭이라고 하지 않고, 지시 코드 블럭이라고 하기도 한다.</p>
 
 <pre>
 &lt;%@ page language="java" contentType="text/html; charset=UTF-8 pageEncoding="UTF-8" %&gt;
 </pre>
+<p>å</p>
+<hr />
 
-<h4>6. 코드블록 4종류 요약</h4>
+<p><strong>코드블록 4종류 요약</strong></p>
 
-<p>&lt;% %&gt;: 일반 로직 코드 블럭
-&lt;%= %&gt;: 출력 코드 블럭
-&lt;%! %&gt;: 멤버변수, 멤버함수 정의 코드 블럭
-&lt;%@ %&gt;: 지시 코드 블럭</p>
+<ul>
+  <li>&lt;% %&gt;: 일반 로직 코드 블럭</li>
+  <li>&lt;%= %&gt;: 출력 코드 블럭</li>
+  <li>&lt;%! %&gt;: 멤버변수, 멤버함수 정의 코드 블럭</li>
+  <li>&lt;%@ %&gt;: 지시 코드 블럭</li>
+</ul>
 
 <p>※ 내장객체: Jasper가 jsp파일을 서블릿 코드로 변환하면서 필요한 변수나 메소드를 스스로 만들어낸다. 어떤 메소드들이 있는지 알아 놓을 필요가 있다.</p>
 

@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Servlet(1) - Web Service"
+title: "Web Service(Servlet)"
 comments: true
 categories: Java
 ---
 
-#### 1. Web Server(웹서버)란?
+__Web Server(웹서버)란?__
 <br>
 <center><img src="/img/java/webServer.png" width="500" height="300"></center>  
 <br>
@@ -13,7 +13,9 @@ categories: Java
 
 client application에서 java server application에 요청을 보내면, Web server는 요청에 맞는 데이터를 데이터베이스에서 찾고, 정적 페이지를 찾아서 리턴한다.
 
-#### 2. WAS(Web Application Server)란?
+<hr/>
+
+__WAS(Web Application Server)란?__
 <br>
 <center><img src="/img/java/webApplicationServer.png" width="500" height="300"></center> 
 <br>
@@ -23,7 +25,9 @@ client application에서 java server application에 요청을 보내면, 웹서�
 
 보통 자바는 main 함수를 시작으로 프로그램이 동작하지만, servlet 프로그램에서는 service 함수를 시작으로 프로그램을 만든다.
 
-#### 3. Servlet code writing and compile
+<hr/>
+
+__Servlet code writing and compile__
 
 WAS는 HttpServlet이라는 클래스를 바라보고 있다.
 HttpServelet을 통해 service함수를 호출함으로써 WAS에서 servlet 클래스를 로드한다.
@@ -41,9 +45,11 @@ public class servletPractice extends <b>HttpServlet</b>
 }
 </pre>
 
-#### 4. 톰캣, jdk, 메모장 활용해서 서블릿 프로그램 작성하기
+<hr/>
 
-#### 1) 메모장을 열어 아래 내용을 붙여넣고 servletPractice.java로 저장한다. (필수: class 이름은 자바 파일명과 동일)
+__톰캣, jdk, 메모장 활용해서 서블릿 프로그램 작성하기__
+
+1) 메모장을 열어 아래 내용을 붙여넣고 servletPractice.java로 저장한다. (필수: class 이름은 자바 파일명과 동일)
 
 <pre>
 import javax.servlet.*;
@@ -60,11 +66,10 @@ public class servletPractice extends HttpServlet
 }
 </pre>
 
-#### 2) 컴파일한다.
+2) 컴파일한다.
 
-아래 커맨드는 에러가 난다.
 <pre>
-$ javac servletPractice.java
+$ javac servletPractice.java // 에러발생
 </pre>
 
 servlet library는 jdk에 포함되지 않는 library이다. 따라서 라이브러리 경로를 지정하는 class path 옵션을 추가해서 컴파일 해야한다.
@@ -74,7 +79,7 @@ $ ls
 servletPractice.class servletPractice.java
 </pre>
 
-#### 3) 환경 설정하기
+3) 환경 설정하기
 
 클라이언트가 톰캣(WAS)에 정보를 요청하면 톰캣은 서블릿 프로그램을 통해 요청에 맞는 정보를 찾아서 응답한다.
 톰캣은 정보를 찾기 위해 컴파일된 class파일을 찾는데, 사용자가 이 클래스 파일을 직접 요청하는 것이 아니다.
@@ -103,7 +108,7 @@ $ ls
 servletPractice.class
 </pre>
 
-#### 4) 매핑정보 추가하기
+4) 매핑정보 추가하기
 
 아래 경로에 가면 web.xml 파일이 있다. 파일 안에 위에서 언급했던 것처럼 매핑 정보를 추가한다.
 <pre>
@@ -154,7 +159,7 @@ $ cat web.xml
 
 </pre>
 
-##### 5) 톰캣 실행하기
+5) 톰캣 실행하기
 
 아래 폴더에 가면 startup.sh 파일이 있다.
 <pre>
@@ -189,12 +194,12 @@ Using CLASSPATH:       /Users/youngjinlee/Desktop/dev/STS-workspace/apache-tomca
 Tomcat started.
 </pre>
 
-#### 5) 브라우저에서 확인한다.
+6) 브라우저에서 확인한다.
 <pre>
 http://localhost:8080/hello
 </pre>
 
-#### 6) 매핑정보는 어노테이션을 통해 더 간편히 할 수 있다. 이것은 servlet 3.0 부터 가능하다.
+6) 매핑정보는 어노테이션을 통해 더 간편히 할 수 있다. 이것은 servlet 3.0 부터 가능하다.
 
 <pre>
 @WebServlet("/hello")
@@ -218,31 +223,33 @@ public class servletPractice extends HttpServlet
   metadata-complete="false">
 ~~~
 
+<hr/>
 
-#### 5. you can create any files(eg. txt) and see them with the server 
+__TIPS__
+
+__You can create any files(eg. txt) and see them with the server__   
 /Users/youngjinlee/Desktop/dev/STS-workspace-practice/apache-tomcat-9.0.36/webapps/ROOT/sample.txt
 http:localhost:8080.sample.txt
 
-#### 6. tomcat startup.sh, shutdown.sh location
+__tomcat startup.sh, shutdown.sh location__
 /Users/youngjinlee/Desktop/dev/STS-workspace-practice/apache-tomcat-9.0.36/bin
 
-#### 7.  java files can be located anywhere. should be compiled with 'javac'
-#### 8. compile with servlet-api.jar to load the libraries to be imported.
+__java files can be located anywhere. should be compiled with 'javac'__
+
+__compile with servlet-api.jar to load the libraries to be imported.__
 javac -cp /Users/youngjinlee/Desktop/dev/STS-workspace-practice/apache-tomcat-9.0.36/lib/servlet-api.jar servletPractice.java  
 
-
-#### 9. Where web.xml is located(HOME DIRECTORY OF TOMCAT). You need to do servlet mapping in this file.
+__Where web.xml is located(HOME DIRECTORY OF TOMCAT). You need to do servlet mapping in this file.__
 /Users/youngjinlee/Desktop/dev/STS-workspace-practice/apache-tomcat-9.0.36/webapps/ROOT/WEB-INF
 
-#### 10. The class file needs to be copied in the HOME DIRECTORY
+__The class file needs to be copied in the HOME DIRECTORY__
 /Users/youngjinlee/Desktop/dev/STS-workspace-practice/apache-tomcat-9.0.36/webapps/ROOT/WEB-INF/classes
 
 
-#### 11. 상태 값 유지하기
-1. application (with servlet context( = application 저장소)) : 서버쪽에 저장
-2. session (= application 저장소 + session id, 헬스장에 사물함 번호를 부여받고 샴푸를 꺼내 쓰는 것) 
-3. cookie (헬스장에 샴푸를 들고다니는것 ): 클라이언트에서 저장하고 있음. 서버쪽에서는 어플리케이션이나 세션에 저장하지 않음.
-
+__상태 값 유지하기__
+- application (with servlet context( = application 저장소)) : 서버쪽에 저장
+- session (= application 저장소 + session id, 헬스장에 사물함 번호를 부여받고 샴푸를 꺼내 쓰는 것) 
+- cookie (헬스장에 샴푸를 들고다니는것 ): 클라이언트에서 저장하고 있음. 서버쪽에서는 어플리케이션이나 세션에 저장하지 않음.
     * 클라이언트가 서버에 요청을 보냈을때 서버에서 그 데이터를 꺼내는 방법
     - 브라우저가 알아서 담아주는 헤더 정보: getHeader("remote-host")
     - 쿠키: getCookies()

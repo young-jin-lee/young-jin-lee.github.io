@@ -1,0 +1,12 @@
+I"U<h3>1. What is Tag Lib</h3>
+
+<p>core: 가장 기본적인 제어의 행위</p>
+
+<p>formatting: 숫자, 날짜 포맷팅</p>
+
+<p>functions: el을 이용해 저장소에있는 데이터를 뽑아 조작할때(소문자 대문자 등): notice detail files</p>
+
+<ul>
+  <li>sql, xml 이 둘은 MVC에서 쓰지 않는 것이 바람직</li>
+</ul>
+:ET

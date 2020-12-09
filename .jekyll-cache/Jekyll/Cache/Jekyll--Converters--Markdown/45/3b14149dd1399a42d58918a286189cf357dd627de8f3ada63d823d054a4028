@@ -1,0 +1,75 @@
+I"�<p><strong>MODEL 1</strong></p>
+
+<p>model1 방식은 입력은 상단에만, 출력은 하단에만 해서 코드를 정리해놓는 방식이다.</p>
+
+<pre>
+/*--- 입력코드 ---*/
+&lt;% String num_ = request.getParameter("n"); %&gt;
+/*--- 출력코드 ---*/
+&lt;% if(num%2 != 0){ %&gt;
+	홀수입니다.
+	&lt;% } 
+	else
+	{ %&gt;
+	짝수입니다.
+	&lt;% } %&gt;
+</pre>
+
+<p>별도의 변수를 활용해서 아래 코드처럼 정리할 수 있다.</p>
+
+<pre>
+/*--- 입력코드 ---*/
+&lt;%
+String num_ = request.getParameter("n");
+...
+if(num%2 != 0)
+    model = "홀수";
+else
+    model = "짝수";
+%&gt;
+/*--- 출력코드 ---*/
+...
+...
+&lt;%=model%&gt;입니다.
+
+</pre>
+
+<p>HTML코드로 부터 자바 코드를 최대한 분리하는 것이다. 
+코드의 양분화를 통해
+입력코드 부분은 Controller(입력과 제어 담당),
+출력코드 부분은 View(출력 담당)로 나눌 수 있고
+여기에 쓰이는 출력 데이터는 Model이라고 할 수 있다. 위에 ‘홀수’와 ‘짝수’를 Model이라는 변수에 넣은 것 처럼 말이다.</p>
+
+<p>이렇게 MVC가 탄생한것이다.</p>
+
+<p><strong>MODEL 2</strong></p>
+
+<p>MODEL 1에서는 jsp파일안에 MVC를 모두 넣어 놓았다.</p>
+
+<p>더 깔끔하게 만들기 위해서 View를 떼어놓은 형태가 MODEL2이다.</p>
+
+<p>Controller도 서블릿이고, View도 서블릿이다. 서블릿에서 서블릿으로 흐름을 이어서 코드를 진행시키기위해 포워딩이라는 것을 해주는데 이 포워딩을 Dispatcher를 통해 한다.</p>
+
+<p>페이지가 하나 추가될때마다 Controller와 View 쌍이 하나씩 추가가 되는데, 포워딩 기능을 하는 Dispatcher도 그 수만큼 늘어나게 된다.
+따라서 Dispatch는 하나만 두고, Controller를 따로 모아 놓게 되었다. 따로 모아놓은 Controller들은 서블릿 클래스가 아닌 일반 클래스(POJO) 형태로 모아놓는다. 사용자의 요청이 들어오면 Dispatcher가 적절한 Controller를 찾아서 수행시킨다. Controller는 자신이 진행한 로직에 해당되는 뷰를 호출할 수 있도록 Dispatcher에게 관련 정보를 넘기면, Dispatcher가 그에 맞는 View를 찾아 응답한다.</p>
+
+<hr />
+
+<p><strong>TIP</strong></p>
+
+<ul>
+  <li>상태를 저장할 수 있는 저장소 5
+    <ol>
+      <li>pageContext: 하나의 페이지안에서만 사용할 수 있는 저장소</li>
+      <li>request: forward 관계에서 사용할 수 있는 저장소</li>
+      <li>session: 현재 세션에서 공유될 수 있는 저장소</li>
+      <li>page: 모든 세션, 모든 페이지에서 공유될 수 있는 저장소</li>
+      <li>cookie: 클라이언트에 저장되는 저장소</li>
+    </ol>
+  </li>
+  <li>
+    <p>실행은 무조건 controller에서 한다.</p>
+  </li>
+  <li>여전히 View에 자바 코드 블럭이 들어가 있다. 이것을 완전히 몰아내는 방법으로 EL(Expression Language) 표기법이 사용된다.</li>
+</ul>
+:ET
