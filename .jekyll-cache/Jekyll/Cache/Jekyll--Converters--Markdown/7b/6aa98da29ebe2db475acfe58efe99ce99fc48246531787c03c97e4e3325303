@@ -1,0 +1,124 @@
+I"1
+<p><strong>데이터 구조 별로 View에서 EL 이용해서 값 뽑는 방법</strong></p>
+
+<p>1) Number</p>
+
+<p>Controller</p>
+<pre>
+request.setAttribute("cnt", 30)
+</pre>
+<p>View</p>
+<pre>
+request.getAttribute("cnt")
+</pre>
+<p>View - EL</p>
+<pre>
+${cnt}
+</pre>
+
+<p><strong>List</strong></p>
+
+<p>Controller</p>
+<pre>
+List list = new ArrayList(){"1", "test", ...};
+request.setAttribute("list", list);
+</pre>
+<p>View</p>
+<pre>
+((List)request.getAttribute("list").get(0))
+</pre>
+<p>View - EL</p>
+<pre>
+${list[0]}
+</pre>
+
+<p><strong>Map</strong></p>
+
+<p>Controller</p>
+<pre>
+Map n = new HashMap("title", "제목");
+request.setAttribute("n", n);
+</pre>
+<p>View</p>
+<pre>
+((Map)request.getAttribute("n")).get("title")
+</pre>
+<p>View - EL</p>
+<pre>
+${n.title}
+</pre>
+
+<hr />
+
+<p><strong>EL 저장소</strong></p>
+
+<p>spag.java</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>package com.youngenie.web;
+
+import ...
+@WebServlet("/spag")
+public class Spag extends HttpServlet{
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int num = 0;
+		String num_ = request.getParameter("n");
+		if(num_ != null &amp;&amp; !num_.equals(""))
+			num = Integer.parseInt(num_);
+
+		String result;
+		
+		if(num%2 != 0)
+		    result = "홀수";
+		else
+		    result = "짝수";
+		
+		request.setAttribute("result", result);
+		
+		String[] names = {"david", "dragon"};
+		request.setAttribute("names", names);
+		
+		Map&lt;String, Object&gt; notice = new HashMap&lt;String, Object&gt;();
+		notice.put("id", 1);
+		notice.put("title", "EL is good");
+		request.setAttribute("notice", notice);
+		
+		//forward
+		RequestDispatcher dispatcher = request.getRequestDispatcher("spag.jsp");
+		dispatcher.forward(request, response);
+	}
+}
+</code></pre></div></div>
+
+<p>spag.jsp</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%&gt;
+
+&lt;!-- -------------------------------------------------- --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;%
+	pageContext.setAttribute("result", "hello");
+%&gt;
+
+
+&lt;body&gt;
+	&lt;%=request.getAttribute("result") %&gt;입니다.
+	${requestScope.result}&lt;br &gt;
+	&lt;br &gt;
+	${names[0]}
+	&lt;br &gt;
+	${notice.id}
+	${notice.title}
+	${result}
+	${param.n}
+	${header.accept}
+	
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+:ET

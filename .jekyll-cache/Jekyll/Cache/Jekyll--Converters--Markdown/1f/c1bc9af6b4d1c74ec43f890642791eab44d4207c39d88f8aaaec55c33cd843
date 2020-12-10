@@ -1,0 +1,80 @@
+I"�<h3><u><b> Where to import Javascript </b></u></h3>
+
+<h4><b>head 안에서 호출하기</b></h4>
+
+<p>fetch가 완료되면 바로 실행되는데, HTML이 모두 parsing 되기 전에 실행되기 때문에 문제가 될 수 있다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    &lt;!DOCTYPE html&gt;
+        &lt;!html lang="en"&gt; 
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Document&lt;/title&gt;
+            &lt;script src="main.js"&gt;&lt;/script&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+        &lt;/body&gt;
+    &lt;/!html&gt;
+</code></pre></div></div>
+
+<h4><b> body 가장 아래에서 호출하기 </b></h4>
+
+<p>HTML이 모두 parsing 된 후에 js를 fetch하고 실행하기 때문에 유저는 html 내용을 빠르게 확인할 수 있다. 하지만 유저가 컨텐츠를 사용하기 위해 js를 사용해야한다면, js가 실행될 때 까지 의문도 모른채 기다려야한다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;Document&lt;/title&gt;
+            
+    &lt;/head&gt;
+    &lt;body&gt;
+    ...
+    &lt;script src="main.js"&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+
+<h4><b> head 안에서 asyn 옵션 주기 </b></h4>
+
+<p>HTML이 한줄씩 parsing 되다가 script를 만나면 js를 병렬로 fetch 한다. fetch가 끝난 직후 js가 실행된다. 여러 js파일이 순차적으로 실행되어야 하는 경우라면, js가 fetch되는 순서에 의존적이기에 수동으로 순서를 정하기 어렵다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;Document&lt;/title&gt;
+        &lt;script asyn src="main.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+
+<ol>
+  <li>head 안에서 defer 옵션 주기
+    <ul>
+      <li>HTML이 한줄씩 parsing 되다가 script를 만나면 js를 병렬로 fetch 한다. asyn과는 다르게 병렬로 모든 js를 fetch 한 후에 호출한 순서대로 실행시킨다. 이것이 가장 합리적인 방법이다.</li>
+    </ul>
+  </li>
+</ol>
+<pre>
+    &lt;!DOCTYPE html&gt;
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script defer="" src="main.js"></script>
+    </head>
+    <body>
+    </body>
+    </html>
+</pre>
+
+<ul>
+  <li>vanilla js 파일에는 상단에 ‘use strict’; 를 써주는 것이 기본이다. 여러 문제를 해결해주는데, 특히 변수 문제를 해결해준다. Also, This makes your js code modern.</li>
+</ul>
+:ET
