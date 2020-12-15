@@ -103,7 +103,7 @@ categories: Java
 
 - Dispatcher Servlet을 사용하지 않고, src/main/java에 각 URL을 Controller에 매핑할 수도 있다. 하지만 그렇게 되면 dispatcher 서블릿을 컨트롤러 수만큼 만들게 되는 것이므로, 이들을 분리해서 하나의 Dispatcher Servlet이 모든 URL 요청을 받게하고, Controller는 POJO(일반 자바 클래스)로 작성하는 것이다.
 
-- web.xml에 14번에서 복사한 Qualified Name(=org.springframework.web.servlet.DispatcherServlet.class)에서 확장자를 지우고 아래 <servlet-class> 태그 안에 넣는다. servlet-name은 마음대로 설정하고, url-pattern은 /\*를 입력한다. 모든 URL을 appServlet에서 받겠다는 의미이다.
+- web.xml에 14번에서 복사한 Qualified Name(=org.springframework.web.servlet.DispatcherServlet.class)에서 확장자를 지우고 아래 <servlet-class> 태그 안에 넣는다. servlet-name은 마음대로 설정하고, url-pattern은 /*를 입력한다. 모든 URL을 appServlet에서 받겠다는 의미이다.
 
 ```
 <servlet>
