@@ -2,7 +2,7 @@
 layout: post
 title: "Artificial Intelligence"
 comments: true
-categories: Statistics
+categories: Articles
 ---
 
 #### <u><b> What is Artificial Intelligence(인공지능이란) </b></u>
