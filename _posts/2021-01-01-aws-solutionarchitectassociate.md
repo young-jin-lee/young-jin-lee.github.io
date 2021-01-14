@@ -5,6 +5,19 @@ comments: true
 categories: Other
 ---
 
+
+IAM
+- IAM is universal. It does not apply to regions at this time.
+- The "root account" is simply the account created when first setip your AWS account. It has complete Admin access
+- New Users have NO permissions when first created
+- New Users are assigned Access Key ID & Secret Access Keys when first created
+- There are not the same as a password. You cannot use the Access key ID & Secret Access Key to Log into the console. You can use this to access AWS via the APIs and Comman Line, however. 
+- You only get to view these once. If you lose them, you have to regenerate them. So, save them in a secure location
+
+- Always setup Multifactor Authentication on your root account
+- You can create and customise your own password rotation policies.
+
+
 Aws
 Automatic notifications : Cloud Watch → Billing Alarm(using SNS topic)
 
@@ -79,6 +92,7 @@ S3 Performance
 -	Use multipart uploads to increase performance when uploading files to S3
 -	Should be used for any files over 100MB and must be used for any file over 5GB
 -	Use S3 byte-range fetches to increase performance when downloading files to S3
+
 S3 Select & Glacier Select 
 -	Remember that S3 Select is used to retrieve only a subset of data from an object by using simple SQL expressions
 -	Get data by rows or columns using simple SQL expressions
@@ -88,10 +102,12 @@ Some Best Practices With AWS Organizations
 -	Always use a strong and complex password on root account
 -	Paying account should be used for billing purposes only. Do not deploy resources into the paying account
 -	Enable/Disable AWS services using Service Control Policies (SCP) either on OU or on individual accounts
+
 Sharing S3 Buckets Between Accounts
 -	Using Buckets Policies & IAM (applies across the entire bucket), Programmactic Access Only
 -	Using Bucket ACLs & IAM (individual objects), Programmatic Access Only
 -	Cross-account IAM Roles, Programmatic AND Console access. (create a role with a policy, assign it to a user, login to the user and switch)
+
 Cross Region Replication
 -	Versioning must be enabled on both the source and destination buckets
 -	Files in an existing bucket are not replicated automatically (old ones won’t be replicated)
