@@ -17,7 +17,6 @@ IAM
 - Always setup Multifactor Authentication on your root account
 - You can create and customise your own password rotation policies.
 
-
 Aws
 Automatic notifications : Cloud Watch → Billing Alarm(using SNS topic)
 
@@ -36,10 +35,12 @@ S3
 -	When you view your buckets you view them globally but you can have buckets in individual regions
 -	You can replicate the contents of one bucket to another bucket automatically by using cross region replication
 -	You can change storage classes and encryption of your objects on the fly
+
 Restricting bucket Access
 -	Bucket Policies – applies across the whole bucket
 -	Object Policies – applies to individual files
 -	IAM Policies to Users & Groups – applies to Users & Groups
+
 S3 classes
 -	S3 Standard: 99.99 availability, 11 99 durability
 -	S3-IA : Infrequently Acccessed, requires rapid access when needed, lower fee than S3, charged a retrieval fee
@@ -47,11 +48,13 @@ S3 classes
 -	S3 – Interlligent Tiering
 -	S3 Glacier : retrieval time from minutes to hours
 -	S3 Glacier Deep Archive : cheapest, retrieval time 12 hours
+
 Key Fundamentals of S3
 -	Key, value (simply the data and is made up of a sequence of bytes)
 -	Version ID 
 -	Metadata
 -	Subresources; Access Control List, torrent
+
 S3 Security And Encryption
 -	Encryption In Transit is Achieved by : SSL/TLS
 -	Encryption At Rest (Server Side) is Achieved by: 
@@ -59,16 +62,19 @@ S3 Security And Encryption
 	AWS Key Management Service, Managed Keys – SSE-KMS
 	Server Side Encryption With Customer Provided Keys – SSE-C
 -	Client Side Encryption
+
 S3 Version Control
 -	Stores all versions of an object (including all writes and even if you delete an object)
 -	Great backup tool
 -	Once enables, versioning cannot be disabled, only suspended
 -	Integrates with Life cycle rules
 -	Versioning’s MFA Delete capability, which uses multi-factor authentication, can be used to provide an additional layer of security
+
 S3 Lifecyle management
 -	Automates moving your objects between the different storage tiers.
 -	Can be used in conjunction with versioning
 -	Can be applied to current versions and previous versions
+
 S3 Lock Policies & Glacier Vault Lock
 -	Use S3 Object Lock to store objects using a write once, read many (WORM) model (prevent objects from being deleted or modified for a fixed amount of time or indefinitely.)
 -	Object locks can be on individual objects or applied across the bucket as a whole
@@ -115,3 +121,53 @@ Cross Region Replication
 -	Delete markers are not replicated
 -	Deleting individual versions or delete markers will not be replicated
 -	Understand what Cross Region Replication is at a high level
+
+
+DataSync Overview
+- Used to move large amount of data from on-premises to AWS
+- Used with NFS- and SMB-compatible file systems
+- Replication can be done hourly, daily, or weekly
+- Install the DataSync agen to start the replication 
+- Can be used to replicate EFS to EFS
+
+CloudFront Overview
+- Edge Location: This is the location where content will be cached. This is separate to an AWS Region/AZ
+- Origin : This is the origin of all the files that the CDN will distribute. This can be either an S3 bucket, an EC2 Instance, an Elastic load Balancer, or Route53
+- Distribution: This is the name given the CDN which consists of a collection of Edge Locations
+- Web Distribution: Typically used for Websites
+- RTMP: Used for media streaming
+- Edge locations are not just READ only : you can write to them too (ie. put an object onto them)
+- Objects are cached for the life of the TTL(Time To Live)
+- You can clear cached objects, but you will be charged.
+
+CloudFront Signed URLs and Cookies
+- Use signed URLs/cookies when you want to secure content so that only the people you authorize are able to access it
+- A signed URL is for individual files. 1 file = 1 URL
+- A signed cookie is for multiple files. 1 cookie = multiple files
+- if your origin is EC2, then use CloudFront
+
+Snowball
+- use when moving large amount of data into the AWS cloud
+- snowvall can import S3, export from S3
+
+Storage Gateway
+- is a physical device, that connects legacy into S3
+- File Gateway: for flat files, stored directly on S3
+- Volumn Gateway
+    - Stored Volumns: entire dataset is stored on site and is asynchronously backed up to S3
+    - Cached Volumns: entire dataset is stored on S3 and the most frequently accessed data is cached on site
+- Gateway Virtual Tape Library
+
+
+Athena vs Macie
+
+- Athena
+    - is an interatice query service
+    - allows you to query data located in S3 using standard SQL
+    - Serverless
+    - commonly used to analyse log data stored in S3
+- Macie
+    - uses AI to analyze data in S3 and helps identify PII(Personally Identifiable Information)
+    - can also be used to analyse CloudTrail logs for suspicious API activity
+    - includes Dashboards, reports and alerting
+    - great for PCI-DSS compliance and preventing ID theft
