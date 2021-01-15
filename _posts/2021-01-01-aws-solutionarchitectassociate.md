@@ -99,7 +99,7 @@ S3 Performance
 - The more prefixes you use, the better performance you get out of S3
 - You can also achieve a high number of requests : 3,500 PUT/COPY/POST/DELETE and 5,500 GET/HEAD requests per second per prefix
 - You can get better performance by spreading your reads across different prefixes. For example, if you are using two prefixes, you can achieve 11,000 requests per second.
-- S3 limitations when using SSE-KMS to encrypt you objects in S3
+- [S3 limitations when using SSE-KMS to encrypt you objects in S3]
    Uploading/downloading will count toward the KMS quota
    Region-specific, however, it’s either 5,500, 10,000, or 30,000 requests per second
    Currently, you cannot request a quota increate for KMS.
