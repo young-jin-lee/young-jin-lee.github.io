@@ -5,13 +5,13 @@ comments: true
 categories: Other
 ---
 
-
 IAM
+
 - IAM is universal. It does not apply to regions at this time.
-- The "root account" is simply the account created when first setip your AWS account. It has complete Admin access
+- The "root account" is simply the account created when first setting your AWS account. It has complete Admin access
 - New Users have NO permissions when first created
 - New Users are assigned Access Key ID & Secret Access Keys when first created
-- There are not the same as a password. You cannot use the Access key ID & Secret Access Key to Log into the console. You can use this to access AWS via the APIs and Comman Line, however. 
+- These are not the same as a password. You cannot use the Access key ID & Secret Access Key to Log into the console. You can use this to access AWS via the APIs and Comman Line, however.
 - You only get to view these once. If you lose them, you have to regenerate them. So, save them in a secure location
 
 - Always setup Multifactor Authentication on your root account
@@ -21,69 +21,81 @@ Aws
 Automatic notifications : Cloud Watch → Billing Alarm(using SNS topic)
 
 S3
--	S3 is Object-based: i.e. allows you to upload files
--	Files can be from 0 bytes to 5tb
--	There is unlimited storage
--	Files are stored in Buckets
--	S3 is a universal namespace. That is, names must be unique globally
--	Not suitable to install an OS on
--	Successful uploads will generate a HTTP 200 status code.
--	You can turn on MFA Delete
--	Read after Write consistency for PUTS of new objects
--	Eventual Consistency for overwrite PUTS and DELETES(can take some time to propagate)
--	Bucket names share a common name space. You cannot have the same bucket name as someone else
--	When you view your buckets you view them globally but you can have buckets in individual regions
--	You can replicate the contents of one bucket to another bucket automatically by using cross region replication
--	You can change storage classes and encryption of your objects on the fly
+
+- S3 is Object-based: i.e. allows you to upload files
+- Files can be from 0 bytes to 5tb
+- There is unlimited storage
+- Files are stored in Buckets
+- S3 is a universal namespace. That is, names must be unique globally
+- Not suitable to install an OS on
+- Successful uploads will generate a HTTP 200 status code.
+- You can turn on MFA Delete
+- Read after Write consistency for PUTS of new objects
+- Eventual Consistency for overwrite PUTS and DELETES(can take some time to propagate)
+- Bucket names share a common name space. You cannot have the same bucket name as someone else
+- [When you view your buckets you view them globally] but you can have buckets in individual regions
+- You can replicate the contents of one bucket to another bucket automatically by using CROSS REGION REPLICATION
+- You can change STORAGE CLASSES and ENCRYPTION of your objects on the fly
 
 Restricting bucket Access
--	Bucket Policies – applies across the whole bucket
--	Object Policies – applies to individual files
--	IAM Policies to Users & Groups – applies to Users & Groups
+
+- Bucket Policies – applies across the whole bucket
+- Object Policies – applies to individual files
+- IAM Policies to Users & Groups – applies to Users & Groups
 
 S3 classes
--	S3 Standard: 99.99 availability, 11 99 durability
--	S3-IA : Infrequently Acccessed, requires rapid access when needed, lower fee than S3, charged a retrieval fee
--	S3 One Zone – IA : RRS
--	S3 – Interlligent Tiering
--	S3 Glacier : retrieval time from minutes to hours
--	S3 Glacier Deep Archive : cheapest, retrieval time 12 hours
+
+- S3 Standard: 99.99 availability, 11 99 durability
+- S3-IA : Infrequently Acccessed, requires rapid access when needed, lower fee than S3, charged a retrieval fee
+- S3 One Zone – IA : RRS
+- S3 – Interlligent Tiering
+- S3 Glacier : retrieval time from minutes to hours
+- S3 Glacier Deep Archive : cheapest, retrieval time 12 hours
 
 * Amazon Glacier: an aws service designed for long term data archival
 
 Key Fundamentals of S3
--	Key, value (simply the data and is made up of a sequence of bytes)
--	Version ID 
--	Metadata
--	Subresources; Access Control List, torrent
+
+- Key, value (simply the data and is made up of a sequence of bytes)
+- Version ID
+- Metadata
+- Subresources; Access Control List, torrent
 
 S3 Security And Encryption
--	Encryption In Transit is Achieved by : SSL/TLS
--	Encryption At Rest (Server Side) is Achieved by: 
-	S3 Managed keys – SSE-S3
-	AWS Key Management Service, Managed Keys – SSE-KMS
-	Server Side Encryption With Customer Provided Keys – SSE-C
--	Client Side Encryption
+
+- Encryption IN TRANSIT is Achieved by : SSL/TLS
+- Encryption At REST (SERVER SIDE) is Achieved by:
+   S3 Managed keys – SSE-S3
+   AWS Key Management Service, Managed Keys – SSE-KMS
+   Server Side Encryption With Customer Provided Keys – SSE-C
+- CLIENT SIDE Encryption
 
 S3 Version Control
--	Stores all versions of an object (including all writes and even if you delete an object)
--	Great backup tool
--	Once enables, versioning cannot be disabled, only suspended
--	Integrates with Life cycle rules
--	Versioning’s MFA Delete capability, which uses multi-factor authentication, can be used to provide an additional layer of security
 
+- Stores all versions of an object (including all writes and even if you delete an object)
+- Great backup tool
+- Once enables, versioning cannot be disabled, only suspended
+- Integrates with Life cycle rules
+- Versioning’s MFA Delete capability, which uses multi-factor authentication, can be used to provide an additional layer of security
+
+
+S3 Lifecyle management
+
+- Automates moving your objects between the different storage tiers.
+- Can be used in conjunction with versioning
+- Can be applied to current versions and previous versions
 
 
 S3 Lock Policies & Glacier Vault Lock
--	Use S3 Object Lock to store objects using a write once, read many (WORM) model (prevent objects from being deleted or modified for a fixed amount of time or indefinitely.)
--	Object locks can be on individual objects or applied across the bucket as a whole
--	Objects locks come in two modes: governance mode and compliance mode.
--	With governance mode, users can’t overwrite or delete an object version or alter its lock settings unless they have special permissions.
--	With compliance mode, a protected object version can’t be overwritten or deleted by any user, including the root user in your AWS account during retention periods.
--	Retention Period protects an object version for a fixed amount of time
--	A legal hold prevents an object version from being overwritten or deleted
--	S3 Glacier Vault Lock allows you to easily deploy and enforce compliance controls for individual S3 Glacier vaults with a Vault Lock policy. You can specify controls such as WORM in a Vault Lock policy and lock the policy from future edits. Once locked, the policy can no longer be changed. 
 
+- Use S3 Object Lock to store objects using a write once, read many (WORM) model (prevent objects from being deleted or modified for a fixed amount of time or indefinitely.)
+- Object locks can be on individual objects or applied across the bucket as a whole
+- Objects locks come in two modes: governance mode and compliance mode.
+- With governance mode, users can’t overwrite or delete an object version or alter its lock settings unless they have special permissions.
+- With compliance mode, a protected object version can’t be overwritten or deleted by any user, including the root user in your AWS account during retention periods.
+- Retention Period protects an object version for a fixed amount of time
+- A legal hold prevents an object version from being overwritten or deleted
+- S3 Glacier Vault Lock allows you to easily deploy and enforce compliance controls for individual S3 Glacier vaults with a Vault Lock policy. You can specify controls such as WORM in a Vault Lock policy and lock the policy from future edits. Once locked, the policy can no longer be changed.
 
 S3 Performance
 -	Prefixes : mybucketname/folder1/subfolder1/myfile.jpg → /folder1/subfolder1
@@ -110,10 +122,12 @@ Some Best Practices With AWS Organizations
 -	Enable/Disable AWS services using Service Control Policies (SCP) either on Organization Units(HR, finance, etc) or on individual accounts
 
 Sharing S3 Buckets Between Accounts
--	Using Buckets Policies & IAM (applies across the entire bucket), Programmactic Access Only
--	Using Bucket ACLs & IAM (individual objects), Programmatic Access Only
--	Cross-account IAM Roles, Programmatic AND Console access. (create a role with a policy, assign it to a user, login to the user and switch)
 
+- Using Buckets Policies & IAM (applies across the entire bucket), Programmactic Access Only
+- Using Bucket ACLs & IAM (individual objects), Programmatic Access Only
+- Cross-account IAM Roles, Programmatic AND Console access. (create a role with a policy, assign it to a user, login to the user and switch)
+
+<<<<<<< HEAD
 Cross Region Replication(can also replicate in the same region)
 -	Versioning must be enabled on both the source and destination buckets
 -	Files in an existing bucket are not replicated automatically (old ones won’t be replicated)
@@ -126,11 +140,10 @@ S3 Lifecyle management
 -	Automates moving your objects between the different storage tiers.
 -	Can be used in conjunction with versioning
 -	Can be applied to current versions and previous versions
-
 S3 TRANSFER ACCELERATION: when you need to increase performance of your users being able to upload files to S3
 
-
 CloudFront Overview
+
 - Edge Location: This is the location where content will be cached. This is separate to an AWS Region/AZ
 - Origin : This is the origin of all the files that the CDN will distribute. This can be either an S3 bucket, an EC2 Instance, an Elastic load Balancer, or Route53
 - Distribution: This is the name given the CDN which consists of a collection of Edge Locations
@@ -158,16 +171,17 @@ Snowball
 - snowvall can import S3, export from S3
 
 Storage Gateway
+
 - is a physical device, that connects legacy into S3
 - File Gateway: for flat files, stored directly on S3
 - Volumn Gateway
-    - Stored Volumns: entire dataset is stored on site and is asynchronously backed up to S3
-    - Cached Volumns: entire dataset is stored on S3 and the most frequently accessed data is cached on site
+  - Stored Volumns: entire dataset is stored on site and is asynchronously backed up to S3
+  - Cached Volumns: entire dataset is stored on S3 and the most frequently accessed data is cached on site
 - Gateway Virtual Tape Library
-
 
 Athena vs Macie
 
+<<<<<<< HEAD
 - Athena : used to running sql queries
     - is an interative query service
     - allows you to query data located in S3 using standard SQL
@@ -541,3 +555,15 @@ Routing Policies
 - Multivalue Answer Routing
     - lets you configure Route53 to return multiple values, such as IP addresses for your web, in response to DNS queries. You can specify multiple values for almost any record, but multivalue answer routing also lets you check the health of each resource, so Route 53returns only values for healthy resources
     * similar to simple routing but allows to put health checks on each record set
+=======
+- Athena
+  - is an interatice query service
+  - allows you to query data located in S3 using standard SQL
+  - Serverless
+  - commonly used to analyse log data stored in S3
+- Macie
+  - uses AI to analyze data in S3 and helps identify PII(Personally Identifiable Information)
+  - can also be used to analyse CloudTrail logs for suspicious API activity
+  - includes Dashboards, reports and alerting
+  - great for PCI-DSS compliance and preventing ID theft
+>>>>>>> 8e42b46a5731f16addfb0623edbb47ae3d19bab2
