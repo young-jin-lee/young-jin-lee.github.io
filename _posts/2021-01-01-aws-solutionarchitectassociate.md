@@ -425,7 +425,7 @@ READ REPLICAS
 
 - can be Multi-AZ
 - used to increase performance
-- must have backups turned o
+- must have backups turned on
 - can be in different region
 - can be MySQL, Postgre, MariaDB, Oracle, Aurora
 - can be promoted to master, this will break the Read Replica
@@ -726,55 +726,53 @@ Networking Costs on AWS
 - Use private IP over public IP to save on costs. This then utilizes the AWS backbone network
 - If you want to cut all network costs, group your EC2 instances in the Same AZ and use private IP addresses. This is cost-free, but make usre to keep in mind single point of failure issues
 
-
-
-
-
-
-
-
-
 HA Architecture
 
 3 Different Types Of Load Balancers
+
 - ALB(Application Load Balancers) : HTTP/HTTPS, Layer7, Intelligent
 - NLB(Network Load Balancers) : TCP, Layer 4(connection level), low-latencies, used for extreme performance
 - Classic Load Balancers : legacy, if app stops responding, 504 error
-    * 504 means the gateway has timed out. This means that the application not responding within the idle timeout period(web server or db server)
-    * If you need the IPv4 address of your end user, look for the X-Forwarded-For header
-    * Instances monitored by ELB are reported as: InService / OutofService
-    * Health Checks check the instance health by talking to it
-    * Load Balances have their own DNS name. You are never given an IP address
-    * Read the ELB FAQ for Classic Load Balancers
+  - 504 means the gateway has timed out. This means that the application not responding within the idle timeout period(web server or db server)
+  - If you need the IPv4 address of your end user, look for the X-Forwarded-For header
+  - Instances monitored by ELB are reported as: InService / OutofService
+  - Health Checks check the instance health by talking to it
+  - Load Balances have their own DNS name. You are never given an IP address
+  - Read the ELB FAQ for Classic Load Balancers
 
 Advanced Load Balancer Theory
+
 - Sticky Sessions enable your users to stick to the same EC2 instance. can be useful if you are storing information locally to that instance
 - Cross Zone Load Balancing enables you to load balance across multiple availability zones
 - Path patterns allow you to direct traffic to different EC2 instances based on the URL contained in the request.
 
 CloudFormation
+
 - is a way of completely scripting your cloud environment
 - Quick Start is a bunch of CloudFormation templates already built by AWS Solutions Architects allowing you to create complex environments very qucikly
 
 Elatic Beanstalk
+
 - you can quickly deploy and manage applications in the AWS Cloud without worrying about the infrastucture that runs those applications. You simply upload your application, and Elastic Beanstalk automatically handles the details of capacity provisioning, load balancing, scaling, and application health monitoring.
 
 HA Bastion
+
 - Two hosts in two separate Availabiligy Zones. Use a Network Load Balancer with static IP addresses and health checks to fail over from one host to the other.
 - Can't use an Application Load Balancer, as it is layer 7 and you need to use layer 4
 - One host in one Availability Zone behind an Auto Scaling group with health checks and a fixed EIP. If the host fails, the health check with fail and the Auto Scaling group will provision a new EC2 instance in a separate Availability Zone. You can use a user data script to provision the same EIP to the new host. This is the cheapest option, but it is not 100% fault tolerant.
 
 You need to be aware of what high-level AWS services you can use on-premises for the exam:
+
 - Database Migration service
-- Server migration Service 
+- Server migration Service
 - AWS Application Discovery Service
 - VM import/export
 - download Amazon Linux 2 as an ISO
 
-
 Applications
 
-SQS 
+SQS
+
 - SQS is as way to de-couple your infrastructure
 - SQS is pull based, not pushed based
 - Messages are 256 KB in size
@@ -788,32 +786,38 @@ SQS
 - Amazon SQS long polling is a way to retrieve messages from your Amazon SQS queues. While the regular short polling returns immediately (even if the message queue being polled is empty), long polling doesn't return a response until a message arrives in the message queue, or the long poll times out.
 
 SWF vs SQS
+
 - SQS has a retention period of up to 14 days; with SWF, workflow excutions can last up to 1 year
-- Amazon SWF presents a task-oriented API, whereas Amazon SQS offers a message-oriented API
-- Amazon SWF ensures that a task is assinged only once and is never duplicated. With Amazon SQS, you need to handle duplicated messages and may also need to ensure that a message is processed only once.
-- Amazon SWF keeps track of all the tasks and events in an application. With Amazon SQS, you need to implement your own application-level tracking, expecially if your application uses multiple queues.
+- Amazon SWF presents a TASK-ORIENTED API, whereas Amazon SQS offers a MESSAGE-ORIENTED API
+- Amazon SWF ensures that a task is assigned only once and is never duplicated. With Amazon SQS, you need to handle duplicated messages and may also need to ensure that a message is processed only once.
+- Amazon SWF keeps track of all the tasks and events in an application. With Amazon SQS, you need to implement your own application-level tracking, especially if your application uses multiple queues.
 
 SWF Actors
+
 - Workflow Starters: Application that can initiate(start) a workflow. Could be your e-commerce website following the placement of an order, or a mobile app searching for bus times.
 - Deciders : Control the flow activity tasks in a workflow execution. If something has finished (or failed) in a workflow, a Decider decides what to do next.
 - Activity Workers : carry out the activity tasks
 
 SNS Benefits
+
 - Instantaneous, push-based delivery(no polling)
 - Simple APIs and easy integration with applications
 - Flexible message delivery over multiple transport protocols
-- Inexpensice, pay-as-you-go model with no up-front costs
+- Inexpensive, pay-as-you-go model with no up-front costs
 - Web-based AWS management console offers the simplicity of a point-and-click interface.
 
 SNS vs SQS
+
 - Both Messaging Services in AWS
 - SNS : PUSH
 - SQS : Polls(PULL)
 
 Elastic Transcoder
+
 - a media transcoder in the cloud. it converts media files from their original source format into different formats that will play on smartphones, tablets, PCs, etc.
 
 API Gateway
+
 - high level
 - has caching capabilities to increase performance
 - is low cost and scales automatically
@@ -823,10 +827,28 @@ API Gateway
 - CORS is enforced by the client
 
 Kinesis
+
 - Know the difference between Kinesis Streams and Kinesis Firehose
-- Understand what Kenesis Analytics is
+  Your organization needs to ingest a big data stream into their data lake on Amazon S3. The data may stream in at a rate of hundreds of megabytes per second. What AWS service will accomplish the goal with the least amount of management?
+  Amazon Kinesis Firehose*
+  Amazon Kinesis Streams
+  Amazon CloudFront
+  Amazon SQS
+  Your organization is looking for a solution that can help the business with streaming data several services will require access to read and process the same stream concurrently. What AWS service meets the business requirements?
+  Amazon Kinesis Firehose
+  Amazon Kinesis Streams*
+  Amazon CloudFront
+  Amazon SQS
+  Your application generates a 1 KB JSON payload that needs to be queued and delivered to EC2 instances for applications. At the end of the day, the application needs to replay the data for the past 24 hours. In the near future, you also need the ability for other multiple EC2 applications to consume the same stream concurrently. What is the best solution for this?
+  Kinesis Data Streams\*
+  Kinesis Firehose
+  SNS
+  SQS
+
+- Kinesis Analytics is Amazon’s forthcoming product offering that will allow running of standard SQL queries against data streams, and send that data to analytics tools for monitoring and alerting. This product has not yet been released, and Amazon has not published details of the service as of this date.
 
 Cognito
+
 - Federation allows users to authenticate with a Web Identity Provider(Google, Facebook, Amazon)
 - The user authenticates first with the Web ID Provider and receives an authentication token, which is exchanged for temporary AWS credentials allowing them to assume an IAM role.
 - Cognito is an Identity Broker which handles interaction between your applications and the Web ID provider (You don't need to write your own code to do this)
@@ -838,7 +860,7 @@ Cognito
 - Lambda functions are independent, 1 event = 1 function
 - Lambda is serverless
 - Know what services are serveless
-- Lambda functions can trigger other lambda functions, d1 event can = x functions if fucntions trigger other functions 
-- Architecture can get extremely complicated, AWS X-ray allows you to debug what is happending
+- Lambda functions can trigger other lambda functions, 1 event can = x functions if fucntions trigger other functions
+- Architecture can get extremely complicated, AWS X-ray allows you to debug what is happening
 - Lambda can do things globally, you can use it to back up S3 buckets to other S3 buckets etc
 - Know your triggers
