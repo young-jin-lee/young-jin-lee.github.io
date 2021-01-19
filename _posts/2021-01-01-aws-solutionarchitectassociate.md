@@ -269,7 +269,7 @@ EFA : HPC, machine learning , OS bypass
 
 Encrypted Root Device Volumes & Snapshots
 
-- Snapshots of encrpted volumes are encrypted automatically
+- Snapshots of encrypted volumes are encrypted automatically
 - Volumes restored from encrypted snapshots are encrypted automatically
 - You can share snapshots, but only if they are unencrypted
 - These snapshots can be shared with other AWS accounts or made public
@@ -298,21 +298,21 @@ EC2 Hibernate(taking the ram and saving to your EBS route volume, faster load up
 - Instances can't be hibernated for more than 60 days
 - Available for On-Demand instances and Reserved Instances
 
-CloadWatch
+CloudWatch
 
 - CloudWatch is used for monitoring performance
 - CloudWatch can monitor most of AWS as well as your applications that run on AWS
 - CloudWatch with EC2 will monitor events every 5 minutes by default
 - You can have 1 minute intervals by turning on detailed monitoring
 - You can create CloudWatch alarms which trigger notifications
-- CloudWatch is all about performance. CloudTrail is all about auditing(CCTV)
+- CloudWatch is all about PERFORMANCE. CloudTrail is all about AUDITING(CCTV)
 
-- Standard Monitoring: 5mins, Detailed Monitoring: 1min
+- Standard Monitoring: 5 mins, Detailed Monitoring: 1 min
 - Dashboards - creates dashboards to see what is happening with your AWS environment
 - Alarms - allows you to set Alarms that notify you when particular thresholds are hit
 - Events - CloudWatch Events helps you to respond to state changes in your AWS resources
 - Logs - to aggregate, monitor, and store logs
-- Cloud watch monitors performance, CloudTrail monitors API calls in the AWS platform
+- Cloudwatch monitors performance, CloudTrail monitors API calls in the AWS platform
 
 AWS command Line
 
@@ -330,7 +330,7 @@ EC2 Instance Meta Data
 
 - Used to get information about an instance(such as public ip)
 - curl http://169.254.169.254/latest/meta-data
-- curl http://169.254.169.2 54/latest/user-data
+- curl http://169.254.169.254/latest/user-data
 
 Elastic File System
 
