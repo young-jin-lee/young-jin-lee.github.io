@@ -489,7 +489,7 @@ Caching(uptodate, accurate, latency) Strategies on AWS
 
 - services that have caching capabilities: CloudFront, API Gateway, ElastiCache(Memcached and Redis), DynamoDB Accelerator(DAX)
 
-EMR(Elastic Map Reduce ) Overview
+EMR(Elastic Map Reduce) Overview
 
 - EMR is used for big data processing
 - Consists of a master node, a core node, and (optionally) a task node
@@ -564,7 +564,8 @@ DNS
   - CNAMES
   - MX Records
   - PTR Records
-
+* Alias Record:
+* CNAME: 
 Route53 - Register a Domain Name
 
 - You can buy domain names directly with AWS
@@ -689,6 +690,7 @@ Setting Up A VPN Over a Direct Connect Connection
   - AWS Global Accelerator is a service in which you create accelerators to improve availability and performance of your applications for local and global users.
   - You are assigned TWO STATIC IP ADDRESSES (or alternatively you can bring your own)
   - You can control traffic using TRAFFIC DIALS. This is done within the endpoint group
+  - Global Accelerator improves performance for a wide range of applications over TCP or UDP by proxying packets at the edge to applications running in one or more AWS Regions. Global Accelerator is a good fit for non-HTTP use cases, such as gaming (UDP), IoT (MQTT), or Voice over IP, as well as for HTTP use cases that specifically require static IP addresses or deterministic, fast regional failover.
 
   VPC End Points(Interface Endpoints, Gateway Endpoints)
 
@@ -829,6 +831,11 @@ API Gateway
 Kinesis
 
 - Know the difference between Kinesis Streams and Kinesis Firehose
+  
+  - Kinesis Streams: store and analyze streamed data in Shards(EC2 instances) for 24 hours by default.(can store upto 7 days) After, they can be sent to DynamoDB, S3, EMR or RedShift.
+
+  - Kinesis Firehose
+
   Your organization needs to ingest a big data stream into their data lake on Amazon S3. The data may stream in at a rate of hundreds of megabytes per second. What AWS service will accomplish the goal with the least amount of management?
   Amazon Kinesis Firehose*
   Amazon Kinesis Streams
@@ -839,7 +846,7 @@ Kinesis
   Amazon Kinesis Streams*
   Amazon CloudFront
   Amazon SQS
-  Your application generates a 1 KB JSON payload that needs to be queued and delivered to EC2 instances for applications. At the end of the day, the application needs to replay the data for the past 24 hours. In the near future, you also need the ability for other multiple EC2 applications to consume the same stream concurrently. What is the best solution for this?
+  Your application generates a 1KB JSON payload that needs to be queued and delivered to EC2 instances for applications. At the end of the day, the application needs to replay the data for the past 24 hours. In the near future, you also need the ability for other multiple EC2 applications to consume the same stream concurrently. What is the best solution for this?
   Kinesis Data Streams\*
   Kinesis Firehose
   SNS
@@ -864,3 +871,100 @@ Cognito
 - Architecture can get extremely complicated, AWS X-ray allows you to debug what is happening
 - Lambda can do things globally, you can use it to back up S3 buckets to other S3 buckets etc
 - Know your triggers
+
+------------------------------------------------------------
+
+- create a DECOUPLED architecture for applications which make use of both AWS and on-prem resources
+-- use SQS and SWF
+
+- encrypt all the DB credentials, API keys and other secrets and rotate them on a regular basis to improve data security
+-- use aws Secrets Manager to store and encrypt them. Enable automatic rotation for all of the credentials
+
+- when web service clients can only access trusted IP addresses whitelisted on their firewalls.
+-- Asscociate an EIP to a Network Load Balancer
+
+- big data processing frameworks to analyze vast amounts of semi-structured, structured data and access it using BI tools and SQL
+-- Create an Amazon EMR cluster and store the processed data in Amazon RedShift
+
+- Perfect Forward Secrecy is used to offer SSL/TLS cipher suites for which AWS services?
+-- CloudFront and Elastic Load Balancing
+
+- users around the world, secure your application by allowing multiple domains to serve SSL traffic over the same IP address
+-- Generate an SSL certificate with AWS Certificate Manager and create a CloudFront web distribution. Associate the certificate with your web distribution and enable the support for Server Name Indication(SNI)
+
+- An organization needs to control the access for several S3 buckets. They plan to use a gateway endpoint to allow access to trusted buckets.
+-- Generate an endpoint policy for trusted S3 buckets
+
+- minimize the impact of DDoS attacks
+-- To detect and mitigate DDoS attacks, you can use AWS WAF in addition to AWS Shield.
+
+Q: 언제 AWS DataSync를 사용하고 언제 AWS Storage Gateway를 사용해야 합니까?
+
+A: AWS DataSync를 사용하여 기존 데이터를 Amazon S3로 마이그레이션한 다음, 이후 AWS Storage Gateway의 파일 게이트웨이 구성을 사용하여 마이그레이션된 데이터 및 온프레미스 파일 기반 애플리케이션의 지속적인 업데이트에 대한 액세스를 유지합니다.
+
+Q: 언제 AWS DataSync를 사용하고 언제 Amazon S3 Transfer Acceleration을 사용해야 합니까?
+
+A: 애플리케이션이 이미 Amazon S3 API에 통합되어 있고, S3로의 대용량 파일 전송을 위해 더 높은 처리량을 원할 경우 S3 Transfer Acceleration을 사용할 수 있습니다. 기존 스토리지 시스템(예: Network Attached Storage) 또는 변경될 수 없는 기기(예: DNA 시퀀서, 비디오 카메라)로부터 데이터를 전송하고자 하는 경우 또는 여러 개의 대상을 원하는 경우 AWS DataSync를 사용할 수 있습니다. 또한 DataSync는 데이터 전송을 자동화 및 간소화합니다. 이를 위해 기본 제공 재시도 및 네트워크 복원력 메커니즘, 데이터 무결성 검증, 특정 요구를 충족하는 유연한 구성(예: 대역폭 조절 등)과 같은 추가적인 기능을 제공합니다.
+
+- system is hosted in AWS and uses ECS to host its front-end tier and an RDS configured with Multi-AZ for its database tier. What are the events that will make Amazon RDS automatically perform a failover to the standby replica? (Select TWO.)
+-- Storage failure on primary
+-- Loss of availability in primary Availability Zone
+
+- issue short-lived access tokens that act as temporary security credentials to allow access to your AWS resources?
+-- Use AWS STS
+* AWS Security Token Service (AWS STS) is the service that you can use to create and provide trusted users with temporary security credentials that can control access to your AWS resources.
+
+***You have three mutually exclusive options depending on how you choose to manage the encryption keys:
+Use Server-Side Encryption with Amazon S3-Managed Keys (SSE-S3)
+Use Server-Side Encryption with AWS KMS-Managed Keys (SSE-KMS)
+Use Server-Side Encryption with Customer-Provided Keys (SSE-C)
+
+- establish a site-to-site VPN connection. What needs to be configured outside of the VPC for them to have a successful site-to-site VPN connection?
+
+-- A customer gateway is a physical device or software application on your side of the VPN connection. To create a VPN connection, you must create a customer gateway resource in AWS, which provides information to AWS about your customer gateway device. Next, you have to set up an Internet-routable IP address (static) of the customer gateway's external interface.
+
+- A company needs to assess and audit all the configurations in their AWS account. It must enforce strict compliance by tracking all configuration changes made to any of its Amazon S3 buckets. Publicly accessible S3 buckets should also be identified automatically to avoid data breaches.
+-- Use AWS Config to set up a rule in your AWS account.
+
+- best way to allow the EC2 instance to access the S3 bucket and other AWS services
+-- Create a role in IAM and assign it to the EC2 instance
+
+- Auto Scaling group of Amazon EC2 instances. Several instances are failing due to insufficient swap space. you are instructed to troubleshoot the issue and effectively monitor the available swap space of each EC2 instance.
+-- install the CloudWatch agent on each instance and monitor the SwapUtilization metric.
+
+* In Amazon SQS, you can configure the message retention period to a value from 1 minute to 14 days. The default is 4 days. Once the message retention limit is reached, your messages are automatically deleted.
+A single Amazon SQS message queue can contain an unlimited number of messages. However, there is a 120,000 limit for the number of inflight messages for a standard queue and 20,000 for a FIFO queue. Messages are inflight after they have been received from the queue by a consuming component, but have not yet been deleted from the queue.
+In this scenario, it is stated that the SQS queue is configured with the maximum message retention period. The maximum message retention in SQS is 14 days that is why the option that says: Tell the users that the application will be operational shortly and all received requests will be processed after the web application is restarted is the correct answer i.e. there will be no missing messages.
+
+- monitor a few database metrics and then afterward, send email notifications
+-- Amazon CloudWatch and Amazon Simple Notification Service. NOT SES!
+
+* KNOW THE DIFFERENCES AOMONG 
+
+* Combined with the monitoring features of Amazon CloudWatch Events and AWS CloudTrail, Amazon DLM provides a complete backup solution for EBS volumes at no additional cost.
+
+- A Solutions Architect is working for a company that uses Chef Configuration management in their data center. She needs to leverage their existing Chef recipes in AWS.
+-- AWS OpsWorks == Chef and Puppet. ; JUST MEMORIZE THIS!
+
+* Take note as well that the four EC2 instances all belong to a public non-default subnet. Which means that a new EC2 instance will not have a public IP address by default since the since IPv4 public addressing attribute is initially set to false.
+
+- the prerequisites for routing traffic to a website that is hosted in an Amazon S3 Bucket:
+
+-- An S3 bucket that is configured to host a static website. The bucket must have the same name as your domain or subdomain. For example, if you want to use the subdomain portal.tutorialsdojo.com, the name of the bucket must be portal.tutorialsdojo.com.
+
+-- A registered domain name. You can use Route 53 as your domain registrar, or you can use a different registrar.
+
+-- Route 53 as the DNS service for the domain. If you register your domain name by using Route 53, we automatically configure Route 53 as the DNS service for the domain.
+
+- wide range of products and services, use an API gateway. What are the features of API gateway related to this situation?
+-- you pay only for the API calls you receive and the amount of data transferred out
+-- enables you to build RESTful APIs and WebSocket APIs that are optimized for serverless workloads
+
+
+* EBS volumes can be attached to any EC2 Instance in any Availability Zone is incorrect as EBS volumes can only be attached to an EC2 instance in the same Availability Zone.
+
+ - An accounting application uses an RDS database configured with Multi-AZ deployments to improve availability. What would happen to RDS if the primary database instance fails?
+ -- The canonical name record(CNAME) is switched from the primary to standby instance.
+
+- tried to deploy a new Amazon EC2 instance but she received an error saying that there is no IP address available on the subnet.
+ -- By default, a new EC2 instance uses an IPv4 addressing protocol. To fix the problem in the scenario, you need to create a new IPv4 subnet and deploy the EC2 instance in the new subnet.
