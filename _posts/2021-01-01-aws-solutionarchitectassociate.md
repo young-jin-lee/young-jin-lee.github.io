@@ -968,3 +968,44 @@ In this scenario, it is stated that the SQS queue is configured with the maximum
 
 - tried to deploy a new Amazon EC2 instance but she received an error saying that there is no IP address available on the subnet.
  -- By default, a new EC2 instance uses an IPv4 addressing protocol. To fix the problem in the scenario, you need to create a new IPv4 subnet and deploy the EC2 instance in the new subnet.
+
+
+ 333333333333333333333333333333333333333333333
+
+- allow incoming traffic on port 443 to access the application from any source.
+-- In the Network ACL, update the rule to allow inbound TCP connection on port 443 from source 0.0.0.0/0 and outbound TCP connection on port 32768-65535 destination 0.0.0.0/0
+-- In the Security Group, add a new rule to allow TCP connection on port 443 from source 0.0.0.0/0
+
+- safely store sensitive data on the EBS volumes and S3.
+-- Enable EBS Encryption
+-- Enable Amazon S3 Server-side or use Client-Side Encryption
+
+- change the associated permissions of all 100 IAM users that control the access to Amazon S3 buckets.
+-- Create a new IAM group and then add users that require access to the S3 bucket. Afterward, apply the policy to the IAM group
+
+- Currently, all of their clients can access their S3 buckets directly using an S3 URL or through their CloudFront distribution. deliver their content to a specific client, and they need to make sure that only that client can access the data. serve the private content via CloudFront only, to secure the distribution of files.
+-- require the users to access the private content by using special CloudFront signed URLs or signed cookies
+-- Restrict access to files in the origin by creating an origin access identity(OAI) and give it permission to read the files in the bucket
+
+* EBS volumes are only encrypted using AWS KMS. Server-side encryption (SSE) is actually an option for Amazon S3, but not for Amazon EC2.
+
+- what does the revoke-security-group-ingress command do?
+-- Removes one or more ingress rules from a security group
+
+- What is one of the major advantages of having a VPN in AWS?
+-- It allows you to connect your AWS cloud resources to your on-premises data center using secure and private sessions with IP Security (IPSec) or Transport Layer Security(TLS) tunnels
+
+- secure the system by allowing multiple domains to serve SSL traffic without the need to reauthenticate and reprovision your certificate everytime you add a new domain. This migration from HTTP to HTTPS will help improve their SEO and Google search ranking.
+-- Upload all SSL certificates of the domatins in the ALB using the console and bind multiple certificates to the same secure listener on your load balancer. ALB will automatically choose the optimal TLS certificate for each client using Server Name Indication(SNI)
+-- * using CloudFront is not cost-effective
+
+- Which of the following will occur when the EC2 instance is stopped and started? 
+-- All data on the attached instance-store devices will be lost
+-- the underlying host for the instance is possibly changed
+
+- The Auto Scaling is launching new EC2 instances to take the load accordingly yet, there are still some requests that are being lost. avoid losing recently submitted requests
+-- Use an Amazon SQS queue to decouple the application components and scale-out the EC2 instances based upon the ApproximateNumberOfMessages metric in Amazon CloudWatch
+
+- needs to use Amazon Aurora as the Amazon RDS database engine of their web application. The Solutions Architect has been instructed to implement a 90-day backup retention policy.
+-- Create an AWS Backup plan to take daily snapshots with a retention period of 90 days
+
